@@ -1,0 +1,12 @@
+set folder=$HOME/mail/mg-posteo
+set mbox=$HOME/mail/mg-posteo/
+set spoolfile=+INBOX
+set record = +Sent
+set postponed= +Drafts
+unmailboxes *
+mailboxes = `~/bin/sidebar_config_from_maildir.py mg-posteo`
+set realname = 'Mattias Giese'
+set from = mattiasgiese@posteo.net
+set use_from = yes
+set sendmail  = "/usr/bin/msmtp -a mattiasgiese-posteo"
+set signature = '~/.signature_posteo'

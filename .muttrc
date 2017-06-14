@@ -1,0 +1,254 @@
+## Basics
+
+set editor=vim
+
+## Mailbox settings
+set mbox_type=Maildir
+set mask="!^\\.[^.]"
+set header_cache=~/.cache/mutt
+
+## Accounts
+## B1
+source "~/.mutt/accounts/b1"
+# Here we use the $folder variable that has just been set in the sourced file.
+# We must set it right now otherwise the 'folder' variable will change in the next sourced file.
+folder-hook $folder 'source ~/.mutt/accounts/b1'
+
+## web.de
+source "~/.mutt/accounts/posteo"
+# Here we use the $folder variable that has just been set in the sourced file.
+# We must set it right now otherwise the 'folder' variable will change in the next sourced file.
+folder-hook $folder 'source ~/.mutt/accounts/posteo'
+
+## Default account is B1
+source "~/.mutt/accounts/b1"
+
+## macros for account change
+## sidebar hiding is done to prevent fucking crashes
+macro index,pager \e1 ":source ~/.mutt/accounts/b1<enter><change-folder> +INBOX<enter>"
+macro index,pager \e2 ":source ~/.mutt/accounts/posteo<enter><change-folder> +INBOX<enter>"
+#macro index,pager \e3 ":source ~/.mutt/accounts/uberspace<enter><change-folder> +INBOX<enter>"
+
+## folder management
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+macro index c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+macro pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+
+## mimetype foo
+set mailcap_path  = ~/.mutt/mailcap
+
+#i18n
+
+## unicode, baby
+set send_charset="us-ascii:utf-8"
+
+# prefer text mails
+alternative_order text/plain text/html
+
+## Speed up folder switch
+set sleep_time = 0
+
+## Fix backspace in xterm likes
+bind index,pager  previous-page
+
+## SMTP settings
+set use_from = yes
+
+## address book
+set query_command="abook --mutt-query '%s'"
+macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
+bind editor        <Tab> complete-query
+
+## dist gpg setting
+source /usr/share/doc/mutt/samples/gpg.rc
+## GPG Stuff
+#set pgp_decode_command="gpg --no-verbose --batch --output - %f"
+#set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
+#set pgp_decrypt_command="gpg --no-verbose --batch --output - %f"
+##set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+#set pgp_sign_command="gpg --no-verbose --batch --output - --armor --detach-sign --textmode %?a?-u %a? %f"
+##set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+#set pgp_clearsign_command="gpg --no-verbose --batch --output - --armor --textmode --clearsign %?a?-u %a? %f"
+#set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xC9C40C31 -- -r %r -- %f"
+##set pgp_encrypt_sign_command="pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0x3F94916E -- -r %r -- %f"
+#set pgp_encrypt_sign_command="pgpewrap gpg --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0x3F94916E -- -r %r -- %f"
+#set pgp_import_command="gpg --no-verbose --import -v %f"
+#set pgp_export_command="gpg --no-verbose --export --armor %r"
+#set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
+#set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
+#set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
+set pgp_autosign=yes
+set pgp_sign_as=0x3F94916E
+set pgp_replyencrypt=yes
+set pgp_timeout=3600
+set pgp_good_sign="^gpg: Good signature from"
+
+# let gpg-agent take care of already supplied passphrases
+set pgp_use_gpg_agent = yes
+
+# Save a copy of outgoing email, encrypted to yourself
+set smime_encrypt_self = "yes"
+
+# Save a copy of outgoing email, encrypted to yourself
+set pgp_encrypt_self = "yes"
+
+
+## The Looks
+source $HOME/.mutt/sample_colors
+
+## Date/Time and index format in index
+set date_format="%d/%m/%y %T"
+set index_format="%2C | %Z [%d] %-30.30F (%-4.4c) %s"
+
+## From field gets 30% of remaining space, Subject gets 70%.
+### Remaining space is the total width minus the other fields (35), minus the sidebar (24)
+set my_col_from = `echo $((30 * ($(tput cols)-35-24) / 100))`
+set my_col_subject = `echo $((70 * ($(tput cols)-35-24) / 100))`
+
+folder-hook .*[sS]ent.* 'set index_format="%2C | %Z [%d] %-$my_col_from.${my_col_from}t (%-4.4c) %-$my_col_subject.${my_col_subject}s"'
+folder-hook ! .*[sS]ent.* 'set index_format="%2C | %Z [%d] %-$my_col_from.${my_col_from}F (%-4.4c) %-$my_col_subject.${my_col_subject}s"'
+
+### Externalized to .mutt/sidebar for now
+## Sidebar settings
+#set sidebar_width=25
+#set sidebar_visible=no
+#set sidebar_delim='|'
+##set sidebar_shortpath = yes
+#set sidebar_sort=yes
+#color sidebar_new brightblue black
+#set sidebar_newmail_only=yes
+
+# bind index,pager \CP sidebar-prev
+#bind index,pager \CK sidebar-prev
+#bind index,pager \CN sidebar-next
+#bind index,pager \CO sidebar-open
+#bind index,pager <down>   sidebar-next
+#bind index,pager <up>     sidebar-prev
+#bind index,pager <right>  sidebar-open
+#bind index,pager \c<up> sidebar-scroll-up
+#bind index,pager \c<down> sidebar-scroll-down
+
+# convenience
+#
+## forgotten attachment patch (neomutt)
+set abort_noattach = ask-yes
+set attach_keyword = "\\<(anhängen|angehängt|anhang|anhänge|hängt an|attached|attachment)\\>"
+
+## neomutt - sort folders by message count
+set sort=threads
+set sort_browser="reverse-count"
+
+## better navigation
+bind index gg       first-entry
+bind index G        last-entry
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+bind index <space>  collapse-thread
+
+## fancy printing
+#set print_command="/usr/bin/muttprint %s -p {PrinterName}"
+
+## attachments
+macro attach W <save-entry><kill-line>~/Downloads/Attachments/
+macro attach E <save-entry><kill-line>~/Downloads/Attachments/<enter>
+
+# go to mailbox folder after index view
+macro   index   q       '<change-folder>?<toggle-mailboxes>'
+macro   browser q       '<exit><quit>'
+
+# show mailboxes with new mail
+macro index,pager y <change-folder>?<toggle-mailboxes>
+
+# auto view html mail with elinks
+auto_view text/html
+
+# open in browser
+macro attach 'V' "<pipe-entry>cat >~/.tmp/mutt-mail.html && $BROWSER ~/.tmp/mutt-mail.html && rm ~/.cache/mutt-mail.html<enter>"
+
+
+## mu integration
+# mutt macros for mu
+macro index <F8> "<shell-escape>mu find --clearlinks --format=links --linksdir=~/mail/search " \
+  "mu find"
+macro index <F9> "<change-folder-readonly>~/mail/search<return>" \
+  "mu find results"
+
+## muttjump integration
+macro generic ,j "<enter-command>push <pipe-message>muttjump<enter><enter>" "jump to original message"
+set wait_key = no
+
+## statusbar, stolen from http://www.benfrancom.com/2014/11/24/mutt-offline-with-mbsync/
+    set status_chars  = " *%A"
+    set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# Example NeoMutt config file for the attach-headers-color feature.
+
+# Color if the attachment is autoviewed
+color   attach_headers     brightgreen     default        "Autoview"
+
+# Color only the brackets around the headers
+color   attach_headers     brightyellow    default        "^\\[--"
+color   attach_headers     brightyellow    default        "--]$"
+
+# Color the mime type and the size
+color   attach_headers     green           default        "Type: [a-z]+/[a-z0-9\-]+"
+color   attach_headers     green           default        "Size: [0-9\.]+[KM]"
+
+# Color GPGME signature checks
+color   attach_headers     brightgreen     default        "Good signature from.*"
+color   attach_headers     brightred       default        "Bad signature from.*"
+color   attach_headers     brightred       default        "BAD signature from.*"
+color   attach_headers     brightred       default        "Note: This key has expired!"
+color   attach_headers     brightmagenta   default        "Problem signature from.*"
+color   attach_headers     brightmagenta   default        "WARNING: This key is not certified with a trusted signature!"
+color   attach_headers     brightmagenta   default        "         There is no indication that the signature belongs to the owner."
+color   attach_headers     brightmagenta   default        "can't handle these multiple signatures"
+color   attach_headers     brightmagenta   default        "signature verification suppressed"
+color   attach_headers     brightmagenta   default        "invalid node with packet of type"
+
+## new email command
+set new_mail_command="notify-send --icon='/usr/share/icons/gnome/22x22/apps/accessories-text-editor.png' 'New Email in %f' '%n new messages, %u unread.' &"
+
+## dont mark unread mail as old when i quit mutt
+set mark_old=no
+
+# Turn off the help line at the top
+set help=no
+
+# save iCal to khal
+# stolen from: https://bitbucket.org/jasonwryan/shiv/src/248c7fae1eaa/.mutt/?at=default
+macro pager \Ck  "!/usr/bin/khal --new $(~/bin/mutt2khal ~/.mutt/temp/caldata)" "Saving Calendar event" 
+
+# quick sync imap
+macro index Z   "<shell-escape>/usr/bin/offlineimap -o -q -u TTYUI<enter>" "sync IMAP"
+
+# show index in pagerview
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# forward attachments
+set mime_forward_rest=yes
+set mime_forward=ask-no
+
+# stop that fucking beeping
+set beep=no
+set beep_new=no
+
+# header settings
+ignore *                                # ignore all headers
+unignore from: to: cc: date: subject:   # show only these
+unhdr_order *                           # some distros order things by default
+hdr_order from: to: cc: date: subject:  # and in this order
+
+#aliases
+alias constantia-performance constantia-performance@projekte.b1-systems.de
+alias grawe-suma grawe-suma@projekte.b1-systems.de
+alias stefanodellavolpe DellaVolpe.Stefano@Apollo-Optik.com

@@ -1,0 +1,12 @@
+set folder=$HOME/mail/B1
+set mbox=$HOME/mail/B1
+set spoolfile=+INBOX
+set record = +INBOX.Sent
+set postponed=+INBOX.Drafts
+unmailboxes *
+mailboxes = `~/bin/sidebar_config_from_maildir.py B1`
+set realname = 'Mattias Giese'
+set from = giese@b1-systems.de
+set use_from = yes
+set sendmail  = "/usr/bin/msmtp -a b1"
+set signature = '~/.signature'
