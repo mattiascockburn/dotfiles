@@ -39,6 +39,6 @@ export GIT_PROMPT_END='\n(\j) >> '
 
 # Automatically start X on TTY1
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec startx > .X.log
+  exec startx 
 fi
 
