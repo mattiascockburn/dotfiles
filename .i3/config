@@ -85,12 +85,12 @@ bindsym $mod+Shift+e exec mplayer ~/audio/snippets/that_was_easy.wav
 
 # lock the screen now
 #bindsym  $mod+Control+g exec xscreensaver-command --lock
-bindsym  $mod+Control+g exec i3lockwrap
-bindsym  XF86ScreenSaver exec i3lockwrap
+bindsym  $mod+Control+g exec slock
+bindsym  XF86ScreenSaver exec slock
 
 # toggle xautolock
-bindsym $mod+n exec ~/bin/xautolock_wrap.sh disable
-bindsym $mod+Shift+n exec ~/bin/xautolock_wrap.sh enable
+bindsym $mod+n exec ~/.local/bin/xautolock_wrap.sh disable
+bindsym $mod+Shift+n exec ~/.local/.bin/xautolock_wrap.sh enable
 
 # kill focused window
 bindsym $mod+Shift+c kill

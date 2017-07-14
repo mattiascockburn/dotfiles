@@ -21,7 +21,7 @@ source "~/.mutt/accounts/posteo"
 folder-hook $folder 'source ~/.mutt/accounts/posteo'
 
 ## Default account is B1
-source "~/.mutt/accounts/b1"
+source "~/.mutt/accounts/posteo"
 
 ## macros for account change
 ## sidebar hiding is done to prevent fucking crashes
@@ -248,7 +248,3 @@ unignore from: to: cc: date: subject:   # show only these
 unhdr_order *                           # some distros order things by default
 hdr_order from: to: cc: date: subject:  # and in this order
 
-#aliases
-alias constantia-performance constantia-performance@projekte.b1-systems.de
-alias grawe-suma grawe-suma@projekte.b1-systems.de
-alias stefanodellavolpe DellaVolpe.Stefano@Apollo-Optik.com
