@@ -24,6 +24,23 @@ bt_connected() {
   bluetoothctl <<< 'devices' | sed -e 's/\x1B\[[0-9;]*[JKmsu]//g' | grep -q "^\[$device\].*" && break
 }
 
+soundbar() {
+bt_activate
+bluetoothctl << EOF
+connect C4:8E:8F:C6:16:59
+EOF
+# There is no obvious way to block while waiting for the connection
+# so this is a nasty busy loop. Hardcoding FTW
+while true; do
+  # Thank god we have stockoverflow. And fuck this fucking piece of shit bluetoothctl
+  # https://unix.stackexchange.com/questions/55546/removing-color-codes-from-output`
+  bt_connected 'HT-CT780' && break
+  sleep 2
+done
+# set defautl sink. this is ugly but oh well
+pacmd set-default-sink bluez_sink.C4_8E_8F_C6_16_59.a2dp_sink
+}
+
 boombox() {
 bt_activate
 bluetoothctl << EOF
