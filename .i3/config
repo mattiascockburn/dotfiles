@@ -318,7 +318,7 @@ exec --no-startup-id unclutter --timeout 5
 
 # Set my desktop background
 #exec_always feh --bg-center ~/.wallpaper 
-#exec_always nitrogen --restore
+exec_always nitrogen --restore
 
 
 # fix xfce4-notify
