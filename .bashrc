@@ -16,7 +16,7 @@ export GTK_OVERLAY_SCROLLING=0
 
 # add local bin to PATH
 [[ ! "$PATH" =~ "${HOME/\//\//}\/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
-
+[[ ! "$PATH" =~ "${HOME/\//\//}\/.gem/ruby/2.4.0/bin" ]] && export PATH="${HOME}/.gem/ruby/2.4.0/bin:${PATH}"
 
 # source all settings
 for category in aliases settings functions ; do
