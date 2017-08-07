@@ -5,8 +5,8 @@ del_if_stopped() {
 }
 
 docker_clean() {
-  docker ps -qa -f status=exited | xargs docker rm
-  docker rmi $(docker images -q --filter "dangling=true")
+  docker ps -qa -f status=exited | xargs -r docker rm
+  docker images -q --filter "dangling=true" | xargs -r docker rmi
 }
 
 # https://github.com/docker/docker/issues/20399
