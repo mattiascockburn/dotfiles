@@ -9,14 +9,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 
 " Easily align text
+" used by puppet-vim
 Plug 'godlygeek/tabular'
 
 " ctags support/puppet-vim
 Plug 'majutsushi/tagbar'
 
-Plug 'SirVer/ultisnips'
-
-" reqs for snipmate
+" reqs for snipmate (utility plugins)
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 
@@ -28,15 +27,23 @@ Plug 'pearofducks/ansible-vim'
 
 Plug 'vim-syntastic/syntastic'
 
+" themes
+Plug 'josuegaleas/jay'
 Plug 'chriskempson/base16-vim'
+Plug 'tomasr/molokai'
 
+" git stuff
 Plug 'tpope/vim-fugitive'
-
-Plug 'mileszs/ack.vim'
-
 Plug 'airblade/vim-gitgutter'
 
+" search files with ack/ag
+Plug 'mileszs/ack.vim'
+
+
 Plug 'vim-airline/vim-airline'
+
+" syntax/indent/ftplugins for a many languages/tools
+Plug 'sheerun/vim-polyglot'
 
 
 " Any valid git URL is allowed
@@ -71,3 +78,7 @@ call plug#end()
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+syntax enable
+set background=dark
+colorscheme jay
