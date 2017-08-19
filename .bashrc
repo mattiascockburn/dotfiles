@@ -36,6 +36,10 @@ export GIT_PROMPT_THEME='Default_NoExitState'
 export GIT_PROMPT_END='\n(\j) >> '
 . ~/.bash/bash-git-prompt/gitprompt.sh
 
+# MISC
+# no cowsay in ansible
+export ANSIBLE_NOCOWS=1
+
 
 # Automatically start X on TTY1
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then

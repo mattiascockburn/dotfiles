@@ -23,7 +23,7 @@ Plug 'garbas/vim-snipmate'
 
 Plug 'rodjek/vim-puppet'
 
-Plug 'pearofducks/ansible-vim'
+Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.py' }
 
 Plug 'vim-syntastic/syntastic'
 
@@ -82,3 +82,6 @@ endif
 syntax enable
 set background=dark
 colorscheme jay
+
+autocmd BufRead,BufNewFile ~/git/layer8/ansible-stuff/*.yml/ syntax=ansible
+
