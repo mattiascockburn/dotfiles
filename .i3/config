@@ -72,16 +72,13 @@ workspace_layout tabbed
 bindsym $mod+semicolon move workspace to output right
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec kitty
 #bindsym $mod+Return exec roxterm --disable-sm -p Default
-bindsym $mod+Shift+Return exec roxterm --disable-sm -p Schulung
+bindsym $mod+Shift+Return exec urxvt
 bindsym $mod+Control+Return exec cool-retro-term
 
 bindsym $mod+Shift+y exec ~/bin/youpoop.sh music
 bindsym $mod+Control+y exec ~/bin/youpoop.sh video
-
-# foooo!
-bindsym $mod+Shift+e exec mplayer ~/audio/snippets/that_was_easy.wav
 
 # lock the screen now
 #bindsym  $mod+Control+g exec xscreensaver-command --lock
