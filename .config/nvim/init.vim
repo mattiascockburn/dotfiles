@@ -74,14 +74,88 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Initialize plugin system
 call plug#end()
 
-" Use the_silver_searcher if available
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
+" ### Looks
 syntax enable
 set background=dark
 colorscheme jay
 
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" ### Auto Commands
 autocmd BufRead,BufNewFile ~/git/layer8/ansible-stuff/*.yml/ syntax=ansible
+au BufNewFile,BufRead *.groovy  setf groovy
+au BufNewFile,BufRead Jenkinsfile  setf groovy
+
+" ### Undo
+set undolevels=100
+
+" ### Behaviour
+" I hate tabs.
+set expandtab           " enter spaces when tab is pressed
+set textwidth=100       " break lines when line length increases
+set tabstop=2           " use 2 spaces to represent tab
+set softtabstop=2
+set shiftwidth=2        " number of spaces to use for auto indent
+set softtabstop=2
+
+set iskeyword+=_,$,@,%,#    " none of these are word dividers
+
+" ## Filetypes
+filetype plugin on
+filetype indent on
+
+ " Allow backspacing over indent, eol, and the start of an insert
+set backspace=2
+
+
+" ### History
+" Sets how many lines of history VIM has to remember
+set history=700
+
+
+" ### Completion
+" ## Filename completion
+set wildmenu
+set wildmode=longest:full,full
+
+" With ack-vim: Use the_silver_searcher if available
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+
+"" ignore unneccessary file types in autocomplete mode
+set wildignore+=*.dict,*.aux,*.nav,*.out,*.toc,*.vrb,*.snm
+"
+" I don't want no fucking bell
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+
+" ### Search
+set incsearch
+set ignorecase
+
+" Set the search scan to wrap around the file
+set wrapscan
+" Turn on Highlighting of search results
+set hlsearch
+
+" ### Buffers
+" ALT-n next buffer and list, ALT-p previous buffer
+nnoremap <A-n> :bnext<CR>:redraw<CR>:ls<CR>
+nnoremap <A-p> :bprevious<CR>:redraw<CR>:ls<CR>
+nnoremap <C-n> :bnext<CR>:redraw<CR>
+nnoremap <C-p> :bprevious<CR>:redraw<CR>
+
+" ### Motion
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+ 
+" ### Encoding
+" Make sure utf-8 is used
+set encoding=utf-8 
+set termencoding=utf-8
 
