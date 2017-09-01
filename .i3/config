@@ -334,6 +334,7 @@ for_window [title="Computers & Contacts"] floating enable; border none; focus mo
 for_window [class="gcr-prompter"] floating enable; border none; focus mode_toggle
 for_window [class="Gcr-prompter"] floating enable; border none; focus mode_toggle
 for_window [title="Enter Passphrase"] floating enable; border none; focus mode_toggle
+for_window [title="pinentry"] floating enable; border none; focus mode_toggle
 
 
 # htop
