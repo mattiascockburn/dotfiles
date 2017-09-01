@@ -6,7 +6,8 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+#PS1='[\u@\h \W]\$ '
+PS1='>> '
 
 eval $(keychain --timeout 60 --eval --quiet ~/.ssh/test_nopasswd)
 
@@ -31,9 +32,11 @@ for stuff in ~/{.profile,.alias,.bash_secrets}; do
 done
 
 ### PROMPT
-#Magic Monty GitPrompt for Bash, really handy
-export GIT_PROMPT_THEME='Default_NoExitState'
-export GIT_PROMPT_END='\n(\j) >> '
+# Magic Monty GitPrompt for Bash, really handy
+# https://github.com/magicmonty/bash-git-prompt
+#GIT_PROMPT_THEME='Default_NoExitState'
+GIT_PROMPT_THEME='Crunch'
+GIT_PROMPT_END='\n(\j) >> '
 . ~/.bash/bash-git-prompt/gitprompt.sh
 
 # MISC
