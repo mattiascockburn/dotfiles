@@ -34,9 +34,9 @@ done
 ### PROMPT
 # Magic Monty GitPrompt for Bash, really handy
 # https://github.com/magicmonty/bash-git-prompt
-#GIT_PROMPT_THEME='Default_NoExitState'
-GIT_PROMPT_THEME='Crunch'
-GIT_PROMPT_END='\n(\j) >> '
+GIT_PROMPT_THEME='Default_NoExitState'
+#GIT_PROMPT_THEME='Crunch'
+GIT_PROMPT_END="\n\$ "
 . ~/.bash/bash-git-prompt/gitprompt.sh
 
 # MISC
