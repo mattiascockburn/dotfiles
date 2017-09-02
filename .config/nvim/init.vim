@@ -23,6 +23,12 @@ Plug 'garbas/vim-snipmate'
 
 Plug 'rodjek/vim-puppet'
 
+" tpope FTW
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+
+
 Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.py' }
 
 Plug 'vim-syntastic/syntastic'
