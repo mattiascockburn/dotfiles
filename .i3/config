@@ -22,7 +22,6 @@ set $alt Mod1
 # chose an xft font, such as:
 # font xft:DejaVu Sans Mono 10
 
-# The sanest thing Adobe ever did
 font xft:Overpass 12
 
 # "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color"
@@ -49,8 +48,6 @@ set $border-unfocused #333333
 set $indicator-unfocused #000000
 set $bar-text-unfocused #AAAAAA
 
-set $rofi-bg-color #333333
-set $rofi-text-highlighted #ff9d00
 # class                   border    backgr. text     indicator
 #client.focused            $border-focused   $bg-focused   $text-color   $indicator-focused
 #client.focused_inactive   $border-unfocused $bg-unfocused   $text-color   $indicator-unfocused
@@ -94,6 +91,10 @@ bindsym XF86Sleep exec ~/.local/bin/suspend.sh
 
 # kill focused window
 bindsym $mod+Shift+c kill
+
+# Screen brightness control
+bindsym $mod+Prior exec xbacklight -inc 10
+bindsym $mod+Next exec xbacklight -dec 10
 
 # start dmenu (a program launcher)
 # Beware, maybe a patched version of dmenu is needed in order to use TTF fonts
