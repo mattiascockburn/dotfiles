@@ -4,9 +4,15 @@
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
+"
+" fuzzy file completion, me gusta!
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
+
+" Async File Linter, whoohoo
+Plug 'w0rp/ale'
 
 " Easily align text
 " used by puppet-vim
@@ -165,3 +171,15 @@ map k gk
 set encoding=utf-8 
 set termencoding=utf-8
 
+" ### Plugin Options
+"
+" CtrlP.vim should be used for Ctrl+p
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" Working Path Mode:
+" 'c' - the directory of the current file.
+" 'a' - the directory of the current file, unless it is a subdirectory of the cwd
+" 'r' - the nearest ancestor of the current file that contains one of these directories or files: .git .hg .svn .bzr _darcs
+" 'w' - modifier to "r": start search from the cwd instead of the current file's directory
+" 0 or '' (empty string) - disable this feature.
+let g:ctrlp_working_path_mode = 'ra'
