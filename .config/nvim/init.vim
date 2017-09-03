@@ -40,6 +40,9 @@ Plug 'saltstack/salt-vim.git'
 Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.py' }
 Plug 'python-mode/python-mode'
 
+" Tabmanager - visualizing tabs in vim
+Plug 'kien/tabman.vim'
+
 " Linter used by vim-puppet
 Plug 'vim-syntastic/syntastic'
 
@@ -187,3 +190,14 @@ let g:ctrlp_cmd = 'CtrlP'
 " 'w' - modifier to "r": start search from the cwd instead of the current file's directory
 " 0 or '' (empty string) - disable this feature.
 let g:ctrlp_working_path_mode = 'ra'
+
+" Tabman
+" Default hotkeys
+let g:tabman_toggle = '<leader>mt'
+let g:tabman_focus  = '<leader>mf'
+let g:tabman_side = 'left'
+let g:tabman_width = 25
+" Set this to 1 to show windows created by plugins, help and quickfix:
+let g:tabman_specials = 0
+" Set this to 0 to disable line numbering in the TabMan window:
+let g:tabman_number = 1
