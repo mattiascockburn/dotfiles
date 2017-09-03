@@ -35,8 +35,12 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 
 
+" Languages
+Plug 'saltstack/salt-vim.git'
 Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.py' }
+Plug 'python-mode/python-mode'
 
+" Linter used by vim-puppet
 Plug 'vim-syntastic/syntastic'
 
 " themes
