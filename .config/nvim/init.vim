@@ -124,6 +124,12 @@ set iskeyword+=_,$,@,%,#    " none of these are word dividers
 filetype plugin on
 filetype indent on
 
+" ## Folding
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
  " Allow backspacing over indent, eol, and the start of an insert
 set backspace=2
 
