@@ -43,9 +43,6 @@ Plug 'python-mode/python-mode'
 " Tabmanager - visualizing tabs in vim
 Plug 'kien/tabman.vim'
 
-" Linter used by vim-puppet
-Plug 'vim-syntastic/syntastic'
-
 " themes
 Plug 'josuegaleas/jay'
 Plug 'chriskempson/base16-vim'
