@@ -194,6 +194,7 @@ nnoremap <A-l> <C-w>l
 
 " ### Encoding
 " Make sure utf-8 is used
+" Not really needed for neovim but vim
 set encoding=utf-8 
 set termencoding=utf-8
 
