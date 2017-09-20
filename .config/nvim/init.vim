@@ -32,6 +32,7 @@ Plug 'rodjek/vim-puppet'
 " tpope FTW
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 
 
