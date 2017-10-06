@@ -199,6 +199,10 @@ nnoremap <A-l> <C-w>l
 set encoding=utf-8 
 set termencoding=utf-8
 
+" ### Nifty tricks
+" Write files as root
+cmap w!! w !sudo tee > /dev/null %
+
 " ### Plugin Options
 "
 " CtrlP.vim should be used for Ctrl+p
