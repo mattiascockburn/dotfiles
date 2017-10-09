@@ -87,21 +87,6 @@ function extract()      # Handy Extract Program.
      fi
 }
 
-vnctunnel()
-{
-
-remotehost=${1:-lc@s99.be}
-vncpasswd=$(uuidgen)
-vnclog=$HOME/x11vnc.log
-
-echo Opening SSH-Tunnel for ${remotehost} in background
-ssh -N -Rlocalhost:15900:localhost:5900 $remotehost &>/dev/null &
-
-echo Starting x11vnc in background, the password is $vncpasswd
-x11vnc -noremote -ncache -viewonly -shared -forever -localhost -passwd $vncpasswd &> $vnclog &
-
-}
-
 
 rs() {
 
@@ -116,15 +101,6 @@ case $1 in
       ;;
 esac
 
-}
-
-psgrep() {
-        if [ ! -z $1 ] ; then
-                echo "Grepping for processes matching $1..."
-                ps aux | grep $1 | grep -v grep
-        else
-                echo "!! Need name to grep for"
-        fi
 }
 
 bu () { cp $1 ~/.backup/`basename $1`-`date +%Y%m%d%H%M`.backup ; }
