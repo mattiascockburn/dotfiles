@@ -289,7 +289,7 @@ assign [class="clementine"] $ws4
 
 
 # Start some shit i need (Rest is in .xinitrc)
-exec --no-startup-id polybar example
+exec --no-startup-id ~/.config/polybar/launch.sh
 #exec --no-startup-id thunderbird
 #exec --no-startup-id chromium
 #exec --no-startup-id qutebrowser
