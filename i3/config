@@ -299,7 +299,8 @@ exec --no-startup-id ~/.config/polybar/launch.sh
 #exec --no-startup-id roxterm --disable-sm -p Default -T mutt -e bash -c 'mutt'
 #exec --no-startup-id psi-plus
 exec --no-startup-id dunst
-exec --no-startup-id redshift -l 51.151786:10.415039
+#exec --no-startup-id redshift -l 51.151786:10.415039
+exec --no-startup-id redshift -l geoclue2
 # done through i3blocks mixer plugin
 #exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
@@ -315,7 +316,7 @@ exec --no-startup-id unclutter --timeout 5
 #bindsym $mod+Shift+s exec ~/bin/dsurfraw
 
 # Set my desktop background
-#exec_always feh --bg-center ~/.wallpaper 
+#exec_always feh --bg-center ~/.wallpaper
 exec_always nitrogen --restore
 
 
