@@ -29,6 +29,9 @@ Plug 'garbas/vim-snipmate'
 
 Plug 'rodjek/vim-puppet'
 
+" Highlight ugly extra whitespace
+Plug 'ntpeters/vim-better-whitespace'
+
 " tpope FTW
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
