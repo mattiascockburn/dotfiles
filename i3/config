@@ -87,7 +87,7 @@ bindsym $mod+n exec ~/.local/bin/xautolock_wrap.sh disable
 bindsym $mod+Shift+n exec ~/.local/.bin/xautolock_wrap.sh enable
 
 # suspend
-bindsym XF86Sleep exec ~/.local/bin/suspend.sh
+bindsym XF86Explorer exec ~/.local/bin/suspend.sh
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -289,7 +289,7 @@ assign [class="clementine"] $ws4
 
 
 # Start some shit i need (Rest is in .xinitrc)
-exec --no-startup-id polybar example
+exec --no-startup-id ~/.config/polybar/launch.sh
 #exec --no-startup-id thunderbird
 #exec --no-startup-id chromium
 #exec --no-startup-id qutebrowser
