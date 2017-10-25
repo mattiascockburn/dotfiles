@@ -3,6 +3,9 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" Multi cursor, whoop whoop
+Plug 'terryma/vim-multiple-cursors'
+
 " Make sure you use single quotes
 "
 " fuzzy file completion, me gusta!
