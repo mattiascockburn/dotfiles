@@ -61,7 +61,7 @@ macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sen
 bind editor        <Tab> complete-query
 
 ## dist gpg setting
-source /usr/share/doc/mutt/samples/gpg.rc
+source /usr/share/doc/neomutt/samples/gpg.rc
 ## GPG Stuff
 #set pgp_decode_command="gpg --no-verbose --batch --output - %f"
 #set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
