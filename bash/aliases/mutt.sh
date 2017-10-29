@@ -1,2 +1,2 @@
 #!/bin/bash
-which neomutt && alias mutt=neomutt
+which neomutt &>/dev/null && alias mutt=neomutt
