@@ -62,7 +62,6 @@ mkcd() { mkdir "$1" && cd "$1"; }
 calc(){ awk "BEGIN{ print $* }" ;}
 hex2dec() { awk 'BEGIN { printf "%d\n",0x$1}'; }
 dec2hex() { awk 'BEGIN { printf "%x\n",$1}'; }
-mktar() { tar cjf "${1%%/}.tar.bz2" "${1%%/}/"; }
 function :h () {  vim -c "silent help $@" -c "only"; }
 
 function extract()      # Handy Extract Program.
@@ -88,23 +87,6 @@ function extract()      # Handy Extract Program.
 }
 
 
-rs() {
-
-[[ $# -lt 1 ]] && return 1
-
-case $1 in
-    on)
-      redshift -l 51.151786:10.415039 -o
-      ;;
-    off)
-      redshift -x
-      ;;
-esac
-
-}
-
-bu () { cp $1 ~/.backup/`basename $1`-`date +%Y%m%d%H%M`.backup ; }
-
 yaml_check() {
   if [ $# -lt 1 ];then
     echo Usage: yaml_check file
@@ -112,6 +94,7 @@ yaml_check() {
   fi
   ruby -e "require 'yaml';require 'pp';pp YAML.load_file('$1')"
 }
+
 
 mylast () {
   re='^[0-9]+$'
