@@ -104,3 +104,11 @@ mylast () {
      history | awk '{a[$4]++} END {for (i in a) print a[i], i}' | sort -rn | head -n $1
   fi
 }
+
+wtime() {
+  zones="Pacific/Auckland America/Lima Europe/Berlin"
+
+  for zone in $zones; do
+    printf "%20s\n" $(TZ="$zone" date "+${zone} %H:%m")
+  done
+}
