@@ -109,6 +109,6 @@ wtime() {
   zones="Pacific/Auckland America/Lima Europe/Berlin"
 
   for zone in $zones; do
-    printf "%20s\n" $(TZ="$zone" date "+${zone} %H:%m")
+    printf "%10s\n" $(TZ="$zone" date "+${zone} %H:%m")
   done
 }
