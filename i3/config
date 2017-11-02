@@ -392,6 +392,6 @@ bindsym $mod+$alt+k workspace next
 
 # cool function ripped off http://dotshare.it/dots/549/0/raw/
 # take screenshot
-# YYYY-MM-DD-hh-mm-ss, no same file name 
+# YYYY-MM-DD-hh-mm-ss, no same file name
 bindsym $mod+Print exec scrot '%Y-%m-%d-%T.png' -e 'mv $f ~/Pictures/Screenshots/'
 bindsym Print exec teiler
