@@ -55,7 +55,7 @@ font-4 = DejaVu Sans:pixelsize=11;2
 
 modules-left = i3
 modules-center = date
-modules-right = filesystem volume memory cpu wlan eth battery temperature backlight
+modules-right = filesystem volume memory wlan eth battery temperature backlight
 
 tray-position = right
 tray-padding = 2
@@ -219,12 +219,12 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlp4s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %essid%
+label-connected = %essid% %local_ip%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -241,7 +241,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp2s0
+interface = enp0s31f6
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -259,7 +259,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
+date = W%U %Y-%m-%d
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
