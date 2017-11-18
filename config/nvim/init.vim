@@ -132,7 +132,7 @@ filetype plugin on
 filetype indent on
 
 " ## Folding
-set foldmethod=indent   
+set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
@@ -185,7 +185,7 @@ nnoremap <C-p> :bprevious<CR>:redraw<CR>
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
- 
+
 " ### Movement
 " https://neovim.io/doc/user/nvim_terminal_emulator.html
 " Use `ALT+{h,j,k,l}` to navigate windows from any mode:
@@ -205,7 +205,7 @@ nnoremap <A-l> <C-w>l
 " ### Encoding
 " Make sure utf-8 is used
 " Not really needed for neovim but vim
-set encoding=utf-8 
+set encoding=utf-8
 set termencoding=utf-8
 
 " ### Nifty tricks
