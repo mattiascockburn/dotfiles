@@ -102,6 +102,9 @@ syntax enable
 set background=dark
 colorscheme jay
 
+" ### Death to all rodents in textmode
+set mouse=
+
 " Show matching brackets when text indicator is over them
 set showmatch
 
