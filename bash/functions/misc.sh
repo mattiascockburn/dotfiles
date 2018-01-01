@@ -112,3 +112,7 @@ wtime() {
     TZ="$zone" date "+${zone} %H:%M"
   done
 }
+
+imgtosize() {
+  convert "$1" -define jpeg:extent="$2" -scale 50% "${1%%.*}_scaled.jpg"
+}
