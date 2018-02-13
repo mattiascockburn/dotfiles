@@ -49,3 +49,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx 
 fi
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+r=$(type -t rvm)
+[[ "$r" = 'function' ]] && export PATH="$PATH:$HOME/.rvm/bin"
