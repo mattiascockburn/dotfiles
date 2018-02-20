@@ -43,11 +43,12 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Hack:pixelsize=11;2
-font-1 = Unifont:size=11;2
-font-2 = Wuncon Siji:pixelsize=11;3
-font-3 = FontAwesome:pixelsize=11;2
-font-4 = DejaVu Sans:pixelsize=11;2
+font-0 = Hack:pixelsize=11;1
+font-1 = Font Awesome 5 Free:pixelsize=11;1
+font-2 = Unifont:size=11;2
+font-3 = Wuncon Siji:pixelsize=11;3
+font-4 = FontAwesome:pixelsize=11;2
+font-5 = DejaVu Sans:pixelsize=11;2
 
 #font-0 = Overpass:fontformat=truetype:size=9:antialias=true;2
 #font-1 = FontAwesome:size=11;2
@@ -101,7 +102,7 @@ interval = 25
 mount-0 = /
 mount-1 = /home
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %free%
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
