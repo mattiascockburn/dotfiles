@@ -56,7 +56,7 @@ font-4 = DejaVu Sans:pixelsize=11;2
 
 modules-left = i3
 modules-center = date
-modules-right = filesystem memory wlan eth battery temperature backlight pulseaudio
+modules-right = filesystem memory wlan eth battery0 battery1 temperature backlight pulseaudio
 
 tray-position = right
 tray-padding = 2
@@ -99,6 +99,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
+mount-1 = /home
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %free%
 label-unmounted = %mountpoint% not mounted
@@ -329,11 +330,38 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/battery]
+[module/battery0]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 88
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+[module/battery1]
 type = internal/battery
 battery = BAT1
 adapter = ADP1
-full-at = 98
+full-at = 88
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
@@ -366,8 +394,8 @@ format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
-label = %temperature%
-label-warn = %temperature%
+label = %temperature-c%
+label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
