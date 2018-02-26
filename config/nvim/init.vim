@@ -45,7 +45,7 @@ Plug 'tpope/vim-commentary'
 " Languages
 Plug 'saltstack/salt-vim'
 Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.py' }
-Plug 'python-mode/python-mode'
+Plug 'python-mode/python-mode', {'branch': 'develop'}
 
 " Tabmanager - visualizing tabs in vim
 Plug 'kien/tabman.vim'
