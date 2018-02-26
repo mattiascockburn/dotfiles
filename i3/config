@@ -66,12 +66,12 @@ floating_modifier $mod
 workspace_layout tabbed
 
 # move container between displays
-bindsym $mod+semicolon move workspace to output right
+bindsym $mod+semicolon move workspace to output up
 
 # start a terminal
 bindsym $mod+Return exec kitty
 #bindsym $mod+Return exec roxterm --disable-sm -p Default
-bindsym $mod+Shift+Return exec urxvt
+bindsym $mod+Shift+Return exec kitty pwsh
 bindsym $mod+Control+Return exec cool-retro-term
 
 bindsym $mod+Shift+y exec ~/bin/youpoop.sh music
