@@ -6,6 +6,9 @@ call plug#begin('~/.vim/plugged')
 " Multi cursor, whoop whoop
 Plug 'terryma/vim-multiple-cursors'
 
+"Open file under cursor with 'gf'
+Plug 'amix/open_file_under_cursor.vim'
+
 " Make sure you use single quotes
 "
 " fuzzy file completion, me gusta!
@@ -40,6 +43,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-markdown'
 
 
 " Languages
@@ -68,6 +72,8 @@ Plug 'vim-airline/vim-airline'
 " syntax/indent/ftplugins for a many languages/tools
 Plug 'sheerun/vim-polyglot'
 
+" Powershell syntax
+Plug 'PProvost/vim-ps1'
 
 " Any valid git URL is allowed
 "Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -77,7 +83,9 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
 
 " Using a non-master branch
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -100,13 +108,17 @@ call plug#end()
 " ### Looks
 syntax enable
 set background=dark
-colorscheme jay
+" colorscheme jay
+colorscheme molokai
 
 " ### Death to all rodents in textmode
 set mouse=
 
 " Show matching brackets when text indicator is over them
 set showmatch
+
+" set leader key to something more accessible
+let mapleader = ","
 
 " ### Auto Commands
 autocmd BufRead,BufNewFile ~/git/layer8/ansible-stuff/*.yml/ syntax=ansible
@@ -210,7 +222,7 @@ set termencoding=utf-8
 
 " ### Nifty tricks
 " Write files as root
-cmap w!! w !sudo tee > /dev/null %
+command W w !sudo tee % > /dev/null
 
 " ### Plugin Options
 "
@@ -241,3 +253,23 @@ let g:ansible_unindent_after_newline = 1
 let g:ansible_extra_syntaxes = "sh.vim python.vim"
 let g:ansible_attribute_highlight = "ob"
 let g:ansible_extra_keywords_highlight = 1
+
+" tpope-markdown mode specific config
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'puppet']
+let g:markdown_minlines = 100
+
+" Define some general purpose shortcuts
+" NERDTree
+map <leader>nn :NERDTreeToggle<cr>
+map <leader>nb :NERDTreeFromBookmark
+map <leader>nf :NERDTreeFind<cr><Paste>
+
+" Fast save
+nmap <leader>w :w!<cr>
+
+" No highlights
+map <silent> <leader><cr> :noh<cr>
+
+" Toggle paste mode
+map <leader>pp :setlocal paste!<cr>
+
