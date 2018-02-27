@@ -93,8 +93,8 @@ bindsym XF86Explorer exec ~/.local/bin/suspend.sh
 bindsym $mod+Shift+c kill
 
 # Screen brightness control
-bindsym $mod+Prior exec xbacklight -inc 10
-bindsym $mod+Next exec xbacklight -dec 10
+bindsym $mod+Prior exec light -A 10
+bindsym $mod+Next exec light -S 10
 
 # start dmenu (a program launcher)
 # Beware, maybe a patched version of dmenu is needed in order to use TTF fonts
