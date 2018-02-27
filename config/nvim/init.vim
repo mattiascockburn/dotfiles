@@ -14,6 +14,10 @@ Plug 'amix/open_file_under_cursor.vim'
 " fuzzy file completion, me gusta!
 Plug 'ctrlpvim/ctrlp.vim'
 
+" ctags Plugin, this one seems to be the simplest for
+" noobs like myself
+Plug 'ludovicchabant/vim-gutentags'
+
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
@@ -58,6 +62,7 @@ Plug 'kien/tabman.vim'
 Plug 'josuegaleas/jay'
 Plug 'chriskempson/base16-vim'
 Plug 'tomasr/molokai'
+Plug 'flazz/vim-colorschemes'
 
 " git stuff
 Plug 'tpope/vim-fugitive'
