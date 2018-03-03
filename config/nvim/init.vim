@@ -263,6 +263,9 @@ let g:ansible_extra_keywords_highlight = 1
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'puppet']
 let g:markdown_minlines = 100
 
+" pymode
+let g:pymode_python = 'python3'
+
 " Define some general purpose shortcuts
 " NERDTree
 map <leader>nn :NERDTreeToggle<cr>
