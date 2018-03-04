@@ -1,4 +1,4 @@
-#!/bin.bash
+#!/bin/bash
 DISK=/dev/disk/by-partuuid/5f5ea1b8-7844-4269-8a25-4e104df26817
 NAME=cryptjunk
 MNT=/mnt/toshiba
