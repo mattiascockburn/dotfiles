@@ -266,6 +266,9 @@ let g:markdown_minlines = 100
 " pymode
 let g:pymode_python = 'python3'
 
+" No, gutentags, don't just start indexing right away
+let g:gutentags_generate_on_new = 0
+
 " Define some general purpose shortcuts
 " NERDTree
 map <leader>nn :NERDTreeToggle<cr>
