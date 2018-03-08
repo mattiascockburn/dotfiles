@@ -89,6 +89,12 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
+" The less i type the more satisfied i am
+Plug 'Raimondi/delimitMate'
+
+" TOML syntax is handy for some hipster tech
+Plug 'cespare/vim-toml'
+
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 
