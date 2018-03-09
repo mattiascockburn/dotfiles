@@ -25,7 +25,7 @@ set $alt Mod1
 font xft:Overpass 12
 
 # "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color"
-new_window pixel 2
+new_window pixel 1
 # Colors and stuff
 #set $blue #005588 #, blue
 #set $text-color #FFFFFF, white
