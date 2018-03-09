@@ -351,6 +351,12 @@ for_window [class="Gcr-prompter"] floating enable; border none; focus mode_toggl
 for_window [title="Enter Passphrase"] floating enable; border none; focus mode_toggle
 for_window [title="pinentry"] floating enable; border none; focus mode_toggle
 
+# Tor Browser
+for_window [class="Tor Browser"] floating enable; border none
+
+
+# More behaviour
+focus_follows_mouse no
 
 # htop
 #bindsym $mod+t	exec urxvt --title htop -e htop
