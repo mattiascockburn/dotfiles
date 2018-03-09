@@ -79,8 +79,8 @@ bindsym $mod+Control+y exec ~/bin/youpoop.sh video
 
 # lock the screen now
 #bindsym  $mod+Control+g exec xscreensaver-command --lock
-bindsym  $mod+Control+g exec slock
-bindsym  XF86ScreenSaver exec slock
+bindsym  --release $mod+Control+g exec slock
+bindsym  --release XF86ScreenSaver exec slock
 
 # toggle xautolock
 bindsym $mod+n exec ~/.local/bin/xautolock_wrap.sh disable
