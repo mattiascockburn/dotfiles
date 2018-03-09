@@ -27,16 +27,7 @@ font xft:Overpass 12
 # "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color"
 new_window pixel 1
 # Colors and stuff
-#set $blue #005588 #, blue
-#set $text-color #FFFFFF, white
-#set $border-focused #2952A3, darkerblue
-#set $bg-focused #2952A3, darkerblue
-#set $bg-color #2952A3, darkerblue -- used for rofi
-#set $indicator-focused #333333, someblue
-#set $background-foobar #484848, gray1
-#set $background-unfocused #333333, gray2
-#set $border-unfocused #333333, gray2
-#set $indicator-unfocused #000000, black
+
 set $blue #005588
 set $text-color #FFFFFF
 set $border-focused #2952A3
@@ -48,11 +39,6 @@ set $border-unfocused #333333
 set $indicator-unfocused #000000
 set $bar-text-unfocused #AAAAAA
 
-# class                   border    backgr. text     indicator
-#client.focused            $border-focused   $bg-focused   $text-color   $indicator-focused
-#client.focused_inactive   $border-unfocused $bg-unfocused   $text-color   $indicator-unfocused
-#client.unfocused          $border-unfocused $bg-unfocused   $text-color   $indicator-unfocused
-#
 # class                 border  backgr. text    indicator
 client.focused #81a2be #81a2be #1d1f21 #282a2e
 client.focused_inactive #373b41 #373b41 #969896 #282a2e
