@@ -272,8 +272,9 @@ let g:markdown_minlines = 100
 " pymode
 let g:pymode_python = 'python3'
 
-" No, gutentags, don't just start indexing right away
-let g:gutentags_generate_on_new = 0
+let g:gutentags_generate_on_new = 1
+" Force gutentags to ignore certain roots as projects
+let g:gutentags_exclude_project_root = ['/home/mattias','/home/giesmat']
 
 " Define some general purpose shortcuts
 " NERDTree
