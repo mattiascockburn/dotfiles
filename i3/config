@@ -70,7 +70,7 @@ bindsym  --release XF86ScreenSaver exec slock
 
 # toggle xautolock
 bindsym $mod+n exec ~/.local/bin/xautolock_wrap.sh disable
-bindsym $mod+Shift+n exec ~/.local/.bin/xautolock_wrap.sh enable
+bindsym $mod+Shift+n exec ~/.local/bin/xautolock_wrap.sh enable
 
 # suspend
 bindsym XF86Explorer exec ~/.local/bin/suspend.sh
