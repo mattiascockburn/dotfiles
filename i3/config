@@ -82,6 +82,9 @@ bindsym $mod+Shift+c kill
 bindsym $mod+Prior exec light -A 10
 bindsym $mod+Next exec light -S 10
 
+bindsym $mod+shift+w exec browser
+
+
 # start dmenu (a program launcher)
 # Beware, maybe a patched version of dmenu is needed in order to use TTF fonts
 # https://aur.archlinux.org/packages/dmenu-xft/
