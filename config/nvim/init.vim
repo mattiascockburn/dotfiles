@@ -66,6 +66,9 @@ Plug 'josuegaleas/jay'
 Plug 'chriskempson/base16-vim'
 Plug 'tomasr/molokai'
 Plug 'flazz/vim-colorschemes'
+Plug 'endel/vim-github-colorscheme'
+Plug 'owickstrom/vim-colors-paramount'
+Plug 'atelierbram/Base2Tone-vim'
 
 " git stuff
 Plug 'tpope/vim-fugitive'
