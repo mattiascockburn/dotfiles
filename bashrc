@@ -9,7 +9,7 @@ alias ls='ls --color=auto'
 #PS1='[\u@\h \W]\$ '
 PS1='>> '
 
-eval $(keychain --timeout 60 --eval --quiet ~/.ssh/test_nopasswd)
+eval $(keychain --eval --quiet ~/.ssh/test_nopasswd)
 
 # Disable overlay scrollbars, be it GTK3 or liboverlay
 export LIBOVERLAY_SCROLLBAR=0
