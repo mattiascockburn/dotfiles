@@ -34,7 +34,7 @@ rofi.terminal:             kitty
 rofi.ssh-client:           ssh
 rofi.ssh-command:          {terminal} -e {ssh-client} {host}
 rofi.run-command:          {cmd}
-rofi.run-list-command:     
+rofi.run-list-command:
 rofi.run-shell-command:    {terminal} -e {cmd}
 rofi.disable-history:      false
 rofi.levenshtein-sort:     true
