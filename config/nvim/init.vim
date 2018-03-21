@@ -144,9 +144,9 @@ let mapleader = ","
 
 " ### Auto Commands
 autocmd BufRead,BufNewFile ~/git/layer8/ansible-stuff/*.yml/ syntax=ansible
+autocmd FileType gitcommit setlocal textwidth=72 spell
 au BufNewFile,BufRead *.groovy  setf groovy
 au BufNewFile,BufRead Jenkinsfile  setf groovy
-
 " ### Undo
 set undolevels=100
 
