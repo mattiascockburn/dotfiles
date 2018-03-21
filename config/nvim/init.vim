@@ -3,6 +3,9 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" Better mark management
+Plug 'kshenoy/vim-signature'
+
 " Multi cursor, whoop whoop
 Plug 'terryma/vim-multiple-cursors'
 
