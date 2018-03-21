@@ -119,6 +119,11 @@ Plug 'cespare/vim-toml'
 " Initialize plugin system
 call plug#end()
 
+" Terminal behaviour
+" Disable background color erase because of a bug in VIM which shows in kitty
+" see https://github.com/kovidgoyal/kitty (search for bce)
+let &t_ut=''
+
 " ### Looks
 syntax enable
 set background=dark
