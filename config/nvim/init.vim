@@ -93,7 +93,13 @@ Plug 'PProvost/vim-ps1'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
+
+" Use NERDtree with ack
+Plug 'tyok/nerdtree-ack'
+
+" Easy commenting
+Plug 'scrooloose/nerdcommenter'
 
 " The less i type the more satisfied i am
 Plug 'Raimondi/delimitMate'
