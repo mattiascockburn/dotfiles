@@ -60,8 +60,11 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return exec kitty pwsh
 bindsym $mod+Control+Return exec cool-retro-term
 
-bindsym $mod+Shift+y exec ~/bin/youpoop.sh music
-bindsym $mod+Control+y exec ~/bin/youpoop.sh video
+bindsym $mod+Shift+y exec ~/.local/bin/youpoop.sh music
+bindsym $mod+Control+y exec ~/.local/bin/youpoop.sh video
+
+# Launch vim-anywhere script
+bindsym $mod+Shift+v exec ~/.local/bin/vim-anywhere clip
 
 # lock the screen now
 #bindsym  $mod+Control+g exec xscreensaver-command --lock
