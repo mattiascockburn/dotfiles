@@ -293,6 +293,13 @@ let g:gutentags_generate_on_new = 1
 " Force gutentags to ignore certain roots as projects
 let g:gutentags_exclude_project_root = ['/home/mattias','/home/giesmat']
 
+" Remap some stuff
+" Swap v and CTRL-V, because Block mode is more useful
+nnoremap v <C-V>
+nnoremap <C-V> v
+vnoremap v <C-V>
+vnoremap <C-V> v
+
 " Define some general purpose shortcuts
 " NERDTree
 map <leader>nn :NERDTreeToggle<cr>
