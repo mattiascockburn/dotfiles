@@ -89,6 +89,8 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" Powerful multi file search
+Plug 'wincent/ferret'
 
 Plug 'vim-airline/vim-airline'
 
