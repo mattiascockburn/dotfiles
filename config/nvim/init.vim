@@ -89,9 +89,6 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" search files with ack/ag
-Plug 'mileszs/ack.vim'
-
 
 Plug 'vim-airline/vim-airline'
 
