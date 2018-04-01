@@ -12,6 +12,11 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
+" Scalpel: better word replacer within a file
+" invoked with <Leader>e by default
+Plug 'wincent/scalpel'
+let g:ScalpelCommand='S'
+
 " Better mark management
 Plug 'kshenoy/vim-signature'
 
