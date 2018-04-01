@@ -1,12 +1,13 @@
-set folder=$HOME/mail/mg-posteo
-set mbox=$HOME/mail/mg-posteo/
+set folder=$HOME/mail/posteo
+set mbox=$HOME/mail/posteo/
 set spoolfile=+INBOX
 set record = +Sent
 set postponed= +Drafts
 unmailboxes *
-mailboxes = `~/bin/sidebar_config_from_maildir.py mg-posteo`
+#mailboxes = `~/bin/sidebar_config_from_maildir.py posteo`
+mailboxes `find ~/mail/posteo -type d -name cur -printf '%h '`
 set realname = 'Mattias Giese'
 set from = mattiasgiese@posteo.net
 set use_from = yes
-set sendmail  = "/usr/bin/msmtp -a mattiasgiese-posteo"
+set sendmail  = "/usr/bin/msmtp -a posteo"
 set signature = '~/.signature_posteo'

@@ -7,12 +7,19 @@ set mbox_type=Maildir
 set mask="!^\\.[^.]"
 set header_cache=~/.cache/mutt
 
+# Colors
+#source ~/.mutt/colorschemes/zenburn.neomuttrc
+source ~/.mutt/colorschemes/vombatidae.neomuttrc
+#source ~/.mutt/colorschemes/neonwolf-256.neomuttrc
+#source ~/.mutt/colorschemes/rosenfeldstheme
+
+
 ## Accounts
 ## B1
-source "~/.mutt/accounts/b1"
+# source "~/.mutt/accounts/b1"
 # Here we use the $folder variable that has just been set in the sourced file.
 # We must set it right now otherwise the 'folder' variable will change in the next sourced file.
-folder-hook $folder 'source ~/.mutt/accounts/b1'
+# folder-hook $folder 'source ~/.mutt/accounts/b1'
 
 ## web.de
 source "~/.mutt/accounts/posteo"
@@ -25,8 +32,8 @@ source "~/.mutt/accounts/posteo"
 
 ## macros for account change
 ## sidebar hiding is done to prevent fucking crashes
-macro index,pager \e1 ":source ~/.mutt/accounts/b1<enter><change-folder> +INBOX<enter>"
-macro index,pager \e2 ":source ~/.mutt/accounts/posteo<enter><change-folder> +INBOX<enter>"
+macro index,pager \e1 ":source ~/.mutt/accounts/posteo<enter><change-folder> +INBOX<enter>"
+macro index,pager \e2 ":source ~/.mutt/accounts/b1<enter><change-folder> +INBOX<enter>"
 #macro index,pager \e3 ":source ~/.mutt/accounts/uberspace<enter><change-folder> +INBOX<enter>"
 
 ## folder management
@@ -63,23 +70,8 @@ bind editor        <Tab> complete-query
 ## dist gpg setting
 source /usr/share/doc/neomutt/samples/gpg.rc
 ## GPG Stuff
-#set pgp_decode_command="gpg --no-verbose --batch --output - %f"
-#set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
-#set pgp_decrypt_command="gpg --no-verbose --batch --output - %f"
-##set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
-#set pgp_sign_command="gpg --no-verbose --batch --output - --armor --detach-sign --textmode %?a?-u %a? %f"
-##set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
-#set pgp_clearsign_command="gpg --no-verbose --batch --output - --armor --textmode --clearsign %?a?-u %a? %f"
-#set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xC9C40C31 -- -r %r -- %f"
-##set pgp_encrypt_sign_command="pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0x3F94916E -- -r %r -- %f"
-#set pgp_encrypt_sign_command="pgpewrap gpg --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0x3F94916E -- -r %r -- %f"
-#set pgp_import_command="gpg --no-verbose --import -v %f"
-#set pgp_export_command="gpg --no-verbose --export --armor %r"
-#set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
-#set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
-#set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
 set pgp_autosign=yes
-set pgp_sign_as=0x3F94916E
+set pgp_sign_as=0x5b2b8d57736c5cb2e561fb4613517d5c7bd72b14
 set pgp_replyencrypt=yes
 set pgp_timeout=3600
 set pgp_good_sign="^gpg: Good signature from"
@@ -93,9 +85,6 @@ set smime_encrypt_self = "yes"
 # Save a copy of outgoing email, encrypted to yourself
 set pgp_encrypt_self = "yes"
 
-
-## The Looks
-source $HOME/.mutt/sample_colors
 
 ## Date/Time and index format in index
 set date_format="%d/%m/%y %T"
@@ -111,6 +100,9 @@ folder-hook ! .*[sS]ent.* 'set index_format="%2C | %Z [%d] %-$my_col_from.${my_c
 
 ### Externalized to .mutt/sidebar for now
 ## Sidebar settings
+set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
 #set sidebar_width=25
 #set sidebar_visible=no
 #set sidebar_delim='|'
@@ -120,14 +112,15 @@ folder-hook ! .*[sS]ent.* 'set index_format="%2C | %Z [%d] %-$my_col_from.${my_c
 #set sidebar_newmail_only=yes
 
 # bind index,pager \CP sidebar-prev
-#bind index,pager \CK sidebar-prev
-#bind index,pager \CN sidebar-next
-#bind index,pager \CO sidebar-open
-#bind index,pager <down>   sidebar-next
-#bind index,pager <up>     sidebar-prev
-#bind index,pager <right>  sidebar-open
-#bind index,pager \c<up> sidebar-scroll-up
-#bind index,pager \c<down> sidebar-scroll-down
+bind index,pager \CK sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+
+# Toggle the visibility of the Sidebar.
+bind index,pager B sidebar-toggle-visible
 
 # convenience
 #
@@ -140,12 +133,12 @@ set sort=threads
 set sort_browser="reverse-count"
 
 ## better navigation
-bind index gg       first-entry
-bind index G        last-entry
+bind index g  noop
+bind index gg first-entry
+bind index G  last-entry
 # Ctrl-R to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 bind index <space>  collapse-thread
-
 ## fancy printing
 #set print_command="/usr/bin/muttprint %s -p {PrinterName}"
 
@@ -218,7 +211,7 @@ set help=no
 
 # save iCal to khal
 # stolen from: https://bitbucket.org/jasonwryan/shiv/src/248c7fae1eaa/.mutt/?at=default
-macro pager \Ck  "!/usr/bin/khal --new $(~/bin/mutt2khal ~/.mutt/temp/caldata)" "Saving Calendar event" 
+macro pager \Ck  "!/usr/bin/khal --new $(~/bin/mutt2khal ~/.mutt/temp/caldata)" "Saving Calendar event"
 
 # quick sync imap
 macro index Z   "<shell-escape>/usr/bin/offlineimap -o -q -u TTYUI<enter>" "sync IMAP"
@@ -233,6 +226,9 @@ unset markers              # no ugly plus signs
 
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# Open URLs with urlview
+ macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 # forward attachments
 set mime_forward_rest=yes

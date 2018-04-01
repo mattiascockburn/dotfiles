@@ -1,0 +1,12 @@
+set folder=$HOME/mail/uberspace/
+set mbox=$HOME/mail/uberspace
+set spoolfile=+INBOX
+set record = +INBOX.Sent
+set postponed=+INBOX.Drafts
+unmailboxes *
+mailboxes = `~/bin/sidebar_config_from_maildir.py uberspace`
+set realname = 'lowercase'
+set from = foobar@hamal.uberspace.de
+set use_from = yes
+set sendmail = '/usr/bin/msmtp -a uberspace'
+set signature = '~/.signature_s99'

@@ -1,0 +1,12 @@
+set folder=$HOME/mail/mgweb.de
+set mbox=$HOME/mail/mgweb.de/
+set spoolfile=+INBOX
+set record = +Gesendet
+set postponed= +Entwurf
+unmailboxes *
+mailboxes = `~/bin/sidebar_config_from_maildir.py mgweb.de`
+set realname = 'Mattias Giese'
+set from = mattias.giese@web.de
+set use_from = yes
+set sendmail  = "/usr/bin/msmtp -a mattiasgiese-webde"
+set signature = '~/.signature_webde'

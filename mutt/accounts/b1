@@ -4,7 +4,7 @@ set spoolfile=+INBOX
 set record = +INBOX.Sent
 set postponed=+INBOX.Drafts
 unmailboxes *
-mailboxes = `~/bin/sidebar_config_from_maildir.py B1`
+mailboxes `find ~/mail/B1 -type d -name cur -printf '%h '`
 set realname = 'Mattias Giese'
 set from = giese@b1-systems.de
 set use_from = yes
