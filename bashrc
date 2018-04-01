@@ -17,7 +17,7 @@ export GTK_OVERLAY_SCROLLING=0
 
 # add local bin to PATH
 [[ ! "$PATH" =~ "${HOME/\//\//}\/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
-[[ ! "$PATH" =~ "${HOME/\//\//}\/.gem/ruby/2.4.0/bin" ]] && export PATH="${HOME}/.gem/ruby/2.4.0/bin:${PATH}"
+[[ ! "$PATH" =~ "${HOME/\//\//}\/rvm\/gems/ruby/2.4.1/bin" ]] && export PATH="${HOME}/.rvm/gems/ruby/2.4.1/bin:${PATH}"
 
 # source all settings
 for category in aliases settings functions ; do
@@ -46,7 +46,7 @@ export ANSIBLE_NOCOWS=1
 
 # Automatically start X on TTY1
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec startx 
+  exec startx
 fi
 
 
