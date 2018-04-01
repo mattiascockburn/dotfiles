@@ -167,6 +167,11 @@ autocmd BufRead,BufNewFile ~/git/layer8/ansible-stuff/*.yml/ syntax=ansible
 autocmd FileType gitcommit setlocal textwidth=72 spell
 au BufNewFile,BufRead *.groovy  setf groovy
 au BufNewFile,BufRead Jenkinsfile  setf groovy
+
+" Remove trailing spaces on write
+" http://vim.wikia.com/wiki/Remove_unwanted_spaces
+autocmd BufWritePre * %s/\s\+$//e
+
 " ### Undo
 set undolevels=100
 
