@@ -173,7 +173,7 @@ au BufNewFile,BufRead Jenkinsfile  setf groovy
 autocmd BufWritePre * %s/\s\+$//e
 
 " ### Undo
-set undolevels=100
+set undolevels=200
 
 " ### Behaviour
 " I hate tabs.
