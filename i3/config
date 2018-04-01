@@ -66,6 +66,9 @@ bindsym $mod+Control+y exec ~/.local/bin/youpoop.sh video
 # Launch vim-anywhere script
 bindsym $mod+Shift+v exec ~/.local/bin/vim-anywhere clip
 
+# Add current url to local transmission-daemon
+bindsym $mod+Control+t exec ~/.local/bin/t-quick-add
+
 # lock the screen now
 #bindsym  $mod+Control+g exec xscreensaver-command --lock
 bindsym  --release $mod+Control+g exec slock
@@ -356,7 +359,6 @@ focus_follows_mouse no
 ## Password menu
 
 bindsym $mod+p  exec rofi-pass
-
 
 # mail
 bindsym $mod+m exec roxterm --disable-sm -p Default -T mutt -e mutt

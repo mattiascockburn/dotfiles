@@ -1,0 +1,5 @@
+#!/bin/bash
+url="$(xsel -b)"
+if [[ -n "$url" ]];then
+  transmission-remote localhost:19091 --add "$url"
+fi
