@@ -83,6 +83,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'endel/vim-github-colorscheme'
 Plug 'owickstrom/vim-colors-paramount'
 Plug 'atelierbram/Base2Tone-vim'
+Plug 'morhetz/gruvbox'
 
 " git stuff
 Plug 'tpope/vim-fugitive'
