@@ -1,0 +1,12 @@
+#!/bin/bash
+# I need a fucking wrapper for this because khard won't accept parameters in the merge_editor
+# setting
+
+if which nvim &>/dev/null; then
+  cmd='nvim -d'
+else
+  # i'm feeling lucky ^^
+  cmd=vimdiff
+fi
+
+$cmd

@@ -1,0 +1,38 @@
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+[pair contacts_posteo]
+a = "contacts_posteo_local"
+b = "contacts_posteo_remote"
+collections = ["from a", "from b"]
+
+[storage contacts_posteo_local]
+type = "filesystem"
+path = "~/.contacts/posteo"
+fileext = ".vcf"
+
+[storage contacts_posteo_remote]
+type = "carddav"
+
+# We can simplify this URL here as well. In theory it shouldn't matter.
+url = "https://posteo.de:8843"
+username.fetch = ["command", "getpass", "user", "internet/dienstleister/posteo"]
+password.fetch = ["command", "getpass", "password", "internet/dienstleister/posteo"]
+
+[pair calendar_posteo]
+a = "calendar_posteo_local"
+b = "calendar_posteo_remote"
+collections = ["from a", "from b"]
+
+[storage calendar_posteo_local]
+type = "filesystem"
+path = "~/.calendar/posteo"
+fileext = ".ics"
+
+[storage calendar_posteo_remote]
+type = "caldav"
+
+# We can simplify this URL here as well. In theory it shouldn't matter.
+url = "https://posteo.de:8843"
+username.fetch = ["command", "getpass", "user", "internet/dienstleister/posteo"]
+password.fetch = ["command", "getpass", "password", "internet/dienstleister/posteo"]

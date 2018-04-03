@@ -1,0 +1,65 @@
+Create Both
+Expunge Both
+SyncState *
+
+
+IMAPAccount posteo
+Host posteo.de
+User mattiasgiese@posteo.net
+PassCmd "pass show internet/dienstleister/mattiasgiese@posteo.net"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore posteo-remote
+Account posteo
+
+MaildirStore posteo-local
+Path ~/mail/posteo/
+Inbox ~/mail/posteo/INBOX
+
+Channel posteo-inbox
+Master :posteo-remote:
+Slave :posteo-local:
+Patterns "INBOX"
+
+Channel posteo-sent
+Master :posteo-remote:"Sent"
+Slave :posteo-local:sent
+
+Channel posteo-trash
+Master :posteo-remote:"Trash"
+Slave :posteo-local:trash
+
+Group posteo
+Channel posteo-inbox
+Channel posteo-sent
+Channel posteo-trash
+
+IMAPAccount b1
+Host imap.intern.b1-systems.de
+User giese
+PassCmd "pass show b1/general"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore b1-remote
+Account b1
+
+MaildirStore b1-local
+Path ~/mail/B1/
+Inbox ~/mail/B1/INBOX
+Flatten .
+
+Channel b1-all
+Master :b1-remote:
+Slave :b1-local:
+Patterns "*"
+
+Channel b1-sent
+Master :b1-remote:"Sent"
+Slave :b1-local:sent
+
+
+Group b1
+Channel b1-all
+Channel b1-sent

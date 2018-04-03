@@ -34,7 +34,6 @@ source "~/.mutt/accounts/posteo"
 ## sidebar hiding is done to prevent fucking crashes
 macro index,pager \e1 ":source ~/.mutt/accounts/posteo<enter><change-folder> +INBOX<enter>"
 macro index,pager \e2 ":source ~/.mutt/accounts/b1<enter><change-folder> +INBOX<enter>"
-#macro index,pager \e3 ":source ~/.mutt/accounts/uberspace<enter><change-folder> +INBOX<enter>"
 
 ## folder management
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
@@ -63,7 +62,8 @@ bind index,pager  previous-page
 set use_from = yes
 
 ## address book
-set query_command="abook --mutt-query '%s'"
+#set query_command="abook --mutt-query '%s'"
+set query_command = "lbdbq %s 2>/dev/null"
 macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
 bind editor        <Tab> complete-query
 
@@ -162,9 +162,9 @@ macro attach 'V' "<pipe-entry>cat >~/.tmp/mutt-mail.html && $BROWSER ~/.tmp/mutt
 
 ## mu integration
 # mutt macros for mu
-macro index <F8> "<shell-escape>mu find --clearlinks --format=links --linksdir=~/mail/search " \
+macro index \cs "<shell-escape>mu find --clearlinks --format=links --linksdir=~/mail/search " \
   "mu find"
-macro index <F9> "<change-folder-readonly>~/mail/search<return>" \
+macro index \cS "<change-folder-readonly>~/mail/search<return>" \
   "mu find results"
 
 ## muttjump integration

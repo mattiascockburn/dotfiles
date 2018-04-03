@@ -1,0 +1,12 @@
+[calendars]
+
+[[calendar_posteo_local]]
+path = ~/.calendar/posteo/*
+type = discover
+
+[locale]
+timeformat = %H:%M
+dateformat = %d/%m/%Y
+longdateformat = %d/%m/%Y
+datetimeformat = %d/%m/%Y %H:%M
+longdatetimeformat = %d/%m/%Y %H:%M
