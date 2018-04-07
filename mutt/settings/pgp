@@ -1,0 +1,17 @@
+
+## GPG Stuff
+set pgp_autosign=yes
+set pgp_sign_as=0x5b2b8d57736c5cb2e561fb4613517d5c7bd72b14
+set pgp_replyencrypt=yes
+set pgp_timeout=3600
+set pgp_good_sign="^gpg: Good signature from"
+
+# let gpg-agent take care of already supplied passphrases
+set pgp_use_gpg_agent = yes
+
+# Save a copy of outgoing email, encrypted to yourself
+set smime_encrypt_self = "yes"
+
+# Save a copy of outgoing email, encrypted to yourself
+set pgp_encrypt_self = "yes"
+

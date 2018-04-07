@@ -1,0 +1,3 @@
+
+## Fix backspace in xterm likes
+bind index,pager  previous-page

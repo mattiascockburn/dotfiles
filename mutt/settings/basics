@@ -1,0 +1,17 @@
+
+set editor=vim
+
+## mimetype foo
+set mailcap_path  = ~/.mutt/mailcap
+
+#i18n
+
+## unicode, baby
+set send_charset="us-ascii:utf-8"
+
+# prefer text mails
+alternative_order text/plain text/html
+
+## Speed up folder switch
+set sleep_time = 0
+

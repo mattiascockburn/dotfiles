@@ -1,11 +1,7 @@
 ## Basics
+#
 
-set editor=vim
-
-## Mailbox settings
-set mbox_type=Maildir
-set mask="!^\\.[^.]"
-set header_cache=~/.cache/mutt
+source ~/.mutt/settings/basics
 
 # Colors
 #source ~/.mutt/colorschemes/zenburn.neomuttrc
@@ -13,6 +9,15 @@ source ~/.mutt/colorschemes/vombatidae.neomuttrc
 #source ~/.mutt/colorschemes/neonwolf-256.neomuttrc
 #source ~/.mutt/colorschemes/rosenfeldstheme
 
+source ~/.mutt/settings/macros
+source ~/.mutt/settings/mailboxes
+source ~/.mutt/settings/bindings
+
+## dist gpg setting
+source /usr/share/doc/neomutt/samples/gpg.rc
+source ~/.mutt/settings/pgp
+
+source ~/.mutt/settings/sidebar
 
 ## Accounts
 ## B1
@@ -35,28 +40,6 @@ source "~/.mutt/accounts/posteo"
 macro index,pager \e1 ":source ~/.mutt/accounts/posteo<enter><change-folder> +INBOX<enter>"
 macro index,pager \e2 ":source ~/.mutt/accounts/b1<enter><change-folder> +INBOX<enter>"
 
-## folder management
-macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
-macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
-macro index c "<change-folder>?<toggle-mailboxes>" "open a different folder"
-macro pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
-
-## mimetype foo
-set mailcap_path  = ~/.mutt/mailcap
-
-#i18n
-
-## unicode, baby
-set send_charset="us-ascii:utf-8"
-
-# prefer text mails
-alternative_order text/plain text/html
-
-## Speed up folder switch
-set sleep_time = 0
-
-## Fix backspace in xterm likes
-bind index,pager  previous-page
 
 ## SMTP settings
 set use_from = yes
@@ -65,25 +48,7 @@ set use_from = yes
 #set query_command="abook --mutt-query '%s'"
 set query_command = "lbdbq %s 2>/dev/null"
 macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
-bind editor        <Tab> complete-query
-
-## dist gpg setting
-source /usr/share/doc/neomutt/samples/gpg.rc
-## GPG Stuff
-set pgp_autosign=yes
-set pgp_sign_as=0x5b2b8d57736c5cb2e561fb4613517d5c7bd72b14
-set pgp_replyencrypt=yes
-set pgp_timeout=3600
-set pgp_good_sign="^gpg: Good signature from"
-
-# let gpg-agent take care of already supplied passphrases
-set pgp_use_gpg_agent = yes
-
-# Save a copy of outgoing email, encrypted to yourself
-set smime_encrypt_self = "yes"
-
-# Save a copy of outgoing email, encrypted to yourself
-set pgp_encrypt_self = "yes"
+bind editor <Tab> complete-query
 
 
 ## Date/Time and index format in index
@@ -97,30 +62,6 @@ set my_col_subject = `echo $((70 * ($(tput cols)-35-24) / 100))`
 
 folder-hook .*[sS]ent.* 'set index_format="%2C | %Z [%d] %-$my_col_from.${my_col_from}t (%-4.4c) %-$my_col_subject.${my_col_subject}s"'
 folder-hook ! .*[sS]ent.* 'set index_format="%2C | %Z [%d] %-$my_col_from.${my_col_from}F (%-4.4c) %-$my_col_subject.${my_col_subject}s"'
-
-### Externalized to .mutt/sidebar for now
-## Sidebar settings
-set sidebar_visible
-set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
-set mail_check_stats
-#set sidebar_width=25
-#set sidebar_visible=no
-#set sidebar_delim='|'
-##set sidebar_shortpath = yes
-#set sidebar_sort=yes
-#color sidebar_new brightblue black
-#set sidebar_newmail_only=yes
-
-# bind index,pager \CP sidebar-prev
-bind index,pager \CK sidebar-prev
-bind index,pager \CN sidebar-next
-bind index,pager \CO sidebar-open
-bind index,pager <down>   sidebar-next
-bind index,pager <up>     sidebar-prev
-bind index,pager <right>  sidebar-open
-
-# Toggle the visibility of the Sidebar.
-bind index,pager B sidebar-toggle-visible
 
 # convenience
 #

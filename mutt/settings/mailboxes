@@ -1,0 +1,6 @@
+
+## Mailbox settings
+set mbox_type=Maildir
+set mask="!^\\.[^.]"
+set header_cache=~/.cache/mutt
+

@@ -1,0 +1,25 @@
+### Externalized to .mutt/sidebar for now
+## Sidebar settings
+set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+#set sidebar_width=25
+#set sidebar_delim='|'
+##set sidebar_shortpath = yes
+set sidebar_sort_method=unread
+
+#color sidebar_new brightblue black
+#set sidebar_newmail_only=yes
+
+# bind index,pager \CP sidebar-prev
+bind index,pager \CK sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+
+# Toggle the visibility of the Sidebar.
+bind index,pager B sidebar-toggle-visible
+
+
