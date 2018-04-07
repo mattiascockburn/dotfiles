@@ -166,6 +166,7 @@ let mapleader = ","
 
 " ### Auto Commands
 autocmd BufRead,BufNewFile ~/git/layer8/ansible-stuff/*.yml/ syntax=ansible
+autocmd BufRead,BufNewFile ~/.mutt/settings/* set ft=muttrc
 autocmd FileType gitcommit setlocal textwidth=72 spell
 au BufNewFile,BufRead *.groovy  setf groovy
 au BufNewFile,BufRead Jenkinsfile  setf groovy
