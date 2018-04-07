@@ -19,6 +19,8 @@ source ~/.mutt/settings/pgp
 
 source ~/.mutt/settings/sidebar
 
+source ~/.mutt/settings/notmuch
+
 ## Accounts
 ## B1
 # source "~/.mutt/accounts/b1"
@@ -101,13 +103,6 @@ alternative_order text/plain text/html text/*
 # open in browser
 macro attach 'V' "<pipe-entry>cat >~/.tmp/mutt-mail.html && $BROWSER ~/.tmp/mutt-mail.html && rm ~/.cache/mutt-mail.html<enter>"
 
-
-## mu integration
-# mutt macros for mu
-macro index \cs "<shell-escape>mu find --clearlinks --format=links --linksdir=~/mail/search " \
-  "mu find"
-macro index \cS "<change-folder-readonly>~/mail/search<return>" \
-  "mu find results"
 
 ## muttjump integration
 macro generic ,j "<enter-command>push <pipe-message>muttjump<enter><enter>" "jump to original message"
