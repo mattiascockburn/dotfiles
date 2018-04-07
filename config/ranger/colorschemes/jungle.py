@@ -4,7 +4,7 @@
 from __future__ import (absolute_import, division, print_function)
 
 from ranger.colorschemes.default import Default
-from ranger.gui.color import green, red, blue
+from ranger.gui.color import green, red, blue, white, black
 
 
 class Scheme(Default):
@@ -15,9 +15,9 @@ class Scheme(Default):
 
         if context.directory and not context.marked and not context.link \
                 and not context.inactive_pane:
-            fg = green
+            fg = white
 
         if context.in_titlebar and context.hostname:
-            fg = red if context.bad else blue
+            fg = red if context.bad else white
 
         return fg, bg, attr
