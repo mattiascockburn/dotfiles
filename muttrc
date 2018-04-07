@@ -151,7 +151,8 @@ set mark_old=no
 # Turn off the help line at the top
 set help=no
 
-macro attach A "<pipe-message>vcalendar-filter | mutt2khal<enter>" "Save calendar event"
+macro attach A "<pipe-message>vcalendar-filter | mutt2khal<enter>" "Save ical event"
+macro attach \ca "<pipe-message>khal import<enter>" "Save .ics in khal"
 
 # quick sync imap
 macro index Z   "<shell-escape>mbsync -Va<enter>" "sync IMAP"
