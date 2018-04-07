@@ -154,7 +154,7 @@ set help=no
 macro attach A "<pipe-message>vcalendar-filter | mutt2khal<enter>" "Save calendar event"
 
 # quick sync imap
-macro index Z   "<shell-escape>/usr/bin/offlineimap -o -q -u TTYUI<enter>" "sync IMAP"
+macro index Z   "<shell-escape>mbsync -Va<enter>" "sync IMAP"
 
 # show index in pagerview
 set pager_index_lines = 10 # number of index lines to show
