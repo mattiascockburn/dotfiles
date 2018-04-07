@@ -71,6 +71,8 @@ Plug 'tpope/vim-markdown'
 Plug 'saltstack/salt-vim'
 Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.py' }
 Plug 'python-mode/python-mode', {'branch': 'develop'}
+" PyDoc to quickly access documentation
+Plug 'fs111/pydoc.vim'
 
 " Tabmanager - visualizing tabs in vim
 Plug 'kien/tabman.vim'
