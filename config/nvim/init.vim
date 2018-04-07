@@ -235,6 +235,29 @@ set wrapscan
 " Turn on Highlighting of search results
 set hlsearch
 
+" Do not bother me when there are unsaved changes on buffer switch
+set hidden
+
+" ### Scroll behaviour
+set scrolloff=3                       " start scrolling 3 lines before edge of viewport
+
+" ### Split behaviour
+if has('windows')
+  set splitbelow                      " open horizontal splits below current window
+endif
+
+if has('vertsplit')
+  set splitright                      " open vertical splits to the right of the current window
+endif
+
+
+" ### Format Options
+set formatoptions+=j " delete comment leader on J
+set formatoptions+=n " delete leading number on J (useful with numbered list)"
+
+" ### Join behaviour
+set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
+
 " ### Buffers
 " ALT-n next buffer and list, ALT-p previous buffer
 nnoremap <A-n> :bnext<CR>:redraw<CR>:ls<CR>
@@ -262,6 +285,11 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
+
+" ### Visual mode
+if has('virtualedit')
+  set virtualedit=block               " allow cursor to move where there is no text in visual block mode
+endif
 
 " ### Encoding
 " Make sure utf-8 is used
