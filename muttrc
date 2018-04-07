@@ -95,7 +95,8 @@ macro   browser q       '<exit><quit>'
 macro index,pager y <change-folder>?<toggle-mailboxes>
 
 # auto view html mail with elinks
-auto_view text/html
+auto_view text/html text/calendar
+alternative_order text/plain text/html text/*
 
 # open in browser
 macro attach 'V' "<pipe-entry>cat >~/.tmp/mutt-mail.html && $BROWSER ~/.tmp/mutt-mail.html && rm ~/.cache/mutt-mail.html<enter>"
@@ -150,9 +151,7 @@ set mark_old=no
 # Turn off the help line at the top
 set help=no
 
-# save iCal to khal
-# stolen from: https://bitbucket.org/jasonwryan/shiv/src/248c7fae1eaa/.mutt/?at=default
-macro pager \Ck  "!/usr/bin/khal --new $(~/bin/mutt2khal ~/.mutt/temp/caldata)" "Saving Calendar event"
+macro attach A "<pipe-message>vcalendar-filter | mutt2khal<enter>" "Save calendar event"
 
 # quick sync imap
 macro index Z   "<shell-escape>/usr/bin/offlineimap -o -q -u TTYUI<enter>" "sync IMAP"

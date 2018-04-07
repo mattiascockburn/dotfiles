@@ -1,4 +1,5 @@
 text/html; elinks -dump ; copiousoutput;
+text/calendar; ~/.mutt/filters/vcalendar-filter; copiousoutput
 application/msword; antiword '%s'; copiousoutput; description=Word Document;
 nametemplate=%s.doc
 application/pdf; pdftotext '%s' -; copiousoutput; description=PDF Document;
