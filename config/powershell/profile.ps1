@@ -6,7 +6,7 @@ $global:PSColor = @{
     File = @{
         Default    = @{ Color = 'White' }
         Directory  = @{ Color = 'Cyan'}
-        Hidden     = @{ Color = 'DarkGray'; Pattern = '^\.' } 
+        Hidden     = @{ Color = 'DarkGray'; Pattern = '^\.' }
         Code       = @{ Color = 'Magenta'; Pattern = '\.(java|c|cpp|cs|js|css|html)$' }
         Executable = @{ Color = 'Red'; Pattern = '\.(exe|bat|cmd|py|pl|ps1|psm1|vbs|rb|reg)$' }
         Text       = @{ Color = 'Yellow'; Pattern = '\.(txt|cfg|conf|ini|csv|log|config|xml|yml|md|markdown)$' }
@@ -15,7 +15,7 @@ $global:PSColor = @{
     Service = @{
         Default = @{ Color = 'White' }
         Running = @{ Color = 'DarkGreen' }
-        Stopped = @{ Color = 'DarkRed' }     
+        Stopped = @{ Color = 'DarkRed' }
     }
     Match = @{
         Default    = @{ Color = 'White' }
