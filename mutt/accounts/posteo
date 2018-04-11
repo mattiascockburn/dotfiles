@@ -1,8 +1,8 @@
 set folder=$HOME/mail/posteo
 set mbox=$HOME/mail/posteo/
 set spoolfile=+INBOX
-set record = +Sent
-set postponed= +Drafts
+set record = +sent
+set postponed= +drafts
 unmailboxes *
 #mailboxes = `~/bin/sidebar_config_from_maildir.py posteo`
 mailboxes `find ~/mail/posteo -type d -name cur -printf '%h '`
