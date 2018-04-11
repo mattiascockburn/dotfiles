@@ -43,8 +43,9 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Hack:pixelsize=11;1
-font-1 = Font Awesome 5 Free:pixelsize=11;1
+font-0 = Anonymice Nerd Font Mono:pixelsize=12;1
+font-1 = Twitter Color Emoji:pixelsize=11;1
+#font-1 = Font Awesome 5 Free:pixelsize=11;1
 font-2 = Unifont:size=11;2
 font-3 = Wuncon Siji:pixelsize=11;3
 font-4 = FontAwesome:pixelsize=11;2
@@ -57,7 +58,7 @@ font-5 = DejaVu Sans:pixelsize=11;2
 
 modules-left = i3
 modules-center = date
-modules-right = filesystem memory wlan eth battery0 battery1 temperature backlight pulseaudio
+modules-right = vpn filesystem memory wlan eth battery0 battery1 temperature backlight pulseaudio
 
 tray-position = right
 tray-padding = 2
@@ -74,6 +75,16 @@ wm-restack = i3
 
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
+
+[module/vpn]
+type = custom/script
+exec = echo UP
+exec-if = pia.sh status
+#interval = 30
+format-underline = #268bd2
+format-prefix = "ꝑ "
+tail = true
+#format-prefix-foreground = #5b
 
 [module/xwindow]
 type = internal/xwindow
