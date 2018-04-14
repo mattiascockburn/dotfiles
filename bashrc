@@ -53,3 +53,6 @@ fi
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 r=$(type -t rvm)
 [[ "$r" = 'function' ]] && export PATH="$PATH:$HOME/.rvm/bin"
+
+# add private bin if it exists
+[[ -d ~/.private/bin ]] && export PATH="~/.private/bin:${PATH}"
