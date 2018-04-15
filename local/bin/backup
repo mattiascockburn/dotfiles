@@ -1,0 +1,14 @@
+#!/bin/bash
+# Quick wrapper around borg_remote_backup
+
+for borg_remote in backup/borg/adata layer8.fail/backup/borg; do
+  export BORG_REPO=$(pass show ${borg_remote}/repo)
+  export BORG_PASSPHRASE=$(pass show ${borg_remote}/pass)
+  if [[ "$BORG_REPO" =~ ^/media/.*$ ]]; then
+    [[ -d "$BORG_REPO" ]] || {
+      echo Local path $BORG_REPO not existing, continue
+      continue
+    }
+  fi
+  borg_remote_backup
+done
