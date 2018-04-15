@@ -1,5 +1,6 @@
 #!/bin/bash
 # Quick wrapper around borg_remote_backup
+export BORG_BACKUP_DIRS='/home/mattias/{Privat,ebooks,minivan,mail,games,learn,b1,.private,.password-store,.weechat,.contacts,git/personal}'
 
 for borg_remote in backup/borg/adata layer8.fail/backup/borg; do
   export BORG_REPO=$(pass show ${borg_remote}/repo)

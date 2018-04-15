@@ -1,10 +1,6 @@
 #!/bin/sh
 # stolen from the borg docs site
 # Setting this, so the repo does not need to be given on the commandline:
-export BORG_REPO=$(pass show layer8.fail/backup/borg/remote)
-
-# Setting this, so you won't be asked for your repository passphrase:
-export BORG_PASSPHRASE=$(pass show layer8.fail/backup/borg/repo)
 # or this to ask an external program to supply the passphrase:
 
 # some helpers and error handling:
@@ -30,7 +26,7 @@ borg create                         \
     --exclude '/home/*/mail/.notmuch'          \
                                     \
     ::'{hostname}-{now}'            \
-    /home/mattias/{Privat,ebooks,minivan,mail,games,learn,b1}
+    $(eval echo $BORG_BACKUP_DIRS)
 
 backup_exit=$?
 
@@ -45,6 +41,7 @@ borg prune                          \
     --list                          \
     --prefix '{hostname}-'          \
     --show-rc                       \
+    --keep-hourly   2               \
     --keep-daily    7               \
     --keep-weekly   4               \
     --keep-monthly  6               \
