@@ -86,7 +86,10 @@ bindsym $mod+Shift+c kill
 
 # Screen brightness control
 bindsym $mod+Prior exec light -A 10
-bindsym $mod+Next exec light -S 10
+bindsym $mod+Next exec light -U 10
+
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
 
 bindsym $mod+shift+w exec browser
 
@@ -252,7 +255,7 @@ bindsym --release XF86PowerOff mode "$mode_power"
 #        position top
 #	#mode hide
 #	modifier Mod1
-##        colors { 
+##        colors {
 ##                statusline #FFFFFF
 ##                background #333333
 ##                focused_workspace $border-focused $bg-focused $text-color
