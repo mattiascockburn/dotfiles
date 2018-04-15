@@ -42,6 +42,7 @@ connect() {
   sleep 1 # because sleep is always good 😸
   mypid=$(cat $PID)
   echo OpenVPN running as PID $mypid
+  rm "$PFILE"
 }
 
 update() {
