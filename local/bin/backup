@@ -1,10 +1,12 @@
 #!/bin/bash
 # Quick wrapper around borg_remote_backup
-CONF='~/.private/config/borg_remote_backup'
-[[ -r "$CONF" ]] || {
+set -u
+
+CONF="${HOME}/.private/config/borg_remote_backup"
+if [ ! -r $CONF ]; then
   echo Fail. Cannot read $CONF
   exit 1
-}
+fi
 
 . "$CONF"
 
