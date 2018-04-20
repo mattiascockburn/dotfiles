@@ -123,6 +123,8 @@ Plug 'Raimondi/delimitMate'
 " TOML syntax is handy for some hipster tech
 Plug 'cespare/vim-toml'
 
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 
