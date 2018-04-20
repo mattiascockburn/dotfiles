@@ -13,7 +13,6 @@ cd "$PIA_BASE"
 PASS=''
 USER=''
 PASS_NAME=privateinternetaccess.com
-PFILE="$(mktemp ~/.pia_auth.XXX)"
 PID=~/.pia_pid
 
 UPDATE_URL='https://www.privateinternetaccess.com/openvpn/openvpn-ip.zip'
@@ -30,18 +29,15 @@ EOF
 
 connect() {
   [[ -z "$1" ]] && usage
-  if [[ -r "$PID" ]];then
-    pgrep -F "$PID" && {
-      echo Still running as $p
-      exit
-    }
-  fi
+  conf="${1}.ovpn"
+  [[ -r "$conf" ]] || {
+    echo Fail. Cannot read $conf
+    exit 1
+  }
   sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
   sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-  sudo openvpn --config "${1}.ovpn" --management "$MGMTSOCKET" unix --auth-user-pass "$PFILE" --writepid "$PID" &
+  sudo openvpn --config "$conf" --management "$MGMTSOCKET" unix --auth-user-pass "$PFILE"
   sleep 1 # because sleep is always good 😸
-  mypid=$(cat $PID)
-  echo OpenVPN running as PID $mypid
   rm "$PFILE"
 }
 
@@ -65,14 +61,7 @@ list() {
 }
 
 get_status() {
-  pgrep -F "$PID"
-  if [[ "$?" -eq 0 ]]; then
-    echo OpenVPN is running
-    nc -NU "$MGMTSOCKET" <<<"status"
-  else
-    echo OpenVPN is NOT running
-    exit 1
-  fi
+  nc -NU "$MGMTSOCKET" <<<"status"
 }
 
 get_pid() {
@@ -109,6 +98,7 @@ case "$1" in
   update)
     update ;;
   connect)
+    PFILE="$(mktemp ~/.pia_auth.XXX)"
     get_pass
     connect "$2" ;;
   status)
