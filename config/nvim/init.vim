@@ -71,6 +71,8 @@ Plug 'tpope/vim-markdown'
 Plug 'saltstack/salt-vim'
 Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.py' }
 Plug 'python-mode/python-mode', {'branch': 'develop'}
+Plug 'vim-ruby/vim-ruby'
+
 " PyDoc to quickly access documentation
 Plug 'fs111/pydoc.vim'
 
