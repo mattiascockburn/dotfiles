@@ -67,6 +67,9 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-markdown'
 
+" Visual helper
+Plug 'Yggdroot/indentLine'
+let g:indentLine_char = '▏'
 
 " Languages
 Plug 'saltstack/salt-vim'
