@@ -11,6 +11,8 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
+" deoplete plugins
+Plug 'zchee/deoplete-jedi'
 
 " Scalpel: better word replacer within a file
 " invoked with <Leader>e by default
