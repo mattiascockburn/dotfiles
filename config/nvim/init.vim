@@ -335,6 +335,32 @@ let g:gutentags_generate_on_new = 1
 " Force gutentags to ignore certain roots as projects
 let g:gutentags_exclude_project_root = ['/home/mattias','/home/giesmat']
 
+" Customize airline prompt
+" unicode symbols, ripped from docs
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ  '
+let g:airline_symbols.paste = '∥  '
+let g:airline_symbols.spell = 'Ꞩ  '
+let g:airline_symbols.notexists   = '∄'
+let g:airline_symbols.whitespace   = 'Ξ'
+
+
 " Remap some stuff
 " Swap v and CTRL-V, because Block mode is more useful
 nnoremap v <C-V>
