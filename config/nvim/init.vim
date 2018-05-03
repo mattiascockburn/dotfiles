@@ -28,8 +28,7 @@ Plug 'amix/open_file_under_cursor.vim'
 
 " Make sure you use single quotes
 "
-" fuzzy file completion, me gusta!
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf.vim'
 
 " ctags Plugin, this one seems to be the simplest for
 " noobs like myself
@@ -308,17 +307,6 @@ command W w !sudo tee % > /dev/null
 
 " ### Plugin Options
 "
-" CtrlP.vim should be used for Ctrl+p
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-" Working Path Mode:
-" 'c' - the directory of the current file.
-" 'a' - the directory of the current file, unless it is a subdirectory of the cwd
-" 'r' - the nearest ancestor of the current file that contains one of these directories or files: .git .hg .svn .bzr _darcs
-" 'w' - modifier to "r": start search from the cwd instead of the current file's directory
-" 0 or '' (empty string) - disable this feature.
-let g:ctrlp_working_path_mode = 'ra'
-
 " Tabman
 " Default hotkeys
 let g:tabman_toggle = '<leader>mt'
