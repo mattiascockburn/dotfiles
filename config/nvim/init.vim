@@ -375,6 +375,7 @@ map <leader>nf :NERDTreeFind<cr><Paste>
 " fast access to fzf
 map <leader>F :FZF!<cr>
 map <leader>f :FZF
+map <C-P> :FZF .<cr>
 
 " Fast save
 nmap <leader>w :w!<cr>
