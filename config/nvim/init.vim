@@ -98,6 +98,9 @@ Plug 'airblade/vim-gitgutter'
 " Powerful multi file search
 Plug 'wincent/ferret'
 
+" Saner match highlighting and search mappings
+Plug 'wincent/loupe'
+
 Plug 'vim-airline/vim-airline'
 
 " syntax/indent/ftplugins for a many languages/tools
