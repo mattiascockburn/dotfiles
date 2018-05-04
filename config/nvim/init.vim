@@ -17,7 +17,6 @@ Plug 'zchee/deoplete-jedi'
 " Scalpel: better word replacer within a file
 " invoked with <Leader>e by default
 Plug 'wincent/scalpel'
-let g:ScalpelCommand='S'
 
 " Better mark management
 Plug 'kshenoy/vim-signature'
