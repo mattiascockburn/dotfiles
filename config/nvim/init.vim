@@ -363,6 +363,11 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.notexists   = '∄'
 let g:airline_symbols.whitespace   = 'Ξ'
 
+" Looks
+" Make vertical bar more pleasing to the eye
+if has('folding')
+  set fillchars=vert:│
+endif
 
 " Remap some stuff
 " Swap v and CTRL-V, because Block mode is more useful
