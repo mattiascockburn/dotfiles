@@ -299,6 +299,7 @@ assign [class="clementine"] $ws4
 
 # Start some shit i need (Rest is in .xinitrc)
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id xinput set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' 1.0
 #exec --no-startup-id thunderbird
 #exec --no-startup-id chromium
 #exec --no-startup-id qutebrowser
