@@ -18,6 +18,10 @@ Plug 'zchee/deoplete-jedi'
 " invoked with <Leader>e by default
 Plug 'wincent/scalpel'
 
+" Macro helper
+" <CR> will replay last recorded macro
+Plug 'wincent/replay'
+
 " Better mark management
 Plug 'kshenoy/vim-signature'
 
