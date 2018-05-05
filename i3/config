@@ -353,6 +353,8 @@ for_window [title="pinentry"] floating enable; border none; focus mode_toggle
 # Tor Browser
 for_window [class="Tor Browser"] floating enable; border none
 
+# Jump to next NVIM instance
+bindsym $mod+t [class="kitty" title=".*NVIM"] focus
 
 # More behaviour
 focus_follows_mouse no
