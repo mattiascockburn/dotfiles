@@ -255,7 +255,7 @@ autocmd GUIEnter * set visualbell t_vb=
 
 " ### Search
 set incsearch
-set ignorecase
+set smartcase
 
 " Set the search scan to wrap around the file
 set wrapscan
