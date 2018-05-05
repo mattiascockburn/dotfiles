@@ -448,3 +448,16 @@ map <leader>T :tabe term://bash<cr>
 " Auomatically set the terminal title
 set title
 
+" Shortcut to switch to last used tab
+let g:lasttab = 1
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
+" Shortcut for last used buffer
+let g:lastusedbuffer = 1
+au BufLeave * let g:lastusedbuffer = bufnr('%')
+" jump to last used buffer
+map <leader>bl :execute "buffer" g:lastusedbuffer<cr>
+
+map <leader>q :close<cr>
+
