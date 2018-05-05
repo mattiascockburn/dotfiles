@@ -4,7 +4,7 @@ let s:box_drawings_light_vertical='│'
 
 let g:indentLine_char=s:box_drawings_light_vertical
 
-let g:indentLine_bufNameExclude=['NERD_tree.*', '__doc__']
+let g:indentLine_bufNameExclude=['NERD_tree.*', '__doc__', 'term://.*']
 
 if has('nvim') && !has('nvim-0.2.2')
   " Older versions of Neovim set the runtime path incorrectly, causing problems
