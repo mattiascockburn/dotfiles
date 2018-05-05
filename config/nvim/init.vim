@@ -13,6 +13,9 @@ endif
 let g:deoplete#enable_at_startup = 1
 " deoplete plugins
 Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/neco-syntax'
+Plug 'fszymanski/deoplete-emoji'
 
 " Scalpel: better word replacer within a file
 " invoked with <Leader>e by default
