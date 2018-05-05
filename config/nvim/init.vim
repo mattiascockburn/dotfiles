@@ -411,11 +411,10 @@ if has('nvim')
   set inccommand=split
 endif
 
-" Remap some stuff
-" Swap v and CTRL-V, because Block mode is more useful
-nnoremap v <C-V>
-nnoremap <C-V> v
-vnoremap v <C-V>
+" Buffer management
+" fast buffer list/switch
+nnoremap <Space> :ls<cr>:b
+
 vnoremap <C-V> v
 
 " Define some general purpose shortcuts
