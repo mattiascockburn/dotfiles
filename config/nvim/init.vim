@@ -255,7 +255,7 @@ autocmd GUIEnter * set visualbell t_vb=
 
 " ### Search
 set incsearch
-set smartcase
+set ignorecase
 
 " Set the search scan to wrap around the file
 set wrapscan
@@ -300,6 +300,17 @@ map k gk
 " ### Movement
 " https://neovim.io/doc/user/nvim_terminal_emulator.html
 " Use `ALT+{h,j,k,l}` to navigate windows from any mode:
+
+if has('nvim')
+  " Make it easier to get out of terminal mode
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <M-[> <Esc>
+  tnoremap <C-v><Esc> <Esc>
+  " Enable pasting in terminal insert mode trhough ALT+r + Register
+  tnoremap <expr> <A-r> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+
+  " Make window switching more pleasant
+  tnoremap <A-h> <C-\><C-N><C-w>h
 tnoremap <A-h> <C-\><C-N><C-w>h
 tnoremap <A-j> <C-\><C-N><C-w>j
 tnoremap <A-k> <C-\><C-N><C-w>k
@@ -308,6 +319,10 @@ inoremap <A-h> <C-\><C-N><C-w>h
 inoremap <A-j> <C-\><C-N><C-w>j
 inoremap <A-k> <C-\><C-N><C-w>k
 inoremap <A-l> <C-\><C-N><C-w>l
+vnoremap <A-h> <C-\><C-N><C-w>h
+vnoremap <A-j> <C-\><C-N><C-w>j
+vnoremap <A-k> <C-\><C-N><C-w>k
+vnoremap <A-l> <C-\><C-N><C-w>l
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
