@@ -406,6 +406,11 @@ if has('folding')
   set fillchars=vert:│
 endif
 
+" Live preview of substitutions
+if has('nvim')
+  set inccommand=split
+endif
+
 " Remap some stuff
 " Swap v and CTRL-V, because Block mode is more useful
 nnoremap v <C-V>
