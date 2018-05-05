@@ -328,6 +328,15 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
+" If we have nvr available
+if has('nvim')
+  if executable('nvr')
+    " make sure that programs which use
+    " $VISUAL open in the current instance
+    let $VISUAL = 'nvr -cc split --remote-wait'
+  endif
+endif
+
 " ### Visual mode
 if has('virtualedit')
   set virtualedit=block               " allow cursor to move where there is no text in visual block mode
