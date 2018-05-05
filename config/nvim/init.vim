@@ -350,7 +350,7 @@ set termencoding=utf-8
 
 " ### Nifty tricks
 " Write files as root
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 " ### Plugin Options
 "
