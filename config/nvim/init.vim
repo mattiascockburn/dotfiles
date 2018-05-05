@@ -41,6 +41,10 @@ Plug 'amix/open_file_under_cursor.vim'
 "
 Plug 'junegunn/fzf.vim'
 
+" Better buffer delete behaviour
+" This plugin provides Bdelete and Bwipeout
+Plug 'moll/vim-bbye'
+
 " ctags Plugin, this one seems to be the simplest for
 " noobs like myself
 " Plug 'ludovicchabant/vim-gutentags'
