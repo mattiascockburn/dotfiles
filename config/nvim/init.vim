@@ -62,11 +62,12 @@ Plug 'godlygeek/tabular'
 " ctags support/puppet-vim
 Plug 'majutsushi/tagbar'
 
+" Do not install snipmate, but leave the reference here
+" UltiSnips is way better
 " reqs for snipmate (utility plugins)
-Plug 'tomtom/tlib_vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-
-Plug 'garbas/vim-snipmate'
+" Plug 'tomtom/tlib_vim'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'garbas/vim-snipmate'
 
 Plug 'rodjek/vim-puppet'
 
