@@ -445,3 +445,6 @@ map <leader>T :tabe term://bash<cr>
 " Super useful 😻
 :au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
+" Auomatically set the terminal title
+set title
+
