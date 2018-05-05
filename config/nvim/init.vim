@@ -21,6 +21,9 @@ Plug 'fszymanski/deoplete-emoji'
 " invoked with <Leader>e by default
 Plug 'wincent/scalpel'
 
+" Briefly highlight the yanked region
+Plug 'machakann/vim-highlightedyank'
+
 " Macro helper
 " <CR> will replay last recorded macro
 Plug 'wincent/replay'
