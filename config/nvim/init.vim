@@ -415,6 +415,11 @@ endif
 " fast buffer list/switch
 nnoremap <Space> :ls<cr>:b
 
+" Remap some stuff
+" Swap v and CTRL-V, because Block mode is more useful
+nnoremap v <C-V>
+nnoremap <C-V> v
+vnoremap v <C-V>
 vnoremap <C-V> v
 
 " Define some general purpose shortcuts
