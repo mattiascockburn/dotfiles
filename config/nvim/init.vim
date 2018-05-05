@@ -105,6 +105,7 @@ Plug 'endel/vim-github-colorscheme'
 Plug 'owickstrom/vim-colors-paramount'
 Plug 'atelierbram/Base2Tone-vim'
 Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-solarized8'
 
 " git stuff
 Plug 'tpope/vim-fugitive'
@@ -177,7 +178,8 @@ let &t_ut=''
 syntax enable
 set background=dark
 " colorscheme jay
-colorscheme molokai
+" colorscheme molokai
+colorscheme solarized8_high
 
 " ### Death to all rodents in textmode
 set mouse=
