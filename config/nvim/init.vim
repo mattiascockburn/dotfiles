@@ -466,3 +466,5 @@ map <leader>bl :execute "buffer" g:lastusedbuffer<cr>
 
 map <leader>q :close<cr>
 
+" fzf buffer list
+map <leader>B :Buffers<cr>
