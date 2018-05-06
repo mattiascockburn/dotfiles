@@ -78,8 +78,9 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-eunuch'
 
 " Visual helper
 Plug 'Yggdroot/indentLine'
