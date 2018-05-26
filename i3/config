@@ -249,18 +249,11 @@ bindsym --release XF86PowerOff mode "$mode_power"
 
 ## Start i3bar to display a workspace bar (plus the system information i3status
 ## finds out, if available)
-##bar {
-#        #status_command py3status -n 5 -c ~/.i3status.conf
-#	status_command polybar example
-#        position top
-#	#mode hide
-#	modifier Mod1
-##        colors {
-##                statusline #FFFFFF
-##                background #333333
-##                focused_workspace $border-focused $bg-focused $text-color
-##                inactive_workspace $border-unfocused $bg-unfocused $bar-text-unfocused
-##        }
+#bar {
+#  font pango:Iosevka Nerd Font:10
+#  status_command bumblebee-status -m nic disk:home sensors memory battery date time pasink taskwarrior -p interval=30 -t gruvbox-powerline
+#  position top
+#}
 #colors {
 #    separator #969896
 #    background #1d1f21
@@ -300,21 +293,13 @@ assign [class="clementine"] $ws4
 # Start some shit i need (Rest is in .xinitrc)
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id xinput set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' 1.0
-#exec --no-startup-id thunderbird
-#exec --no-startup-id chromium
-#exec --no-startup-id qutebrowser
-#exec --no-startup-id midori
-#exec --no-startup-id dwb
 
-#exec --no-startup-id roxterm --disable-sm -p Default -T mutt -e bash -c 'mutt'
-#exec --no-startup-id psi-plus
 exec --no-startup-id dunst
 # At my current job my VPN endpoint is in DE, so i cannot use
 # geoclue2
 exec --no-startup-id redshift -l -36.8621448:174.5852909
 #exec --no-startup-id redshift -l geoclue2
-# done through i3blocks mixer plugin
-#exec --no-startup-id volumeicon
+
 exec --no-startup-id nm-applet
 exec --no-startup-id compton -f
 #bluetooth crap
@@ -323,12 +308,7 @@ exec --no-startup-id blueberry-tray
 exec_always --no-startup-id setxkbmap -layout "us,us" -variant ",intl" -option "grp:alt_shift_toggle"
 exec --no-startup-id unclutter --timeout 5
 
-
-# Search the web
-#bindsym $mod+Shift+s exec ~/bin/dsurfraw
-
 # Set my desktop background
-#exec_always feh --bg-center ~/.wallpaper
 exec_always nitrogen --restore
 
 
@@ -359,15 +339,8 @@ bindsym $mod+t [class="kitty" title=".*NVIM"] focus
 # More behaviour
 focus_follows_mouse no
 
-# htop
-#bindsym $mod+t	exec urxvt --title htop -e htop
-
 ## Password menu
-
 bindsym $mod+p  exec rofi-pass
-
-# mail
-bindsym $mod+m exec roxterm --disable-sm -p Default -T mutt -e mutt
 
 # AudioFoo
 bindsym XF86AudioPlay  exec playerctl play
