@@ -22,7 +22,7 @@ set $alt Mod1
 # chose an xft font, such as:
 # font xft:DejaVu Sans Mono 10
 
-font xft:Overpass 12
+font xft:Iosevka Nerd Font Mono 12
 
 # "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color"
 new_window pixel 1
