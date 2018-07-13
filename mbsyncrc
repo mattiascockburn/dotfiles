@@ -35,31 +35,31 @@ Channel posteo-inbox
 Channel posteo-sent
 Channel posteo-trash
 
-IMAPAccount b1
-Host imap.intern.b1-systems.de
-User giese
-PassCmd "pass show b1/general"
-SSLType IMAPS
-AuthMechs LOGIN
-
-IMAPStore b1-remote
-Account b1
-
-MaildirStore b1-local
-Path ~/mail/B1/
-Inbox ~/mail/B1/INBOX
-Flatten .
-
-Channel b1-all
-Master :b1-remote:
-Slave :b1-local:
-Patterns "*"
-
-Channel b1-sent
-Master :b1-remote:"Sent"
-Slave :b1-local:sent
-
-
-Group b1
-Channel b1-all
-Channel b1-sent
+#IMAPAccount b1
+#Host imap.intern.b1-systems.de
+#User giese
+#PassCmd "pass show b1/general"
+#SSLType IMAPS
+#AuthMechs LOGIN
+#
+#IMAPStore b1-remote
+#Account b1
+#
+#MaildirStore b1-local
+#Path ~/mail/B1/
+#Inbox ~/mail/B1/INBOX
+#Flatten .
+#
+#Channel b1-all
+#Master :b1-remote:
+#Slave :b1-local:
+#Patterns "*"
+#
+#Channel b1-sent
+#Master :b1-remote:"Sent"
+#Slave :b1-local:sent
+#
+#
+#Group b1
+#Channel b1-all
+#Channel b1-sent
