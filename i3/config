@@ -295,10 +295,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id xinput set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' 1.0
 
 exec --no-startup-id dunst
-# At my current job my VPN endpoint is in DE, so i cannot use
-# geoclue2
-exec --no-startup-id redshift -l -36.8621448:174.5852909
-#exec --no-startup-id redshift -l geoclue2
+exec --no-startup-id redshift -l geoclue2
 
 exec --no-startup-id nm-applet
 exec --no-startup-id compton -f
