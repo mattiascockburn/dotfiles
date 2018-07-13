@@ -18,10 +18,6 @@ for borg_remote in $BACKUP_STORES; do
       echo Local path $BORG_REPO not existing, continue
       continue
     }
-    mount | grep -q "$BORG_REPO" || {
-      echo Target does not seem to be mounted, continue
-      continue
-    }
   fi
   borg_remote_backup
 done
