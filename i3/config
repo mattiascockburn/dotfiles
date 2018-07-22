@@ -85,9 +85,15 @@ bindsym XF86Explorer exec ~/.local/bin/suspend.sh
 bindsym $mod+Shift+c kill
 
 # Screen brightness control
+# for minivan keyboard
 bindsym $mod+Prior exec light -A 10
 bindsym $mod+Next exec light -U 10
 
+# on gigabyte stock keyboard
+bindsym $mod+Control+plus exec light -A 10
+bindsym $mod+Control+minus exec light -U 10
+
+# on thinkpads with proper keycodes
 bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 
