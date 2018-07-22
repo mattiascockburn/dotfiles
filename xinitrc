@@ -68,7 +68,10 @@ devmon --sync \
 # fucking beep
 xset -b
 
+# typical thinkpad setup
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1
+# Gigabyte Aero 15
+xinput set-prop 'ETPS/2 Elantech Touchpad' 'libinput Tapping Enabled' 1
 
 # Automatically lock the session
 exec xautolock -time 10 -detectsleep -bell 0 -locker 'slock' -notify 30 \
