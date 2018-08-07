@@ -7,6 +7,7 @@ export MOSH_TITLE_NOPREFIX=1
 #pager/editor
 export PAGER=most
 export EDITOR=vim
+which nvim &>/dev/null && export EDITOR=nvim
 export VISUAL=$EDITOR
 
 #grep
