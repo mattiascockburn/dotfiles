@@ -9,7 +9,7 @@ fi
 
 mode="$1"
 
-case $mode in 
+case $mode in
    enable|disable)
       ;;
    *)
