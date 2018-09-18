@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=zathura
+MimeType=application/pdf;
+Exec=/usr/bin/zathura %f
+#NoDisplay=true
+StartupNotify=true
