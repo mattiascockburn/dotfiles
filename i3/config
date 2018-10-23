@@ -304,7 +304,8 @@ exec --no-startup-id dunst
 exec --no-startup-id redshift -l geoclue2
 
 exec --no-startup-id nm-applet
-exec --no-startup-id compton -f
+# adjust compton for vsync with NVIDIA. See https://github.com/chjj/compton/issues/227
+exec --no-startup-id compton -f --unredir-if-possible
 #bluetooth crap
 exec --no-startup-id blueberry-tray
 # keyboard layouts
