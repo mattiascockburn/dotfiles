@@ -74,6 +74,7 @@ set attach_keyword = "\\<(anhängen|angehängt|anhang|anhänge|hängt an|attache
 ## neomutt - sort folders by message count
 set sort=threads
 set sort_browser="reverse-count"
+set sort_aux = last-date-received
 
 ## better navigation
 bind index g  noop
