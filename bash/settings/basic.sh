@@ -1,5 +1,5 @@
 #web browser
-export BROWSER=qutebrowser
+#export BROWSER=qutebrowser
 
 # mosh settings
 export MOSH_TITLE_NOPREFIX=1
