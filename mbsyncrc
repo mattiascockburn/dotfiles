@@ -50,10 +50,10 @@ Path ~/mail/B1/
 Inbox ~/mail/B1/INBOX
 Flatten .
 
-Channel b1-all
+Channel b1-inbox
 Master :b1-remote:
 Slave :b1-local:
-Patterns "*"
+Patterns * !Sent
 
 Channel b1-sent
 Master :b1-remote:"Sent"
@@ -61,5 +61,5 @@ Slave :b1-local:sent
 
 
 Group b1
-Channel b1-all
+Channel b1-inbox
 Channel b1-sent
