@@ -1,8 +1,8 @@
 set folder=$HOME/mail/B1
 set mbox=$HOME/mail/B1
 set spoolfile=+INBOX
-set record = +INBOX.Sent
-set postponed=+INBOX.Drafts
+set record = +Sent
+set postponed=+Drafts
 unmailboxes *
 mailboxes `find ~/mail/B1 -type d -name cur -printf '%h '`
 set realname = 'Mattias Giese'
