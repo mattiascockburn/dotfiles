@@ -12,7 +12,7 @@ if [ ! -d "$target" ]; then
   echo $target is not a directory
   exit 1
 fi
-if mount | grep -qv "$target"; then
+if mount | grep -qc "$target"; then
   echo $target not mounted
   exit 1
 fi
