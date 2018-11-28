@@ -1,0 +1,23 @@
+#!/bin/bash
+target=${1:-/mnt/rescue}
+root='UUID=c8f65da1-046a-4695-a581-05e64c7361f7'
+boot='UUID=1729-49C1'
+cache=/var/cache/pacman/pkg
+set -u
+
+sudo mount "$root" "$target"
+sudo mount "$boot" "${target}/boot"
+sudo mount --bind "$cache" "${target}/${cache}"
+if [ ! -d "$target" ]; then
+  echo $target is not a directory
+  exit 1
+fi
+if mount | grep -qv "$target"; then
+  echo $target not mounted
+  exit 1
+fi
+echo Trying to update remote system mounted at $target
+sudo arch-chroot "$target" pacman -Syu --noconfirm
+echo Umount $target
+sudo umount -R "$target"
+
