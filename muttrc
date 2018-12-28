@@ -47,8 +47,9 @@ macro index,pager \e2 ":source ~/.mutt/accounts/b1<enter><change-folder> +INBOX<
 set use_from = yes
 
 ## address book
-#set query_command="abook --mutt-query '%s'"
-set query_command = "lbdbq %s 2>/dev/null"
+# use khard for contact lookup
+#set query_command= "khard email --parsable %s"
+set query_command = "echo %s | xargs khard email --parsable --"
 macro index,pager A "<pipe-message>khard --add-email<return>" "add the sender address to carddav"
 bind editor <Tab> complete-query
 
@@ -102,7 +103,8 @@ auto_view text/html text/calendar
 alternative_order text/plain text/html text/*
 
 # open in browser
-macro attach 'V' "<pipe-entry>cat >~/.tmp/mutt-mail.html && $BROWSER ~/.tmp/mutt-mail.html && rm ~/.cache/mutt-mail.html<enter>"
+# using ~/Downloads because i am also using firejail
+macro attach 'V' "<pipe-entry>cat >~/Downloads/mutt-mail.html && /usr/local/bin/browser ~/Downloads/mutt-mail.html<enter>"
 
 
 ## muttjump integration
@@ -181,3 +183,4 @@ unignore from: to: cc: date: subject:   # show only these
 unhdr_order *                           # some distros order things by default
 hdr_order from: to: cc: date: subject:  # and in this order
 
+alias uchicch Ursula Cockburn <uchicch@gmail.com>
