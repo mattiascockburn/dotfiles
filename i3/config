@@ -22,23 +22,11 @@ set $alt Mod1
 # chose an xft font, such as:
 # font xft:DejaVu Sans Mono 10
 
-font xft:Iosevka Nerd Font Mono 12
+font xft:Iosevka Mono 12
 
-# "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color"
 new_window pixel 1
+
 # Colors and stuff
-
-set $blue #005588
-set $text-color #FFFFFF
-set $border-focused #2952A3
-set $bg-focused #2952A3
-set $indicator-focused #333333
-set $bg-foobar #484848
-set $bg-unfocused #333333
-set $border-unfocused #333333
-set $indicator-unfocused #000000
-set $bar-text-unfocused #AAAAAA
-
 # class                 border  backgr. text    indicator
 client.focused #81a2be #81a2be #1d1f21 #282a2e
 client.focused_inactive #373b41 #373b41 #969896 #282a2e
@@ -66,7 +54,7 @@ bindsym $mod+Control+y exec ~/.local/bin/youpoop.sh video
 # Launch vim-anywhere script
 bindsym $mod+Shift+v exec ~/.local/bin/vim-anywhere clip
 
-# Add current url to local transmission-daemon
+# Add current url to transmission-daemon
 bindsym $mod+Control+t exec ~/.local/bin/t-quick-add
 
 # lock the screen now
@@ -99,14 +87,9 @@ bindsym XF86MonBrightnessDown exec light -U 10
 
 bindsym $mod+shift+w exec browser
 
-
-# start dmenu (a program launcher)
-# Beware, maybe a patched version of dmenu is needed in order to use TTF fonts
-# https://aur.archlinux.org/packages/dmenu-xft/
-#bindsym $mod+d exec dmenu_run -fn 'Source Code Pro-9'
-#bindsym $mod+d exec rofi
-#bindsym $mod+d exec rofi -show run -lines 4 -eh 2 -width 100 -opacity "85" -bw 0 -bc "$rofi-bg-color" -bg "$rofi-bg-color" -fg "$text-color" -hlbg "$rofi-bg-color" -hlfg "$rofi-text-highlighted" -font "Hack 14"
+# Launcher configuration
 bindsym $mod+d exec rofi -show run -width 70 -opacity "85"
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -315,7 +298,6 @@ exec --no-startup-id unclutter --timeout 5
 # Set my desktop background
 exec_always nitrogen --restore
 
-
 # fix xfce4-notify
 for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
 
@@ -336,9 +318,6 @@ for_window [title="pinentry"] floating enable; border none; focus mode_toggle
 
 # Tor Browser
 for_window [class="Tor Browser"] floating enable; border none
-
-# Jump to next NVIM instance
-bindsym $mod+t [class="kitty" title=".*NVIM"] focus
 
 # More behaviour
 focus_follows_mouse no
@@ -379,4 +358,3 @@ bindsym $mod+$alt+k workspace next
 # take screenshot
 # YYYY-MM-DD-hh-mm-ss, no same file name
 bindsym $mod+Print exec scrot '%Y-%m-%d-%T.png' -e 'mv $f ~/Pictures/Screenshots/'
-bindsym Print exec teiler
