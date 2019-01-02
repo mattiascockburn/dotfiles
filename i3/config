@@ -273,6 +273,7 @@ assign [class="Thunderbird"] $ws2
 assign [class="psi+"] $ws3
 assign [class="psi-plus"] $ws3
 assign [class="Psi-plus"] $ws3
+assign [class="gajim"] $ws3
 
 
 assign [class="vlc"] $ws4
