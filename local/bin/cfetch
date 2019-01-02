@@ -1,0 +1,22 @@
+#!/bin/bash
+# cfetch, crappy wrapper around rsync
+# $1 = relative path (under $BASEPATH)
+# $2 = optional dest. if dest is not set rsync will copy
+# stuff to CWD
+
+BASEPATH=pebkac:/data/junk/bt/Downloads
+RSYNC_ARGS='-zz --compress-level=9 -rP -h'
+
+escape() {
+  [[ -n "$1" ]] && echo $1 | sed -e 's/ /\\ /g'
+}
+
+[[ $# -lt 1 ]] && {
+  echo Fail. Need at least subpath
+  exit 1
+}
+
+SRC="${BASEPATH}/$(escape $1)"
+DEST="${2:-.}"
+
+rsync $RSYNC_ARGS $SRC $DEST
