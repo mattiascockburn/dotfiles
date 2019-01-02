@@ -38,6 +38,7 @@ sudo borg create                         \
     --exclude '/home/*/bt'          \
     --exclude '/home/*/go'          \
     --exclude '/home/libvirt/'          \
+    --exclude '/home/*/git/aur/*/pkg/'  \
     ::'{hostname}-{now}'            \
     $(eval echo $BORG_BACKUP_DIRS)
 
