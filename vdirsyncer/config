@@ -14,8 +14,8 @@ fileext = ".vcf"
 [storage contacts_b1_remote]
 type = "carddav"
 url = "https://groupware.intern.b1-systems.de/rpc"
-username.fetch = ["command", "getpass", "user", "b1/general"]
-password.fetch = ["command", "getpass", "password", "b1/general"]
+username.fetch = ["command", "~/.local/bin/getpass", "user", "b1/general"]
+password.fetch = ["command", "~/.local/bin/getpass", "password", "b1/general"]
 
 [pair contacts_posteo]
 a = "contacts_posteo_local"
@@ -32,8 +32,8 @@ type = "carddav"
 
 # We can simplify this URL here as well. In theory it shouldn't matter.
 url = "https://posteo.de:8843"
-username.fetch = ["command", "getpass", "user", "internet/dienstleister/posteo"]
-password.fetch = ["command", "getpass", "password", "internet/dienstleister/posteo"]
+username.fetch = ["command", "~/.local/bin/getpass", "user", "internet/dienstleister/posteo"]
+password.fetch = ["command", "~/.local/bin/getpass", "password", "internet/dienstleister/posteo"]
 
 [pair calendar_posteo]
 a = "calendar_posteo_local"
@@ -50,5 +50,5 @@ type = "caldav"
 
 # We can simplify this URL here as well. In theory it shouldn't matter.
 url = "https://posteo.de:8843"
-username.fetch = ["command", "getpass", "user", "internet/dienstleister/posteo"]
-password.fetch = ["command", "getpass", "password", "internet/dienstleister/posteo"]
+username.fetch = ["command", "~/.local/bin/getpass", "user", "internet/dienstleister/posteo"]
+password.fetch = ["command", "~/.local/bin/getpass", "password", "internet/dienstleister/posteo"]
