@@ -27,3 +27,6 @@ case $TERM in
                 ;;
 esac
 
+# deactivate HIDPI scaling for alacritty
+# see https://github.com/jwilm/alacritty/issues/1501
+export WINIT_HIDPI_FACTOR=1.0
