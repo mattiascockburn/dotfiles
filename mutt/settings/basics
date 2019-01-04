@@ -1,5 +1,5 @@
 
-set editor=vim
+set editor=nvim
 
 ## mimetype foo
 set mailcap_path  = ~/.mutt/mailcap
