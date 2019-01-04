@@ -50,7 +50,7 @@ set use_from = yes
 # use khard for contact lookup
 #set query_command= "khard email --parsable %s"
 set query_command = "echo %s | xargs khard email --parsable --"
-macro index,pager A "<pipe-message>khard --add-email<return>" "add the sender address to carddav"
+macro index,pager A "<pipe-message>khard add-email<return>" "add the sender address to carddav"
 bind editor <Tab> complete-query
 
 
@@ -162,12 +162,6 @@ set pager_stop             # don't go to next message automatically
 set menu_scroll            # scroll in menus
 set tilde                  # show tildes like in vim
 unset markers              # no ugly plus signs
-
-macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
-macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
-
-# Open URLs with urlview
- macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 # forward attachments
 set mime_forward_rest=yes

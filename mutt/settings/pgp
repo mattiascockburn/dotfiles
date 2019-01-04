@@ -10,8 +10,8 @@ set pgp_good_sign="^gpg: Good signature from"
 set pgp_use_gpg_agent = yes
 
 # Save a copy of outgoing email, encrypted to yourself
-set smime_encrypt_self = "yes"
+set smime_encrypt_self = yes
 
 # Save a copy of outgoing email, encrypted to yourself
-set pgp_encrypt_self = "yes"
+set pgp_encrypt_self = yes
 

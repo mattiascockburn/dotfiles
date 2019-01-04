@@ -9,7 +9,6 @@ set mail_check_stats
 set sidebar_sort_method=unread
 
 #color sidebar_new brightblue black
-#set sidebar_newmail_only=yes
 
 # bind index,pager \CP sidebar-prev
 bind index,pager \CK sidebar-prev
