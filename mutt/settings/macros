@@ -5,3 +5,10 @@ macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 macro index c "<change-folder>?<toggle-mailboxes>" "open a different folder"
 macro pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
 
+macro index \cb "\
+:set my_tmp_pipe_decode=\$pipe_decode\n\
+:set pipe_decode\n\
+|urlview\n\
+:set pipe_decode=\$my_tmp_pipe_decode\n\
+:unset my_tmp_pipe_decode\n" \
+'call urlview to extract URLs out of a message'
