@@ -1,7 +1,7 @@
 [calendars]
 
 [[calendar_posteo_local]]
-path = ~/.calendar/posteo/*
+path = ~/.calendars/posteo/default
 type = discover
 
 [locale]
