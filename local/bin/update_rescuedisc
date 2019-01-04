@@ -3,7 +3,7 @@ target=${1:-/mnt/rescue}
 root='UUID=c8f65da1-046a-4695-a581-05e64c7361f7'
 boot='UUID=1729-49C1'
 cache=/var/cache/pacman/pkg
-declare -a dotfiles=(.gnupg .git* .password-store .ssh)
+declare -a dotfiles=(.gnupg .git* .password-store .ssh git/dotfiles)
 targetuser=mattias
 set -u
 
@@ -21,7 +21,7 @@ fi
 # update the most important dotfiles for recovery
 echo Updating important stuff
 for d in ${dotfiles[@]}; do
-  rsync -Lrvh "/home/${targetuser}/$d" "${target}/home/${targetuser}/."
+  rsync -Lrh "/home/${targetuser}/$d" "${target}/home/${targetuser}/."
 done
 echo Trying to update packages at $target
 sudo arch-chroot "$target" pacman -Syu --noconfirm
