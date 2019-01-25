@@ -147,6 +147,9 @@ Plug 'Raimondi/delimitMate'
 " TOML syntax is handy for some hipster tech
 Plug 'cespare/vim-toml'
 
+" Go support
+Plug 'fatih/vim-go'
+"
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 
@@ -154,7 +157,6 @@ Plug 'cespare/vim-toml'
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-"Plug 'fatih/vim-go', { 'tag': '*' }
 
 " Plugin options
 "Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
@@ -467,3 +469,12 @@ map <leader>q :close<cr>
 
 " fzf buffer list
 map <leader>B :Buffers<cr>
+
+" Make jumping between errors in quickfix list easier
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+" suggestion from vim-go tutorial, rebind some commands
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
