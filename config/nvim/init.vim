@@ -216,6 +216,9 @@ set softtabstop=2
 
 set iskeyword+=_,$,@,%,#    " none of these are word dividers
 
+" automativcally save when building through e.g. make
+set autowrite
+
 " ## Filetypes
 filetype plugin on
 filetype indent on
