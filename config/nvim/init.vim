@@ -23,6 +23,9 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'fszymanski/deoplete-emoji'
 
+" Session management
+Plug 'thaerkh/vim-workspace'
+
 " Scalpel: better word replacer within a file
 " invoked with <Leader>e by default
 Plug 'wincent/scalpel'
@@ -487,3 +490,6 @@ nnoremap <leader>a :cclose<CR>
 " suggestion from vim-go tutorial, rebind some commands
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+" options for vim-workspace
+nnoremap <leader>s :ToggleWorkspace<CR>
