@@ -1,0 +1,9 @@
+[user]
+	email = mattiasgiese@posteo.net
+	name = Mattias Giese
+[alias]
+	pushall = !git remote | xargs -L1 git push --all
+[includeIf "gitdir:~/b1/"]
+  path = .gitconfig-b1
+[core]
+	excludesfile = /home/mattias/.git/config/ignore
