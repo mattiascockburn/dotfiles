@@ -200,6 +200,9 @@ set showmatch
 " set leader key to something more accessible
 let mapleader = ","
 
+" ### Spelling
+set spelllang=en
+
 " ### Auto Commands
 autocmd BufRead,BufNewFile ~/git/layer8/ansible-stuff/*.yml/ syntax=ansible
 autocmd BufRead,BufNewFile ~/.mutt/settings/* set ft=muttrc
