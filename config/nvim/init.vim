@@ -427,6 +427,10 @@ if has('nvim')
   set inccommand=split
 endif
 
+" show numbers
+set number
+set relativenumber
+
 " Buffer management
 " fast buffer list/switch
 nnoremap <Space> :ls<cr>:b
