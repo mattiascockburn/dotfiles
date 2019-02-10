@@ -20,7 +20,7 @@ complete -F _ssh s
 # is not feasible and i don't need fancy features on remotes
 s() {
   case "$TERM" in
-    xterm-kitty)
+    alacritty|xterm-kitty)
       export OLD_TERM=$TERM
       export TERM=xterm
       ;;
