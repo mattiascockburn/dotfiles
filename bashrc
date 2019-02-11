@@ -36,6 +36,12 @@ done
 # https://github.com/magicmonty/bash-git-prompt
 GIT_PROMPT_THEME='Default_NoExitState'
 #GIT_PROMPT_THEME='Crunch'
+
+# set some special colors for the prompt end
+GREEN="\[$(tput setaf 2)\]"
+LIGHT_BLUE="\[$(tput setaf 39)\]"
+RESET="\[$(tput sgr0)\]"
+GIT_PROMPT_END="\n${GREEN}[${LIGHT_BLUE}\h${GREEN}]${RESET}\$ "
 [[ -f ~/.bash/bash-git-prompt/gitprompt.sh ]] && . ~/.bash/bash-git-prompt/gitprompt.sh
 
 # MISC
