@@ -36,8 +36,7 @@ done
 # https://github.com/magicmonty/bash-git-prompt
 GIT_PROMPT_THEME='Default_NoExitState'
 #GIT_PROMPT_THEME='Crunch'
-GIT_PROMPT_END="\n\$ "
-. ~/.bash/bash-git-prompt/gitprompt.sh
+[[ -f ~/.bash/bash-git-prompt/gitprompt.sh ]] && . ~/.bash/bash-git-prompt/gitprompt.sh
 
 # MISC
 # no cowsay in ansible
