@@ -3,7 +3,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
-
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -53,9 +52,6 @@ Plug 'wincent/replay'
 " Better mark management
 Plug 'kshenoy/vim-signature'
 
-" Multi cursor, whoop whoop
-Plug 'terryma/vim-multiple-cursors'
-
 "Open file under cursor with 'gf'
 Plug 'amix/open_file_under_cursor.vim'
 
@@ -80,16 +76,6 @@ Plug 'w0rp/ale'
 " Easily align text
 " used by puppet-vim
 Plug 'godlygeek/tabular'
-
-" ctags support/puppet-vim
-Plug 'majutsushi/tagbar'
-
-" Do not install snipmate, but leave the reference here
-" UltiSnips is way better
-" reqs for snipmate (utility plugins)
-" Plug 'tomtom/tlib_vim'
-" Plug 'MarcWeber/vim-addon-mw-utils'
-" Plug 'garbas/vim-snipmate'
 
 Plug 'rodjek/vim-puppet'
 
@@ -178,14 +164,6 @@ Plug 'fatih/vim-go'
 " Using a non-master branch
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-
-" Plugin options
-"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
 " Unmanaged plugin (manually installed and updated)
 "Plug '~/my-prototype-plugin'
 
@@ -272,7 +250,6 @@ set wildmode=longest:full,full
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-
 
 "" ignore unneccessary file types in autocomplete mode
 set wildignore+=*.dict,*.aux,*.nav,*.out,*.toc,*.vrb,*.snm
