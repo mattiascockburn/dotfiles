@@ -544,3 +544,15 @@ autocmd User fugitive
 
 " banish old fugitive read-only buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" vimrc specific helpers
+" stolen from https://superuser.com/questions/132029/how-do-you-reload-your-vimrc-file-without-restarting-vim
+" automatically source vimrc after edit
+if has ('autocmd') " Remain compatible with earlier versions
+ augroup vimrc     " Source vim configuration upon save
+    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+  augroup END
+endif " has autocmd
+" Quickly edit/reload this configuration file
+nnoremap gev :e $MYVIMRC<CR>
