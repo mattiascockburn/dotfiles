@@ -65,7 +65,7 @@ Plug 'moll/vim-bbye'
 
 " ctags Plugin, this one seems to be the simplest for
 " noobs like myself
-" Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
