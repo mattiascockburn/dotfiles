@@ -489,6 +489,14 @@ map <leader>q :close<cr>
 " fzf buffer list
 map <leader>B :Buffers<cr>
 
+" some settings for ale
+" Error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+
+" Enable integration with airline.
+let g:airline#extensions#ale#enabled = 1
+
 " Make jumping between errors in quickfix list easier
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
