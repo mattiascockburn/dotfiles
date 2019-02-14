@@ -506,6 +506,16 @@ nnoremap <leader>a :cclose<CR>
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
+" more higlight options for vim-go
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+
 " options for vim-workspace
 nnoremap <leader>s :ToggleWorkspace<CR>
 " don't load on vim with args
