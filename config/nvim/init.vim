@@ -534,3 +534,13 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 nmap <leader>z <Plug>(FerretAckWord)
 nmap <leader>x <Plug>(FerretAck)
 
+" settings for fugitive
+" stolen from vimcasts.org
+" quickly go to parent tree in git object browsing mode
+autocmd User fugitive
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
+
+" banish old fugitive read-only buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
