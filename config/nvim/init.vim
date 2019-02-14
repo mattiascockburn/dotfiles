@@ -386,7 +386,7 @@ let g:pymode_python = 'python3'
 
 let g:gutentags_generate_on_new = 1
 " Force gutentags to ignore certain roots as projects
-let g:gutentags_exclude_project_root = ['/home/mattias','/home/giesmat']
+let g:gutentags_cache_dir = '~/.tags'
 
 " Customize airline prompt
 " unicode symbols, ripped from docs
