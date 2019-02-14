@@ -463,7 +463,7 @@ map <silent> <leader><cr> :noh<cr>
 map <leader>pp :setlocal paste!<cr>
 
 " Spawn terminals
-map <leader>t :spl term://bash<cr>
+map <leader>tt :spl term://bash<cr>
 map <leader>tv :vspl term://bash<cr>
 map <leader>T :tabe term://bash<cr>
 " Enter insert mode when we switch to a terminal
