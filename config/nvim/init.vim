@@ -164,6 +164,9 @@ Plug 'fatih/vim-go'
 " terraform syntax
 Plug 'hashivim/vim-terraform'
 
+" postgresql syntax
+Plug 'lifepillar/pgsql.vim'
+
 "
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
