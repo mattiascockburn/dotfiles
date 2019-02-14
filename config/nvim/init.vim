@@ -3,7 +3,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
-
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -18,10 +17,23 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 " deoplete plugins
-Plug 'zchee/deoplete-jedi'
-Plug 'Shougo/neoinclude.vim'
+" Python goodness
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'Shougo/neco-syntax'
+" vim syntax
+Plug 'Shougo/neco-vim', { 'for': 'vim' }
+
+" deoplete source for Dockerfile
+Plug 'deoplete-plugins/deoplete-docker', { 'for': 'Dockerfile' }
+" emoji junk
 Plug 'fszymanski/deoplete-emoji'
+
+" deoplete support for go
+Plug 'deoplete-plugins/deoplete-go', { 'for': 'go' }
+Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+
+" End of deoplete plugins
+
 
 " Session management
 Plug 'thaerkh/vim-workspace'
@@ -40,9 +52,6 @@ Plug 'wincent/replay'
 " Better mark management
 Plug 'kshenoy/vim-signature'
 
-" Multi cursor, whoop whoop
-Plug 'terryma/vim-multiple-cursors'
-
 "Open file under cursor with 'gf'
 Plug 'amix/open_file_under_cursor.vim'
 
@@ -56,7 +65,7 @@ Plug 'moll/vim-bbye'
 
 " ctags Plugin, this one seems to be the simplest for
 " noobs like myself
-" Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
@@ -67,16 +76,6 @@ Plug 'w0rp/ale'
 " Easily align text
 " used by puppet-vim
 Plug 'godlygeek/tabular'
-
-" ctags support/puppet-vim
-Plug 'majutsushi/tagbar'
-
-" Do not install snipmate, but leave the reference here
-" UltiSnips is way better
-" reqs for snipmate (utility plugins)
-" Plug 'tomtom/tlib_vim'
-" Plug 'MarcWeber/vim-addon-mw-utils'
-" Plug 'garbas/vim-snipmate'
 
 Plug 'rodjek/vim-puppet'
 
@@ -138,8 +137,11 @@ Plug 'PProvost/vim-ps1'
 " Any valid git URL is allowed
 "Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-" Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Snippets
+
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree'
@@ -158,20 +160,19 @@ Plug 'cespare/vim-toml'
 
 " Go support
 Plug 'fatih/vim-go'
+
+" terraform syntax
+Plug 'hashivim/vim-terraform'
+
+" postgresql syntax
+Plug 'lifepillar/pgsql.vim'
+
 "
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 
 " Using a non-master branch
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-
-" Plugin options
-"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Unmanaged plugin (manually installed and updated)
 "Plug '~/my-prototype-plugin'
@@ -259,7 +260,6 @@ set wildmode=longest:full,full
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-
 
 "" ignore unneccessary file types in autocomplete mode
 set wildignore+=*.dict,*.aux,*.nav,*.out,*.toc,*.vrb,*.snm
@@ -396,7 +396,7 @@ let g:pymode_python = 'python3'
 
 let g:gutentags_generate_on_new = 1
 " Force gutentags to ignore certain roots as projects
-let g:gutentags_exclude_project_root = ['/home/mattias','/home/giesmat']
+let g:gutentags_cache_dir = '~/.tags'
 
 " Customize airline prompt
 " unicode symbols, ripped from docs
@@ -463,7 +463,7 @@ map <silent> <leader><cr> :noh<cr>
 map <leader>pp :setlocal paste!<cr>
 
 " Spawn terminals
-map <leader>t :spl term://bash<cr>
+map <leader>tt :spl term://bash<cr>
 map <leader>tv :vspl term://bash<cr>
 map <leader>T :tabe term://bash<cr>
 " Enter insert mode when we switch to a terminal
@@ -489,6 +489,14 @@ map <leader>q :close<cr>
 " fzf buffer list
 map <leader>B :Buffers<cr>
 
+" some settings for ale
+" Error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+
+" Enable integration with airline.
+let g:airline#extensions#ale#enabled = 1
+
 " Make jumping between errors in quickfix list easier
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
@@ -498,8 +506,53 @@ nnoremap <leader>a :cclose<CR>
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
+" more higlight options for vim-go
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+
 " options for vim-workspace
 nnoremap <leader>s :ToggleWorkspace<CR>
 " don't load on vim with args
 let g:workspace_session_disable_on_args = 1
 
+" neonippet configuration
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" keybindings
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" settings for ferret
+nmap <leader>z <Plug>(FerretAckWord)
+nmap <leader>x <Plug>(FerretAck)
+
+" settings for fugitive
+" stolen from vimcasts.org
+" quickly go to parent tree in git object browsing mode
+autocmd User fugitive
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
+
+" banish old fugitive read-only buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" vimrc specific helpers
+" stolen from https://superuser.com/questions/132029/how-do-you-reload-your-vimrc-file-without-restarting-vim
+" automatically source vimrc after edit
+if has ('autocmd') " Remain compatible with earlier versions
+ augroup vimrc     " Source vim configuration upon save
+    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+  augroup END
+endif " has autocmd
+" Quickly edit/reload this configuration file
+nnoremap gev :e $MYVIMRC<CR>
