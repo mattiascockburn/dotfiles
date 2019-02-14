@@ -160,6 +160,10 @@ Plug 'cespare/vim-toml'
 
 " Go support
 Plug 'fatih/vim-go'
+
+" terraform syntax
+Plug 'hashivim/vim-terraform'
+
 "
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
