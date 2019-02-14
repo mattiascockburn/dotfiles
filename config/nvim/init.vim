@@ -521,3 +521,12 @@ nnoremap <leader>s :ToggleWorkspace<CR>
 " don't load on vim with args
 let g:workspace_session_disable_on_args = 1
 
+" neonippet configuration
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" keybindings
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
