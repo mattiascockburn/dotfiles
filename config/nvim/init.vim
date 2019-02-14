@@ -18,10 +18,23 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 " deoplete plugins
-Plug 'zchee/deoplete-jedi'
-Plug 'Shougo/neoinclude.vim'
+" Python goodness
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'Shougo/neco-syntax'
+" vim syntax
+Plug 'Shougo/neco-vim', { 'for': 'vim' }
+
+" deoplete source for Dockerfile
+Plug 'deoplete-plugins/deoplete-docker', { 'for': 'Dockerfile' }
+" emoji junk
 Plug 'fszymanski/deoplete-emoji'
+
+" deoplete support for go
+Plug 'deoplete-plugins/deoplete-go', { 'for': 'go' }
+Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+
+" End of deoplete plugins
+
 
 " Session management
 Plug 'thaerkh/vim-workspace'
