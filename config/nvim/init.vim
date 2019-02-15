@@ -15,7 +15,6 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-let g:deoplete#enable_at_startup = 1
 " deoplete plugins
 " Python goodness
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
@@ -551,3 +550,8 @@ if has ('autocmd') " Remain compatible with earlier versions
 endif " has autocmd
 " Quickly edit/reload this configuration file
 nnoremap gev :e $MYVIMRC<CR>
+
+" some deoplete settings
+call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
+let g:deoplete#enable_at_startup = 1
+
