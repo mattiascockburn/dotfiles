@@ -99,6 +99,9 @@ Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'vim-ruby/vim-ruby'
 Plug 'Glench/Vim-Jinja2-Syntax'
 
+" pandoc plugins
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " PyDoc to quickly access documentation
 Plug 'fs111/pydoc.vim'
