@@ -103,6 +103,9 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
+" wiki stuff in vim
+Plug 'vimwiki/vimwiki'
+
 " PyDoc to quickly access documentation
 Plug 'fs111/pydoc.vim'
 
