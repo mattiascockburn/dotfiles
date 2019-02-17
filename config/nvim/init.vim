@@ -420,6 +420,8 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.notexists   = '∄'
 let g:airline_symbols.whitespace   = 'Ξ'
 
+let g:airline_theme='dark'
+
 " Looks
 " Make vertical bar more pleasing to the eye
 if has('folding')
