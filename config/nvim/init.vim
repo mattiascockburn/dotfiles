@@ -97,6 +97,8 @@ Plug 'saltstack/salt-vim'
 Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.py' }
 Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'vim-ruby/vim-ruby'
+Plug 'Glench/Vim-Jinja2-Syntax'
+
 
 " PyDoc to quickly access documentation
 Plug 'fs111/pydoc.vim'
