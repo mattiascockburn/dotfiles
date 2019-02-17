@@ -134,6 +134,7 @@ Plug 'wincent/ferret'
 Plug 'wincent/loupe'
 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " syntax/indent/ftplugins for a many languages/tools
 Plug 'sheerun/vim-polyglot'
