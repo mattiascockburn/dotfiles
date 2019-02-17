@@ -393,6 +393,7 @@ let g:ansible_extra_keywords_highlight = 1
 " tpope-markdown mode specific config
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'puppet']
 let g:markdown_minlines = 100
+let g:markdown_syntax_conceal = 0
 
 " pymode
 let g:pymode_python = 'python3'
@@ -564,3 +565,5 @@ nnoremap gev :e $MYVIMRC<CR>
 call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
 let g:deoplete#enable_at_startup = 1
 
+" do not conceal syntax by default
+set conceallevel=0
