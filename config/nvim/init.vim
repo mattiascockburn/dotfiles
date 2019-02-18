@@ -245,10 +245,11 @@ filetype plugin on
 filetype indent on
 
 " ## Folding
-set foldmethod=indent
+set foldmethod=syntax
+set foldlevelstart=1
 set foldnestmax=10
-set nofoldenable
-set foldlevel=2
+set foldenable
+set foldlevel=1
 
  " Allow backspacing over indent, eol, and the start of an insert
 set backspace=2
