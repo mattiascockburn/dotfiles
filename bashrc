@@ -59,5 +59,9 @@ fi
 r=$(type -t rvm)
 [[ "$r" = 'function' ]] && export PATH="$PATH:$HOME/.rvm/bin"
 
+# use rvm bash completion if present
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+
 # add private bin if it exists
 [[ -d ~/.private/bin ]] && export PATH="~/.private/bin:${PATH}"
+
