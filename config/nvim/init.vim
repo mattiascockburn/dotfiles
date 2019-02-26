@@ -231,7 +231,15 @@ au BufNewFile,BufRead Jenkinsfile  setf groovy
 autocmd BufWritePre * %s/\s\+$//e
 
 " ### Undo
-set undolevels=200
+set undolevels=1000
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = '~/.local/vim/undo'
+    " Create dirs
+    call system('mkdir -p' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
 
 " ### Behaviour
 " I hate tabs.
