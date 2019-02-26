@@ -585,9 +585,36 @@ endif " has autocmd
 " Quickly edit/reload this configuration file
 nnoremap gev :e $MYVIMRC<CR>
 
-" some deoplete settings
+" Some deoplete settings
+" Disable the candidates in Comment/String syntaxes.
 call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
 
-" do not conceal syntax by default
+" Disable deoplete by default
+let g:deoplete_disable_auto_complete=0
+let b:deoplete_disable_auto_complete=0
+
+" Ignored sources
+"let g:deoplete#ignore_sources = {}
+
+" Configure dicts for deoplete
+setlocal dictionary=/usr/share/dict/german
+setlocal dictionary+=/usr/share/dict/american-english
+call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
+call deoplete#custom#source('dictionary', 'sorters', [])
+call deoplete#custom#source('dictionary', 'min_pattern_length', 4)
+
+" Filetype specific options
+call deoplete#custom#option('sources', {
+    \ '_': ['buffer', 'around'],
+    \ 'vim': ['vim'],
+    \ 'sh': ['file'],
+    \ 'python': ['jedi'],
+    \ 'mail': ['dictionary','khard','emoji'],
+\})
+
+" END of deoplete
+
+" Do not hide characters in, for example, markdown mode
 set conceallevel=0
