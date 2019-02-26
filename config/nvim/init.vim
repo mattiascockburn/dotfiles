@@ -320,6 +320,12 @@ set formatoptions+=n " delete leading number on J (useful with numbered list)"
 " ### Join behaviour
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
 
+" ### Autoformat paragraphs
+" First, disable bloody Q
+nnoremap Q <NOP>
+" Now, create a binding which auto formats the current paragraph
+nnoremap Q :normal! gqip<cr>
+
 " ### Buffers
 " ALT-n next buffer and list, ALT-p previous buffer
 nnoremap <A-n> :bnext<CR>:redraw<CR>:ls<CR>
