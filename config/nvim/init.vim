@@ -34,6 +34,10 @@ Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/vim/plugged/gocode/nvi
 
 " Mutt/e-mail stuff
 Plug 'nicoe/deoplete-khard'
+
+" Spell checking
+Plug 'deathlyfrantic/deoplete-spell'
+
 " End of deoplete plugins
 
 
