@@ -52,7 +52,9 @@ set use_from = yes
 set query_command = "echo %s | xargs khard email --parsable --"
 macro index,pager A "<pipe-message>khard add-email<return>" "add the sender address to carddav"
 bind editor <Tab> complete-query
-
+# Allow the edit of headers. This is useful b/c i am using completion plugins
+# for contacts in neovim
+set edit_headers=yes
 
 ## Date/Time and index format in index
 set date_format="%d/%m/%y %T"
