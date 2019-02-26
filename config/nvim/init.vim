@@ -32,6 +32,8 @@ Plug 'fszymanski/deoplete-emoji'
 Plug 'deoplete-plugins/deoplete-go', { 'for': 'go' }
 Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/vim/plugged/gocode/nvim/symlink.sh' }
 
+" Mutt/e-mail stuff
+Plug 'nicoe/deoplete-khard'
 " End of deoplete plugins
 
 
