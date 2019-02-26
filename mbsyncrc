@@ -53,7 +53,7 @@ Flatten .
 Channel b1-inbox
 Master :b1-remote:
 Slave :b1-local:
-Patterns * !Sent
+Patterns * !sent
 
 Channel b1-sent
 Master :b1-remote:"Sent"
