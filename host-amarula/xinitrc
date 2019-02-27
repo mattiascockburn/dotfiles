@@ -1,5 +1,6 @@
 # make xdg-open use exo from the xfce project
 export DE='xfce'
+export RUNMODE='work'
 #WM=awesome
 #WM=xfce4-session
 WM=i3
@@ -78,5 +79,7 @@ exec xautolock -time 10 -detectsleep -bell 0 -locker 'slock' -notify 30 \
   -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in T-30'" &
 
 #exec ck-launch-session dbus-launch
-exec zockbox.sh &>/tmp/zockbox.log &
+if [[ "$RUNMODE" = 'gaming' ]]; then
+  exec zockbox.sh &>/tmp/zockbox.log &
+fi
 exec $WM $WMOPTS &> ~/.${WM}.log
