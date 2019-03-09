@@ -637,3 +637,11 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 " go to normal mode even faster
 nnoremap ; :
+
+" Windows nvim-qt specific junk
+if has("win32")
+    " set a font that does not look like vomit
+    set guifont=Inconsolata:h12:b
+    " do not use GUI tablines, they are fucking with airline/ex
+    set linespace=4
+endif
