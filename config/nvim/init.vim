@@ -645,3 +645,14 @@ if has("win32")
     " do not use GUI tablines, they are fucking with airline/ex
     set linespace=4
 endif
+
+" config for vimwiki
+let wiki_default = {}
+let wiki_default.path = '~/vimwiki/mystuff'
+"let wiki_default.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+
+let wiki_giz = {}
+let wiki_giz.path = '~/vimwiki/giz'
+
+let g:vimwiki_list = [wiki_default, wiki_giz]
+
