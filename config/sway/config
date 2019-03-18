@@ -1,0 +1,375 @@
+# Config file for the sway wayland compositor
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# Yeah, Super Key
+set $mod Mod4
+set $alt Mod1
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose an xft font, such as:
+# font xft:DejaVu Sans Mono 10
+
+font pango:Iosevka 12
+
+# set the wallpaper
+
+output "*" background /home/mattias/.wallpapers/sunset_8bit.jpg fill
+
+new_window pixel 2
+default_border pixel 2
+
+# Colors and stuff
+# class                 border  backgr. text    indicator
+client.focused #81a2be #81a2be #1d1f21 #282a2e #81a2be
+client.focused_inactive #373b41 #373b41 #969896 #282a2e #282a2e
+client.unfocused #282a2e #282a2e #969896 #282a2e  #282a2e
+client.urgent #373b41 #cc6666 #ffffff #cc6666 #282a2e
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# I want fullscreen apps by default, Metro FTW ;-P
+workspace_layout tabbed
+
+# move container between displays
+bindsym $mod+semicolon move workspace to output up
+
+# start a terminal
+bindsym $mod+Return exec termite
+
+bindsym $mod+Shift+y exec ~/.local/bin/youpoop.sh music
+bindsym $mod+Control+y exec ~/.local/bin/youpoop.sh video
+
+# Launch vim-anywhere script
+bindsym $mod+Shift+v exec ~/.local/bin/vim-anywhere clip
+
+# Add current url to transmission-daemon
+bindsym $mod+Control+t exec ~/.local/bin/t-quick-add
+
+# lock the screen now
+#bindsym  $mod+Control+g exec xscreensaver-command --lock
+bindsym  --release $mod+Control+g exec swaylock
+bindsym  --release XF86ScreenSaver exec swaylock
+
+# toggle xautolock
+bindsym $mod+n exec ~/.local/bin/xautolock_wrap.sh disable
+bindsym $mod+Shift+n exec ~/.local/bin/xautolock_wrap.sh enable
+
+# suspend
+bindsym XF86Explorer exec ~/.local/bin/suspend.sh
+
+# kill focused window
+bindsym $mod+Shift+c kill
+
+# Screen brightness control
+# for minivan keyboard
+bindsym $mod+Prior exec light -A 10
+bindsym $mod+Next exec light -U 10
+
+# on gigabyte stock keyboard
+bindsym $mod+Control+plus exec light -A 10
+bindsym $mod+Control+minus exec light -U 10
+
+# on thinkpads with proper keycodes
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
+bindsym $mod+shift+w exec browser
+
+# Launcher configuration
+bindsym $mod+d exec rofi -show run -width 80 -opacity "85"
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+c split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+Control+s focus child
+
+# workspace definitions
+#set $ws1 1♔
+#set $ws2 2♕
+#set $ws3 3♖
+#set $ws4 4♗
+#set $ws5 5♘
+#set $ws6 6♙
+#set $ws7 7♡
+#set $ws8 8♢
+#set $ws9 9♤
+#set $ws10 10♧
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+
+#multihead helpers
+bindsym $mod+o move workspace to output right
+
+# reload the configuration file
+#bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r exec swaymsg reload
+bindsym $mod+Shift+q mode "$mode_power"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+set $mode_power [l]ogoff | [p]oweroff | [s]uspend
+mode "$mode_power" {
+bindsym l exec swaymsg exit
+bindsym p exec systemctl poweroff
+bindsym s exec systemctl suspend, mode "default"
+bindsym Return mode "default"
+bindsym Escape mode "default"
+}
+
+bindsym --release XF86PowerOff mode "$mode_power"
+
+#bar {
+#  font pango:Iosevka Term
+#  position top
+#}
+#colors {
+#    separator #969896
+#    background #1d1f21
+#    statusline #c5c8c6
+#    focused_workspace #81a2be #81a2be #1d1f21
+#    active_workspace #373b41 #373b41 #ffffff
+#    inactive_workspace #282a2e #282a2e #969896
+#    urgent_workspace #cc6666 #cc6666 #ffffff
+#}
+#}
+
+# Some apps should be assigned to a specific workspace
+
+# Webbrowser
+assign [class="Chromium"] $ws1
+assign [class="Firefox"] $ws1
+# Midori Web Browser
+# "midori4", "Midori"
+assign [class="midori4"] $ws1
+assign [class="Midori"] $ws1
+assign [class="qutebrowser"] $ws1
+
+# mail
+assign [class="Thunderbird"] $ws2
+#assign [class="roxterm" instance="mutt"] $ws2
+
+# psi+ Jabber client
+assign [class="psi+"] $ws3
+assign [class="psi-plus"] $ws3
+assign [class="Psi-plus"] $ws3
+assign [class="gajim"] $ws3
+
+
+assign [class="vlc"] $ws4
+assign [class="clementine"] $ws4
+
+
+# Start some shit i need (Rest is in .xinitrc)
+#exec_always --no-startup-id xinput set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' 1.0
+
+exec --no-startup-id waybar
+exec --no-startup-id mako
+exec --no-startup-id redshift -l geoclue2
+
+exec swayidle -w \
+  timeout 300 'swaylock -f -c 000000' \
+  timeout 600 'swaymsg "output * dpms off"' \
+       resume 'swaymsg "output * dpms on"' \
+  before-sleep 'swaylock -f -c 000000'
+
+# workaround for GTK themes
+# ripped from https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
+exec_always import-gsettings \
+    gtk-theme:gtk-theme-name \
+    icon-theme:gtk-icon-theme-name \
+    cursor-theme:gtk-cursor-theme-name
+
+# fix steam
+for_window [title="Updating Steam..."] floating enable; border none; focus mode_toggle
+for_window [class="Steam"] floating enable; border none; focus mode_toggle
+
+#teamviewer
+for_window [class="TeamViewer.exe"] floating enable; border none; focus mode_toggle
+for_window [title="TeamViewer.exe"] floating enable; border none; focus mode_toggle
+for_window [title="Computers & Contacts"] floating enable; border none; focus mode_toggle
+
+# GPG Passphrase input
+for_window [class="gcr-prompter"] floating enable; border none; focus mode_toggle
+for_window [class="Gcr-prompter"] floating enable; border none; focus mode_toggle
+for_window [title="Enter Passphrase"] floating enable; border none; focus mode_toggle
+for_window [title="pinentry"] floating enable; border none; focus mode_toggle
+
+# Tor Browser
+for_window [class="Tor Browser"] floating enable; border none
+
+# More behaviour
+focus_follows_mouse no
+
+## Password menu
+bindsym $mod+p  exec rofi-pass
+
+# AudioFoo
+bindsym XF86AudioPlay  exec playerctl play
+bindsym XF86AudioStop  exec playerctl stop
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
+
+bindsym XF86AudioMute exec ponymix toggle
+bindsym XF86AudioRaiseVolume exec ponymix increase 5
+bindsym XF86AudioLowerVolume exec ponymix decrease 5
+
+# focus last urgent window
+bindsym $mod+x [urgent=latest] focus
+
+# mod tab back and forth between workspaces
+bindsym $mod+Tab workspace back_and_forth
+
+# show and hide scratchpad windows
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# prev next workspaces
+bindsym $mod+$alt+j workspace prev
+bindsym $mod+$alt+k workspace next
+
+# Screen locking
+bindsym $mod+Shift+g exec swaylock -f -c 000000
+
+# INPUT CONFIGURATION
+
+# Set keyboard layouts
+input '*' {
+    xkb_layout us,us
+    xkb_variant ,intl
+    xkb_options grp:alt_space_toggle,caps:escape
+}
+
+seat '*' {
+  hide_cursor 3000
+}
+
+# Adjust mouse/touchpad settings
+input '2:7:SynPS/2_Synaptics_TouchPad' {
+  natural_scroll enabled
+  dwt enabled
+  events disabled_on_external_mouse
+  click_method clickfinger
+  accel_profile adaptive
+  pointer_accel 1
+  tap_button_map lrm
+  tap enabled
+}
+
+
+input '1133:16495:Logitech_MX_Ergo' {
+  natural_scroll disabled
+  dwt disabled
+  accel_profile adaptive
+  pointer_accel 1
+}
+
