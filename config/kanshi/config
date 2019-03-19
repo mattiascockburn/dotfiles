@@ -1,9 +1,9 @@
 {
-        output HDMI-A-2 vendor FSL resolution 1920x1080 position 0,0
-        output LVDS-1 vendor AUO product 0x226D serial 0x0 resolution 1920x1080 position 1920,0
+  output HDMI-A-2 vendor FSL product HDMI serial 0x20160801 resolution 1920x1080 position 0,0
+  output eDP-1 vendor AUO product 0x226D serial 0x0 resolution 1920x1080 position 1920,0
 }
 
 {
-        output LVDS-1 vendor AUO product 0x226D serial 0x0 resolution 1920x1080
+  output eDP-1 vendor AUO product 0x226D serial 0x0 resolution 1920x1080
 }
 
