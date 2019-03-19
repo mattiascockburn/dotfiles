@@ -21,8 +21,8 @@ font pango:Iosevka 12
 
 output "*" background /home/mattias/.wallpapers/sunset_8bit.jpg fill
 
-new_window pixel 2
 default_border pixel 2
+default_floating_border pixel 2
 
 # Colors and stuff
 # class                 border  backgr. text    indicator
@@ -281,6 +281,9 @@ exec swayidle -w \
   timeout 600 'swaymsg "output * dpms off"' \
        resume 'swaymsg "output * dpms on"' \
   before-sleep 'swaylock -f -c 000000'
+
+# automatically switch output configuration on the fly
+exec kanshi
 
 # workaround for GTK themes
 # ripped from https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
