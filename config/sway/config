@@ -264,8 +264,7 @@ assign [class="vlc"] $ws4
 assign [class="clementine"] $ws4
 
 
-# Start some shit i need (Rest is in .xinitrc)
-#exec_always --no-startup-id xinput set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' 1.0
+## STARTUP PROGRAMS
 
 exec --no-startup-id waybar
 exec --no-startup-id mako
@@ -276,6 +275,13 @@ exec swayidle -w \
   timeout 600 'swaymsg "output * dpms off"' \
        resume 'swaymsg "output * dpms on"' \
   before-sleep 'swaylock -f -c 000000'
+
+# automount
+exec devmon --sync \
+ --exec-on-drive "notify-send -u normal -t 5000 -a devmon -i block-device mount \"Device %d mounted on %d\"" \
+ --exec-on-remove "notify-send -u normal -t 2500 -a devmon -i block-device mount \"Device %f removed\"" \
+ -s --no-gui
+
 
 # automatically switch output configuration on the fly
 exec kanshi
