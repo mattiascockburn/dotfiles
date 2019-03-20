@@ -184,7 +184,6 @@ bindsym $mod+o move workspace to output right
 #bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r exec swaymsg reload
-bindsym $mod+Shift+q mode "$mode_power"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -222,6 +221,7 @@ bindsym Escape mode "default"
 }
 
 bindsym --release XF86PowerOff mode "$mode_power"
+bindsym $mod+Shift+q mode "$mode_power"
 
 #bar {
 #  font pango:Iosevka Term
