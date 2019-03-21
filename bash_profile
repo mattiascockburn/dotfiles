@@ -13,7 +13,6 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
     export GDK_BACKEND=wayland
     export CLUTTER_BACKEND=wayland
     export QT_QPA_PLATFORM=wayland-egl
-    export QT_WAYLAND_FORCE_DPI=physical
     export ECORE_EVAS_ENGINE=wayland_egl
     export ELM_ENGINE=wayland_egl
     export SDL_VIDEODRIVER=wayland
