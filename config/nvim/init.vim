@@ -552,6 +552,9 @@ let g:workspace_session_disable_on_args = 1
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 
+" no conceal markers
+let g:neosnippet#enable_conceal_markers = 0
+
 " keybindings
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
