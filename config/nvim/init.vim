@@ -156,6 +156,8 @@ Plug 'PProvost/vim-ps1'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
+" Helper for context-specific snippets
+Plug 'Shougo/context_filetype.vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree'
