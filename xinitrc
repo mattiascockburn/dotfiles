@@ -56,10 +56,6 @@ devmon --sync \
  --exec-on-remove "notify-send -u normal -t 2500 -a devmon -i xfce-mount 'Device removed' '%f'" \
   &>~/.devmon.log &
 
-# audio foo
-# pulseaudio --start &
-
-
 #eyecandy or what?
 # handled in i3config for now
 #compton -bCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 &
