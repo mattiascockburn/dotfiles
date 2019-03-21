@@ -331,8 +331,6 @@ nnoremap Q :normal! gqip<cr>
 " ALT-n next buffer and list, ALT-p previous buffer
 nnoremap <A-n> :bnext<CR>:redraw<CR>:ls<CR>
 nnoremap <A-p> :bprevious<CR>:redraw<CR>:ls<CR>
-nnoremap <C-n> :bnext<CR>:redraw<CR>
-nnoremap <C-p> :bprevious<CR>:redraw<CR>
 
 " ### Motion
 " Treat long lines as break lines (useful when moving around in them)
@@ -413,7 +411,7 @@ let g:ansible_extra_syntaxes = "sh.vim python.vim"
 let g:ansible_attribute_highlight = "ob"
 let g:ansible_extra_keywords_highlight = 1
 
-" tpope-markdown mode specific config
+" markdown mode specific config
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'puppet']
 let g:markdown_minlines = 100
 let g:markdown_syntax_conceal = 0
@@ -504,7 +502,7 @@ set title
 
 " Shortcut to switch to last used tab
 let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+nmap <Leader>lt :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
 " Shortcut for last used buffer
@@ -584,7 +582,7 @@ if has ('autocmd') " Remain compatible with earlier versions
   augroup END
 endif " has autocmd
 " Quickly edit/reload this configuration file
-nnoremap gev :e $MYVIMRC<CR>
+nnoremap <leader>gev :e $MYVIMRC<CR>
 
 " Some deoplete settings
 " Disable the candidates in Comment/String syntaxes.
@@ -592,7 +590,6 @@ call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 
-" Disable deoplete by default
 let g:deoplete_disable_auto_complete=0
 let b:deoplete_disable_auto_complete=0
 
