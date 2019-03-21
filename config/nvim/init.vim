@@ -92,7 +92,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-eunuch'
 
@@ -182,9 +181,9 @@ Plug 'hashivim/vim-terraform'
 " postgresql syntax
 Plug 'lifepillar/pgsql.vim'
 
-"
-"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
+" Markdown stuff
+Plug 'plasticboy/vim-markdown'
+Plug 'mzlogin/vim-markdown-toc'
 
 " Using a non-master branch
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
