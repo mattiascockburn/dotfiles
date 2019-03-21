@@ -235,7 +235,7 @@ autocmd BufWritePre * %s/\s\+$//e
 set undolevels=1000
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
-    let myUndoDir = '~/.local/vim/undo'
+    let myUndoDir = '/home/mattias/.local/vim/undo'
     " Create dirs
     call system('mkdir -p' . myUndoDir)
     let &undodir = myUndoDir
