@@ -615,6 +615,11 @@ call deoplete#custom#option('sources', {
     \ 'mail': ['dictionary','khard','emoji'],
 \})
 
+call deoplete#custom#var('omni', 'input_patterns', {
+  \ 'pandoc': '@'
+\})
+
+
 " deoplete-emoji stuff
 " Insert actual emoji and not the text representation
 call deoplete#custom#source('emoji', 'converters', ['converter_emoji'])
@@ -622,6 +627,9 @@ call deoplete#custom#source('emoji', 'converters', ['converter_emoji'])
 call deoplete#custom#source('emoji', 'filetypes', ['rst','mail','text','pandoc','markdown'])
 
 " END of deoplete
+"
+
+" vim-pandoc options
 
 " Do not hide characters in, for example, markdown mode
 set conceallevel=0
