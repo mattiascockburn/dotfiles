@@ -18,7 +18,7 @@ scrollback_lines = 10000
 hyperlinks = true
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
-browser = xdg-open
+browser = browser
 
 # "system", "on" or "off"
 #cursor_blink = system
