@@ -107,6 +107,7 @@ Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.py' }
 Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'vim-ruby/vim-ruby'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'tmux-plugins/vim-tmux'
 
 " pandoc plugins
 Plug 'vim-pandoc/vim-pandoc'
