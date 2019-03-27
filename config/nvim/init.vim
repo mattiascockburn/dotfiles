@@ -221,7 +221,7 @@ set showmatch
 let mapleader = ","
 
 " ### Spelling
-set spelllang=en
+set spelllang=de,en,es
 
 " ### Auto Commands
 autocmd BufRead,BufNewFile ~/git/layer8/ansible-stuff/*.yml/ syntax=ansible
