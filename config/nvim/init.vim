@@ -44,6 +44,9 @@ Plug 'deathlyfrantic/deoplete-spell'
 " Session management
 Plug 'thaerkh/vim-workspace'
 
+" Fancy start screen
+Plug 'mhinz/vim-startify'
+
 " Scalpel: better word replacer within a file
 " invoked with <Leader>e by default
 Plug 'wincent/scalpel'
