@@ -16,5 +16,4 @@ nvim = attach("socket", path=addr)
 
 nvim.vars['files_to_edit'] = list(reversed(args))
 for _ in args:
-    nvim.command('exe "split ".remove(g:files_to_edit, 0)')
-
+    nvim.command('exe "tabedit ".remove(g:files_to_edit, 0)')
