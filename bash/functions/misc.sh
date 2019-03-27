@@ -116,3 +116,13 @@ wtime() {
 imgtosize() {
   convert "$1" -define jpeg:extent="$2" -scale 50% "${1%%.*}_scaled.jpg"
 }
+
+bmark() {
+  b=~/.bookmarks
+  d=${1:-$(pwd)}
+  grep -vq "$d" "$b" && echo "$d">>"$b"
+}
+
+ccd() {
+  cd $(fzf <~/.bookmarks)
+}
