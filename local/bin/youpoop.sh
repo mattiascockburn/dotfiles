@@ -3,8 +3,8 @@
 # quickly cobbled together by a lazy bastard (Mattias Giese)
 set -euo pipefail
 
-export AUDIO_SAVEDIR='/space/junk/audio/youpoop'
-export VIDEO_SAVEDIR='/space/junk/vid'
+export AUDIO_SAVEDIR="${HOME}/audio/youpoop"
+export VIDEO_SAVEDIR="${HOME}/Videos/youtube"
 
 [[ $# -lt 1 ]] && {
   echo Fail: must give either music or video as argument
@@ -12,7 +12,7 @@ export VIDEO_SAVEDIR='/space/junk/vid'
 }
 
 mode="$1"
-case $mode in 
+case $mode in
   music)
     YT_OPTS='--audio-quality 0 --audio-format mp3 --extract-audio'
     SAVEDIR=$AUDIO_SAVEDIR
@@ -41,11 +41,11 @@ n() {
 }
 
 url="$(xclip -o)"
-cd "$SAVEDIR"
+mkdir -p "$SAVEDIR" && cd "$SAVEDIR"
 n info "Starting youpoop download for $url"
 title=$(youtube-dl --get-title $url)
 n info "Downloading $title"
-youtube-dl -t $YT_OPTS --no-progress --restrict-filenames "$url"
+youtube-dl -t $YT_OPTS --no-progress -o "%(title)s-%(id)s.%(ext)s" --restrict-filenames "$url"
 [[ $? -ne 0 ]] && {
   n error "Download of $title failed"
   exit 1
