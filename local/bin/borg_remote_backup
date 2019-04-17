@@ -29,17 +29,20 @@ sudo borg create                            \
     --exclude '/var/cache/*'                \
     --exclude '/var/tmp/*'                  \
     --exclude '/var/lib/docker/*'           \
-    --exclude '/sys'                        \
-    --exclude '/proc'                       \
-    --exclude '/dev'                        \
+    --exclude '/sys/*'                      \
+    --exclude '/proc/*'                     \
+    --exclude '/dev/*'                      \
+    --exclude '/mnt/*'                      \
+    --exclude '/media/*'                    \
     --exclude '/home/*/mail/.notmuch'       \
     --exclude '/home/*/.local/share/Trash/' \
     --exclude '/home/*/games'               \
     --exclude '/home/*/Games'               \
+    --exclude '/home/*/VirtualBox VMs'      \
     --exclude '/home/*/bt'                  \
     --exclude '/home/*/go'                  \
     --exclude '/home/libvirt/'              \
-    --exclude '/home/*/aur'      \
+    --exclude '/home/*/aur'                 \
     --exclude '/home/*/git/aur/*/pkg/'      \
     ::'{hostname}-{now}'                    \
     $(eval echo $BORG_BACKUP_DIRS)

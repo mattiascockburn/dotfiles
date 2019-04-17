@@ -44,6 +44,9 @@ Plug 'deathlyfrantic/deoplete-spell'
 " Session management
 Plug 'thaerkh/vim-workspace'
 
+" Fancy start screen
+Plug 'mhinz/vim-startify'
+
 " Scalpel: better word replacer within a file
 " invoked with <Leader>e by default
 Plug 'wincent/scalpel'
@@ -92,7 +95,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-eunuch'
 
@@ -105,6 +107,7 @@ Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.py' }
 Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'vim-ruby/vim-ruby'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'tmux-plugins/vim-tmux'
 
 " pandoc plugins
 Plug 'vim-pandoc/vim-pandoc'
@@ -157,6 +160,8 @@ Plug 'PProvost/vim-ps1'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
+" Helper for context-specific snippets
+Plug 'Shougo/context_filetype.vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree'
@@ -182,9 +187,9 @@ Plug 'hashivim/vim-terraform'
 " postgresql syntax
 Plug 'lifepillar/pgsql.vim'
 
-"
-"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
+" Markdown stuff
+Plug 'plasticboy/vim-markdown'
+Plug 'mzlogin/vim-markdown-toc'
 
 " Using a non-master branch
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -217,7 +222,7 @@ set showmatch
 let mapleader = ","
 
 " ### Spelling
-set spelllang=en
+set spelllang=de,en,es
 
 " ### Auto Commands
 autocmd BufRead,BufNewFile ~/git/layer8/ansible-stuff/*.yml/ syntax=ansible
@@ -234,7 +239,7 @@ autocmd BufWritePre * %s/\s\+$//e
 set undolevels=1000
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
-    let myUndoDir = '~/.local/vim/undo'
+    let myUndoDir = '/home/mattias/.local/vim/undo'
     " Create dirs
     call system('mkdir -p' . myUndoDir)
     let &undodir = myUndoDir
@@ -330,8 +335,6 @@ nnoremap Q :normal! gqip<cr>
 " ALT-n next buffer and list, ALT-p previous buffer
 nnoremap <A-n> :bnext<CR>:redraw<CR>:ls<CR>
 nnoremap <A-p> :bprevious<CR>:redraw<CR>:ls<CR>
-nnoremap <C-n> :bnext<CR>:redraw<CR>
-nnoremap <C-p> :bprevious<CR>:redraw<CR>
 
 " ### Motion
 " Treat long lines as break lines (useful when moving around in them)
@@ -412,7 +415,7 @@ let g:ansible_extra_syntaxes = "sh.vim python.vim"
 let g:ansible_attribute_highlight = "ob"
 let g:ansible_extra_keywords_highlight = 1
 
-" tpope-markdown mode specific config
+" markdown mode specific config
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'puppet']
 let g:markdown_minlines = 100
 let g:markdown_syntax_conceal = 0
@@ -503,7 +506,7 @@ set title
 
 " Shortcut to switch to last used tab
 let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+nmap <Leader>lt :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
 " Shortcut for last used buffer
@@ -553,6 +556,9 @@ let g:workspace_session_disable_on_args = 1
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 
+" no conceal markers
+let g:neosnippet#enable_conceal_markers = 0
+
 " keybindings
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -583,7 +589,7 @@ if has ('autocmd') " Remain compatible with earlier versions
   augroup END
 endif " has autocmd
 " Quickly edit/reload this configuration file
-nnoremap gev :e $MYVIMRC<CR>
+nnoremap <leader>gev :e $MYVIMRC<CR>
 
 " Some deoplete settings
 " Disable the candidates in Comment/String syntaxes.
@@ -591,7 +597,6 @@ call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 
-" Disable deoplete by default
 let g:deoplete_disable_auto_complete=0
 let b:deoplete_disable_auto_complete=0
 
@@ -614,6 +619,11 @@ call deoplete#custom#option('sources', {
     \ 'mail': ['dictionary','khard','emoji'],
 \})
 
+call deoplete#custom#var('omni', 'input_patterns', {
+  \ 'pandoc': '@'
+\})
+
+
 " deoplete-emoji stuff
 " Insert actual emoji and not the text representation
 call deoplete#custom#source('emoji', 'converters', ['converter_emoji'])
@@ -621,6 +631,9 @@ call deoplete#custom#source('emoji', 'converters', ['converter_emoji'])
 call deoplete#custom#source('emoji', 'filetypes', ['rst','mail','text','pandoc','markdown'])
 
 " END of deoplete
+"
+
+" vim-pandoc options
 
 " Do not hide characters in, for example, markdown mode
 set conceallevel=0
@@ -649,7 +662,7 @@ endif
 " config for vimwiki
 let wiki_default = {}
 let wiki_default.path = '~/vimwiki/mystuff'
-"let wiki_default.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+let wiki_default.nested_syntaxes = {'sh':'sh','python': 'python', 'c++': 'cpp'}
 
 let wiki_giz = {}
 let wiki_giz.path = '~/vimwiki/giz'

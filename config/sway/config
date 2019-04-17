@@ -279,8 +279,7 @@ exec swayidle -w \
 # automount
 exec devmon --sync \
  --exec-on-drive "notify-send -u normal -t 5000 -a devmon -i block-device mount \"Device %d mounted on %d\"" \
- --exec-on-remove "notify-send -u normal -t 2500 -a devmon -i block-device mount \"Device %f removed\"" \
- -s --no-gui
+ --exec-on-remove "notify-send -u normal -t 2500 -a devmon -i block-device mount \"Device %f removed\""
 
 
 # automatically switch output configuration on the fly
@@ -367,7 +366,6 @@ input '2:7:SynPS/2_Synaptics_TouchPad' {
   events disabled_on_external_mouse
   click_method clickfinger
   accel_profile adaptive
-  pointer_accel 1
   tap_button_map lrm
   tap enabled
 }
