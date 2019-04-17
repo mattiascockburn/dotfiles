@@ -29,11 +29,11 @@ sudo borg create                            \
     --exclude '/var/cache/*'                \
     --exclude '/var/tmp/*'                  \
     --exclude '/var/lib/docker/*'           \
-    --exclude '/sys/*'                        \
-    --exclude '/proc/*'                       \
-    --exclude '/dev/*'                        \
-    --exclude '/mnt/*'                        \
-    --exclude '/media/*'                        \
+    --exclude '/sys/*'                      \
+    --exclude '/proc/*'                     \
+    --exclude '/dev/*'                      \
+    --exclude '/mnt/*'                      \
+    --exclude '/media/*'                    \
     --exclude '/home/*/mail/.notmuch'       \
     --exclude '/home/*/.local/share/Trash/' \
     --exclude '/home/*/games'               \
