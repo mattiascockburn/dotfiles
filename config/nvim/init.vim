@@ -660,8 +660,14 @@ if has("win32")
 endif
 
 " config for vimwiki
+
+" vimwiki with markdown support
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+
 let wiki_default = {}
-let wiki_default.path = '~/vimwiki/mystuff'
+let wiki_default.path = '~/vimwiki/tech-notes'
+let wiki_default.syntax = 'markdown'
+let wiki_default.ext = 'md'
 let wiki_default.nested_syntaxes = {'sh':'sh','python': 'python', 'c++': 'cpp'}
 
 let wiki_giz = {}
