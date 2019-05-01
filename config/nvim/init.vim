@@ -473,6 +473,10 @@ nnoremap <C-V> v
 vnoremap v <C-V>
 vnoremap <C-V> v
 
+" make CTRL+A work (jump to beginning)
+" in commandline mode
+cnoremap <C-A> <Home>
+
 " Define some general purpose shortcuts
 " NERDTree
 map <leader>nn :NERDTreeToggle<cr>
