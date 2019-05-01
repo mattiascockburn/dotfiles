@@ -15,3 +15,5 @@ alternative_order text/plain text/html
 ## Speed up folder switch
 set sleep_time = 0
 
+## fix attachment filenames
+set rfc2047_parameters = yes
