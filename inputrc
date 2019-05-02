@@ -28,6 +28,9 @@ set menu-complete-display-prefix On
 ## KEY BINDINGS
 # make CTRL+L work in vi mode
 $if mode=vi
+  # Make ESC-. insert last argument of the last cmdline
+  # just like in emacs mode
+  "\e.": yank-last-arg
 
 set keymap vi-command
 # these are for vi-command mode
