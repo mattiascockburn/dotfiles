@@ -522,7 +522,7 @@ map <leader>bl :execute "buffer" g:lastusedbuffer<cr>
 map <leader>q :close<cr>
 
 " fzf buffer list
-map <leader>B :Buffers<cr>
+map <leader>bb :Buffers<cr>
 
 " some settings for ale
 " Error and warning signs.
