@@ -672,7 +672,7 @@ let wiki_default = {}
 let wiki_default.path = '~/vimwiki/tech-notes'
 let wiki_default.syntax = 'markdown'
 let wiki_default.ext = 'md'
-let wiki_default.nested_syntaxes = {'sh':'sh','python': 'python', 'c++': 'cpp'}
+let wiki_default.nested_syntaxes = {'md':'markdown', 'sh':'sh','python': 'python', 'c++': 'cpp'}
 
 let wiki_giz = {}
 let wiki_giz.path = '~/vimwiki/giz'
