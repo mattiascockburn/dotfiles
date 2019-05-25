@@ -19,8 +19,8 @@ esac
 
 xautolock "-${mode}"
 if [ $? -eq 0 ];then
-   notify-send -t 2 -u low "automatic lock set to $mode"
+   notify-send -t 2000 -u low "automatic lock set to $mode"
 else
-   notify-send -t 2 -u critical "failed to set automatic lock to $mode"
+   notify-send -t 2000 -u critical "failed to set automatic lock to $mode"
 fi
 

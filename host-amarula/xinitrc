@@ -1,5 +1,6 @@
 # make xdg-open use exo from the xfce project
 export DE='xfce'
+export RUNMODE='gaming'
 #WM=awesome
 #WM=xfce4-session
 WM=i3
@@ -73,10 +74,13 @@ xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1
 # Gigabyte Aero 15
 xinput set-prop 'ETPS/2 Elantech Touchpad' 'libinput Tapping Enabled' 1
 
-# Automatically lock the session
-exec xautolock -time 10 -detectsleep -bell 0 -locker 'slock' -notify 30 \
-  -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in T-30'" &
 
 #exec ck-launch-session dbus-launch
-exec zockbox.sh &>/tmp/zockbox.log &
+if [[ "$RUNMODE" = 'gaming' ]]; then
+  exec zockbox.sh &>/tmp/zockbox.log &
+else
+  # Automatically lock the session
+  exec xautolock -time 10 -detectsleep -bell 0 -locker 'slock' -notify 30 \
+    -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in T-30'" &
+fi
 exec $WM $WMOPTS &> ~/.${WM}.log

@@ -3,7 +3,7 @@ target=${1:-/mnt/rescue}
 root='UUID=c8f65da1-046a-4695-a581-05e64c7361f7'
 boot='UUID=1729-49C1'
 cache=/var/cache/pacman/pkg
-declare -a dotfiles=(.gnupg .git* .password-store .ssh git/dotfiles)
+declare -a dotfiles=(.config/git/ignore .gnupg .gitconfig .password-store .ssh .dotfiles)
 targetuser=mattias
 set -u
 

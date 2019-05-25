@@ -1,0 +1,9 @@
+#!/bin/bash
+# run gui apps as root - for wayland/sway
+# small script to enable root access to x-windows system
+xhost +SI:localuser:root
+sudo $@
+#disable root access after application terminates
+xhost -SI:localuser:root
+#print access status to allow verification that root access was removed
+xhost

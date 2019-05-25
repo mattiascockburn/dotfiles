@@ -18,7 +18,7 @@ shopt -s checkwinsize
 # Don't wait for job termination notification
 set -o notify
 
-stty -ixon    # disable XON/XOFF flow control (^s/^q) 
+stty -ixon    # disable XON/XOFF flow control (^s/^q)
 
 # Navigate history with up/down arrow
 bind '"\e[A": history-search-backward'
@@ -31,15 +31,6 @@ bind '"\e[B": history-search-forward'
 # dircolors from trapd00r - https://github.com/trapd00r/LS_COLORS
 eval $(dircolors -b $HOME/.dircolors)
 
-# Show error code if run command was not successful
-#EC() { echo -e '\e[1;33m'code $?'\e[m\n'; }
-EC() {
-  RC=$?
-  if [ $RC != '148' ]; then
-    cowsay -d "failed: $RC" | toilet -f term --gay
-  fi
-}
-trap EC ERR
 
 # vi-Mode and little helpers
 #set -o vi

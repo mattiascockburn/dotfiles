@@ -49,12 +49,6 @@ GIT_PROMPT_END="\n${GREEN}[${LIGHT_BLUE}\h${GREEN}]${RESET}\$ "
 export ANSIBLE_NOCOWS=1
 
 
-# Automatically start X on TTY1
-if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec startx
-fi
-
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 r=$(type -t rvm)
 [[ "$r" = 'function' ]] && export PATH="$PATH:$HOME/.rvm/bin"
@@ -65,3 +59,12 @@ r=$(type -t rvm)
 # add private bin if it exists
 [[ -d ~/.private/bin ]] && export PATH="~/.private/bin:${PATH}"
 
+# Show error code if run command was not successful
+#EC() { echo -e '\e[1;33m'code $?'\e[m\n'; }
+EC() {
+  RC=$?
+  if [ $RC != '148' ]; then
+    cowsay -d "failed: $RC" | toilet -f term --gay
+  fi
+}
+trap EC ERR

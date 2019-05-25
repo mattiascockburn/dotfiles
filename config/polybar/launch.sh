@@ -16,5 +16,6 @@ else
   polybar --reload example &
 fi
 
+polybar-msg cmd hide
 
 echo "Bars launched..."

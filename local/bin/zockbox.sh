@@ -1,6 +1,7 @@
 #!/bin/bash
 
 xset s off -dpms
+xautolock -disable
 while true; do
   LD_PRELOAD=/usr/\$LIB/libgamemodeauto.so.0 emulationstation.sh &>/tmp/emulationstation.log
   zenity --question --text 'Restart emulationstation?' --no-wrap --default-cancel --icon-name face-surprise
