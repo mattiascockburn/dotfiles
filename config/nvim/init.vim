@@ -614,6 +614,12 @@ call deoplete#custom#option('sources', {
     \ 'mail': ['dictionary','khard','emoji'],
 \})
 
+" deoplete-emoji stuff
+" Insert actual emoji and not the text representation
+call deoplete#custom#source('emoji', 'converters', ['converter_emoji'])
+" Set filetypes for emoji
+call deoplete#custom#source('emoji', 'filetypes', ['rst','mail','unix','pandoc','markdown'])
+
 " END of deoplete
 
 " Do not hide characters in, for example, markdown mode
