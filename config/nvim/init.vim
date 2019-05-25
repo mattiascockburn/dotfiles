@@ -149,9 +149,6 @@ Plug 'vim-airline/vim-airline-themes'
 " syntax/indent/ftplugins for a many languages/tools
 Plug 'sheerun/vim-polyglot'
 
-" Powershell syntax
-Plug 'PProvost/vim-ps1'
-
 " Any valid git URL is allowed
 "Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
@@ -190,6 +187,12 @@ Plug 'lifepillar/pgsql.vim'
 " Markdown stuff
 Plug 'plasticboy/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
+
+" COC - new-fangled completion system using LSP
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+
+" COC integration of Powershell
+Plug 'yatli/coc-powershell', {'do': { -> coc#powershell#install()}}
 
 " Using a non-master branch
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
