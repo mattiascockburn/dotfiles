@@ -522,7 +522,7 @@ map <leader>bl :execute "buffer" g:lastusedbuffer<cr>
 map <leader>q :close<cr>
 
 " fzf buffer list
-map <leader>B :Buffers<cr>
+map <leader>bb :Buffers<cr>
 
 " some settings for ale
 " Error and warning signs.
@@ -672,7 +672,7 @@ let wiki_default = {}
 let wiki_default.path = '~/vimwiki/tech-notes'
 let wiki_default.syntax = 'markdown'
 let wiki_default.ext = 'md'
-let wiki_default.nested_syntaxes = {'sh':'sh','python': 'python', 'c++': 'cpp'}
+let wiki_default.nested_syntaxes = {'md':'markdown', 'sh':'sh','python': 'python', 'c++': 'cpp'}
 
 let wiki_giz = {}
 let wiki_giz.path = '~/vimwiki/giz'
