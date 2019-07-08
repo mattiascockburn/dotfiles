@@ -11,6 +11,12 @@ if [ ! -d "$target" ]; then
   echo $target is not a directory
   exit 1
 fi
+
+# ask for password if rootfs is encrypted
+cryptsetup isLuks $root && {
+  echo Decrypt your stuff
+  sudo cryptsetup luksOpen $root extroot || exit 1
+}
 sudo mount "$root" "$target"
 sudo mount "$boot" "${target}/boot"
 sudo mount --bind "$cache" "${target}/${cache}"
@@ -28,4 +34,4 @@ sudo arch-chroot "$target" pacman -Syu --noconfirm
 sudo arch-chroot "$target" chown -R "$targetuser" "/home/${targetuser}"
 echo Umount $target
 sudo umount -R "$target"
-
+sudo cryptsetup luksClose $root
