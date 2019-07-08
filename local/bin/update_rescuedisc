@@ -1,7 +1,7 @@
 #!/bin/bash
 target=${1:-/mnt/rescue}
-root='UUID=c8f65da1-046a-4695-a581-05e64c7361f7'
-boot='UUID=1729-49C1'
+root='/dev/disk/by-uuid/698c93c9-67e6-4a7c-ba9a-a5bc232394fc'
+boot='/dev/disk/by-uuid/0B79-E3C8'
 cache=/var/cache/pacman/pkg
 declare -a dotfiles=(.config/git/ignore .gnupg .gitconfig .password-store .ssh .dotfiles)
 targetuser=mattias
