@@ -13,39 +13,40 @@ info "Starting backup"
 # Backup the most important directories into an archive named after
 # the machine this script is currently running on:
 
-sudo borg create                            \
-    --verbose                               \
-    --filter AME                            \
-    --list                                  \
-    --stats                                 \
-    --show-rc                               \
-    --compression lz4                       \
-    --exclude-caches                        \
-    --exclude '/data'                       \
-    --exclude '/home/*/.cache/*'            \
-    --exclude '/home/*/old_stuff/*'         \
-    --exclude '/home/*/Downloads*/*'        \
-    --exclude '/home/*/.local/share/Steam'  \
-    --exclude '/var/cache/*'                \
-    --exclude '/var/tmp/*'                  \
-    --exclude '/var/lib/docker/*'           \
-    --exclude '/sys/*'                      \
-    --exclude '/proc/*'                     \
-    --exclude '/dev/*'                      \
-    --exclude '/mnt/*'                      \
-    --exclude '/media/*'                    \
-    --exclude '/run/*'                      \
-    --exclude '/home/*/mail/.notmuch'       \
-    --exclude '/home/*/.local/share/Trash/' \
-    --exclude '/home/*/games'               \
-    --exclude '/home/*/Games'               \
-    --exclude '/home/*/VirtualBox VMs'      \
-    --exclude '/home/*/bt'                  \
-    --exclude '/home/*/go'                  \
-    --exclude '/home/libvirt/'              \
-    --exclude '/home/*/aur'                 \
-    --exclude '/home/*/git/aur/*/pkg/'      \
-    ::'{hostname}-{now}'                    \
+sudo borg create                              \
+    --verbose                                 \
+    --filter AME                              \
+    --list                                    \
+    --stats                                   \
+    --show-rc                                 \
+    --compression lz4                         \
+    --exclude-caches                          \
+    --exclude '/data'                         \
+    --exclude '/home/*/.cache/*'              \
+    --exclude '/home/*/old_stuff/*'           \
+    --exclude '/home/*/Downloads*/*'          \
+    --exclude '/home/*/.local/share/Steam'    \
+    --exclude '/var/cache/*'                  \
+    --exclude '/var/tmp/*'                    \
+    --exclude '/var/lib/docker/*'             \
+    --exclude '/sys/*'                        \
+    --exclude '/proc/*'                       \
+    --exclude '/dev/*'                        \
+    --exclude '/mnt/*'                        \
+    --exclude '/media/*'                      \
+    --exclude '/run/*'                        \
+    --exclude '/home/*/mail/.notmuch'         \
+    --exclude '/home/*/.local/share/Trash/'   \
+    --exclude '/home/*/games'                 \
+    --exclude '/home/*/Games'                 \
+    --exclude '/home/*/VirtualBox VMs'        \
+    --exclude '/home/*/bt'                    \
+    --exclude '/home/*/go'                    \
+    --exclude '/home/libvirt/'                \
+    --exclude '/home/*/aur'                   \
+    --exclude '/home/*/git/aur/*/pkg/'        \
+    --exclude '/home/*/.local/share/flatpak/' \
+    ::'{hostname}-{now}'                      \
     $(eval echo $BORG_BACKUP_DIRS)
 
 backup_exit=$?
