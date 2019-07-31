@@ -683,3 +683,6 @@ let wiki_giz.path = '~/vimwiki/giz'
 
 let g:vimwiki_list = [wiki_default, wiki_giz]
 
+" COC options
+
+let g:coc_global_extensions=[ 'coc-powershell', ]
