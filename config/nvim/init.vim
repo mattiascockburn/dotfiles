@@ -621,6 +621,7 @@ call deoplete#custom#option('min_pattern_length', 4)
 " Filetype specific options
 call deoplete#custom#option('sources', {
     \ '_': ['buffer', 'around'],
+    \ 'ps1': [],
     \ 'tex': ['file'],
     \ 'vim': ['vim'],
     \ 'sh': ['file'],
