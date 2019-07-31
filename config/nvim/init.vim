@@ -696,3 +696,6 @@ let g:vimwiki_list = [wiki_default, wiki_giz]
 " COC options
 
 let g:coc_global_extensions=[ 'coc-powershell', ]
+
+" fix json comment highlighting
+autocmd FileType json syntax match Comment +\/\/.\+$+
