@@ -613,11 +613,20 @@ let b:deoplete_disable_auto_complete=0
 " Configure dicts for deoplete
 setlocal dictionary=/usr/share/dict/german
 setlocal dictionary+=/usr/share/dict/american-english
+
+
 call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
 call deoplete#custom#source('dictionary', 'sorters', [])
 call deoplete#custom#source('dictionary', 'min_pattern_length', 4)
-call deoplete#custom#option('min_pattern_length', 4)
+call deoplete#custom#option('_', 'min_pattern_length', 4)
 
+call deoplete#custom#var('around', {
+\   'range_above': 15,
+\   'range_below': 15,
+\   'mark_above': '[↑]',
+\   'mark_below': '[↓]',
+\   'mark_changes': '[*]',
+\})
 " Filetype specific options
 call deoplete#custom#option('sources', {
     \ '_': ['buffer', 'around'],
