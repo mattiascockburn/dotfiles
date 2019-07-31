@@ -27,7 +27,8 @@ fi
 # update the most important dotfiles for recovery
 echo Updating important stuff
 for d in ${dotfiles[@]}; do
-  rsync -Lrh "/home/${targetuser}/$d" "${target}/home/${targetuser}/."
+  echo Copying $d
+  rsync --info=name0 -v -Lrh "/home/${targetuser}/$d" "${target}/home/${targetuser}/."
 done
 echo Trying to update packages at $target
 sudo arch-chroot "$target" pacman -Syu --noconfirm
