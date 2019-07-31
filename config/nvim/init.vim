@@ -616,10 +616,12 @@ setlocal dictionary+=/usr/share/dict/american-english
 call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
 call deoplete#custom#source('dictionary', 'sorters', [])
 call deoplete#custom#source('dictionary', 'min_pattern_length', 4)
+call deoplete#custom#option('min_pattern_length', 4)
 
 " Filetype specific options
 call deoplete#custom#option('sources', {
     \ '_': ['buffer', 'around'],
+    \ 'tex': ['file'],
     \ 'vim': ['vim'],
     \ 'sh': ['file'],
     \ 'python': ['jedi'],
