@@ -75,3 +75,6 @@ EC() {
 trap EC ERR
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# docker - use buildkit by default
+export DOCKER_BUILDKIT=1
