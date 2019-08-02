@@ -19,6 +19,11 @@ export GTK_OVERLAY_SCROLLING=0
 [[ ! "$PATH" =~ "${HOME/\//\//}\/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
 [[ ! "$PATH" =~ "${HOME/\//\//}\/rvm\/gems/ruby/2.4.1/bin" ]] && export PATH="${HOME}/.rvm/gems/ruby/2.4.1/bin:${PATH}"
 
+# add .luarocks bin to PATH if it exists
+[[ -d "$HOME/.luarocks/bin" ]] && {
+  [[ ! "$PATH" =~ "${HOME/\//\//}\/.lluarocks/bin" ]] && export PATH="${HOME}/.luarocks/bin:${PATH}"
+}
+
 # source all settings
 for category in aliases settings functions ; do
   for setting in $HOME/.bash/$category/*.sh;do
