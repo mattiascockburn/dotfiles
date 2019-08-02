@@ -191,8 +191,9 @@ Plug 'mzlogin/vim-markdown-toc'
 " COC - new-fangled completion system using LSP
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
+" Better install COC plugins with CocInstall
 " COC integration of Powershell
-Plug 'yatli/coc-powershell', {'do': { -> coc#powershell#install()}}
+"Plug 'yatli/coc-powershell', {'do': { -> coc#powershell#install()}}
 
 " Using a non-master branch
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
