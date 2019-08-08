@@ -155,7 +155,7 @@ Plug 'sheerun/vim-polyglot'
 " Snippets
 
 Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'mattiasgiese/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 " Helper for context-specific snippets
 Plug 'Shougo/context_filetype.vim'
