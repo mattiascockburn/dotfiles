@@ -24,17 +24,6 @@ export GTK_OVERLAY_SCROLLING=0
   [[ ! "$PATH" =~ "${HOME/\//\//}\/.lluarocks/bin" ]] && export PATH="${HOME}/.luarocks/bin:${PATH}"
 }
 
-# source all settings
-for category in aliases settings functions ; do
-  for setting in $HOME/.bash/$category/*.sh;do
-    . $setting
-  done
-done
-
-### OTHER FILES
-for stuff in ~/{.profile,.alias,.bash_secrets}; do
-  [[ -f $stuff ]] && . $stuff
-done
 
 ### PROMPT
 # Magic Monty GitPrompt for Bash, really handy
@@ -78,3 +67,15 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # docker - use buildkit by default
 export DOCKER_BUILDKIT=1
+
+# source all settings
+for category in aliases settings functions ; do
+  for setting in $HOME/.bash/$category/*.sh;do
+    . $setting
+  done
+done
+
+### OTHER FILES
+for stuff in ~/{.profile,.alias,.bash_secrets}; do
+  [[ -f $stuff ]] && . $stuff
+done
