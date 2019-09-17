@@ -691,8 +691,13 @@ let wiki_default.nested_syntaxes = {'md':'markdown', 'sh':'sh','python': 'python
 
 let wiki_giz = {}
 let wiki_giz.path = '~/vimwiki/giz'
+let wiki_giz.syntax = 'markdown'
+let wiki_giz.ext = 'md'
+let wiki_giz.nested_syntaxes = {'md':'markdown', 'sh':'sh','python': 'python', 'c++': 'cpp'}
+let wiki_giz.path_html = '~/vimwiki/giz_html'
+let wiki_giz.custom_wiki2html = '~/.local/bin/vimwiki_md_convert.py'
 
-let g:vimwiki_list = [wiki_default, wiki_giz]
+let g:vimwiki_list = [wiki_giz, wiki_default]
 
 " COC options
 
