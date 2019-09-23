@@ -694,8 +694,11 @@ let wiki_giz.path = '~/vimwiki/giz'
 let wiki_giz.syntax = 'markdown'
 let wiki_giz.ext = 'md'
 let wiki_giz.nested_syntaxes = {'md':'markdown', 'sh':'sh','python': 'python', 'c++': 'cpp'}
-let wiki_giz.path_html = '~/vimwiki/giz_html'
+let wiki_giz.path_html = wiki_giz.path.'/html'
 let wiki_giz.custom_wiki2html = '~/.local/bin/vimwiki_md_convert.py'
+let wiki_giz.template_path = wiki_giz.path.'/templates'
+let wiki_giz.template_default = 'GitHub'
+let wiki_giz.template_ext =  'html5'
 
 let g:vimwiki_list = [wiki_giz, wiki_default]
 
