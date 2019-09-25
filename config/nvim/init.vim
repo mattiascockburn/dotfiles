@@ -688,6 +688,9 @@ endif
 " vimwiki with markdown support
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
+" do not conceal anything by default
+let g:vimwiki_conceallevel = 0
+
 let wiki_default = {}
 let wiki_default.path = '~/vimwiki/tech-notes'
 let wiki_default.syntax = 'markdown'
