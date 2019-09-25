@@ -567,6 +567,11 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 " no conceal markers
 let g:neosnippet#enable_conceal_markers = 0
 
+" set a global directory for user defined snippets.
+" these overwrite any snippets defined before.
+" I use this to overwrite vimwiki snippets
+let g:neosnippet#snippets_directory	= $HOME . '/.config/nvim/mysnippets'
+
 " keybindings
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
