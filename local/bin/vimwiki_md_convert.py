@@ -55,7 +55,7 @@ def convert(
         "pagetitle={}".format(title),
         custom_args if custom_args != "-" else "",
         "-f",
-        "markdown",
+        "markdown+pipe_tables",
         "-t",
         "html",
         "-o",
@@ -65,7 +65,6 @@ def convert(
 
     # Prune empty elements from command list
     command = list(filter(None, command))
-
     # Run command
     subprocess.run(command, check=True, encoding="utf8", input=lines)
 
