@@ -19,6 +19,11 @@ export GTK_OVERLAY_SCROLLING=0
 [[ ! "$PATH" =~ "${HOME/\//\//}\/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
 [[ ! "$PATH" =~ "${HOME/\//\//}\/rvm\/gems/ruby/2.4.1/bin" ]] && export PATH="${HOME}/.rvm/gems/ruby/2.4.1/bin:${PATH}"
 
+# add .luarocks bin to PATH if it exists
+[[ -d "$HOME/.luarocks/bin" ]] && {
+  [[ ! "$PATH" =~ "${HOME/\//\//}\/.lluarocks/bin" ]] && export PATH="${HOME}/.luarocks/bin:${PATH}"
+}
+
 # source all settings
 for category in aliases settings functions ; do
   for setting in $HOME/.bash/$category/*.sh;do
@@ -30,6 +35,7 @@ done
 for stuff in ~/{.profile,.alias,.bash_secrets}; do
   [[ -f $stuff ]] && . $stuff
 done
+
 
 ### PROMPT
 # Magic Monty GitPrompt for Bash, really handy
@@ -59,6 +65,12 @@ r=$(type -t rvm)
 # add private bin if it exists
 [[ -d ~/.private/bin ]] && export PATH="~/.private/bin:${PATH}"
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# docker - use buildkit by default
+export DOCKER_BUILDKIT=1
+
 # Show error code if run command was not successful
 #EC() { echo -e '\e[1;33m'code $?'\e[m\n'; }
 EC() {
@@ -68,3 +80,6 @@ EC() {
   fi
 }
 trap EC ERR
+
+### HACK HACK HACK make sure neovim specific bash stuff is read last
+. ~/.bash/settings/nvim.sh

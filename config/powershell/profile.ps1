@@ -35,13 +35,15 @@ $global:PSColor = @{
 Set-Alias vim nvim
 Set-Alias vi nvim
 
-#function prompt {
+function prompt {
 # Your non-prompt logic here
 #
 # Have posh-git display its default prompt
-#  & $GitPromptScriptBlock
-#}
+  & $GitPromptScriptBlock
+  $(Get-PS -Na)
+}
 
 # git prompt settings
 $GitPromptSettings.AfterText = "]`n"
 $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
+

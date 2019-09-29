@@ -1,16 +1,23 @@
 #!/bin/bash
 target=${1:-/mnt/rescue}
-root='UUID=c8f65da1-046a-4695-a581-05e64c7361f7'
-boot='UUID=1729-49C1'
-cache=/var/cache/pacman/pkg
-declare -a dotfiles=(.config/git/ignore .gnupg .gitconfig .password-store .ssh .dotfiles)
-targetuser=mattias
+C="$HOME/.private/rescuedisk/$(hostname).conf"
+[[ -f "$C" ]] || {
+  echo Fail. Config $C not readable
+  exit 1
+}
+. "$C"
 set -u
 
 if [ ! -d "$target" ]; then
   echo $target is not a directory
   exit 1
 fi
+
+# ask for password if rootfs is encrypted
+cryptsetup isLuks $root && {
+  echo Decrypt your stuff
+  sudo cryptsetup luksOpen $root extroot || exit 1
+}
 sudo mount "$root" "$target"
 sudo mount "$boot" "${target}/boot"
 sudo mount --bind "$cache" "${target}/${cache}"
@@ -21,11 +28,12 @@ fi
 # update the most important dotfiles for recovery
 echo Updating important stuff
 for d in ${dotfiles[@]}; do
-  rsync -Lrh "/home/${targetuser}/$d" "${target}/home/${targetuser}/."
+  echo Copying $d
+  rsync --info=name0 -v -Lrh "/home/${targetuser}/$d" "${target}/home/${targetuser}/."
 done
 echo Trying to update packages at $target
 sudo arch-chroot "$target" pacman -Syu --noconfirm
 sudo arch-chroot "$target" chown -R "$targetuser" "/home/${targetuser}"
 echo Umount $target
 sudo umount -R "$target"
-
+sudo cryptsetup luksClose $root

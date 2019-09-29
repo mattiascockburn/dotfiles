@@ -149,16 +149,13 @@ Plug 'vim-airline/vim-airline-themes'
 " syntax/indent/ftplugins for a many languages/tools
 Plug 'sheerun/vim-polyglot'
 
-" Powershell syntax
-Plug 'PProvost/vim-ps1'
-
 " Any valid git URL is allowed
 "Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Snippets
 
 Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'mattiasgiese/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 " Helper for context-specific snippets
 Plug 'Shougo/context_filetype.vim'
@@ -190,6 +187,13 @@ Plug 'lifepillar/pgsql.vim'
 " Markdown stuff
 Plug 'plasticboy/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
+
+" COC - new-fangled completion system using LSP
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+
+" Better install COC plugins with CocInstall
+" COC integration of Powershell
+"Plug 'yatli/coc-powershell', {'do': { -> coc#powershell#install()}}
 
 " Using a non-master branch
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -239,7 +243,7 @@ autocmd BufWritePre * %s/\s\+$//e
 set undolevels=1000
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
-    let myUndoDir = '/home/mattias/.local/vim/undo'
+    let myUndoDir = $HOME . '/.local/vim/undo'
     " Create dirs
     call system('mkdir -p' . myUndoDir)
     let &undodir = myUndoDir
@@ -522,7 +526,7 @@ map <leader>bl :execute "buffer" g:lastusedbuffer<cr>
 map <leader>q :close<cr>
 
 " fzf buffer list
-map <leader>B :Buffers<cr>
+map <leader>bb :Buffers<cr>
 
 " some settings for ale
 " Error and warning signs.
@@ -562,6 +566,11 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 
 " no conceal markers
 let g:neosnippet#enable_conceal_markers = 0
+
+" set a global directory for user defined snippets.
+" these overwrite any snippets defined before.
+" I use this to overwrite vimwiki snippets
+let g:neosnippet#snippets_directory	= $HOME . '/.config/nvim/mysnippets'
 
 " keybindings
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -610,13 +619,25 @@ let b:deoplete_disable_auto_complete=0
 " Configure dicts for deoplete
 setlocal dictionary=/usr/share/dict/german
 setlocal dictionary+=/usr/share/dict/american-english
+
+
 call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
 call deoplete#custom#source('dictionary', 'sorters', [])
 call deoplete#custom#source('dictionary', 'min_pattern_length', 4)
+call deoplete#custom#option('_', 'min_pattern_length', 4)
 
+call deoplete#custom#var('around', {
+\   'range_above': 15,
+\   'range_below': 15,
+\   'mark_above': '[↑]',
+\   'mark_below': '[↓]',
+\   'mark_changes': '[*]',
+\})
 " Filetype specific options
 call deoplete#custom#option('sources', {
     \ '_': ['buffer', 'around'],
+    \ 'ps1': [],
+    \ 'tex': ['file'],
     \ 'vim': ['vim'],
     \ 'sh': ['file'],
     \ 'python': ['jedi'],
@@ -627,12 +648,11 @@ call deoplete#custom#var('omni', 'input_patterns', {
   \ 'pandoc': '@'
 \})
 
-
 " deoplete-emoji stuff
 " Insert actual emoji and not the text representation
 call deoplete#custom#source('emoji', 'converters', ['converter_emoji'])
 " Set filetypes for emoji
-call deoplete#custom#source('emoji', 'filetypes', ['rst','mail','text','pandoc','markdown'])
+call deoplete#custom#source('emoji', 'filetypes', ['rst','mail','unix','pandoc','markdown'])
 
 " END of deoplete
 "
@@ -668,14 +688,31 @@ endif
 " vimwiki with markdown support
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
+" do not conceal anything by default
+let g:vimwiki_conceallevel = 0
+
 let wiki_default = {}
 let wiki_default.path = '~/vimwiki/tech-notes'
 let wiki_default.syntax = 'markdown'
 let wiki_default.ext = 'md'
-let wiki_default.nested_syntaxes = {'sh':'sh','python': 'python', 'c++': 'cpp'}
+let wiki_default.nested_syntaxes = {'md':'markdown', 'sh':'sh','python': 'python', 'c++': 'cpp'}
 
 let wiki_giz = {}
 let wiki_giz.path = '~/vimwiki/giz'
+let wiki_giz.syntax = 'markdown'
+let wiki_giz.ext = 'md'
+let wiki_giz.nested_syntaxes = {'md':'markdown', 'sh':'sh','python': 'python', 'c++': 'cpp'}
+let wiki_giz.path_html = wiki_giz.path.'/html'
+let wiki_giz.custom_wiki2html = '~/.local/bin/vimwiki_md_convert.py'
+let wiki_giz.template_path = wiki_giz.path.'/templates'
+let wiki_giz.template_default = 'GitHub'
+let wiki_giz.template_ext =  'html5'
 
-let g:vimwiki_list = [wiki_default, wiki_giz]
+let g:vimwiki_list = [wiki_giz, wiki_default]
 
+" COC options
+
+let g:coc_global_extensions=[ 'coc-powershell', ]
+
+" fix json comment highlighting
+autocmd FileType json syntax match Comment +\/\/.\+$+
