@@ -1,0 +1,33 @@
+snippet b1page
+alias   \b1page
+  \begin{frame}[fragile]
+  \frametitle<presentation>{${1:#:title}}
+  \mode<article>{
+  \includethumb
+  }
+
+  \mode
+  <presentation>
+
+  ${2:TARGET}
+
+  \mode
+  <article>
+
+  \mode
+  <all>
+
+  \end{frame}
+  \newpage
+
+snippet b1note
+  \mode<article>{
+  \begin{b1note}{${1:#:title}}
+  ${2:TARGET}
+  \end{b1note}
+  }
+
+snippet lstlisting
+  \begin{lstlisting}
+  ${1:#:title}
+  \end{lstlisting}
