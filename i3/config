@@ -264,6 +264,9 @@ assign [class="clementine"] $ws4
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id xinput set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' 1.0
 
+# hide/show polybar
+bindsym $mod+comma exec polybar-msg cmd toggle
+
 exec --no-startup-id dunst
 exec --no-startup-id redshift -l geoclue2
 
