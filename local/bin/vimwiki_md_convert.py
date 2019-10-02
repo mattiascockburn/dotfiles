@@ -70,7 +70,15 @@ def convert(
 
 
 def repl(match):
-    link = path.splitext(match.group(2))[0] + ".html"
+    src, ext = path.splitext(match.group(2))
+    ext = ext.partition(' ')[0]
+    print(f"SRC: {src} Ext: {ext}")
+    if not ext:
+        link = src
+    elif ext in ['.png', '.jpg', '.svg']:
+        link = f"{src}{ext}"
+    else:
+        link = f"{src}.html"
     return "[{}]({})".format(match.group(1), link)
 
 
