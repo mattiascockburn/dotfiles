@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # Send an arbitrary command to the currently used neovim instance
 import os
 import sys
