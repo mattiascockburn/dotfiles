@@ -1,10 +1,11 @@
 #!/bin/bash
 target=${1:-/mnt/rescue}
-root='/dev/disk/by-uuid/698c93c9-67e6-4a7c-ba9a-a5bc232394fc'
-boot='/dev/disk/by-uuid/0B79-E3C8'
-cache=/var/cache/pacman/pkg
-declare -a dotfiles=(.config/git/ignore .gnupg .gitconfig .password-store .ssh .dotfiles)
-targetuser=mattias
+C="$HOME/.private/rescuedisk/$(hostname).conf"
+[[ -f "$C" ]] || {
+  echo Fail. Config $C not readable
+  exit 1
+}
+. "$C"
 set -u
 
 if [ ! -d "$target" ]; then

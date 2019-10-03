@@ -10,3 +10,5 @@ set from = giese@b1-systems.de
 set use_from = yes
 set sendmail  = "/usr/bin/msmtp -a b1"
 set signature = '~/.signature'
+# quick sync imap
+macro index Z   "<shell-escape>mbsync b1<enter>" "sync IMAP"

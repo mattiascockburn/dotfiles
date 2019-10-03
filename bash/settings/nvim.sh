@@ -6,4 +6,12 @@
   # inside the current session
   alias vim=nvim-edit
   alias nvim=nvim-edit
+
+  # overwrite cd inside a nvim terminal in order to work the working directory inside nvim
+  function cd() {
+    builtin cd "$@";
+    # if the parent process is nvim, do a vim cd
+     nvim-send "tcd $@"
+  }
+  export cd
 }

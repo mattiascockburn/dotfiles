@@ -11,3 +11,6 @@ set from = mattiasgiese@posteo.net
 set use_from = yes
 set sendmail  = "/usr/bin/msmtp -a posteo"
 set signature = '~/.signature_posteo'
+
+# quick sync imap
+macro index Z   "<shell-escape>mbsync posteo<enter>" "sync IMAP"

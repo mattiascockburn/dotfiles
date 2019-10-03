@@ -155,7 +155,7 @@ Plug 'sheerun/vim-polyglot'
 " Snippets
 
 Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'mattiasgiese/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 " Helper for context-specific snippets
 Plug 'Shougo/context_filetype.vim'
@@ -191,8 +191,9 @@ Plug 'mzlogin/vim-markdown-toc'
 " COC - new-fangled completion system using LSP
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
+" Better install COC plugins with CocInstall
 " COC integration of Powershell
-Plug 'yatli/coc-powershell', {'do': { -> coc#powershell#install()}}
+"Plug 'yatli/coc-powershell', {'do': { -> coc#powershell#install()}}
 
 " Using a non-master branch
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -242,7 +243,7 @@ autocmd BufWritePre * %s/\s\+$//e
 set undolevels=1000
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
-    let myUndoDir = '/home/mattias/.local/vim/undo'
+    let myUndoDir = $HOME . '/.local/vim/undo'
     " Create dirs
     call system('mkdir -p' . myUndoDir)
     let &undodir = myUndoDir
@@ -566,6 +567,11 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 " no conceal markers
 let g:neosnippet#enable_conceal_markers = 0
 
+" set a global directory for user defined snippets.
+" these overwrite any snippets defined before.
+" I use this to overwrite vimwiki snippets
+let g:neosnippet#snippets_directory	= $HOME . '/.config/nvim/mysnippets'
+
 " keybindings
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -682,6 +688,9 @@ endif
 " vimwiki with markdown support
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
+" do not conceal anything by default
+let g:vimwiki_conceallevel = 0
+
 let wiki_default = {}
 let wiki_default.path = '~/vimwiki/tech-notes'
 let wiki_default.syntax = 'markdown'
@@ -690,8 +699,16 @@ let wiki_default.nested_syntaxes = {'md':'markdown', 'sh':'sh','python': 'python
 
 let wiki_giz = {}
 let wiki_giz.path = '~/vimwiki/giz'
+let wiki_giz.syntax = 'markdown'
+let wiki_giz.ext = 'md'
+let wiki_giz.nested_syntaxes = {'md':'markdown', 'sh':'sh','python': 'python', 'c++': 'cpp'}
+let wiki_giz.path_html = wiki_giz.path.'/html'
+let wiki_giz.custom_wiki2html = '~/.local/bin/vimwiki_md_convert.py'
+let wiki_giz.template_path = wiki_giz.path.'/templates'
+let wiki_giz.template_default = 'GitHub'
+let wiki_giz.template_ext =  'html5'
 
-let g:vimwiki_list = [wiki_default, wiki_giz]
+let g:vimwiki_list = [wiki_giz, wiki_default]
 
 " COC options
 

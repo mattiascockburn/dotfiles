@@ -1,6 +1,7 @@
 # make xdg-open use exo from the xfce project
 export DE='xfce'
-export RUNMODE='gaming'
+#export RUNMODE='gaming'
+export RUNMODE='media'
 #WM=awesome
 #WM=xfce4-session
 WM=i3
@@ -78,6 +79,8 @@ xinput set-prop 'ETPS/2 Elantech Touchpad' 'libinput Tapping Enabled' 1
 #exec ck-launch-session dbus-launch
 if [[ "$RUNMODE" = 'gaming' ]]; then
   exec zockbox.sh &>/tmp/zockbox.log &
+elif [[ "$RUNMODE" = 'media' ]]; then
+  exec kodi -fs &
 else
   # Automatically lock the session
   exec xautolock -time 10 -detectsleep -bell 0 -locker 'slock' -notify 30 \

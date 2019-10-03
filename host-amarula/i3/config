@@ -192,6 +192,10 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 #multihead helpers
 bindsym $mod+o move workspace to output right
 
+# hide/show polybar
+bindsym $mod+comma exec polybar-msg cmd hide
+bindsym $mod+shift+comma exec polybar-msg cmd show
+
 # reload the configuration file
 #bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)

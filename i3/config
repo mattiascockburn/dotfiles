@@ -45,6 +45,7 @@ bindsym $mod+semicolon move workspace to output up
 # start a terminal
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+Return exec termite -e pwsh
+bindsym $mod+Control+Return exec termite -e zsh
 
 bindsym $mod+Shift+y exec ~/.local/bin/youpoop.sh music
 bindsym $mod+Control+y exec ~/.local/bin/youpoop.sh video
@@ -87,6 +88,10 @@ bindsym $mod+shift+w exec browser
 
 # Launcher configuration
 bindsym $mod+d exec rofi -show run -width 70 -opacity "85"
+
+# emojis 😂
+bindsym $mod+Shift+e exec rofimoji
+
 
 # change focus
 bindsym $mod+h focus left
@@ -263,6 +268,9 @@ assign [class="clementine"] $ws4
 # Start some shit i need (Rest is in .xinitrc)
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id xinput set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' 1.0
+
+# hide/show polybar
+bindsym $mod+comma exec polybar-msg cmd toggle
 
 exec --no-startup-id dunst
 exec --no-startup-id redshift -l geoclue2
