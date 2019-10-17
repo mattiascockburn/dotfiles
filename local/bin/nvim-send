@@ -12,7 +12,10 @@ if not addr:
     print("Not inside neovim")
     sys.exit(1)
 
-nvim = attach("socket", path=addr)
-
-for arg in args:
-    nvim.command(f"{arg}")
+try:
+    nvim = attach("socket", path=addr)
+    for arg in args:
+        nvim.command(f"{arg}")
+# silently fail
+except Exception:
+    pass
