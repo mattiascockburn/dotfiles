@@ -31,3 +31,15 @@ snippet lstlisting
   \begin{lstlisting}
   ${1:#:title}
   \end{lstlisting}
+
+snippet image
+  \begin{figure}[htb!]
+   \begin{center}
+     \includegraphics[width=\textwidth]{${1:#:images/}}
+   \end{center}
+   \caption{${1:#:caption}}
+   \label{fig:tux}
+  \end{figure}
+
+snippet verified
+  % URLs verified on `strftime("%d %b %Y")` by giese@b1-systems.de
