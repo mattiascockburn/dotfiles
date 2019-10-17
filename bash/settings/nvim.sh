@@ -11,7 +11,7 @@
   function cd() {
     builtin cd "$@";
     # if the parent process is nvim, do a vim cd
-     nvim-send "tcd $@"
+     nvim-send "lcd $@"
   }
   export cd
 }
