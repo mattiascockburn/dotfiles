@@ -92,6 +92,9 @@ bindsym $mod+d exec rofi -show run -width 70 -opacity "85"
 # emojis 😂
 bindsym $mod+Shift+e exec rofimoji
 
+bindsym $mod+Shift+s exec bash -c 'maim -s /tmp/screen_$(date +%Y-%m-%d_%H-%M-%S).png'
+bindsym $mod+Control+a exec flameshot gui
+
 
 # change focus
 bindsym $mod+h focus left
