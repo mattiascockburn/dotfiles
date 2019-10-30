@@ -22,20 +22,11 @@ source ~/.mutt/settings/sidebar
 source ~/.mutt/settings/notmuch
 
 ## Accounts
-## B1
-# source "~/.mutt/accounts/b1"
-# Here we use the $folder variable that has just been set in the sourced file.
-# We must set it right now otherwise the 'folder' variable will change in the next sourced file.
-# folder-hook $folder 'source ~/.mutt/accounts/b1'
-
-## web.de
 source "~/.mutt/accounts/posteo"
 # Here we use the $folder variable that has just been set in the sourced file.
 # We must set it right now otherwise the 'folder' variable will change in the next sourced file.
-folder-hook $folder 'source ~/.mutt/accounts/posteo'
+# folder-hook $folder 'source ~/.mutt/accounts/posteo'
 
-## Default account is B1
-source "~/.mutt/accounts/posteo"
 
 ## macros for account change
 ## sidebar hiding is done to prevent fucking crashes
