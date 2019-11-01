@@ -35,6 +35,7 @@ sudo borg create                                 \
     --exclude '/mnt/*'                           \
     --exclude '/media/*'                         \
     --exclude '/run/*'                           \
+    --exclude '/tmp/*'                           \
     --exclude '/home/*/mail/.notmuch'            \
     --exclude '/home/*/.local/share/Trash/'      \
     --exclude '/home/*/games'                    \
