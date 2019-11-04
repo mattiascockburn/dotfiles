@@ -1,7 +1,7 @@
 #!/bin/bash
-user=fnord
-pass=$(pass transmission/leechbox)
-remote=leechbox.vm.s99.be
+user=foobar
+pass=$(pass transmission/amarula)
+remote=localhost
 url="$(xsel -b)"
 if [[ -n "$url" ]];then
   transmission-remote $remote --add "$url" --auth "$user:$pass" && notify-send -u low -t 2000 'Torrent added'
