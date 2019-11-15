@@ -62,6 +62,14 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
+# Use bash config dir for now for cross-shell aliases
+for a in ~/.bash/aliases/*.sh; do
+  source $a
+done
+
+# HACK HACK HACK :'-(
+source ~/.bash/functions/misc.sh
+
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
