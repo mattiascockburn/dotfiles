@@ -502,9 +502,9 @@ map <silent> <leader><cr> :noh<cr>
 map <leader>pp :setlocal paste!<cr>
 
 " Spawn terminals
-map <leader>tt :spl term://bash<cr>
-map <leader>tv :vspl term://bash<cr>
-map <leader>T :tabe term://bash<cr>
+map <leader>tt :spl term://zsh<cr>
+map <leader>tv :vspl term://zsh<cr>
+map <leader>T :tabe term://zsh<cr>
 " Enter insert mode when we switch to a terminal
 " Super useful 😻
 :au BufEnter * if &buftype == 'terminal' | :startinsert | endif
