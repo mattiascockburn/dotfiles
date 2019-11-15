@@ -77,5 +77,10 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
 
+# source all other config snippets
+for a in ~/.config/zsh/{*.conf,functions/*.sh}; do
+    source $a
+done
+
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
