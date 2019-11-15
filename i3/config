@@ -43,9 +43,9 @@ workspace_layout tabbed
 bindsym $mod+semicolon move workspace to output up
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec termite -e zsh
 bindsym $mod+Shift+Return exec termite -e pwsh
-bindsym $mod+Control+Return exec termite -e zsh
+bindsym $mod+Control+Return exec termite # -e zsh
 
 bindsym $mod+Shift+y exec ~/.local/bin/youpoop.sh music
 bindsym $mod+Control+y exec ~/.local/bin/youpoop.sh video
