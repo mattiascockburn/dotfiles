@@ -58,9 +58,9 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Edit line in vim with ctrl-e:
+# Edit line in vim with ctrl+x ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^o' edit-command-line
+bindkey '^x^e' edit-command-line
 
 
 # Load zsh-syntax-highlighting; should be last.
