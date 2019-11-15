@@ -23,7 +23,9 @@ _comp_options+=(globdots)		# Include hidden files.
 bindkey -v
 export KEYTIMEOUT=1
 
-eval "$(starship init zsh)"
+if which starship &>/dev/null; then
+  eval $(starship init zsh)
+fi
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
