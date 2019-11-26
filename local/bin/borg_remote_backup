@@ -48,6 +48,7 @@ sudo borg create                                 \
     --exclude '/home/*/git/aur/*/pkg/'           \
     --exclude '/home/*/.local/share/flatpak/'    \
     --exclude '/home/*/.local/share/containers/' \
+    --exclude '/home/*/.local/share/NuGet/'      \
     ::'{hostname}-{now}'                         \
     $(eval echo $BORG_BACKUP_DIRS)
 
