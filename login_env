@@ -1,0 +1,5 @@
+# This file holds different env-vars used in my shell/session initialization scripts like
+# .bashrc/.zshrc
+
+# Use sway as desktop environment
+USE_SWAY=y
