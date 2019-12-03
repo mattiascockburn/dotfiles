@@ -89,6 +89,9 @@ bindsym $mod+shift+w exec browser
 # Launcher configuration
 bindsym $mod+d exec rofi -show run -width 70 -opacity "85"
 
+# browser launcher
+bindsym $mod+b exec browser
+
 # emojis 😂
 bindsym $mod+Shift+e exec rofimoji
 
