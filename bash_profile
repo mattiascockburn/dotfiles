@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-USE_SWAY=
+[[ -f ~/.login_env ]] && . ~/.login_env
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
