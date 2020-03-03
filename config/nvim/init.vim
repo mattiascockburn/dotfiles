@@ -716,3 +716,6 @@ let g:coc_global_extensions=[ 'coc-powershell', ]
 
 " fix json comment highlighting
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" Salt specific plugin options
+let g:sls_use_jinja_syntax = 1
