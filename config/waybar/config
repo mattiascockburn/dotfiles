@@ -34,7 +34,7 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 21,
         "spacing": 10
     },
     "clock": {
@@ -68,12 +68,6 @@
     },
     "battery#bat1": {
         "bat": "BAT1"
-    },
-    "network": {
-        // "interface": "wlp4s0", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠"
     },
     "network": {
         // "interface": "enp0s31f6", // (Optional) To force the use of this interface
