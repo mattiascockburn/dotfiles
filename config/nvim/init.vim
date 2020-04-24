@@ -8,6 +8,9 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" Add support for more text targets
+Plug 'wellle/targets.vim'
+
 " LSP code completion/diagnostics
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
