@@ -122,18 +122,13 @@ Plug 'vim-airline/vim-airline-themes'
 " syntax/indent/ftplugins for a many languages/tools
 Plug 'sheerun/vim-polyglot'
 
-" Any valid git URL is allowed
-"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
 " Snippets
-
 Plug 'Shougo/neosnippet.vim'
 Plug 'mattiasgiese/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 " Helper for context-specific snippets
 Plug 'Shougo/context_filetype.vim'
 
-" On-demand loading
 Plug 'scrooloose/nerdtree'
 
 " Easy commenting
@@ -558,17 +553,10 @@ endif " has autocmd
 " Quickly edit/reload this configuration file
 nnoremap <leader>gev :e $MYVIMRC<CR>
 
-" ALE settings
-let g:ale_completion_enabled = 0
 
-
-" Configure dicts for deoplete
+" Set some dicts for spell checking
 setlocal dictionary=/usr/share/dict/german
 setlocal dictionary+=/usr/share/dict/american-english
-
-let g:deoplete#sources#jedi#show_docstring=1
-
-" vim-pandoc options
 
 " Do not hide characters in, for example, markdown mode
 set conceallevel=0
