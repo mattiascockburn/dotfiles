@@ -17,6 +17,8 @@ Plug 'Shougo/neco-syntax'
 " Show index and current status in tabline
 Plug 'mkitt/tabline.vim'
 
+" Enhance the terminal UX
+Plug 'kassio/neoterm'
 
 " Session management
 Plug 'thaerkh/vim-workspace'
