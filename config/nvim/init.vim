@@ -56,8 +56,8 @@ Plug 'ludovicchabant/vim-gutentags'
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
-" Async File Linter, whoohoo
-Plug 'w0rp/ale'
+" Async syntax linters/fixers
+Plug 'dense-analysis/ale'
 
 " Easily align text
 " used by puppet-vim
