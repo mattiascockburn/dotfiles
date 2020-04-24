@@ -8,35 +8,10 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-" deoplete plugins
-" Python goodness
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+" LSP code completion/diagnostics
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'Shougo/neco-syntax'
-" vim syntax
-Plug 'Shougo/neco-vim', { 'for': 'vim' }
-
-" deoplete source for Dockerfile
-Plug 'deoplete-plugins/deoplete-docker', { 'for': 'Dockerfile' }
-
-" emoji junk
-Plug 'fszymanski/deoplete-emoji'
-
-" deoplete support for go
-Plug 'deoplete-plugins/deoplete-go', { 'for': 'go' }
-Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/vim/plugged/gocode/nvim/symlink.sh' }
-
-" Mutt/e-mail stuff
-Plug 'nicoe/deoplete-khard'
-
-" Spell checking
-Plug 'deathlyfrantic/deoplete-spell'
 
 " End of deoplete plugins
 
@@ -64,8 +39,6 @@ Plug 'kshenoy/vim-signature'
 "Open file under cursor with 'gf'
 Plug 'amix/open_file_under_cursor.vim'
 
-" Make sure you use single quotes
-"
 Plug 'junegunn/fzf.vim'
 
 " Better buffer delete behaviour
@@ -104,7 +77,6 @@ Plug 'Yggdroot/indentLine'
 " Languages
 Plug 'saltstack/salt-vim'
 Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.py' }
-Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'vim-ruby/vim-ruby'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'tmux-plugins/vim-tmux'
@@ -710,12 +682,75 @@ let wiki_giz.template_ext =  'html5'
 
 let g:vimwiki_list = [wiki_giz, wiki_default]
 
-" COC options
-
-let g:coc_global_extensions=[ 'coc-powershell', ]
-
 " fix json comment highlighting
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Salt specific plugin options
 let g:sls_use_jinja_syntax = 1
+
+" Register hacks
+" Do not pollute default register
+noremap x "_x
+vnoremap p "_dP
+
+" BEGIN COC specific settings
+
+" Manage these extensions automatically
+let g:coc_global_extensions = [ 'coc-powershell', 'coc-python', 'coc-json', 'coc-html', 'coc-highlight', 'coc-snippets', 'coc-vimlsp', 'coc-texlab', 'coc-yaml', 'coc-xml', 'coc-git', 'coc-marketplace', 'coc-emoji', 'coc-dictionary', 'coc-tag', 'coc-neosnippet', 'coc-yank']
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" END COC specific settings
+"
+
+" BEGIN COC plugin settings
+
+" coc-snippets
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" coc-yank
+nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
