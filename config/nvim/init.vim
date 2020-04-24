@@ -92,12 +92,6 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 " wiki stuff in vim
 Plug 'vimwiki/vimwiki'
 
-" PyDoc to quickly access documentation
-Plug 'fs111/pydoc.vim'
-
-" Tabmanager - visualizing tabs in vim
-Plug 'kien/tabman.vim'
-
 " themes
 Plug 'josuegaleas/jay'
 Plug 'chriskempson/base16-vim'
@@ -139,9 +133,6 @@ Plug 'Shougo/context_filetype.vim'
 " On-demand loading
 Plug 'scrooloose/nerdtree'
 
-" Use NERDtree with ack
-Plug 'tyok/nerdtree-ack'
-
 " Easy commenting
 Plug 'scrooloose/nerdcommenter'
 
@@ -163,19 +154,6 @@ Plug 'lifepillar/pgsql.vim'
 " Markdown stuff
 Plug 'plasticboy/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
-
-" COC - new-fangled completion system using LSP
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-
-" Better install COC plugins with CocInstall
-" COC integration of Powershell
-"Plug 'yatli/coc-powershell', {'do': { -> coc#powershell#install()}}
-
-" Using a non-master branch
-"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Unmanaged plugin (manually installed and updated)
-"Plug '~/my-prototype-plugin'
 
 " Initialize plugin system
 call plug#end()
@@ -400,9 +378,6 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'puppet']
 let g:markdown_minlines = 100
 let g:markdown_syntax_conceal = 0
 
-" pymode
-let g:pymode_python = 'python3'
-
 let g:gutentags_generate_on_new = 1
 " Force gutentags to ignore certain roots as projects
 let g:gutentags_cache_dir = '~/.tags'
@@ -580,58 +555,15 @@ endif " has autocmd
 " Quickly edit/reload this configuration file
 nnoremap <leader>gev :e $MYVIMRC<CR>
 
-" Some deoplete settings
-" Disable the candidates in Comment/String syntaxes.
-call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
+" ALE settings
+let g:ale_completion_enabled = 0
 
-let g:deoplete_disable_auto_complete=0
-let b:deoplete_disable_auto_complete=0
-
-" Ignored sources
-"let g:deoplete#ignore_sources = {}
 
 " Configure dicts for deoplete
 setlocal dictionary=/usr/share/dict/german
 setlocal dictionary+=/usr/share/dict/american-english
 
-
-call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
-call deoplete#custom#source('dictionary', 'sorters', [])
-call deoplete#custom#source('dictionary', 'min_pattern_length', 4)
-call deoplete#custom#option('_', 'min_pattern_length', 4)
-
-call deoplete#custom#var('around', {
-\   'range_above': 15,
-\   'range_below': 15,
-\   'mark_above': '[↑]',
-\   'mark_below': '[↓]',
-\   'mark_changes': '[*]',
-\})
-" Filetype specific options
-call deoplete#custom#option('sources', {
-    \ '_': ['buffer', 'around'],
-    \ 'ps1': [],
-    \ 'tex': ['file'],
-    \ 'vim': ['vim'],
-    \ 'sh': ['file'],
-    \ 'python': ['jedi'],
-    \ 'mail': ['dictionary','khard','emoji'],
-\})
-
-call deoplete#custom#var('omni', 'input_patterns', {
-  \ 'pandoc': '@'
-\})
-
-" deoplete-emoji stuff
-" Insert actual emoji and not the text representation
-call deoplete#custom#source('emoji', 'converters', ['converter_emoji'])
-" Set filetypes for emoji
-call deoplete#custom#source('emoji', 'filetypes', ['rst','mail','unix','pandoc','markdown'])
-
-" END of deoplete
-"
+let g:deoplete#sources#jedi#show_docstring=1
 
 " vim-pandoc options
 
