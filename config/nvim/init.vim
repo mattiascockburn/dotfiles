@@ -13,7 +13,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'Shougo/neco-syntax'
 
-" End of deoplete plugins
+" Tabline
+" Show index and current status in tabline
+Plug 'mkitt/tabline.vim'
 
 
 " Session management
