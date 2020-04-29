@@ -5,6 +5,7 @@ status_path = "~/.vdirsyncer/status/"
 a = "contacts_b1_local"
 b = "contacts_b1_remote"
 collections = ["from a", "from b"]
+conflict_resolution = "b wins"
 
 [storage contacts_b1_local]
 type = "filesystem"

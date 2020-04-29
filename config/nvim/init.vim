@@ -8,38 +8,20 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-" deoplete plugins
-" Python goodness
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+" Add support for more text targets
+Plug 'wellle/targets.vim'
+
+" LSP code completion/diagnostics
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'Shougo/neco-syntax'
-" vim syntax
-Plug 'Shougo/neco-vim', { 'for': 'vim' }
 
-" deoplete source for Dockerfile
-Plug 'deoplete-plugins/deoplete-docker', { 'for': 'Dockerfile' }
+" Tabline
+" Show index and current status in tabline
+Plug 'mkitt/tabline.vim'
 
-" emoji junk
-Plug 'fszymanski/deoplete-emoji'
-
-" deoplete support for go
-Plug 'deoplete-plugins/deoplete-go', { 'for': 'go' }
-Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/vim/plugged/gocode/nvim/symlink.sh' }
-
-" Mutt/e-mail stuff
-Plug 'nicoe/deoplete-khard'
-
-" Spell checking
-Plug 'deathlyfrantic/deoplete-spell'
-
-" End of deoplete plugins
-
+" Enhance the terminal UX
+Plug 'kassio/neoterm'
 
 " Session management
 Plug 'thaerkh/vim-workspace'
@@ -64,8 +46,6 @@ Plug 'kshenoy/vim-signature'
 "Open file under cursor with 'gf'
 Plug 'amix/open_file_under_cursor.vim'
 
-" Make sure you use single quotes
-"
 Plug 'junegunn/fzf.vim'
 
 " Better buffer delete behaviour
@@ -79,8 +59,8 @@ Plug 'ludovicchabant/vim-gutentags'
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
-" Async File Linter, whoohoo
-Plug 'w0rp/ale'
+" Async syntax linters/fixers
+Plug 'dense-analysis/ale'
 
 " Easily align text
 " used by puppet-vim
@@ -104,7 +84,6 @@ Plug 'Yggdroot/indentLine'
 " Languages
 Plug 'saltstack/salt-vim'
 Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.py' }
-Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'vim-ruby/vim-ruby'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'tmux-plugins/vim-tmux'
@@ -115,12 +94,6 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " wiki stuff in vim
 Plug 'vimwiki/vimwiki'
-
-" PyDoc to quickly access documentation
-Plug 'fs111/pydoc.vim'
-
-" Tabmanager - visualizing tabs in vim
-Plug 'kien/tabman.vim'
 
 " themes
 Plug 'josuegaleas/jay'
@@ -149,22 +122,14 @@ Plug 'vim-airline/vim-airline-themes'
 " syntax/indent/ftplugins for a many languages/tools
 Plug 'sheerun/vim-polyglot'
 
-" Any valid git URL is allowed
-"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
 " Snippets
-
 Plug 'Shougo/neosnippet.vim'
 Plug 'mattiasgiese/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 " Helper for context-specific snippets
 Plug 'Shougo/context_filetype.vim'
 
-" On-demand loading
 Plug 'scrooloose/nerdtree'
-
-" Use NERDtree with ack
-Plug 'tyok/nerdtree-ack'
 
 " Easy commenting
 Plug 'scrooloose/nerdcommenter'
@@ -187,19 +152,6 @@ Plug 'lifepillar/pgsql.vim'
 " Markdown stuff
 Plug 'plasticboy/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
-
-" COC - new-fangled completion system using LSP
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-
-" Better install COC plugins with CocInstall
-" COC integration of Powershell
-"Plug 'yatli/coc-powershell', {'do': { -> coc#powershell#install()}}
-
-" Using a non-master branch
-"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Unmanaged plugin (manually installed and updated)
-"Plug '~/my-prototype-plugin'
 
 " Initialize plugin system
 call plug#end()
@@ -424,9 +376,6 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'puppet']
 let g:markdown_minlines = 100
 let g:markdown_syntax_conceal = 0
 
-" pymode
-let g:pymode_python = 'python3'
-
 let g:gutentags_generate_on_new = 1
 " Force gutentags to ignore certain roots as projects
 let g:gutentags_cache_dir = '~/.tags'
@@ -528,10 +477,11 @@ map <leader>q :close<cr>
 " fzf buffer list
 map <leader>bb :Buffers<cr>
 
-" some settings for ale
+" some settings for ALE
 " Error and warning signs.
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '💩'
+let g:ale_sign_warning = '⚡'
+let g:ale_completion_enabled = 0
 
 " Enable integration with airline.
 let g:airline#extensions#ale#enabled = 1
@@ -604,60 +554,10 @@ endif " has autocmd
 " Quickly edit/reload this configuration file
 nnoremap <leader>gev :e $MYVIMRC<CR>
 
-" Some deoplete settings
-" Disable the candidates in Comment/String syntaxes.
-call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment', 'String'])
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
 
-let g:deoplete_disable_auto_complete=0
-let b:deoplete_disable_auto_complete=0
-
-" Ignored sources
-"let g:deoplete#ignore_sources = {}
-
-" Configure dicts for deoplete
+" Set some dicts for spell checking
 setlocal dictionary=/usr/share/dict/german
 setlocal dictionary+=/usr/share/dict/american-english
-
-
-call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
-call deoplete#custom#source('dictionary', 'sorters', [])
-call deoplete#custom#source('dictionary', 'min_pattern_length', 4)
-call deoplete#custom#option('_', 'min_pattern_length', 4)
-
-call deoplete#custom#var('around', {
-\   'range_above': 15,
-\   'range_below': 15,
-\   'mark_above': '[↑]',
-\   'mark_below': '[↓]',
-\   'mark_changes': '[*]',
-\})
-" Filetype specific options
-call deoplete#custom#option('sources', {
-    \ '_': ['buffer', 'around'],
-    \ 'ps1': [],
-    \ 'tex': ['file'],
-    \ 'vim': ['vim'],
-    \ 'sh': ['file'],
-    \ 'python': ['jedi'],
-    \ 'mail': ['dictionary','khard','emoji'],
-\})
-
-call deoplete#custom#var('omni', 'input_patterns', {
-  \ 'pandoc': '@'
-\})
-
-" deoplete-emoji stuff
-" Insert actual emoji and not the text representation
-call deoplete#custom#source('emoji', 'converters', ['converter_emoji'])
-" Set filetypes for emoji
-call deoplete#custom#source('emoji', 'filetypes', ['rst','mail','unix','pandoc','markdown'])
-
-" END of deoplete
-"
-
-" vim-pandoc options
 
 " Do not hide characters in, for example, markdown mode
 set conceallevel=0
@@ -710,9 +610,75 @@ let wiki_giz.template_ext =  'html5'
 
 let g:vimwiki_list = [wiki_giz, wiki_default]
 
-" COC options
-
-let g:coc_global_extensions=[ 'coc-powershell', ]
-
 " fix json comment highlighting
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" Salt specific plugin options
+let g:sls_use_jinja_syntax = 1
+
+" Register hacks
+" Do not pollute default register
+noremap x "_x
+vnoremap p "_dP
+
+" BEGIN COC specific settings
+
+" Manage these extensions automatically
+let g:coc_global_extensions = [ 'coc-powershell', 'coc-python', 'coc-json', 'coc-html', 'coc-highlight', 'coc-snippets', 'coc-vimlsp', 'coc-texlab', 'coc-yaml', 'coc-xml', 'coc-git', 'coc-marketplace', 'coc-emoji', 'coc-dictionary', 'coc-tag', 'coc-neosnippet', 'coc-yank', 'coc-sh']
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" END COC specific settings
+"
+
+" BEGIN COC plugin settings
+
+" coc-snippets
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" coc-yank
+nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
