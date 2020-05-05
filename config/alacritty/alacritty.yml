@@ -44,9 +44,6 @@ scrolling:
   # Specifying '0' will disable scrolling.
   history: 10000
 
-  # Number of lines the viewport will move for every line scrolled when
-  # scrollback is enabled (history > 0).
-  multiplier: 3
 
   # Faux Scrolling
   #
@@ -55,7 +52,6 @@ scrolling:
   # to allow mouse scrolling for applications like `man`.
   #
   # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
