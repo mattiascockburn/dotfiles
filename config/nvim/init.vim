@@ -398,7 +398,7 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.notexists   = '∄'
 let g:airline_symbols.whitespace   = 'Ξ'
 
-let g:airline_theme='dark'
+let g:airline_theme='Base2Tone_MeadowDark'
 
 " Looks
 " Make vertical bar more pleasing to the eye
@@ -672,7 +672,6 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 " END COC specific settings
-"
 
 " BEGIN COC plugin settings
 
