@@ -5,6 +5,8 @@ eval $(keychain --eval --quiet ~/.ssh/test_nopasswd)
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+export PATH="${HOME}/.local/bin:${PATH}"
+
 # Automatically start X or sway on TTY1
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   if $(which sway &>/dev/null) && [[ -n "$USE_SWAY" ]] ; then
