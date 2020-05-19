@@ -542,6 +542,12 @@ autocmd User fugitive
 " banish old fugitive read-only buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" some nifty mappings, courtesy of https://www.prodops.io/blog/solving-git-merge-conflicts-with-vim
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
+
 " vimrc specific helpers
 " stolen from https://superuser.com/questions/132029/how-do-you-reload-your-vimrc-file-without-restarting-vim
 " automatically source vimrc after edit
