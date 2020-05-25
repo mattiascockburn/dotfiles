@@ -109,6 +109,7 @@ Plug 'lifepillar/vim-solarized8'
 " git stuff
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
 
 " Powerful multi file search
 Plug 'wincent/ferret'
@@ -547,6 +548,11 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 nnoremap <leader>gd :Gvdiff<CR>
 nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
+
+" vim-magit, taken from
+" https://jakobgm.com/posts/vim/git-integration/
+" Open vimagit pane
+nnoremap <leader>gs :Magit<CR>       " git status
 
 " vimrc specific helpers
 " stolen from https://superuser.com/questions/132029/how-do-you-reload-your-vimrc-file-without-restarting-vim
