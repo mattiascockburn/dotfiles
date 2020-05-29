@@ -189,8 +189,17 @@ au BufNewFile,BufRead *.groovy  setf groovy
 au BufNewFile,BufRead Jenkinsfile  setf groovy
 
 " Remove trailing spaces on write
-" http://vim.wikia.com/wiki/Remove_unwanted_spaces
-autocmd BufWritePre * %s/\s\+$//e
+" https://stackoverflow.com/questions/6496778/vim-run-autocmd-on-all-filetypes-except
+fun! StripTrailingWhitespace()
+    " Only strip if the b:noStripeWhitespace variable isn't set
+    if exists('b:noStripWhitespace')
+        return
+    endif
+    %s/\s\+$//e
+endfun
+
+autocmd FileType mail let b:noStripWhitespace=1
+autocmd BufWritePre * call StripTrailingWhitespace()
 
 " ### Undo
 set undolevels=1000
