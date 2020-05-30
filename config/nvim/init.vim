@@ -109,6 +109,7 @@ Plug 'lifepillar/vim-solarized8'
 " git stuff
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
 
 " Powerful multi file search
 Plug 'wincent/ferret'
@@ -188,8 +189,17 @@ au BufNewFile,BufRead *.groovy  setf groovy
 au BufNewFile,BufRead Jenkinsfile  setf groovy
 
 " Remove trailing spaces on write
-" http://vim.wikia.com/wiki/Remove_unwanted_spaces
-autocmd BufWritePre * %s/\s\+$//e
+" https://stackoverflow.com/questions/6496778/vim-run-autocmd-on-all-filetypes-except
+fun! StripTrailingWhitespace()
+    " Only strip if the b:noStripeWhitespace variable isn't set
+    if exists('b:noStripWhitespace')
+        return
+    endif
+    %s/\s\+$//e
+endfun
+
+autocmd FileType mail let b:noStripWhitespace=1
+autocmd BufWritePre * call StripTrailingWhitespace()
 
 " ### Undo
 set undolevels=1000
@@ -541,6 +551,17 @@ autocmd User fugitive
 
 " banish old fugitive read-only buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" some nifty mappings, courtesy of https://www.prodops.io/blog/solving-git-merge-conflicts-with-vim
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
+
+" vim-magit, taken from
+" https://jakobgm.com/posts/vim/git-integration/
+" Open vimagit pane
+nnoremap <leader>gs :Magit<CR>       " git status
 
 " vimrc specific helpers
 " stolen from https://superuser.com/questions/132029/how-do-you-reload-your-vimrc-file-without-restarting-vim

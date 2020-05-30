@@ -60,10 +60,6 @@ bindsym $mod+Control+t exec ~/.local/bin/t-quick-add
 bindsym  --release $mod+Control+g exec swaylock
 bindsym  --release XF86ScreenSaver exec swaylock
 
-# toggle xautolock
-bindsym $mod+n exec ~/.local/bin/xautolock_wrap.sh disable
-bindsym $mod+Shift+n exec ~/.local/bin/xautolock_wrap.sh enable
-
 # suspend
 bindsym XF86Explorer exec ~/.local/bin/suspend.sh
 
