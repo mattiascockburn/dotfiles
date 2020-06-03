@@ -289,7 +289,7 @@ exec --no-startup-id nm-applet
 # adjust compton for vsync with NVIDIA. See https://github.com/chjj/compton/issues/227
 exec --no-startup-id compton -f --unredir-if-possible
 #bluetooth crap
-exec --no-startup-id blueberry-tray
+exec --no-startup-id blueman-applet
 # keyboard layouts
 exec_always --no-startup-id setxkbmap -layout "us,us" -variant ",intl" -option "grp:alt_shift_toggle"
 exec --no-startup-id unclutter --timeout 5
