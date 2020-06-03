@@ -242,7 +242,7 @@ set backspace=2
 
 " ### History
 " Sets how many lines of history VIM has to remember
-set history=700
+set history=1000
 
 
 " ### Completion
