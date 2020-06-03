@@ -166,8 +166,6 @@ let &t_ut=''
 " ### Looks
 syntax enable
 set background=dark
-" colorscheme jay
-" colorscheme molokai
 colorscheme solarized8_high
 
 " ### Death to all rodents in textmode
@@ -238,7 +236,7 @@ set foldnestmax=10
 set foldenable
 set foldlevel=1
 
- " Allow backspacing over indent, eol, and the start of an insert
+" Allow backspacing over indent, eol, and the start of an insert
 set backspace=2
 
 
@@ -252,9 +250,9 @@ set history=700
 set wildmenu
 set wildmode=longest:full,full
 
-"" ignore unneccessary file types in autocomplete mode
+" ignore unneccessary file types in autocomplete mode
 set wildignore+=*.dict,*.aux,*.nav,*.out,*.toc,*.vrb,*.snm
-"
+
 " I don't want no fucking bell
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
@@ -273,24 +271,30 @@ set hlsearch
 set hidden
 
 " ### Scroll behaviour
-set scrolloff=3                       " start scrolling 3 lines before edge of viewport
+" Start scrolling 3 lines before edge of viewport
+set scrolloff=3
 
 " ### Split behaviour
 if has('windows')
-  set splitbelow                      " open horizontal splits below current window
+" Open horizontal splits below current window
+  set splitbelow
 endif
 
+" Open vertical splits to the right of the current window
 if has('vertsplit')
-  set splitright                      " open vertical splits to the right of the current window
+  set splitright
 endif
 
 
 " ### Format Options
-set formatoptions+=j " delete comment leader on J
-set formatoptions+=n " delete leading number on J (useful with numbered list)"
+" Delete comment leader on J
+set formatoptions+=j
+" Delete leading number on J (useful with numbered list)"
+set formatoptions+=n
 
 " ### Join behaviour
-set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
+" Don't autoinsert two spaces after '.', '?', '!' for join command
+set nojoinspaces
 
 " ### Autoformat paragraphs
 " First, disable bloody Q
@@ -326,6 +330,7 @@ if has('nvim')
   tnoremap <A-k> <C-\><C-N><C-w>k
   tnoremap <A-l> <C-\><C-N><C-w>l
 endif
+
 inoremap <A-h> <C-\><C-N><C-w>h
 inoremap <A-j> <C-\><C-N><C-w>j
 inoremap <A-k> <C-\><C-N><C-w>k
@@ -359,10 +364,6 @@ endif
 set encoding=utf-8
 set termencoding=utf-8
 
-" ### Nifty tricks
-" Write files as root
-command! W w !sudo tee % > /dev/null
-
 " ### Plugin Options
 "
 " Tabman
@@ -382,7 +383,7 @@ let g:ansible_extra_syntaxes = "sh.vim python.vim"
 let g:ansible_attribute_highlight = "ob"
 let g:ansible_extra_keywords_highlight = 1
 
-" markdown mode specific config
+" Markdown mode specific config
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'puppet']
 let g:markdown_minlines = 100
 let g:markdown_syntax_conceal = 0
@@ -392,7 +393,7 @@ let g:gutentags_generate_on_new = 1
 let g:gutentags_cache_dir = '~/.tags'
 
 " Customize airline prompt
-" unicode symbols, ripped from docs
+" Unicode symbols, ripped from docs
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -437,8 +438,7 @@ nnoremap <C-V> v
 vnoremap v <C-V>
 vnoremap <C-V> v
 
-" make CTRL+A work (jump to beginning)
-" in commandline mode
+" Make CTRL+A work (jump to beginning) in commandline mode
 cnoremap <C-A> <Home>
 
 " Define some general purpose shortcuts
@@ -447,7 +447,7 @@ map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark
 map <leader>nf :NERDTreeFind<cr><Paste>
 
-" fast access to fzf
+" Fast access to fzf
 map <leader>F :FZF!<cr>
 map <leader>f :FZF
 map <C-P> :FZF .<cr>
@@ -467,7 +467,7 @@ map <leader>tv :vspl term://zsh<cr>
 map <leader>T :tabe term://zsh<cr>
 " Enter insert mode when we switch to a terminal
 " Super useful 😻
-:au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+" :au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
 " Auomatically set the terminal title
 set title
@@ -480,12 +480,12 @@ au TabLeave * let g:lasttab = tabpagenr()
 " Shortcut for last used buffer
 let g:lastusedbuffer = 1
 au BufLeave * let g:lastusedbuffer = bufnr('%')
-" jump to last used buffer
+" Jump to last used buffer
 map <leader>bl :execute "buffer" g:lastusedbuffer<cr>
 
 map <leader>q :close<cr>
 
-" fzf buffer list
+" FZF buffer list
 map <leader>bb :Buffers<cr>
 
 " some settings for ALE
@@ -497,63 +497,46 @@ let g:ale_completion_enabled = 0
 " Enable integration with airline.
 let g:airline#extensions#ale#enabled = 1
 
-" Make jumping between errors in quickfix list easier
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
-
-" suggestion from vim-go tutorial, rebind some commands
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-
-" more higlight options for vim-go
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
-
-" options for vim-workspace
+" Options for vim-workspace
 nnoremap <leader>s :ToggleWorkspace<CR>
-" don't load on vim with args
+" Don't load on vim with args
 let g:workspace_session_disable_on_args = 1
 
-" neonippet configuration
+" Neonippet configuration
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 
-" no conceal markers
+" No conceal markers
 let g:neosnippet#enable_conceal_markers = 0
 
-" set a global directory for user defined snippets.
-" these overwrite any snippets defined before.
+" Set a global directory for user defined snippets.
+" These overwrite any snippets defined before.
 " I use this to overwrite vimwiki snippets
 let g:neosnippet#snippets_directory	= $HOME . '/.config/nvim/mysnippets'
 
-" keybindings
+" Keybindings
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" settings for ferret
+" End of Neosnippet config
+
+" Settings for ferret
 nmap <leader>z <Plug>(FerretAckWord)
 nmap <leader>x <Plug>(FerretAck)
 
-" settings for fugitive
-" stolen from vimcasts.org
-" quickly go to parent tree in git object browsing mode
+" Settings for fugitive
+" Stolen from vimcasts.org
+" Quickly go to parent tree in git object browsing mode
 autocmd User fugitive
   \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
   \   nnoremap <buffer> .. :edit %:h<CR> |
   \ endif
 
-" banish old fugitive read-only buffers
+" Banish old fugitive read-only buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" some nifty mappings, courtesy of https://www.prodops.io/blog/solving-git-merge-conflicts-with-vim
+" Some nifty mappings, courtesy of https://www.prodops.io/blog/solving-git-merge-conflicts-with-vim
 " Fugitive Conflict Resolution
 nnoremap <leader>gd :Gvdiff<CR>
 nnoremap gdh :diffget //2<CR>
@@ -562,7 +545,7 @@ nnoremap gdl :diffget //3<CR>
 " vim-magit, taken from
 " https://jakobgm.com/posts/vim/git-integration/
 " Open vimagit pane
-nnoremap <leader>gs :Magit<CR>       " git status
+nnoremap <leader>gs :Magit<CR>
 
 " vimrc specific helpers
 " stolen from https://superuser.com/questions/132029/how-do-you-reload-your-vimrc-file-without-restarting-vim
@@ -605,12 +588,12 @@ if has("win32")
     set linespace=4
 endif
 
-" config for vimwiki
+" Config for vimwiki
 
 " vimwiki with markdown support
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
-" do not conceal anything by default
+" Do not conceal anything by default
 let g:vimwiki_conceallevel = 0
 
 let wiki_default = {}
