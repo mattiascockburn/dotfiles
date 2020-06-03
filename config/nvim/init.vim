@@ -77,6 +77,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-unimpaired'
 
 " Visual helper
 Plug 'Yggdroot/indentLine'
