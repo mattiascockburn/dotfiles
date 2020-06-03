@@ -1,0 +1,12 @@
+---
+clouds:
+  betacloud:
+    auth:
+      auth_url: https://api-1.betacloud.io:5000/v3
+      username: giese
+      project_name: sandbox
+      project_domain_name: b1systems
+      user_domain_name: b1systems
+    interface: public
+    identity_api_version: 3
+    volume_api_version: 3

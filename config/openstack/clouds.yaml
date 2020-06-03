@@ -1,0 +1,9 @@
+---
+clouds:
+  betacloud:
+    profile: betacloud
+    auth:
+      username: giese
+      project_name: sandbox
+      project_domain_name: b1systems
+      user_domain_name: b1systems
