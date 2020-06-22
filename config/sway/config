@@ -345,6 +345,17 @@ input '2:7:SynPS/2_Synaptics_TouchPad' {
   tap enabled
 }
 
+# Adjust mouse/touchpad settings
+input '24704:32865:AMR-4630-XXX-0-_0-1023_USB_KEYBOARD_Mouse' {
+  natural_scroll disabled
+  dwt disable
+  click_method clickfinger
+  accel_profile adaptive
+  tap_button_map lrm
+  tap enabled
+  scroll_method on_button_down
+  scroll_button BTN_MIDDLE
+}
 
 input '1133:16495:Logitech_MX_Ergo' {
   natural_scroll disabled
