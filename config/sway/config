@@ -55,16 +55,9 @@ bindsym $mod+Shift+v exec ~/.local/bin/vim-anywhere clip
 # Add current url to transmission-daemon
 bindsym $mod+Control+t exec ~/.local/bin/t-quick-add
 
-# lock the screen now
-#bindsym  $mod+Control+g exec xscreensaver-command --lock
-bindsym  --release $mod+Control+g exec swaylock
-bindsym  --release XF86ScreenSaver exec swaylock
-
-# suspend
-bindsym XF86Explorer exec ~/.local/bin/suspend.sh
-
 # kill focused window
-bindsym $mod+Shift+c kill
+bindsym $mod+q kill
+bindsym $mod+Backspace kill
 
 # Screen brightness control
 # for minivan keyboard
@@ -180,8 +173,6 @@ bindsym $mod+Shift+F12 move container to workspace $ws12
 bindsym $mod+o move workspace to output right
 
 # reload the configuration file
-#bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r exec swaymsg reload
 
 # resize window (you can also use the mouse for that)
@@ -250,9 +241,8 @@ assign [class="qutebrowser"] $ws1
 
 # mail
 assign [class="Thunderbird"] $ws2
-#assign [class="roxterm" instance="mutt"] $ws2
 
-# psi+ Jabber client
+# xmpp
 assign [class="psi+"] $ws3
 assign [class="psi-plus"] $ws3
 assign [class="Psi-plus"] $ws3
@@ -266,8 +256,9 @@ assign [class="clementine"] $ws4
 ## STARTUP PROGRAMS
 
 exec --no-startup-id waybar
+exec --no-startup-id blueman-tray
 exec --no-startup-id mako
-exec --no-startup-id redshift -l geoclue2
+#exec --no-startup-id redshift -l geoclue2
 
 exec swayidle -w \
   timeout 300 'swaylock -f -c 000000' \
@@ -340,10 +331,11 @@ bindsym $mod+$alt+j workspace prev
 bindsym $mod+$alt+k workspace next
 
 # Screen locking
-bindsym $mod+Shift+g exec swaylock -f -c 000000
+bindsym $mod+g exec swaylock -f -c 000000
 
 # Screenshots
 bindsym Print exec grim ~/Pictures/screenshots/screenshot-$(date --iso-8601=ns).png
+bindsym $mod+equal exec grim ~/Pictures/screenshots/screenshot-$(date --iso-8601=ns).png
 
 # INPUT CONFIGURATION
 
