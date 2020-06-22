@@ -364,3 +364,7 @@ input '1133:16495:Logitech_MX_Ergo' {
   pointer_accel 1
 }
 
+# clamshell mode - disable laptop output on lidclose
+set $laptop DSI-1
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
