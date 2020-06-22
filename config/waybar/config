@@ -89,7 +89,8 @@
             "car": "",
             "default": ["", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "ponymix toggle",
+        "on-click-right": "pavucontrol"
     },
     "custom/spotify": {
         "format": " {}",
