@@ -1,24 +1,24 @@
 snippet b1page
 alias \b1page
-  \begin{frame}[fragile]
-  \frametitle<presentation>{${1:#:title}}
-  \mode<article>{
-  \includethumb
-  }
+	\begin{frame}[fragile]
+	\frametitle<presentation>{${1:#:title}}
+	\mode<article>{
+	\includethumb
+	}
 
-  \mode
-  <presentation>
+	\mode
+	<presentation>
 
-  ${2:TARGET}
+	${2:TARGET}
 
-  \mode
-  <article>
+	\mode
+	<article>
 
-  \mode
-  <all>
+	\mode
+	<all>
 
-  \end{frame}
-  \newpage
+	\end{frame}
+	\newpage
 
 snippet b1note
   \mode<article>{
@@ -40,6 +40,30 @@ snippet image
    \caption{${1:#:caption}}
    \label{fig:tux}
   \end{figure}
-
 snippet verified
   % URLs verified on `strftime("%d %b %Y")` by giese@b1-systems.de
+
+snippet ttt
+  \texttt{${1:#:text}} ${2:TARGET}
+
+snippet tit
+  \textit{${1:#:text}} ${2:TARGET}
+
+snippet ""
+  "`${1:#:text}"'${2:TARGET}
+
+snippet shellblock_slide
+alias sbslide
+  \begin{block}{${1:#:title}}
+  \begin{verbatim}
+  ${2:TARGET}
+  \end{verbatim}
+  \end{block}
+
+snippet shellblock_article
+alias sbarticle
+  \begin{block}{${1:#:title}}
+  \begin{lstlisting}
+  ${2:TARGET}
+  \end{lstlisting}
+  \end{block}
