@@ -477,6 +477,14 @@ let g:lasttab = 1
 nmap <Leader>lt :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
+" Fancy listchars action, make tab and friends visible
+" Also, add a toggle switch to the mix
+" ripped off of https://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:␣
+noremap <leader>lc :set list!<CR>
+inoremap <leader>lc <C-o>:set list!<CR>
+cnoremap <leader>lc <C-c>:set list!<CR>
+
 " Shortcut for last used buffer
 let g:lastusedbuffer = 1
 au BufLeave * let g:lastusedbuffer = bufnr('%')
