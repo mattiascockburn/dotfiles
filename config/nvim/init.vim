@@ -8,6 +8,9 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" Visualize color definitions
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
 " Add support for more text targets
 Plug 'wellle/targets.vim'
 
