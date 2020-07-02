@@ -16,11 +16,12 @@ Account posteo
 MaildirStore posteo-local
 Path ~/mail/posteo/
 Inbox ~/mail/posteo/INBOX
+SubFolders Verbatim
 
 Channel posteo-inbox
 Master :posteo-remote:
 Slave :posteo-local:
-Patterns "INBOX"
+Patterns "INBOX*"
 
 Channel posteo-sent
 Master :posteo-remote:"Sent"
