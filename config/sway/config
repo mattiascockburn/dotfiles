@@ -26,12 +26,13 @@ output "*" background /home/mattias/.wallpapers/sunset_8bit.jpg fill
 default_border pixel 2
 default_floating_border pixel 2
 
-# Colors and stuff
-# class                 border  backgr. text    indicator
-client.focused #81a2be #81a2be #1d1f21 #282a2e #81a2be
-client.focused_inactive #373b41 #373b41 #969896 #282a2e #282a2e
-client.unfocused #282a2e #282a2e #969896 #282a2e  #282a2e
-client.urgent #373b41 #cc6666 #ffffff #cc6666 #282a2e
+include "~/.cache/wal/colors-sway"
+
+# class                   border    backgr    text      indicator child_border
+client.focused            $color1   $background   $foreground $color6 $color1
+client.focused_inactive   $color1   $background   $color7 $color6 $color15
+client.unfocused          $color8   $background   $color7 $color6 $color8
+# client.urgent is not used in sway
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
