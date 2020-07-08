@@ -75,7 +75,7 @@ set fast_reply=yes
 set include=yes
 
 ## attachments
-macro attach W "<save-entry><bol>~/Attachments/<eol>" "Save to attachment folder"
+macro attach W "<save-entry><bol>~/Downloads/<eol>" "Save to Downloads folder"
 
 # go to mailbox folder after index view
 macro   index   q       '<change-folder>?<toggle-mailboxes>'
