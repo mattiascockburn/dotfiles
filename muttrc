@@ -1,13 +1,8 @@
 ## Basics
-#
-
 source ~/.mutt/settings/basics
 
 # Colors
-#source ~/.mutt/colorschemes/zenburn.neomuttrc
 source ~/.mutt/colorschemes/vombatidae.neomuttrc
-#source ~/.mutt/colorschemes/neonwolf-256.neomuttrc
-#source ~/.mutt/colorschemes/rosenfeldstheme
 
 source ~/.mutt/settings/macros
 source ~/.mutt/settings/mailboxes
@@ -22,14 +17,10 @@ source ~/.mutt/settings/sidebar
 source ~/.mutt/settings/notmuch
 
 ## Accounts
+# only source the default account
 source "~/.mutt/accounts/posteo"
-# Here we use the $folder variable that has just been set in the sourced file.
-# We must set it right now otherwise the 'folder' variable will change in the next sourced file.
-# folder-hook $folder 'source ~/.mutt/accounts/posteo'
-
 
 ## macros for account change
-## sidebar hiding is done to prevent fucking crashes
 macro index,pager \e1 ":source ~/.mutt/accounts/posteo<enter><change-folder> +INBOX<enter>"
 macro index,pager \e2 ":source ~/.mutt/accounts/b1<enter><change-folder> +INBOX<enter>"
 
@@ -77,8 +68,6 @@ bind index G  last-entry
 # Ctrl-R to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 bind index <space>  collapse-thread
-## fancy printing
-#set print_command="/usr/bin/muttprint %s -p {PrinterName}"
 
 ## attachments
 macro attach W "<save-entry><bol>~/Attachments/<eol>" "Save to attachment folder"
@@ -166,5 +155,3 @@ ignore *                                # ignore all headers
 unignore from: to: cc: date: subject:   # show only these
 unhdr_order *                           # some distros order things by default
 hdr_order from: to: cc: date: subject:  # and in this order
-
-alias uchicch Ursula Cockburn <uchicch@gmail.com>
