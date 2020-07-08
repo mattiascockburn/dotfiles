@@ -69,6 +69,11 @@ bind index G  last-entry
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 bind index <space>  collapse-thread
 
+## fast replies
+# Do not ask for the recevier and if the email should be included
+set fast_reply=yes
+set include=yes
+
 ## attachments
 macro attach W "<save-entry><bol>~/Attachments/<eol>" "Save to attachment folder"
 
