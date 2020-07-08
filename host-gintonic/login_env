@@ -1,8 +1,10 @@
 # This file holds different env-vars used in my shell/session initialization scripts like
 # .bashrc/.zshrc
 
+export AUTOSTART_GUI=n
+
 # Use sway as desktop environment
-USE_SWAY=n
+export USE_SWAY=
 
 # Work around systemd --user fuckups
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
@@ -10,3 +12,5 @@ export XDG_RUNTIME_DIR=/run/user/$(id -u)
 # Needed for system tray in waybar to work
 export XDG_CURRENT_DESKTOP=Unity
 
+# Add luarocks to PATH if it's installed
+which luarocks &>/dev/null && eval $(luarocks path)
