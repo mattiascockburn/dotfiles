@@ -54,7 +54,7 @@ folder-hook ! .*[sS]ent.* 'set index_format="%2C | %Z [%d] %-$my_col_from.${my_c
 #
 ## forgotten attachment patch (neomutt)
 set abort_noattach = ask-yes
-set attach_keyword = "\\<(anhängen|angehängt|anhang|anhänge|hängt an|attached|attachment)\\>"
+set attach_keyword = "\\<(anhängen|angehängt|anhang|anhänge|hängt an|attached|adjunto|attachment)\\>"
 
 ## neomutt - sort folders by message count
 set sort=threads
