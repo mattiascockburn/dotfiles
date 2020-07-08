@@ -30,10 +30,10 @@ set use_from = yes
 
 ## address book
 # use khard for contact lookup
-#set query_command= "khard email --parsable %s"
-set query_command = "echo %s | xargs khard email --parsable --"
+set query_command = "echo %s | xargs khard email --parsable -- 2>/dev/null"
 macro index,pager A "<pipe-message>khard add-email<return>" "add the sender address to carddav"
 bind editor <Tab> complete-query
+
 # Allow the edit of headers. This is useful b/c i am using completion plugins
 # for contacts in neovim
 set edit_headers=yes
