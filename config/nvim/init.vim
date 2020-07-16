@@ -158,6 +158,9 @@ Plug 'lifepillar/pgsql.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
 
+" Use grep like a pro
+Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
+
 " Initialize plugin system
 call plug#end()
 
@@ -697,3 +700,16 @@ imap <C-l> <Plug>(coc-snippets-expand)
 
 " coc-yank
 nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
+
+" END COC plugin settings
+
+" BEGIN vim-grepper settings
+nnoremap <leader>G :Grepper -tool git<cr>
+nnoremap <leader>g :Grepper -tool rg<cr>
+nnoremap <leader>gw :Grepper -tool rg -cword -noprompt<cr>
+
+" Configure operators. These may be used with motions
+" e.g.: gsiW gsi) etc.
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
+" END vim-grepper settings
