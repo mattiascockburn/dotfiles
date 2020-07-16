@@ -372,17 +372,6 @@ set termencoding=utf-8
 
 " ### Plugin Options
 "
-" Tabman
-" Default hotkeys
-let g:tabman_toggle = '<leader>mt'
-let g:tabman_focus  = '<leader>mf'
-let g:tabman_side = 'left'
-let g:tabman_width = 25
-" Set this to 1 to show windows created by plugins, help and quickfix:
-let g:tabman_specials = 0
-" Set this to 0 to disable line numbering in the TabMan window:
-let g:tabman_number = 1
-
 " Advanced ansible-vim config
 let g:ansible_unindent_after_newline = 1
 let g:ansible_extra_syntaxes = "sh.vim python.vim"
@@ -454,8 +443,6 @@ map <leader>nb :NERDTreeFromBookmark
 map <leader>nf :NERDTreeFind<cr><Paste>
 
 " Fast access to fzf
-map <leader>F :FZF!<cr>
-map <leader>f :FZF
 map <C-P> :FZF .<cr>
 
 " Fast save
@@ -559,6 +546,7 @@ nnoremap gdl :diffget //3<CR>
 " vim-magit, taken from
 " https://jakobgm.com/posts/vim/git-integration/
 " Open vimagit pane
+" This is way better than fugitive 'git add -p' handling
 nnoremap <leader>gs :Magit<CR>
 
 " vimrc specific helpers
