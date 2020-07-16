@@ -2,7 +2,28 @@
 	email = mattiasgiese@posteo.net
 	name = Mattias Giese
 [alias]
-	pushall = !git remote | xargs -L1 git push --all
+  pushall      = !git remote | xargs -L1 git push --all
+  st           = status
+  ci           = commit
+  co           = checkout
+  br           = branch
+  rb           = rebase
+  logg         = log --decorate --graph
+  lg           = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset%s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
+  lga          = "!sh -c 'git log --author=\"$1\" -p $2' -"
+  lol          = log --graph --decorate --pretty=oneline --abbrev-commit
+  tla          = "!sh -c \"git log -${1:-10} --graph --abbrev-commit --decorate=no --date=format:'%Y-%m-%d %H:%I:%S' --format=format:'%C(03)%>|(26)%h%C(reset)  %C(04)%ad%C(reset)  %C(green)%<(20,trunc)%an%C(reset)  %C(auto)%d%C(reset) %>|(1)%s%C(reset)'\""
+  tl           = "!sh -c \"git log -${1:-10} --graph --abbrev-commit --decorate=no --date=format:'%Y-%m-%d %H:%I:%S' --format=format:'%C(03)%>|(5)%h%C(reset)  %C(04)%ad%C(reset)  %C(green)%<(20,trunc)%an%C(reset)  %C(auto)%d%C(reset) %>|(1)%s%C(reset)'\""
+  tree         = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  logfull      = log --pretty=fuller --graph --stat -p
+  cat          = cat-file -p
+  cop          = "!sh -c \"git checkout ${@} $(git branch --list -av | fzf | sed -e 's,remotes/,,' -e 's,origin/,,' -e 's,^ *[+*]* *,,' | awk '{print $1}')\""
+  unstage      = reset HEAD
+  uncommit     = update-ref HEAD HEAD^
+  uncommithard = reset --hard HEAD^
+  undomerge    = reset --hard ORIG_HEAD
+  whoops       = commit -a --amend -C HEAD
+
 [includeIf "gitdir:~/b1/"]
   path = .gitconfig-b1
 [core]
