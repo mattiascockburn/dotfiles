@@ -84,13 +84,11 @@ bindsym $mod+Control+minus exec light -U 10
 bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 
-bindsym $mod+shift+w exec browser
-
 # Launcher configuration
 bindsym $mod+d exec rofi -show run -width 70 -opacity "85"
 
 # browser launcher
-bindsym $mod+b exec browser
+bindsym $mod+b exec ~/.local/bin/browser
 
 # emojis 😂
 bindsym $mod+Shift+e exec rofimoji
