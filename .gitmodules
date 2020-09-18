@@ -7,3 +7,6 @@
 [submodule "_utils/yadm"]
 	path = _utils/yadm
 	url = https://github.com/TheLocehiliosan/yadm.git
+[submodule "config/profanity/plugins"]
+	path = config/profanity/plugins
+	url = https://github.com/profanity-im/profanity-plugins.git
