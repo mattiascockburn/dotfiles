@@ -2,7 +2,7 @@
 	path = bash/bash-git-prompt
 	url = https://github.com/magicmonty/bash-git-prompt.git
 [submodule "tmux/plugins/tpm"]
-	path = tmux/plugins/tpm
+	path = config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
 [submodule "_utils/yadm"]
 	path = _utils/yadm
