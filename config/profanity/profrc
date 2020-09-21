@@ -1,5 +1,14 @@
 [connection]
 carbons=true
 
+defaccount=datenknoten
+
 [ui]
 theme=shade
+history=true
+
+[logging]
+chlog=true
+
+[plugins]
+load=browser.py;
