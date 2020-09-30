@@ -284,8 +284,7 @@ exec --no-startup-id dunst
 #exec --no-startup-id redshift -l -12.0262676:-77.1278632
 
 exec --no-startup-id nm-applet
-# adjust compton for vsync with NVIDIA. See https://github.com/chjj/compton/issues/227
-exec --no-startup-id compton -f --unredir-if-possible
+exec --no-startup-id picom
 #bluetooth crap
 exec --no-startup-id blueman-applet
 # keyboard layouts
