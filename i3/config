@@ -333,8 +333,7 @@ bindsym XF86AudioLowerVolume exec ponymix decrease 5
 
 # mutlihead stuff
 # screen layout chooser
-bindsym XF86Display exec ~/bin/choose-screen-layout.sh
-bindsym $mod+XF86Display arandr
+bindsym XF86Display arandr
 
 # focus last urgent window
 bindsym $mod+x [urgent=latest] focus
