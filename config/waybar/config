@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "backlight", "battery", "battery#bat1", "clock", "tray"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "custom/cputemp","memory", "backlight", "battery", "battery#bat1", "clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -92,9 +92,9 @@
         "on-click": "ponymix toggle",
         "on-click-right": "pavucontrol"
     },
-    "custom/spotify": {
-        "format": " {}",
-        "max-length": 40,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+    "custom/cputemp": {
+        "format": "{}°C 🥵",
+         "interval": 20,
+        "exec": "$HOME/.config/waybar/cputemp.sh 2> /dev/null"
     }
 }

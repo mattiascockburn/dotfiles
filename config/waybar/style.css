@@ -71,6 +71,9 @@ window#waybar {
     color: #000000;
 }
 
+#custom-cputemp {
+    background-color: #64727D;
+}
 #memory {
     background: #9b59b6;
 }
