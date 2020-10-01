@@ -71,7 +71,7 @@ bindsym $mod+Control+minus exec light -U 10
 bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 
-bindsym $mod+b exec browser
+bindsym $mod+b exec ~/.local/bin/browser
 
 # Launcher configuration
 bindsym $mod+apostrophe exec wofi --show run
