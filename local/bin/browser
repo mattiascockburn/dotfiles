@@ -1,5 +1,4 @@
 #!/bin/bash
-# Ansible managed
 
 if [[ -n "$WAYLAND_DISPLAY" ]]; then
   CMD='wofi'
@@ -8,13 +7,22 @@ else
   CMD='rofi'
   OPTS='-dmenu -p "browser "'
 fi
+readarray browser_list <<<"
+firefox -P default
+firefox -P work
+firewarden chromium
+play
+qcode
+| xclip -selection c
+chromium
+qutebrowser
+"
+printf -v menu_items '%s\\n' "${browser_list[@]}"
 
-menu=$(echo -e \
-  "firefox -P default\nfirefox -P work\nfirewarden chromium\nplay\nqcode\n| xclip -selection c\nchromium\nqutebrowser\n" \
-  | $CMD $OPTS)
+menu=$(echo -e ${menu_items} | $CMD $OPTS)
 
 if [[ $menu == \|* ]]; then
-    eval echo \"$@\" $menu > /dev/null 2>&1 &
+    eval echo \"$@\" $menu &>/dev/null &
 else
-    eval $menu \"$@\" > /dev/null 2>&1 &
+    eval $menu \"$@\" &>/dev/null &
 fi
