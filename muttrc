@@ -90,7 +90,7 @@ alternative_order text/plain text/html text/*
 
 # open in browser
 # using ~/Downloads because i am also using firejail
-macro attach 'V' "<pipe-entry>cat >~/Downloads/mutt-mail.html && /usr/local/bin/browser ~/Downloads/mutt-mail.html<enter>"
+macro attach 'V' "<pipe-entry>cat >~/Downloads/mutt-mail.html && browser ~/Downloads/mutt-mail.html<enter>"
 
 
 ## muttjump integration
