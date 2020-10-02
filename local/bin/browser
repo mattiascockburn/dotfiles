@@ -9,8 +9,13 @@ else
 fi
 readarray browser_list <<<"
 firefox -P default
-firefox -P work
-firewarden chromium
+firefox -P B1
+firefox -P b1-docu
+firefox -P banking
+firefox -P local-socks-proxy-9999
+firefox -P megafail-socksproxy
+firefox -P giz
+firefox --ProfileManager
 play
 qcode
 | xclip -selection c
