@@ -45,6 +45,11 @@ done
 [[ -z "$OUTPUT" ]] && usage
 [[ -z "$SOURCE" ]] && usage
 
+if [ "$SOURCE" = 'screen' ]; then
+  SOURCE="$(mktemp).png"
+  maim -s "$SOURCE"
+fi
+
 
 if [[ -n "$INVERT" ]]; then
   convert "$SOURCE" -channel RGB -negate "$OCR_INPUT"
@@ -52,8 +57,11 @@ else
   cp "$SOURCE" "$OCR_INPUT"
 fi
 
-if [[ "$OUTPUT" = 'stdout' ]]; then
+if [ "$OUTPUT" = 'stdout' ]; then
   STDOUT=1
+  OUTPUT=$(mktemp)
+elif [ "$OUTPUT" = 'clipboard' ]; then
+  CLIP=1
   OUTPUT=$(mktemp)
 fi
 
@@ -64,4 +72,8 @@ rm "$OCR_INPUT"
 if [[ -n "$STDOUT" ]]; then
   cat "${OUTPUT}.txt"
   rm "${OUTPUT}.txt"
+elif [ -n "$CLIP" ]; then
+  xclip < "${OUTPUT}.txt"
+  rm "${OUTPUT}.txt"
 fi
+
