@@ -2,13 +2,12 @@
 
 if [[ -n "$WAYLAND_DISPLAY" ]]; then
   CMD='wofi'
-  OPTS='-d -p "browser "'
+  OPTS='-d -p browser'
 else
   CMD='rofi'
-  OPTS='-dmenu -p "browser "'
+  OPTS='-dmenu -p browser'
 fi
-readarray browser_list <<<"
-firefox -P default
+readarray browser_list <<<"firefox -P default
 firefox -P B1
 firefox -P b1-docu
 firefox -P banking
@@ -20,14 +19,13 @@ play
 qcode
 | xclip -selection c
 chromium
-qutebrowser
-"
+qutebrowser"
 printf -v menu_items '%s\\n' "${browser_list[@]}"
 
 menu=$(echo -e ${menu_items} | $CMD $OPTS)
 
 if [[ $menu == \|* ]]; then
-    eval echo \"$@\" $menu &>/dev/null &
+    eval echo $@ $menu &>/dev/null &
 else
-    eval $menu \"$@\" &>/dev/null &
+    eval $menu $@ &>/dev/null &
 fi
