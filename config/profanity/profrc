@@ -3,6 +3,9 @@ carbons=true
 
 defaccount=datenknoten
 
+autoping=180
+autoping.timeout=20
+
 [ui]
 theme=shade
 history=true
@@ -12,3 +15,7 @@ chlog=true
 
 [plugins]
 load=browser.py;
+
+[omemo]
+policy=always
+log=on
