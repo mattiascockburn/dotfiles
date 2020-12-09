@@ -1,6 +1,6 @@
 #!/bin/bash
 BASEDIR='/home/mattias/switch/payloads' #hard-code because it runs in an udev context
 #PAYLOAD="${1:-fusee-primary-0.14.bin}"
-PAYLOAD="${1:-hekate_ctcaer_5.3.3_patched.bin}"
+PAYLOAD="${1:-hekate_ctcaer_5.3.4.bin}"
 
 fusee-launcher "${BASEDIR}/${PAYLOAD}"
