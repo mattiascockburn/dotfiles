@@ -239,6 +239,7 @@ assign [class="clementine"] $ws4
 exec --no-startup-id waybar
 exec --no-startup-id blueman-tray
 exec --no-startup-id mako
+exec --no-startup-id nm-applet --indicator
 #exec --no-startup-id redshift -l geoclue2
 
 exec swayidle -w \
