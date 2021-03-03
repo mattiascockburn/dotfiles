@@ -1,4 +1,8 @@
 {
+  "python.linting.enabled": false,
+  "python.pipenvPath":"pipenv",
+  "python.pythonPath":"python",
+  "python.formatting.provider": "yapf",
   "languageserver": {
       "digestif": {
             "command": "digestif",
