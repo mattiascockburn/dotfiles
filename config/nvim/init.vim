@@ -171,11 +171,15 @@ let mapleader = ","
 set spelllang=de,en,es
 
 " ### Auto Commands
-autocmd BufRead,BufNewFile ~/git/layer8/ansible-stuff/*.yml/ syntax=ansible
 autocmd BufRead,BufNewFile ~/.mutt/settings/* set ft=muttrc
 autocmd FileType gitcommit setlocal textwidth=72 spell
 au BufNewFile,BufRead *.groovy  setf groovy
 au BufNewFile,BufRead Jenkinsfile  setf groovy
+" Python stuff
+au BufNewFile,BufRead *.py set foldmethod=indent
+
+" Tex/LaTeX
+au FileType tex setlocal textwidth=100 ts=2 shiftwidth=2 conceallevel=0
 
 " Remove trailing spaces on write
 " https://stackoverflow.com/questions/6496778/vim-run-autocmd-on-all-filetypes-except
