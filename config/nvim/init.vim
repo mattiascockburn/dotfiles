@@ -676,3 +676,22 @@ nnoremap <leader>gw :Grepper -tool rg -cword -noprompt<cr>
 nmap gs  <plug>(GrepperOperator)
 xmap gs  <plug>(GrepperOperator)
 " END vim-grepper settings
+
+
+" 'smart' rename
+nmap <leader>rn <Plug>(coc-rename)
+nmap <silent> gd <Plug>(coc-definition)
+
+" Displaying documentation (in the floating window!)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Do not hide characters in, for example, markdown mode
+set conceallevel=0
+
