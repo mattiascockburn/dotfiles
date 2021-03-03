@@ -545,13 +545,9 @@ endif " has autocmd
 " Quickly edit/reload this configuration file
 nnoremap <leader>gev :e $MYVIMRC<CR>
 
-
 " Set some dicts for spell checking
 setlocal dictionary=/usr/share/dict/german
 setlocal dictionary+=/usr/share/dict/american-english
-
-" Do not hide characters in, for example, markdown mode
-set conceallevel=0
 
 " netrw settings
 " Tweaks for browsing
