@@ -303,6 +303,10 @@ nnoremap Q :normal! gqip<cr>
 nnoremap <A-n> :bnext<CR>:redraw<CR>:ls<CR>
 nnoremap <A-p> :bprevious<CR>:redraw<CR>:ls<CR>
 
+" Quickswitch to next/prev tab
+nnoremap <A-.> :tabnext<cr>
+nnoremap <A-,> :tabprevious<cr>
+
 " ### Motion
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
