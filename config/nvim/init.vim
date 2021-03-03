@@ -142,6 +142,9 @@ Plug 'mzlogin/vim-markdown-toc'
 " Use grep like a pro
 Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 
+" Outline editor for many lightweight markup languages
+Plug 'vim-voom/VOoM'
+
 " Initialize plugin system
 call plug#end()
 
