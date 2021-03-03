@@ -480,6 +480,10 @@ let g:ale_sign_error = '💩'
 let g:ale_sign_warning = '⚡'
 let g:ale_completion_enabled = 0
 
+" Python specific options for ale
+let g:ale_python_auto_pipenv = 1
+let g:ale_python_pylint_auto_pipenv = 1
+
 " Enable integration with airline.
 let g:airline#extensions#ale#enabled = 1
 
