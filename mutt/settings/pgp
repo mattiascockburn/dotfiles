@@ -1,6 +1,6 @@
 ## GPG Stuff
 set crypt_autosign=yes
-set pgp_sign_as=0x5b2b8d57736c5cb2e561fb4613517d5c7bd72b14
+set pgp_sign_as=0x461D60400AC428CD04AE51E28162A856E0FB7EA3
 set crypt_replyencrypt=yes
 set crypt_replysign=yes
 set pgp_timeout=3600

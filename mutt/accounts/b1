@@ -12,3 +12,4 @@ set sendmail  = "/usr/bin/msmtp -a b1"
 set signature = '~/.signature'
 # quick sync imap
 macro index Z   "<shell-escape>mbsync b1<enter>" "sync IMAP"
+set pgp_sign_as=0x461D60400AC428CD04AE51E28162A856E0FB7EA3
