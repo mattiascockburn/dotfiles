@@ -26,6 +26,10 @@
 
 [includeIf "gitdir:~/b1/"]
   path = .gitconfig-b1
+
+[includeIf "gitdir:~/projekte/"]
+  path = .gitconfig-b1
+
 [core]
 	excludesfile = /home/mattias/.config/git/ignore
 [credential]
