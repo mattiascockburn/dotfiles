@@ -587,19 +587,11 @@ let wiki_default.path = '~/vimwiki/tech-notes'
 let wiki_default.syntax = 'markdown'
 let wiki_default.ext = 'md'
 let wiki_default.nested_syntaxes = {'md':'markdown', 'sh':'sh','python': 'python', 'c++': 'cpp'}
+let wiki_default.custom_wiki2html = '~/.local/bin/vimwiki_md_convert.py'
+let wiki_default.template_default = 'GitHub'
+let wiki_default.template_ext =  'html5'
 
-let wiki_giz = {}
-let wiki_giz.path = '~/vimwiki/giz'
-let wiki_giz.syntax = 'markdown'
-let wiki_giz.ext = 'md'
-let wiki_giz.nested_syntaxes = {'md':'markdown', 'sh':'sh','python': 'python', 'c++': 'cpp'}
-let wiki_giz.path_html = wiki_giz.path.'/html'
-let wiki_giz.custom_wiki2html = '~/.local/bin/vimwiki_md_convert.py'
-let wiki_giz.template_path = wiki_giz.path.'/templates'
-let wiki_giz.template_default = 'GitHub'
-let wiki_giz.template_ext =  'html5'
-
-let g:vimwiki_list = [wiki_giz, wiki_default]
+let g:vimwiki_list = [wiki_default]
 
 " fix json comment highlighting
 autocmd FileType json syntax match Comment +\/\/.\+$+
