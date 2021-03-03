@@ -230,6 +230,8 @@ set foldnestmax=10
 set foldenable
 set foldlevel=1
 
+nnoremap <space> za
+
 " Allow backspacing over indent, eol, and the start of an insert
 set backspace=2
 
