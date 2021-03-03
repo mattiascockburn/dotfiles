@@ -378,7 +378,7 @@ let g:markdown_minlines = 100
 let g:markdown_syntax_conceal = 0
 
 let g:gutentags_generate_on_new = 1
-" Force gutentags to ignore certain roots as projects
+
 let g:gutentags_cache_dir = '~/.tags'
 
 " Customize airline prompt
@@ -430,12 +430,6 @@ vnoremap <C-V> v
 " Make CTRL+A work (jump to beginning) in commandline mode
 cnoremap <C-A> <Home>
 
-" Define some general purpose shortcuts
-" NERDTree
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark
-map <leader>nf :NERDTreeFind<cr><Paste>
-
 " Fast access to fzf
 map <C-P> :FZF .<cr>
 
@@ -452,9 +446,6 @@ map <leader>pp :setlocal paste!<cr>
 map <leader>tt :spl term://zsh<cr>
 map <leader>tv :vspl term://zsh<cr>
 map <leader>T :tabe term://zsh<cr>
-" Enter insert mode when we switch to a terminal
-" Super useful 😻
-" :au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
 " Auomatically set the terminal title
 set title
@@ -510,15 +501,10 @@ let g:neosnippet#enable_conceal_markers = 0
 let g:neosnippet#snippets_directory	= $HOME . '/.config/nvim/mysnippets'
 
 " Keybindings
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 " End of Neosnippet config
-
-" Settings for ferret
-nmap <leader>z <Plug>(FerretAckWord)
-nmap <leader>x <Plug>(FerretAck)
 
 " Settings for fugitive
 " Stolen from vimcasts.org
@@ -671,7 +657,6 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-
 " END COC specific settings
 
 " BEGIN COC plugin settings
