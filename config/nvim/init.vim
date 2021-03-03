@@ -19,20 +19,12 @@ Plug 'wellle/targets.vim'
 " LSP code completion/diagnostics
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'Shougo/neco-syntax'
-
 " Tabline
 " Show index and current status in tabline
 Plug 'mkitt/tabline.vim'
 
-" Enhance the terminal UX
-Plug 'kassio/neoterm'
-
 " Session management
 Plug 'thaerkh/vim-workspace'
-
-" Fancy start screen
-Plug 'mhinz/vim-startify'
 
 " Scalpel: better word replacer within a file
 " invoked with <Leader>e by default
@@ -102,23 +94,12 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vimwiki/vimwiki'
 
 " themes
-Plug 'josuegaleas/jay'
-Plug 'chriskempson/base16-vim'
-Plug 'tomasr/molokai'
-Plug 'flazz/vim-colorschemes'
-Plug 'endel/vim-github-colorscheme'
-Plug 'owickstrom/vim-colors-paramount'
-Plug 'atelierbram/Base2Tone-vim'
-Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 
 " git stuff
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
-
-" Powerful multi file search
-Plug 'wincent/ferret'
 
 " Saner match highlighting and search mappings
 Plug 'wincent/loupe'
@@ -135,8 +116,6 @@ Plug 'mattiasgiese/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 " Helper for context-specific snippets
 Plug 'Shougo/context_filetype.vim'
-
-Plug 'scrooloose/nerdtree'
 
 " Easy commenting
 Plug 'scrooloose/nerdcommenter'
