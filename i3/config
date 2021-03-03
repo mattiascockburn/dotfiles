@@ -94,6 +94,7 @@ bindsym $mod+b exec ~/.local/bin/browser
 bindsym $mod+Shift+e exec rofimoji
 
 bindsym $mod+Shift+s exec bash -c 'maim -s /tmp/screen_$(date +%Y-%m-%d_%H-%M-%S).png'
+bindsym $mod+Control+c exec bash -c 'tesseract_console_extract.sh -s screen -o clipboard -i'
 bindsym $mod+Control+a exec flameshot gui
 
 
@@ -320,6 +321,7 @@ focus_follows_mouse no
 
 ## Password menu
 bindsym $mod+p  exec rofi-pass
+bindsym $alt+Shift+p exec rofi-pass
 
 # AudioFoo
 bindsym XF86AudioPlay  exec playerctl play
