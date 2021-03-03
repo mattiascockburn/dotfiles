@@ -418,7 +418,7 @@ set relativenumber
 
 " Buffer management
 " fast buffer list/switch
-nnoremap <leader><Space> :ls<cr>:b
+nnoremap <leader><Space> :b<space>
 
 " Remap some stuff
 " Swap v and CTRL-V, because Block mode is more useful
