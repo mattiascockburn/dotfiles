@@ -27,7 +27,7 @@ snippet b1note
   \end{b1note}
   }
 
-snippet lstlisting
+snippet listing
   \begin{lstlisting}
   ${1:#:title}
   \end{lstlisting}
@@ -41,6 +41,7 @@ snippet image
    \label{fig:tux}
   \end{figure}
 snippet verified
+alias uv
   % URLs verified on `strftime("%d %b %Y")` by giese@b1-systems.de
 
 snippet ttt
@@ -48,6 +49,13 @@ snippet ttt
 
 snippet tit
   \textit{${1:#:text}} ${2:TARGET}
+
+snippet bft
+  \textbf{${1:#:text}} ${2:TARGET}
+
+snippet rarrow
+alias ->
+  $\rightarrow$
 
 snippet ""
   "`${1:#:text}"'${2:TARGET}
@@ -70,3 +78,16 @@ alias sbarticle
 
 snippet nsz
   \normalsize
+
+snippet fns
+  \footnotesize
+
+snippet comment
+  % ${1:#:text}, giese@b1-systems.de (`strftime("%d %b %Y")`)
+
+snippet lstlisting
+alias listing
+  \begin{lstlisting}
+  ${1:TARGET}
+  \end{lstlisting}
+
