@@ -6,6 +6,9 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Version control commands for SVN, git and bzr
+" This enables things like VCBlame
+Plug 'juneedahamed/vc.vim'
 
 " Visualize color definitions
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
