@@ -179,9 +179,6 @@ au BufNewFile,BufRead Jenkinsfile  setf groovy
 " Python stuff
 au BufNewFile,BufRead *.py set foldmethod=indent
 
-" Tex/LaTeX
-au FileType tex setlocal textwidth=100 ts=2 shiftwidth=2 conceallevel=0
-
 " Remove trailing spaces on write
 " https://stackoverflow.com/questions/6496778/vim-run-autocmd-on-all-filetypes-except
 fun! StripTrailingWhitespace()
