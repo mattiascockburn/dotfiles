@@ -3,8 +3,10 @@
 TMPDIR=~/.mutt/tmp/
 tmpfile="${TMPDIR}/rangerpick"
 mkdir -p "$TMPDIR"
-if \[ -z "$1" \]; then
-   ranger --choosefiles $tmpfile && echo "$(awk 'BEGIN {printf "%s", "push "} {printf "%s", "<attach-file>"$0"<enter>"}'  $tmpfile)" > $tmpfile
-elif \[ $1 == "clean" \]; then
+if [[ -z "$1" ]]; then
+   ranger --choosefiles $tmpfile &&
+   sed -i 's/ /^V /g' $tmpfile &&
+   echo "$(awk 'BEGIN {printf "%s", "push "} {printf "%s", "<attach-file>\""$0"\"<enter>"}'  $tmpfile)" > $tmpfile
+elif [[ $1 == "clean" ]]; then
   rm $tmpfile
 fi
