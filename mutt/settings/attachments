@@ -1,0 +1,3 @@
+# Attach files with Ranger
+macro compose A "<shell-escape>bash $HOME/.mutt/bin/rangerpick<enter><enter-command>source $HOME/.mutt/tmp/rangerpick<enter><shell-escape>bash $HOME/.mutt/bin/rangerpick clean<enter>" "Attach with Ranger"
+

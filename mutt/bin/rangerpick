@@ -1,0 +1,10 @@
+#!/bin/bash
+# ripped from https://www.reddit.com/r/commandline/comments/cbxvdf/combine_neomutt_with_ranger/
+TMPDIR=~/.mutt/tmp/
+tmpfile="${TMPDIR}/rangerpick"
+mkdir -p "$TMPDIR"
+if \[ -z "$1" \]; then
+   ranger --choosefiles $tmpfile && echo "$(awk 'BEGIN {printf "%s", "push "} {printf "%s", "<attach-file>"$0"<enter>"}'  $tmpfile)" > $tmpfile
+elif \[ $1 == "clean" \]; then
+  rm $tmpfile
+fi
