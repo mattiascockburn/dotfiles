@@ -434,7 +434,7 @@ map <C-P> :FZF .<cr>
 map <leader>bb :Buffers<cr>
 
 " Fast save
-nmap <leader>w :w!<cr>
+nmap <leader>ww :w!<cr>
 
 " No highlights
 map <silent> <leader><cr> :noh<cr>
