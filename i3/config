@@ -93,7 +93,8 @@ bindsym $mod+b exec ~/.local/bin/browser
 # emojis 😂
 bindsym $mod+Shift+e exec rofimoji
 
-bindsym $mod+Shift+s exec bash -c 'maim -s /tmp/screen_$(date +%Y-%m-%d_%H-%M-%S).png'
+bindsym $mod+Shift+s exec bash -c 'maim -s --hidecursor /tmp/screen_$(date +%Y-%m-%d_%H-%M-%S).png'
+bindsym $mod+$alt+s exec bash -c 'maim -g $(slop) --hidecursor /tmp/screen_$(date +%Y-%m-%d_%H-%M-%S).png'
 bindsym $mod+Control+c exec bash -c 'tesseract_console_extract.sh -s screen -o clipboard -i'
 bindsym $mod+Control+a exec flameshot gui
 
