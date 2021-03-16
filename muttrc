@@ -12,6 +12,7 @@ source ~/.mutt/settings/bindings
 source /usr/share/doc/neomutt/samples/gpg.rc
 source ~/.mutt/settings/pgp
 
+source ~/.mutt/settings/attachments
 source ~/.mutt/settings/sidebar
 
 source ~/.mutt/settings/notmuch
