@@ -44,6 +44,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'amix/open_file_under_cursor.vim'
 
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
 
 " Better buffer delete behaviour
 " This plugin provides Bdelete and Bwipeout
@@ -432,6 +433,8 @@ cnoremap <C-A> <Home>
 
 " Fast access to fzf
 map <C-P> :FZF .<cr>
+" FZF buffer list
+map <leader>bb :Buffers<cr>
 
 " Fast save
 nmap <leader>w :w!<cr>
@@ -470,9 +473,6 @@ au BufLeave * let g:lastusedbuffer = bufnr('%')
 map <leader>bl :execute "buffer" g:lastusedbuffer<cr>
 
 map <leader>q :close<cr>
-
-" FZF buffer list
-map <leader>bb :Buffers<cr>
 
 " some settings for ALE
 " Error and warning signs.
