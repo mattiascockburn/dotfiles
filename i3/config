@@ -285,6 +285,9 @@ bindsym $mod+comma exec polybar-msg cmd toggle
 exec --no-startup-id dunst
 #exec --no-startup-id redshift -l -12.0262676:-77.1278632
 
+# Adjust mouse scroll behaviour with imwheel
+exec --no-startup-id imwheel --kill
+
 exec --no-startup-id nm-applet
 exec --no-startup-id picom
 #bluetooth crap
