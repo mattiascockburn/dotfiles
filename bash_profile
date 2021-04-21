@@ -26,6 +26,8 @@ if [ -n "$AUTOSTART_GUI" ]; then
       export _JAVA_AWT_WM_NONREPARENTING=1
       exec sway
     else
+      # Make Java apps look less shitty
+      export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
       exec startx
       true
     fi
