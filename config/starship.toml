@@ -1,9 +1,8 @@
 
 [character]      # The name of the module we are configuring is "character"
 success_symbol = "😹 ➜"     # The "symbol" segment is being set to "➜"
-style_success	= "bold magenta"
 error_symbol = "🙀 ✗"
-use_symbol_for_status = true
+
 
 [hostname]
 ssh_only = false
@@ -19,7 +18,5 @@ stashed = "📦"
 modified = "📝"
 staged.value = "++"
 staged.style = "green"
-staged_count.enabled = true
-staged_count.style = "green"
 renamed = "👅"
 deleted = "🗑"
