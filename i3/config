@@ -260,10 +260,7 @@ assign [class="qutebrowser"] $ws1
 assign [class="Thunderbird"] $ws2
 #assign [class="roxterm" instance="mutt"] $ws2
 
-# psi+ Jabber client
-assign [class="psi+"] $ws3
-assign [class="psi-plus"] $ws3
-assign [class="Psi-plus"] $ws3
+# Chat
 assign [class="gajim"] $ws3
 
 
@@ -286,7 +283,7 @@ exec --no-startup-id dunst
 #exec --no-startup-id redshift -l -12.0262676:-77.1278632
 
 # Adjust mouse scroll behaviour with imwheel
-exec --no-startup-id imwheel --kill
+# exec --no-startup-id imwheel --kill
 
 exec --no-startup-id nm-applet
 exec --no-startup-id picom
@@ -319,6 +316,9 @@ for_window [title="pinentry"] floating enable; border none; focus mode_toggle
 
 # Tor Browser
 for_window [class="Tor Browser"] floating enable; border none
+
+# Gajim
+for_window [title="Preferences"] floating enable; border none; focus mode_toggle
 
 # More behaviour
 focus_follows_mouse no
