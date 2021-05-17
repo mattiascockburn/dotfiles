@@ -27,3 +27,14 @@ doc-build() {
   podman run -t -i --net=none --userns keep-id --rm $DOCKER_OPTS -v $(pwd):/home/build/svn:z $IMAGE bash -c "$CMD"
 }
 
+alias usbguard='sudo usbguard'
+alias cd..='cd ..'
+alias shellescape='sed -e "s/\([\ ()]\)/\\\\1/g"'
+
+# provide direct access to different terraform versions
+alias tf13='podman run -ti --workdir $(pwd) -v $(pwd):/$(pwd) -v ~/.ssh:/root/.ssh -v ~/b1/os_config:/root/.config/openstack:ro --rm docker.io/hashicorp/terraform:0.13.6'
+alias tf14='podman run -ti --workdir $(pwd) -v $(pwd):/$(pwd) -v ~/.ssh:/root/.ssh -v ~/b1/os_config:/root/.config/openstack:ro --rm docker.io/hashicorp/terraform:0.14.10'
+
+salt-ssh() {
+  podman run -ti --rm -w $(pwd) -v $(pwd):$(pwd) -v $HOME:$HOME -v $HOME:/root -e HOME=/root salt-ssh:3002 salt-ssh --no-host-keys $@
+}
