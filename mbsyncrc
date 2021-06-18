@@ -19,17 +19,17 @@ Inbox ~/mail/posteo/INBOX
 SubFolders Verbatim
 
 Channel posteo-inbox
-Master :posteo-remote:
-Slave :posteo-local:
+Far :posteo-remote:
+Near :posteo-local:
 Patterns "INBOX*"
 
 Channel posteo-sent
-Master :posteo-remote:"Sent"
-Slave :posteo-local:sent
+Far :posteo-remote:"Sent"
+Near :posteo-local:sent
 
 Channel posteo-trash
-Master :posteo-remote:"Trash"
-Slave :posteo-local:trash
+Far :posteo-remote:"Trash"
+Near :posteo-local:trash
 
 Group posteo
 Channel posteo-inbox
@@ -52,13 +52,13 @@ Inbox ~/mail/B1/INBOX
 Flatten .
 
 Channel b1-inbox
-Master :b1-remote:
-Slave :b1-local:
+Far :b1-remote:
+Near :b1-local:
 Patterns * !sent
 
 Channel b1-sent
-Master :b1-remote:"Sent"
-Slave :b1-local:sent
+Far :b1-remote:"Sent"
+Near :b1-local:sent
 
 
 Group b1
