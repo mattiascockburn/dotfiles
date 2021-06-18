@@ -603,7 +603,7 @@ vnoremap p "_dP
 " BEGIN COC specific settings
 
 " Manage these extensions automatically
-let g:coc_global_extensions = [ 'coc-powershell', 'coc-python', 'coc-json', 'coc-html', 'coc-highlight', 'coc-snippets', 'coc-vimlsp', 'coc-texlab', 'coc-yaml', 'coc-xml', 'coc-git', 'coc-marketplace', 'coc-emoji', 'coc-dictionary', 'coc-tag', 'coc-neosnippet', 'coc-yank', 'coc-sh']
+let g:coc_global_extensions = [ 'coc-powershell', 'coc-python', 'coc-json', 'coc-html', 'coc-highlight', 'coc-snippets', 'coc-vimlsp', 'coc-texlab', 'coc-yaml', 'coc-xml', 'coc-git', 'coc-marketplace', 'coc-emoji', 'coc-dictionary', 'coc-tag', 'coc-neosnippet', 'coc-yank', 'coc-sh', 'coc-pyright', ]
 
 " Give more space for displaying messages.
 set cmdheight=2
