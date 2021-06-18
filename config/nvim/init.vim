@@ -227,6 +227,8 @@ set foldlevelstart=1
 set foldnestmax=10
 set foldenable
 set foldlevel=1
+" disable floats in CoC floating windows
+autocmd User CocOpenFloat :setl nofoldenable foldlevel=0 foldcolumn=0
 
 nnoremap <space> za
 
