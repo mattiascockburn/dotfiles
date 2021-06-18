@@ -87,10 +87,6 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'tmux-plugins/vim-tmux'
 
-" pandoc plugins
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-
 " wiki stuff in vim
 Plug 'vimwiki/vimwiki'
 
