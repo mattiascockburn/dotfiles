@@ -21,7 +21,7 @@ font pango:Iosevka 12
 output DSI-1 resolution 720x1280 transform 90
 # set the wallpaper
 
-output "*" background /home/mattias/.wallpapers/sunset_8bit.jpg fill
+output "*" background /home/mattias/.wallpapers/pixel_coast.jpg fill
 
 default_border pixel 2
 default_floating_border pixel 2
@@ -240,7 +240,6 @@ exec --no-startup-id waybar
 exec --no-startup-id blueman-tray
 exec --no-startup-id mako
 exec --no-startup-id nm-applet --indicator
-#exec --no-startup-id redshift -l geoclue2
 
 exec swayidle -w \
   timeout 300 'swaylock -f -c 000000' \
