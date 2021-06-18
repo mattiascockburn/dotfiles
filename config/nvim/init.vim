@@ -175,6 +175,10 @@ au BufNewFile,BufRead Jenkinsfile  setf groovy
 " Python stuff
 au BufNewFile,BufRead *.py set foldmethod=indent
 
+" ansible auto commands
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile */ansible/*.yml set filetype=yaml.ansible
+
 " Remove trailing spaces on write
 " https://stackoverflow.com/questions/6496778/vim-run-autocmd-on-all-filetypes-except
 fun! StripTrailingWhitespace()
