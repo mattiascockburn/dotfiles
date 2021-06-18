@@ -664,7 +664,7 @@ nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
 
 " BEGIN vim-grepper settings
 nnoremap <leader>G :Grepper -tool git<cr>
-nnoremap <leader>g :Grepper -tool rg<cr>
+nnoremap <leader>gg :Grepper -tool rg<cr>
 nnoremap <leader>gw :Grepper -tool rg -cword -noprompt<cr>
 
 " Configure operators. These may be used with motions
