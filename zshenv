@@ -3,3 +3,5 @@
 for f in ~/.config/zsh/functions/*.sh;do
   source $f
 done
+
+[[ -f ~/.alias ]] && source ~/.alias
