@@ -1,5 +1,5 @@
 # Source all functions so that they are always available,
 # even in non-interactive shells
 for f in ~/.config/zsh/functions/*.sh;do
-  . $f
+  source $f
 done
