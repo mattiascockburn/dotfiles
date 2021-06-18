@@ -42,15 +42,17 @@ snippet image
   \end{figure}
 snippet verified
 alias uv
-  % URLs verified on `strftime("%d %b %Y")` by giese@b1-systems.de
+  % URL(s) verified on `strftime("%d %b %Y")` by giese@b1-systems.de
 
 snippet ttt
   \texttt{${1:#:text}} ${2:TARGET}
 
 snippet tit
+alias cursive
   \textit{${1:#:text}} ${2:TARGET}
 
-snippet bft
+snippet tbf
+alias bold
   \textbf{${1:#:text}} ${2:TARGET}
 
 snippet rarrow
@@ -59,6 +61,12 @@ alias ->
 
 snippet ...
   \ldots
+
+snippet sles
+  \slesV{${1:#:test}} ${2:TARGET}
+
+snippet rhel
+  \rhelV{${1:#:test}} ${2:TARGET}
 
 snippet ""
   "`${1:#:text}"'${2:TARGET}
@@ -89,7 +97,12 @@ snippet fns
   \footnotesize
 
 snippet comment
+alias %
   % ${1:#:text}, giese@b1-systems.de (`strftime("%d %b %Y")`)
+
+snippet sep
+alias %%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 snippet lstlisting
 alias listing
