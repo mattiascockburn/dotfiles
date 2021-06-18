@@ -302,6 +302,7 @@ nnoremap Q :normal! gqip<cr>
 " ALT-n next buffer and list, ALT-p previous buffer
 nnoremap <A-n> :bnext<CR>:redraw<CR>:ls<CR>
 nnoremap <A-p> :bprevious<CR>:redraw<CR>:ls<CR>
+nnoremap <leader>vb :ls<cr>:vertical sb<space>
 
 " Quickswitch to next/prev tab
 nnoremap <A-.> :tabnext<cr>
