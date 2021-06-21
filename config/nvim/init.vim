@@ -1,4 +1,4 @@
-" Bootstrap vim-plug if it's not there
+" Bootstrap vim-plug if it's not there,
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent execute "!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   autocmd VimEnter * PlugInstall | source $MYVIMRC
@@ -677,16 +677,6 @@ xmap gs  <plug>(GrepperOperator)
 " 'smart' rename
 nmap <leader>rn <Plug>(coc-rename)
 nmap <silent> gd <Plug>(coc-definition)
-
-" Displaying documentation (in the floating window!)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
 
 " Do not hide characters in, for example, markdown mode
 set conceallevel=0
