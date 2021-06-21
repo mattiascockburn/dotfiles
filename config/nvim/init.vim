@@ -673,11 +673,5 @@ nmap gs  <plug>(GrepperOperator)
 xmap gs  <plug>(GrepperOperator)
 " END vim-grepper settings
 
-
-" 'smart' rename
-nmap <leader>rn <Plug>(coc-rename)
-nmap <silent> gd <Plug>(coc-definition)
-
 " Do not hide characters in, for example, markdown mode
 set conceallevel=0
-
