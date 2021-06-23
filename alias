@@ -38,3 +38,8 @@ alias tf14='podman run -ti --workdir $(pwd) -v $(pwd):/$(pwd) -v ~/.ssh:/root/.s
 salt-ssh() {
   podman run -ti --rm -w $(pwd) -v $(pwd):$(pwd) -v $HOME:$HOME -v $HOME:/root -e HOME=/root salt-ssh:3002 salt-ssh --no-host-keys $@
 }
+
+salt-docs() {
+  u="$HOME/git/salt/doc/_build/html/ref/index.html"
+  [[ -f "$u" ]] && surf "$u"
+}
