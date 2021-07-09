@@ -333,6 +333,8 @@ bindsym XF86AudioStop  exec playerctl stop
 bindsym XF86AudioNext  exec playerctl next
 bindsym XF86AudioPrev  exec playerctl previous
 
+bindsym $mod+Shift+b exec blueman-manager
+
 bindsym XF86AudioMute exec ponymix toggle
 bindsym XF86AudioRaiseVolume exec ponymix increase 5
 bindsym XF86AudioLowerVolume exec ponymix decrease 5
