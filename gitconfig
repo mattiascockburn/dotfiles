@@ -36,3 +36,5 @@
 	helper = cache --timeout=7200
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main
