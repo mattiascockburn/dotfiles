@@ -43,3 +43,8 @@ salt-docs() {
   u="$HOME/git/salt/doc/_build/html/ref/index.html"
   [[ -f "$u" ]] && surf "$u"
 }
+
+pcr_print() {
+  pcrs=/sys/class/tpm/tpm0/pcr-sha1
+  for a in $(seq 0 23); do echo -ne "$a:\t"; cat "${pcrs}/$a";done
+}
