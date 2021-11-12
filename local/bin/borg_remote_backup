@@ -27,6 +27,7 @@ sudo borg create                                 \
     --exclude '/home/*/Downloads*/*'             \
     --exclude '/home/*/.local/share/Steam'       \
     --exclude '/var/cache/*'                     \
+    --exclude '/var/lib/container/storage/*'     \
     --exclude '/var/tmp/*'                       \
     --exclude '/var/lib/docker/*'                \
     --exclude '/sys/*'                           \
