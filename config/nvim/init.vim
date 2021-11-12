@@ -210,7 +210,6 @@ set textwidth=100       " break lines when line length increases
 set tabstop=2           " use 2 spaces to represent tab
 set softtabstop=2
 set shiftwidth=2        " number of spaces to use for auto indent
-set softtabstop=2
 
 set iskeyword+=_,$,@,%,#    " none of these are word dividers
 
