@@ -210,20 +210,9 @@ bindsym Escape mode "default"
 bindsym --release XF86PowerOff mode "$mode_power"
 bindsym $mod+$alt+q mode "$mode_power"
 
-#bar {
-#  font pango:Iosevka Term
-#  position top
-#}
-#colors {
-#    separator #969896
-#    background #1d1f21
-#    statusline #c5c8c6
-#    focused_workspace #81a2be #81a2be #1d1f21
-#    active_workspace #373b41 #373b41 #ffffff
-#    inactive_workspace #282a2e #282a2e #969896
-#    urgent_workspace #cc6666 #cc6666 #ffffff
-#}
-#}
+bar {
+    swaybar_command waybar
+}
 
 # Some apps should be assigned to a specific workspace
 
@@ -252,7 +241,6 @@ assign [class="clementine"] $ws4
 
 ## STARTUP PROGRAMS
 
-exec --no-startup-id waybar
 exec --no-startup-id blueman-tray
 exec --no-startup-id mako
 exec --no-startup-id nm-applet --indicator
