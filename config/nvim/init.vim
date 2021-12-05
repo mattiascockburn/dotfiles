@@ -10,9 +10,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " This enables things like VCBlame
 Plug 'juneedahamed/vc.vim'
 
-" Visualize color definitions
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-
 " Add support for more text targets
 Plug 'wellle/targets.vim'
 
@@ -37,9 +34,6 @@ Plug 'machakann/vim-highlightedyank'
 " <CR> will replay last recorded macro
 Plug 'wincent/replay'
 
-" Better mark management
-Plug 'kshenoy/vim-signature'
-
 "Open file under cursor with 'gf'
 Plug 'amix/open_file_under_cursor.vim'
 
@@ -54,11 +48,7 @@ Plug 'moll/vim-bbye'
 " noobs like myself
 Plug 'ludovicchabant/vim-gutentags'
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
-
-" Async syntax linters/fixers
-Plug 'dense-analysis/ale'
 
 " Easily align text
 " used by puppet-vim
@@ -123,9 +113,6 @@ Plug 'Raimondi/delimitMate'
 " TOML syntax is handy for some hipster tech
 Plug 'cespare/vim-toml'
 
-" Go support
-Plug 'fatih/vim-go'
-
 " terraform syntax
 Plug 'hashivim/vim-terraform'
 
@@ -138,9 +125,6 @@ Plug 'mzlogin/vim-markdown-toc'
 
 " Use grep like a pro
 Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
-
-" Outline editor for many lightweight markup languages
-Plug 'vim-voom/VOoM'
 
 " Initialize plugin system
 call plug#end()
