@@ -48,3 +48,7 @@ pcr_print() {
   pcrs=/sys/class/tpm/tpm0/pcr-sha1
   for a in $(seq 0 23); do echo -ne "$a:\t"; cat "${pcrs}/$a";done
 }
+
+json2yaml() {
+  cat | python -c 'import sys, yaml, json; print(yaml.dump(json.loads(sys.stdin.read())))'
+}
