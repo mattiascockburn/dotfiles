@@ -248,14 +248,8 @@ exec --no-startup-id nm-applet --indicator
 exec swayidle -w \
   timeout 300 'swaylock -f -c 000000' \
   timeout 600 'swaymsg "output * dpms off"' \
-       resume 'swaymsg "output * dpms on"' \
+  resume 'swaymsg "output * dpms on"' \
   before-sleep 'swaylock -f -c 000000'
-
-# automount
-exec devmon --sync \
- --exec-on-drive "notify-send -u normal -t 5000 -a devmon -i block-device mount \"Device %d mounted on %d\"" \
- --exec-on-remove "notify-send -u normal -t 2500 -a devmon -i block-device mount \"Device %f removed\""
-
 
 # automatically switch output configuration on the fly
 exec kanshi
@@ -377,3 +371,5 @@ bindswitch --reload --locked lid:off output $laptop enable
 # color picker, ripped off of
 # https://unix.stackexchange.com/questions/320070/is-there-a-colour-picker-that-works-with-wayland-or-xwayland
 bindsym $mod+$alt+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
+
+
