@@ -44,8 +44,7 @@ workspace_layout tabbed
 
 
 # start a terminal
-bindsym $mod+Return exec termite -e zsh
-bindsym $mod+shift+Return exec termite
+bindsym $mod+Return exec alacritty -e zsh
 
 bindsym $mod+Shift+y exec ~/.local/bin/youpoop.sh music
 bindsym $mod+Control+y exec ~/.local/bin/youpoop.sh video
