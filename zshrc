@@ -103,3 +103,4 @@ which most &>/dev/null && export PAGER=most
 
 export PATH="${HOME}/.local/bin:${PATH}"
 
+[[ -f ~/.cache/wal/sequences ]] && cat ~/.cache/wal/sequences
