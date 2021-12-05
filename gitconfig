@@ -19,7 +19,7 @@
   cat          = cat-file -p
   cop          = "!sh -c \"git checkout ${@} $(git branch --list -av | fzf | sed -e 's,remotes/,,' -e 's,origin/,,' -e 's,^ *[+*]* *,,' | awk '{print $1}')\""
   unstage      = reset HEAD
-  uncommit     = update-ref HEAD HEAD^
+	uncommit     = reset HEAD^
   uncommithard = reset --hard HEAD^
   undomerge    = reset --hard ORIG_HEAD
   whoops       = commit -a --amend -C HEAD
@@ -38,3 +38,5 @@
 	rebase = true
 [init]
 	defaultBranch = main
+[merge]
+	renamelimit = 25354
