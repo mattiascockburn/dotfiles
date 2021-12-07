@@ -52,3 +52,10 @@ pcr_print() {
 json2yaml() {
   cat | python -c 'import sys, yaml, json; print(yaml.dump(json.loads(sys.stdin.read())))'
 }
+
+ec2_instances() {
+  aws ec2 describe-instances  \
+  --query "Reservations[*].Instances[*].{InstanceID:InstanceId,PublicIP:PublicIpAddress,PrivateIP:PrivateIpAddress,Name:Tags[?Key=='Name']|[0].Value,Type:InstanceType,Status:State.Name,VpcId:VpcId}" \
+  --filters Name=instance-state-name,Values=running \
+  --output table
+}
