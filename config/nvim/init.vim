@@ -658,3 +658,10 @@ xmap gs  <plug>(GrepperOperator)
 
 " Do not hide characters in, for example, markdown mode
 set conceallevel=0
+
+" Easy Align config
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
