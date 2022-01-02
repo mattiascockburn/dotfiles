@@ -244,7 +244,6 @@ assign [class="clementine"] $ws4
 
 ## STARTUP PROGRAMS
 
-exec --no-startup-id blueman-tray
 exec --no-startup-id mako
 exec --no-startup-id nm-applet --indicator
 
