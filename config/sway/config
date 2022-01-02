@@ -331,19 +331,17 @@ input '*' {
     xkb_options grp:alt_space_toggle,caps:escape
 }
 
-seat '*' {
-  hide_cursor 3000
-}
-
-# Adjust mouse/touchpad settings
-input '2:7:SynPS/2_Synaptics_TouchPad' {
+input type:touchpad {
+  tap enabled
   natural_scroll enabled
   dwt enabled
-  events disabled_on_external_mouse
   click_method clickfinger
   accel_profile adaptive
   tap_button_map lrm
-  tap enabled
+}
+
+seat '*' {
+  hide_cursor 3000
 }
 
 # Adjust mouse/touchpad settings
