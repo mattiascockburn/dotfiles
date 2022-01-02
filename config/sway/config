@@ -19,11 +19,8 @@ set $alt Mod1
 
 font pango:Iosevka 12
 
-# rotate GPD MicroPC screen
-output DSI-1 resolution 720x1280 transform 90
 # set the wallpaper
-
-output "*" background /home/mattias/.wallpapers/pixel_coast.jpg fill
+output "*" background /home/mattias/.wallpapers/ayahuasca1.jpg fill
 
 default_border pixel 2
 default_floating_border pixel 2
