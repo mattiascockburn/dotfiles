@@ -285,7 +285,7 @@ for_window [class="Tor Browser"] floating enable; border none
 focus_follows_mouse no
 
 ## Password menu
-bindsym $mod+p  exec rofi-pass
+bindsym $mod+p  exec wofipassmenu -p
 
 # AudioFoo
 bindsym XF86AudioPlay  exec playerctl play
