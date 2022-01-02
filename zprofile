@@ -15,12 +15,13 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
     export ECORE_EVAS_ENGINE=wayland_egl
     export ELM_ENGINE=wayland_egl
     export SDL_VIDEODRIVER=wayland
-    export XDG_CURRENT_DESKTOP=Unity
     export MOZ_ENABLE_WAYLAND=1
     export _JAVA_AWT_WM_NONREPARENTING=1
+    export XDG_CURRENT_DESKTOP=sway
+    export XDG_SESSION_TYPE=wayland
     # Make Java apps look less shitty
     export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
-    exec sway &> ~/.sway.log
+    exec sway &> ~/.sway.log &
   else
     # Make Java apps look less shitty
     export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
