@@ -319,8 +319,8 @@ bindsym $mod+left move window to workspace prev
 bindsym $mod+g exec swaylock -f -c 000000
 
 # Screenshots
-bindsym Print exec grim ~/Pictures/screenshots/screenshot-$(date --iso-8601=ns).png
-bindsym $mod+equal exec grim ~/Pictures/screenshots/screenshot-$(date --iso-8601=ns).png
+bindsym Print exec grim ~/Pictures/Screenshots/screenshot-$(date --iso-8601=ns).png
+bindsym $mod+Shift+s exec grim ~/Pictures/Screenshots/screenshot-$(date --iso-8601=ns).png
 
 # INPUT CONFIGURATION
 
