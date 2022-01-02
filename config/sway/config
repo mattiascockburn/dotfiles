@@ -39,6 +39,12 @@ floating_modifier $mod
 # I want fullscreen apps by default, Metro FTW ;-P
 workspace_layout tabbed
 
+# i3 like border hiding
+hide_edge_borders --i3 smart_no_gaps
+
+# look ma, no gaps
+smart_borders no_gaps
+smart_gaps on
 
 # start a terminal
 bindsym $mod+Return exec alacritty -e zsh
