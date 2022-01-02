@@ -4,10 +4,9 @@ set spoolfile=+INBOX
 set record = +sent
 set postponed= +drafts
 unmailboxes *
-#mailboxes = `~/bin/sidebar_config_from_maildir.py posteo`
 mailboxes `find ~/mail/posteo -type d -name cur -printf '%h '`
-set realname = 'Mattias Giese'
-set from = mattiasgiese@posteo.net
+set realname = 'Mattias Cockburn'
+set from = mattias.cockburn@posteo.net
 set use_from = yes
 set sendmail  = "/usr/bin/msmtp -a posteo"
 set signature = '~/.signature_posteo'
