@@ -1,6 +1,7 @@
 require 'user.options'
 require 'user.keymaps'
 require 'user.plugins'
+require 'user.luasnip'
 require 'user.autocommands'
 require 'user.lualine'
 require 'user.lsp'

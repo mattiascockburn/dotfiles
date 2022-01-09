@@ -25,7 +25,6 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
@@ -33,21 +32,21 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
+
   -- Better buffer delete behaviour
   -- This plugin provides Bdelete and Bwipeout
   use "moll/vim-bbye"
-  use "nvim-lualine/lualine.nvim"
-  use "akinsho/toggleterm.nvim"
+  use "nvim-lualine/lualine.nvim" -- enhanced status line plugin
+  use "akinsho/toggleterm.nvim" -- quickly toggle a slick terminal on/off
   use "ahmedkhalf/project.nvim"
-  use "lewis6991/impatient.nvim"
-  use "lukas-reineke/indent-blankline.nvim"
-  use "goolord/alpha-nvim"
+  use "lewis6991/impatient.nvim" -- cache lua plugins and reduce load times significantly
+  use "lukas-reineke/indent-blankline.nvim" -- visualize indentation of lines
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
   -- Easily align text
   -- used by puppet-vim
   use 'godlygeek/tabular'
-  use 'rodjek/vim-puppet'
+  use 'rodjek/vim-puppet' -- puppet syntax support and formatting helpers
 
   -- Highlight ugly extra whitespace
   use 'ntpeters/vim-better-whitespace'
@@ -106,6 +105,7 @@ return packer.startup(function(use)
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use "honza/vim-snippets" -- even more snippets
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
