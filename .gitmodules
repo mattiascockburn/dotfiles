@@ -10,3 +10,6 @@
 [submodule "config/profanity/plugins"]
 	path = config/profanity/plugins
 	url = https://github.com/profanity-im/profanity-plugins.git
+[submodule "local/share/nvim/site/pack/packer/start/packer.nvim"]
+	path = local/share/nvim/site/pack/packer/start/packer.nvim
+	url = https://github.com/wbthomason/packer.nvim
