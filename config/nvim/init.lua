@@ -17,5 +17,6 @@ require 'user.telescope'
 require 'user.comment'
 require 'user.autopairs'
 require 'user.nvim-tree'
+require 'user.trouble'
 
 vim.cmd 'source ~/.config/nvim/old_config.vim'
