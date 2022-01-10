@@ -15,5 +15,7 @@ require 'user.comment'
 require 'user.impatient'
 require 'user.telescope'
 require 'user.comment'
+require 'user.autopairs'
+require 'user.nvim-tree'
 
 vim.cmd 'source ~/.config/nvim/old_config.vim'
