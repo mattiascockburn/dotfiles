@@ -46,6 +46,8 @@ hide_edge_borders --i3 smart_no_gaps
 smart_borders no_gaps
 smart_gaps on
 
+bindsym $mod+Shift+b exec blueman-manager
+
 # start a terminal
 bindsym $mod+Return exec alacritty -e zsh
 
