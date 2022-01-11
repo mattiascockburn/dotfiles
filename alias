@@ -59,3 +59,7 @@ ec2_instances() {
   --filters Name=instance-state-name,Values=running \
   --output table
 }
+
+ssm_session() {
+  aws ssm start-session --target $@
+}
