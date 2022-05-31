@@ -1,0 +1,12 @@
+# layout left to right, aligned at the bottom
+ARRANGE: ROW
+ALIGN: BOTTOM
+
+ORDER:
+    - 'Unknown M32QC 21390B000953'
+    - 'Unknown 0x323D 0x00000000'
+
+SCALE:
+    - NAME_DESC: 'Unknown 0x323D 0x00000000' # laptop
+      SCALE: 1.0
+

@@ -256,7 +256,7 @@ exec swayidle -w \
   before-sleep 'swaylock -f -c 000000'
 
 # automatically switch output configuration on the fly
-exec kanshi
+exec way-displays
 
 # workaround for GTK themes
 # ripped from https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
