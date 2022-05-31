@@ -8,3 +8,4 @@ image/jpeg; geeqie %s
 image/png; geeqie %s
 image/gif; geeqie %s
 image/tiff; geeqie %s
+application/vnd.oasis.opendocument.text; libreoffice %s
