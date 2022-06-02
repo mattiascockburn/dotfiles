@@ -21,6 +21,9 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
     export XDG_SESSION_TYPE=wayland
     # Make Java apps look less shitty
     export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+
+    pkd=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+    [ -x "$pkd" ] && exec "$pkd" &
     exec sway &> ~/.sway.log &
   else
     # Make Java apps look less shitty
