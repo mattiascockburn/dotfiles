@@ -1,4 +1,4 @@
 configuration {
 	font: "Iosevka 13";
-	theme: "~/.config/rofi/themes/onedark.rasi";
 }
+
