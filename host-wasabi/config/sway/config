@@ -1,0 +1,381 @@
+# Config file for the sway wayland compositor
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+xwayland enable
+
+# Yeah, Super Key
+set $mod Mod4
+set $alt Mod1
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose an xft font, such as:
+# font xft:DejaVu Sans Mono 10
+
+font pango:Iosevka 12
+
+# set the wallpaper
+output "*" background /home/mattias/.wallpapers/cyberpunk_night3.jpg fill
+
+default_border pixel 2
+default_floating_border pixel 2
+
+include "~/.cache/wal/colors-sway"
+
+# class                   border    backgr    text      indicator child_border
+client.focused            $color1   $background   $foreground $color6 $color1
+client.focused_inactive   $color1   $background   $color7 $color6 $color15
+client.unfocused          $color8   $background   $color7 $color6 $color8
+# client.urgent is not used in sway
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# I want fullscreen apps by default, Metro FTW ;-P
+workspace_layout tabbed
+
+# i3 like border hiding
+hide_edge_borders --i3 smart_no_gaps
+
+# look ma, no gaps
+smart_borders no_gaps
+smart_gaps on
+
+bindsym $mod+Shift+b exec blueman-manager
+
+# start a terminal
+bindsym $mod+Return exec alacritty -e zsh
+
+bindsym $mod+Shift+y exec ~/.local/bin/youpoop.sh music
+bindsym $mod+Control+y exec ~/.local/bin/youpoop.sh video
+
+# Launch vim-anywhere script
+bindsym $mod+Shift+v exec ~/.local/bin/vim-anywhere clip
+
+# Add current url to transmission-daemon
+bindsym $mod+Control+t exec ~/.local/bin/t-quick-add
+
+# kill focused window
+bindsym $mod+q kill
+bindsym $mod+Backspace kill
+
+# Screen brightness control
+# for minivan keyboard
+bindsym $mod+Prior exec light -A 10
+bindsym $mod+Next exec light -U 10
+
+# on gigabyte stock keyboard
+bindsym $mod+Control+plus exec light -A 10
+bindsym $mod+Control+minus exec light -U 10
+
+# on thinkpads with proper keycodes
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
+bindsym $mod+b exec ~/.local/bin/browser
+
+# Launcher configuration
+bindsym $mod+apostrophe exec wofi --show run
+bindsym $mod+d exec wofi --show run
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+$alt+h move left
+bindsym $mod+$alt+j move down
+bindsym $mod+$alt+k move up
+bindsym $mod+$alt+l move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal orientation
+bindsym $mod+c split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+$alt+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+Control+s focus child
+
+# workspace definitions
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+$alt+1 move container to workspace $ws1
+bindsym $mod+$alt+2 move container to workspace $ws2
+bindsym $mod+$alt+3 move container to workspace $ws3
+bindsym $mod+$alt+4 move container to workspace $ws4
+bindsym $mod+$alt+5 move container to workspace $ws5
+bindsym $mod+$alt+6 move container to workspace $ws6
+bindsym $mod+$alt+7 move container to workspace $ws7
+bindsym $mod+$alt+8 move container to workspace $ws8
+bindsym $mod+$alt+9 move container to workspace $ws9
+bindsym $mod+$alt+0 move container to workspace $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+#multihead helpers
+bindsym $mod+o move workspace to output right
+
+# reload the configuration file
+bindsym $mod+$alt+r exec swaymsg reload
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow key
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+set $mode_power [l]ogoff | [p]oweroff | [s]uspend
+mode "$mode_power" {
+bindsym l exec swaymsg exit
+bindsym p exec systemctl poweroff
+bindsym s exec systemctl suspend, mode "default"
+bindsym Return mode "default"
+bindsym Escape mode "default"
+}
+
+bindsym --release XF86PowerOff mode "$mode_power"
+bindsym $mod+$alt+q mode "$mode_power"
+
+bar {
+    swaybar_command waybar
+}
+
+# Some apps should be assigned to a specific workspace
+
+# Webbrowser
+assign [class="Chromium"] $ws1
+assign [class="Firefox"] $ws1
+# Midori Web Browser
+# "midori4", "Midori"
+assign [class="midori4"] $ws1
+assign [class="Midori"] $ws1
+assign [class="qutebrowser"] $ws1
+
+# mail
+assign [class="Thunderbird"] $ws2
+
+# xmpp
+assign [class="psi+"] $ws3
+assign [class="psi-plus"] $ws3
+assign [class="Psi-plus"] $ws3
+assign [class="gajim"] $ws3
+
+
+assign [class="vlc"] $ws4
+assign [class="clementine"] $ws4
+
+
+## STARTUP PROGRAMS
+
+exec --no-startup-id mako
+exec --no-startup-id nm-applet --indicator
+
+exec swayidle -w \
+  timeout 300 'swaylock -f -c 000000' \
+  timeout 600 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' \
+  before-sleep 'swaylock -f -c 000000'
+
+# automatically switch output configuration on the fly
+exec way-displays
+
+# workaround for GTK themes
+# ripped from https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
+exec_always import-gsettings \
+    gtk-theme:gtk-theme-name \
+    icon-theme:gtk-icon-theme-name \
+    cursor-theme:gtk-cursor-theme-name
+
+# fix steam
+for_window [title="Updating Steam..."] floating enable; border none; focus mode_toggle
+for_window [class="Steam"] floating enable; border none; focus mode_toggle
+
+#teamviewer
+for_window [class="TeamViewer.exe"] floating enable; border none; focus mode_toggle
+for_window [title="TeamViewer.exe"] floating enable; border none; focus mode_toggle
+for_window [title="Computers & Contacts"] floating enable; border none; focus mode_toggle
+
+# GPG Passphrase input
+for_window [class="gcr-prompter"] floating enable; border none; focus mode_toggle
+for_window [class="Gcr-prompter"] floating enable; border none; focus mode_toggle
+for_window [title="Enter Passphrase"] floating enable; border none; focus mode_toggle
+for_window [title="pinentry"] floating enable; border none; focus mode_toggle
+
+# Tor Browser
+for_window [class="Tor Browser"] floating enable; border none
+
+# More behaviour
+focus_follows_mouse no
+
+## Password menu
+bindsym $mod+p  exec wofipassmenu -p
+
+# AudioFoo
+bindsym XF86AudioPlay  exec playerctl play
+bindsym XF86AudioStop  exec playerctl stop
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
+
+bindsym XF86AudioMute exec ponymix toggle
+bindsym XF86AudioRaiseVolume exec ponymix increase 5
+bindsym XF86AudioLowerVolume exec ponymix decrease 5
+
+# focus last urgent window
+bindsym $mod+u [urgent=latest] focus
+
+# mod tab back and forth between workspaces
+bindsym $mod+Tab workspace back_and_forth
+
+# show and hide scratchpad windows
+bindsym $mod+$alt+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# prev next workspaces
+bindsym $mod+comma workspace prev
+bindsym $mod+period workspace next
+
+# move to next/prev ws
+bindsym $mod+right move window to workspace next
+bindsym $mod+left move window to workspace prev
+
+# Screen locking
+bindsym $mod+g exec swaylock -f -c 000000
+
+# Screenshots
+bindsym Print exec grim ~/Pictures/Screenshots/screenshot-$(date --iso-8601=ns).png
+bindsym $mod+Shift+s exec grim ~/Pictures/Screenshots/screenshot-$(date --iso-8601=ns).png
+
+# INPUT CONFIGURATION
+
+# Set keyboard layouts
+input '*' {
+    xkb_layout us,us
+    xkb_variant ,intl
+    xkb_options grp:alt_space_toggle,caps:escape
+}
+
+input type:touchpad {
+  tap enabled
+  natural_scroll enabled
+  dwt enabled
+  click_method clickfinger
+  accel_profile adaptive
+  tap_button_map lrm
+}
+
+seat '*' {
+  hide_cursor 3000
+}
+
+# Adjust mouse/touchpad settings
+input '24704:32865:AMR-4630-XXX-0-_0-1023_USB_KEYBOARD_Mouse' {
+  natural_scroll disabled
+  dwt disable
+  click_method clickfinger
+  accel_profile adaptive
+  tap_button_map lrm
+  tap enabled
+  scroll_method on_button_down
+  scroll_button BTN_MIDDLE
+}
+
+input '1133:16495:Logitech_MX_Ergo' {
+  natural_scroll disabled
+  dwt disabled
+  accel_profile adaptive
+  pointer_accel 1
+}
+
+# clamshell mode - disable laptop output on lidclose
+set $laptop DSI-1
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+
+output $laptop transform 90
+
+# color picker, ripped off of
+# https://unix.stackexchange.com/questions/320070/is-there-a-colour-picker-that-works-with-wayland-or-xwayland
+bindsym $mod+$alt+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
