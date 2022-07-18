@@ -63,3 +63,5 @@ ec2_instances() {
 ssm_session() {
   aws ssm start-session --target $@
 }
+
+alias unlock_srv='gopass show -o -n layer8.fail/encroot/md2|  ssh -i ~/.ssh/hetzner -oPort=222 root@cockburn.tech unlock'
