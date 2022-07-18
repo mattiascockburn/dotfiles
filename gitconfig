@@ -1,6 +1,6 @@
 [user]
-	email = mattiasgiese@posteo.net
-	name = Mattias Giese
+	email = mattias.cockburn@posteo.net
+	name = Mattias Cockburn
 [alias]
   pushall      = !git remote | xargs -L1 git push --all
   st           = status
@@ -24,11 +24,8 @@
   undomerge    = reset --hard ORIG_HEAD
   whoops       = commit -a --amend -C HEAD
 
-[includeIf "gitdir:~/b1/"]
-  path = .gitconfig-b1
-
-[includeIf "gitdir:~/projekte/"]
-  path = .gitconfig-b1
+[includeIf "gitdir:~/aur/"]
+  path = .gitconfig-archlinux
 
 [core]
 	excludesfile = /home/mattias/.config/git/ignore
