@@ -1,9 +1,8 @@
-{
-  output HDMI-A-2 vendor FSL product HDMI serial 0x20160801 resolution 1920x1080 position 0,0
-  output eDP-1 vendor AUO product 0x226D serial 0x0 resolution 1920x1080 position 1920,0
+profile docked {
+	output eDP-1 disable
+  output "Unknown M32QC 21390B000953" enable mode 2560x1440 position 0,0 scale 1
 }
 
-{
-  output eDP-1 vendor AUO product 0x226D serial 0x0 resolution 1920x1080
+profile undocked {
+	output eDP-1 enable
 }
-
