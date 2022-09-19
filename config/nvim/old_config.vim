@@ -149,7 +149,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Some nifty mappings, courtesy of https://www.prodops.io/blog/solving-git-merge-conflicts-with-vim
 " Fugitive Conflict Resolution
-nnoremap <leader>gd :Gvdiff<CR>
+nnoremap <leader>gd :Gvdiffsplit!<CR>
 nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
 
