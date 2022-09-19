@@ -132,6 +132,7 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+  use "rhysd/git-messenger.vim"
 
   use 'folke/trouble.nvim'  -- Nice overview of errors/warnings coming from e.g. LSP
   use 'folke/lsp-colors.nvim' -- add LSP colors for colorschemes that don't yet support them
