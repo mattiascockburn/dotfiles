@@ -252,11 +252,11 @@ assign [class="clementine"] $ws4
 exec --no-startup-id mako
 exec --no-startup-id nm-applet --indicator
 
-exec swayidle -w \
-  timeout 300 'swaylock -f -c 000000' \
-  timeout 600 'swaymsg "output * dpms off"' \
-  resume 'swaymsg "output * dpms on"' \
-  before-sleep 'swaylock -f -c 000000'
+# exec swayidle -w \
+#  timeout 300 'swaylock -f -c 000000' \
+#  timeout 600 'swaymsg "output * dpms off"' \
+#  resume 'swaymsg "output * dpms on"' \
+#  before-sleep 'swaylock -f -c 000000'
 
 # automatically switch output configuration on the fly
 exec way-displays
