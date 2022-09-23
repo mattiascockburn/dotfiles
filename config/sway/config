@@ -83,6 +83,9 @@ bindsym $mod+b exec ~/.local/bin/browser
 bindsym $mod+apostrophe exec wofi --show run
 bindsym $mod+d exec wofi --show run
 
+bindsym $mod+$alt+f exec nautilus
+
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
