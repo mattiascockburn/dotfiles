@@ -289,6 +289,13 @@ for_window [class="Tor Browser"] floating enable; border none
 # More behaviour
 focus_follows_mouse no
 
+# Idle inhibitors, inspiration from https://www.reddit.com/r/swaywm/comments/b0qpm1/disable_swayidle_when_fullscreen_media/
+# xwayland version
+for_window [class="Firefox"] inhibit_idle fullscreen
+for_window [class="Chromium"] inhibit_idle fullscreen
+# wayland version
+for_window [app_id="firefox"] inhibit_idle fullscreen
+
 ## Password menu
 bindsym $mod+p  exec wofipassmenu -p
 
