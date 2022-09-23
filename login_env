@@ -6,7 +6,3 @@ USE_SWAY=y
 
 # Work around systemd --user fuckups
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
-
-# Needed for system tray in waybar to work
-export XDG_CURRENT_DESKTOP=Unity
-
