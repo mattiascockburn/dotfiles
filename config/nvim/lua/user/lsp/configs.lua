@@ -1,12 +1,5 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-  return
-end
-
-require("mason").setup()
-require("mason-lspconfig").setup()
 local lspconfig = require("lspconfig")
-local servers = { "pyright", "jsonls", "sumneko_lua" }
+local servers = { "jsonls", "sumneko_lua" }
 
 for _, server in pairs(servers) do
 	local opts = {
@@ -19,5 +12,3 @@ for _, server in pairs(servers) do
 	end
 	lspconfig[server].setup(opts)
 end
-
-require "user.lsp.null-ls"

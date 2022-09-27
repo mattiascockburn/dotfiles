@@ -1,14 +1,3 @@
-call plug#begin('~/.local/share/nvim/plugged')
-
-" Easy commenting
-Plug 'scrooloose/nerdcommenter'
-
-" The less i type the more satisfied i am
-Plug 'Raimondi/delimitMate'
-
-" Initialize plugin system
-call plug#end()
-
 " Terminal behaviour
 " Disable background color erase because of a bug in VIM which shows in kitty
 " see https://github.com/kovidgoyal/kitty (search for bce)
@@ -32,10 +21,6 @@ endfun
 
 autocmd FileType mail let b:noStripWhitespace=1
 autocmd BufWritePre * call StripTrailingWhitespace()
-
-" ## Folding
-" disable floats in CoC floating windows
-autocmd User CocOpenFloat :setl nofoldenable foldlevel=0 foldcolumn=0
 
 " ### Completion
 " ## Filename completion
@@ -72,15 +57,8 @@ map k gk
 
 
 " ### Plugin Options
-"
-" Advanced ansible-vim config
-let g:ansible_unindent_after_newline = 1
-let g:ansible_extra_syntaxes = "sh.vim python.vim"
-let g:ansible_attribute_highlight = "ob"
-let g:ansible_extra_keywords_highlight = 1
 
 let g:gutentags_generate_on_new = 1
-
 let g:gutentags_cache_dir = '~/.tags'
 
 " Buffer management
@@ -127,9 +105,6 @@ au BufLeave * let g:lastusedbuffer = bufnr('%')
 map <leader>bl :execute "buffer" g:lastusedbuffer<cr>
 
 map <leader>q :close<cr>
-
-" Enable integration with airline.
-let g:airline#extensions#ale#enabled = 1
 
 " Options for vim-workspace
 nnoremap <leader>s :ToggleWorkspace<CR>
@@ -188,9 +163,6 @@ endif
 
 " fix json comment highlighting
 autocmd FileType json syntax match Comment +\/\/.\+$+
-
-" Salt specific plugin options
-let g:sls_use_jinja_syntax = 1
 
 " Register hacks
 " Do not pollute default register
