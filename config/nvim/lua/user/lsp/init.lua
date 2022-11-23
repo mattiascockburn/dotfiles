@@ -4,11 +4,12 @@ if not status_ok then
 end
 
 require("mason").setup()
-require("mason-lspconfig").setup()
+local mlsp = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
-local servers = { "pyright", "jsonls", "sumneko_lua" }
 
-for _, server in pairs(servers) do
+mlsp.setup()
+
+for _, server in pairs(mlsp.get_installed_servers()) do
   local opts = {
     on_attach = require("user.lsp.handlers").on_attach,
     capabilities = require("user.lsp.handlers").capabilities,

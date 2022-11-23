@@ -111,9 +111,18 @@ return packer.startup(function(use)
   use("b0o/schemastore.nvim") -- use schemastore.org for json schemas in jsonls
   use("folke/trouble.nvim") -- Nice overview of errors/warnings coming from e.g. LSP
   use("folke/lsp-colors.nvim") -- add LSP colors for colorschemes that don't yet support them
+  use("ap/vim-css-color")
 
-  -- Telescope
+  -- DAP / Debug Adapter Protocol related plugins
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+  -- Higlight current breakpoint/point in debugging
+  use { 'theHamsta/nvim-dap-virtual-text', requires = { "mfussenegger/nvim-dap" } }
+  use 'leoluz/nvim-dap-go' -- requires delve
+  use 'mfussenegger/nvim-dap-python' -- requires debugpy https://github.com/microsoft/debugpy
+
+  -- Telescope / fast file search/grep
   use("nvim-telescope/telescope.nvim")
+  use("nvim-telescope/telescope-dap.nvim")
 
   -- Treesitter
   use({
