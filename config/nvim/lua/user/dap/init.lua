@@ -20,7 +20,8 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 
 -- set some default keymaps
-vim.keymap.set("n", '<leader>dk', function() require('dap').continue() end)
-vim.keymap.set("n", '<leader>dl', function() require('dap').run_last() end)
-vim.keymap.set("n", '<leader>b', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set("n", '<leader>dk', function() dap.continue() end)
+vim.keymap.set("n", '<leader>dl', function() dap.run_last() end)
+vim.keymap.set("n", '<leader>b', function() dap.toggle_breakpoint() end)
+vim.keymap.set("n", '<leader>B', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
 
