@@ -140,7 +140,10 @@ return packer.startup(function(use)
   })
   use("JoosepAlviste/nvim-ts-context-commentstring")
   use("nvim-treesitter/nvim-treesitter-context")
-
+  use { -- Additional text objects via treesitter
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+  }
   -- Add support for more text targets
   use("wellle/targets.vim")
 
