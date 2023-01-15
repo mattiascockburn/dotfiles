@@ -74,6 +74,9 @@ return packer.startup(function(use)
   use("jreybert/vimagit")
   use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 
+  -- database integration
+  use("tpope/vim-dadbod")
+
   -- Open file under cursor with 'gf'
   use("amix/open_file_under_cursor.vim")
 
