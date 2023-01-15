@@ -56,4 +56,8 @@ vim.cmd [[
     autocmd!
     autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
   augroup end
+  augroup custom_term
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
+  augroup END
 ]]
