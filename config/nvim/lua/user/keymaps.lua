@@ -73,11 +73,5 @@ keymap("t", "<C-v><Esc>", "<Esc>", term_opts)
 -- Enable pasting in terminal insert mode trhough ALT+r + Register
 vim.cmd [[tnoremap <expr><A-r> '<C-\><C-N>"'.nr2char(getchar()).'pi']]
 
--- Find files using Telescope command-line sugar.
-keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>bb", "<cmd>Telescope buffers<cr>", opts)
-keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
-
 -- leap.nvim default keybindings: https://github.com/ggandor/leap.nvim#usage
 require('leap').add_default_mappings()
