@@ -102,5 +102,12 @@ done
 which most &>/dev/null && export PAGER=most
 
 export PATH="${HOME}/.local/bin:${PATH}"
+# Add custom LSPs/DAPs installed by mason
+mason_path=~/.local/share/nvim/mason/bin/
+[[ -d "$mason_path" ]] && export PATH="${PATH}:${mason_path}"
+
+# Add go binaries to PATH
+go_path=~/go/bin
+[[ -d "$go_path" ]] && export PATH="${PATH}:${go_path}"
 
 [[ -f ~/.cache/wal/sequences ]] && cat ~/.cache/wal/sequences
