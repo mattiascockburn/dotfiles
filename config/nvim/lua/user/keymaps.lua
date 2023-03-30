@@ -69,9 +69,14 @@ keymap("v", "<A-l>", "<C-\\><C-N><C-w>l", opts)
 keymap("t", "<Esc>", "<C-\\><C-n>", term_opts)
 keymap("t", "<M-[>", "<Esc>", term_opts)
 keymap("t", "<C-v><Esc>", "<Esc>", term_opts)
+keymap("t", "<Leader><Esc>", "<Esc>", term_opts)
 
 -- Enable pasting in terminal insert mode trhough ALT+r + Register
 vim.cmd [[tnoremap <expr><A-r> '<C-\><C-N>"'.nr2char(getchar()).'pi']]
 
 -- leap.nvim default keybindings: https://github.com/ggandor/leap.nvim#usage
-require('leap').add_default_mappings()
+local status_ok, leap = pcall(require, "leap")
+if not status_ok then
+  return
+end
+leap.add_default_mappings()
