@@ -96,6 +96,7 @@ return packer.startup(function(use)
   use("lunarvim/darkplus.nvim")
   use("lifepillar/vim-solarized8")
   use("EdenEast/nightfox.nvim")
+  use("jamespwilliams/bat.vim")
 
   -- cmp plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
