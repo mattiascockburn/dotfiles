@@ -134,7 +134,7 @@ return packer.startup(function(use)
   -- Telescope / fast file search/grep
   use("nvim-telescope/telescope.nvim")
   use("nvim-telescope/telescope-dap.nvim")
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   -- Treesitter
   use({
     "nvim-treesitter/nvim-treesitter",
