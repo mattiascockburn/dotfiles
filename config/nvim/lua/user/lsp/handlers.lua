@@ -1,3 +1,11 @@
+local status_ok, _ = pcall(require, "lsp-format")
+if not status_ok then
+  return
+end
+local lspformat = require("lsp-format")
+
+lspformat.setup {}
+
 local M = {}
 
 -- TODO: backfill this to template
@@ -86,6 +94,7 @@ M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
   end
+  lspformat.on_attach(client)
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end

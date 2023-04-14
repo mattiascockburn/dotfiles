@@ -121,7 +121,7 @@ return packer.startup(function(use)
   use("folke/trouble.nvim") -- Nice overview of errors/warnings coming from e.g. LSP
   use("folke/lsp-colors.nvim") -- add LSP colors for colorschemes that don't yet support them
   use("ap/vim-css-color")
-
+  use("lukas-reineke/lsp-format.nvim") -- autoformat using Language servers on write
   -- DAP / Debug Adapter Protocol related plugins
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   -- Higlight current breakpoint/point in debugging
