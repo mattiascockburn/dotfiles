@@ -160,6 +160,9 @@ return packer.startup(function(use)
   -- Movement
   use("ggandor/leap.nvim")
 
+  -- direnv integration
+  use("direnv/direnv.vim")
+
   if is_bootstrap then
     require('packer').sync()
   end
