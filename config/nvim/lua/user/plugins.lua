@@ -68,6 +68,7 @@ return packer.startup(function(use)
   use("saltstack/salt-vim")
   use("hashivim/vim-terraform")
   use("lifepillar/pgsql.vim")
+  use("neomutt/neomutt.vim")
 
   -- git helpers
   use("tpope/vim-fugitive")
