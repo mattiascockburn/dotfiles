@@ -6,7 +6,7 @@ SyncState *
 IMAPAccount posteo
 Host posteo.de
 User mattiasgiese@posteo.net
-PassCmd "pass show internet/dienstleister/posteo"
+PassCmd "gopass show -u -o internet/dienstleister/posteo"
 SSLType IMAPS
 AuthMechs LOGIN
 
@@ -41,3 +41,48 @@ Channel posteo-inbox
 Channel posteo-sent
 Channel posteo-trash
 Channel posteo-archive
+
+IMAPAccount iits
+Host outlook.office365.com
+User mattias.cockburn@iits-consulting.de
+SSLType IMAPS
+PassCmd oauth2ms
+AuthMechs XOAUTH2
+
+IMAPStore iits-remote
+Account iits
+
+MaildirStore iits-local
+Path ~/mail/iits/
+Inbox ~/mail/iits/INBOX
+SubFolders Verbatim
+
+Channel iits-inbox
+Far :iits-remote:
+Near :iits-local:
+Patterns "INBOX*"
+
+Channel iits-sent
+Far :iits-remote:"Sent Items"
+Near :iits-local:Sent
+
+Channel iits-trash
+Far :iits-remote:"Deleted Items"
+Near :iits-local:Trash
+
+Channel iits-archive
+Far :iits-remote:"Archive"
+Near :iits-local:Archive
+Patterns "*"
+
+Channel iits-spam
+Far :iits-remote:"Junk Email"
+Near :iits-local:Spam
+Patterns "*"
+
+Group iits
+Channel iits-inbox
+Channel iits-sent
+Channel iits-trash
+Channel iits-archive
+Channel iits-spam

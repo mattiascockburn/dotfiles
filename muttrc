@@ -9,7 +9,7 @@ source ~/.mutt/settings/mailboxes
 source ~/.mutt/settings/bindings
 
 ## dist gpg setting
-source /usr/share/doc/neomutt/samples/gpg.rc
+#source /usr/share/doc/neomutt/samples/gpg.rc
 source ~/.mutt/settings/pgp
 
 source ~/.mutt/settings/attachments
@@ -19,11 +19,11 @@ source ~/.mutt/settings/notmuch
 
 ## Accounts
 # only source the default account
-source "~/.mutt/accounts/posteo"
+source "~/.mutt/accounts/iits"
 
 ## macros for account change
 macro index,pager \e1 ":source ~/.mutt/accounts/posteo<enter><change-folder> +INBOX<enter>"
-macro index,pager \e2 ":source ~/.mutt/accounts/b1<enter><change-folder> +INBOX<enter>"
+macro index,pager \e2 ":source ~/.mutt/accounts/iits<enter><change-folder> +INBOX<enter>"
 
 
 ## SMTP settings

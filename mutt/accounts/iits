@@ -1,0 +1,17 @@
+set folder=$HOME/mail/iits
+set mbox=$HOME/mail/iits
+set spoolfile=+INBOX
+set record = +sent
+set postponed= +drafts
+unmailboxes *
+mailboxes `find ~/mail/iits -type d -name cur -printf '%h '`
+set realname = 'Mattias Cockburn'
+set from = mattias.cockburn@iits-consulting.de
+set use_from = yes
+set sendmail  = "/usr/bin/msmtp -a iits"
+set signature = '~/.mutt/signatures/iits'
+
+# quick sync imap
+macro index Z   "<shell-escape>mbsync iits<enter>" "sync IMAP"
+set pgp_sign_as=0x52E2972F17664EC53403A5EB1A2F084BFC177832
+
