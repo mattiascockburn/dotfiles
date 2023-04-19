@@ -163,6 +163,16 @@ return packer.startup(function(use)
   -- direnv integration
   use("direnv/direnv.vim")
 
+  -- ChatGTP foo
+  use({
+    "jackMort/ChatGPT.nvim",
+      requires = {
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim"
+      }
+  })
+
   if is_bootstrap then
     require('packer').sync()
   end

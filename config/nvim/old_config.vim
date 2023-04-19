@@ -3,6 +3,8 @@
 " see https://github.com/kovidgoyal/kitty (search for bce)
 let &t_ut=''
 
+set clipboard+=unnamed
+
 " ### Looks
 syntax enable
 set background=dark
