@@ -25,7 +25,10 @@
   whoops       = commit -a --amend -C HEAD
 
 [includeIf "gitdir:~/aur/"]
-  path = .gitconfig-archlinux
+  path = .gitconfigs/archlinux
+
+[includeIf "gitdir:~/git/iits/"]
+  path = /home/mattias/.gitconfigs/iits
 
 [core]
 	excludesfile = /home/mattias/.config/git/ignore
