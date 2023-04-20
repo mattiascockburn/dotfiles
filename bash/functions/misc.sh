@@ -120,7 +120,7 @@ imgtosize() {
 bmark() {
   b=~/.bookmarks
   d=${1:-$PWD}
-  grep -q "$d" "$b" || echo "$d">>"$b"
+  grep -Eq "($d)\$" "$b" || echo "$d">>"$b"
 }
 
 ccd() {
