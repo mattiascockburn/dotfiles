@@ -69,6 +69,7 @@ return packer.startup(function(use)
   use("hashivim/vim-terraform")
   use("lifepillar/pgsql.vim")
   use("neomutt/neomutt.vim")
+  use("towolf/vim-helm")
 
   -- git helpers
   use("tpope/vim-fugitive")
