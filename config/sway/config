@@ -82,6 +82,7 @@ bindsym $mod+b exec ~/.local/bin/browser
 # Launcher configuration
 bindsym $mod+apostrophe exec wofi --show run
 bindsym $mod+d exec wofi --show run
+bindsym $mod+Shift+e exec rofimoji
 
 bindsym $mod+$alt+f exec nautilus
 
