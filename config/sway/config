@@ -1,4 +1,5 @@
 # Config file for the sway wayland compositor
+include "~/.cache/wal/colors-sway"
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -20,17 +21,16 @@ set $alt Mod1
 font pango:Iosevka 12
 
 # set the wallpaper
-output "*" background /home/mattias/.wallpapers/cyberpunk_night3.jpg fill
+output "*" background $wallpaper fill
 
 default_border pixel 2
 default_floating_border pixel 2
 
-include "~/.cache/wal/colors-sway"
 
 # class                   border    backgr    text      indicator child_border
 client.focused            $color1   $background   $foreground $color6 $color1
-client.focused_inactive   $color1   $background   $color7 $color6 $color15
-client.unfocused          $color8   $background   $color7 $color6 $color8
+client.focused_inactive   $color8   $background   $color8 $color6 $color15
+client.unfocused          $color8   $background   $color8 $color6 $color8
 # client.urgent is not used in sway
 
 # Use Mouse+$mod to drag floating windows to their wanted position
