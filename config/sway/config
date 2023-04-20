@@ -330,6 +330,11 @@ bindsym $mod+g exec swaylock -f -c 000000
 # Screenshots
 bindsym Print exec grim ~/Pictures/Screenshots/screenshot-$(date --iso-8601=ns).png
 bindsym $mod+Shift+s exec grim ~/Pictures/Screenshots/screenshot-$(date --iso-8601=ns).png
+bindsym $mod+$alt+s exec grim -g "$(slurp)" - | wl-copy
+
+# color picker, ripped off of
+# https://unix.stackexchange.com/questions/320070/is-there-a-colour-picker-that-works-with-wayland-or-xwayland
+bindsym $mod+$alt+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
 
 # INPUT CONFIGURATION
 
@@ -372,14 +377,13 @@ input '1133:16495:Logitech_MX_Ergo' {
   pointer_accel 1
 }
 
+# Some random output DPI settings because i don't know where to put them
+output "*" scale 1.0
+
 # clamshell mode - disable laptop output on lidclose
-set $laptop DSI-1
+set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
-
-# color picker, ripped off of
-# https://unix.stackexchange.com/questions/320070/is-there-a-colour-picker-that-works-with-wayland-or-xwayland
-bindsym $mod+$alt+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
 
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
