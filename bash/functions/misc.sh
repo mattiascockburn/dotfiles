@@ -119,8 +119,8 @@ imgtosize() {
 
 bmark() {
   b=~/.bookmarks
-  d=${1:-$(pwd)}
-  grep -vq "$d" "$b" && echo "$d">>"$b"
+  d=${1:-$PWD}
+  grep -q "$d" "$b" || echo "$d">>"$b"
 }
 
 ccd() {
