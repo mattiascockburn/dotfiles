@@ -110,4 +110,10 @@ mason_path=~/.local/share/nvim/mason/bin/
 go_path=~/go/bin
 [[ -d "$go_path" ]] && export PATH="${PATH}:${go_path}"
 
+# Krew is a plugin manager for kubectl
+krew_path="${HOME}/.krew/bin"
+[[ -d $krew_path ]] && export PATH="${PATH}:${krew_path}"
+
+which flux &>/dev/null && . <(flux completion zsh)
+
 [[ -f ~/.cache/wal/sequences ]] && cat ~/.cache/wal/sequences
