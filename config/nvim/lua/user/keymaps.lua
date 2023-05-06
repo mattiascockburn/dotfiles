@@ -65,6 +65,10 @@ keymap("v", "<A-j>", "<C-\\><C-N><C-w>j", opts)
 keymap("v", "<A-k>", "<C-\\><C-N><C-w>k", opts)
 keymap("v", "<A-l>", "<C-\\><C-N><C-w>l", opts)
 
+-- nvim-tree mappings
+keymap("n", "<Leader>cc", ":NvimTreeToggle<cr>", opts)
+
+
 -- Make it easier to get out of terminal mode
 keymap("t", "<Esc>", "<C-\\><C-n>", term_opts)
 keymap("t", "<M-[>", "<Esc>", term_opts)
