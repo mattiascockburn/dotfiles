@@ -31,10 +31,6 @@ alias usbguard='sudo usbguard'
 alias cd..='cd ..'
 alias shellescape='sed -e "s/\([\ ()]\)/\\\\1/g"'
 
-# provide direct access to different terraform versions
-alias tf13='podman run -ti --workdir $(pwd) -v $(pwd):/$(pwd) -v ~/.ssh:/root/.ssh -v ~/b1/os_config:/root/.config/openstack:ro --rm docker.io/hashicorp/terraform:0.13.6'
-alias tf14='podman run -ti -e TF_LOG=TRACE -e TF_LOG_PATH="$(pwd)/terraform.log" --workdir $(pwd) -v $(pwd):/$(pwd) -v ~/.ssh:/root/.ssh -v ~/b1/os_config:/root/.config/openstack:ro --rm docker.io/hashicorp/terraform:0.14.10'
-
 salt-ssh() {
   podman run -ti --rm -w $(pwd) -v $(pwd):$(pwd) -v $HOME:$HOME -v $HOME:/root -e HOME=/root salt-ssh:3002 salt-ssh --no-host-keys $@
 }
@@ -68,9 +64,46 @@ alias unlock_srv='gopass show -o -n layer8.fail/encroot/md2|  ssh -i ~/.ssh/hetz
 
 # Try to avoid nested ranger instances
 ranger() {
-    if [ -z "$RANGER_LEVEL" ]; then
-        /usr/bin/ranger "$@"
-    else
-        exit
-    fi
+  if [ -z "$RANGER_LEVEL" ]; then
+    /usr/bin/ranger "$@"
+  else
+    exit
+  fi
+}
+
+kshowSecrets() {
+  cat | yq '.data | map_values(@base64d)'
+}
+
+keycloak() {
+  docker run -p 8080:8080 -v ${PWD}/keycloak_data:/opt/keycloak/data/ -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:21.0.2 start-dev --log-level INFO,org.keycloak.social.user_profile_dump:debug
+}
+
+alias k=kubectl
+alias tf=terraform
+
+kswitch() {
+  export KUBECONFIG=$(ls ~/.kube/*.json | fzf)
+}
+
+yaml_flatten() {
+  file="$1"
+  [[ -f "$file" ]] || { echo No file given; return }
+  yq -y '[tostream | select(has(1)) | first |= join(".") | {key: first, value: last}] | from_entries' "$file"
+}
+
+to_helm_values() {
+  file="$1"
+  [[ -f "$file" ]] || { echo No file given; return }
+  OIFS="$IFS"
+  IFS=$'\n'
+  for entry in $(yaml_flatten "$file"); do
+    k="${entry%:*}"
+    v="${entry#*: }"
+    cat <<EOF
+- name: $k
+  value: $v
+EOF
+  done
+  IFS="$OIFS"
 }
