@@ -7,7 +7,6 @@ local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
-
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
@@ -99,6 +98,9 @@ telescope.load_extension('dap') -- debug adapter support
 
 -- Enable telescope fzf native, if installed
 telescope.load_extension('fzf')
+
+-- project management with projects.nvim
+telescope.load_extension('projects')
 
 -- See `:help telescope.builtin`foob
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })

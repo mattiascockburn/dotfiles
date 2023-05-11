@@ -100,11 +100,13 @@ return packer.startup(function(use)
   use("jamespwilliams/bat.vim")
 
   -- cmp plugins
-  use("hrsh7th/nvim-cmp")         -- The completion plugin
-  use("hrsh7th/cmp-buffer")       -- buffer completions
-  use("hrsh7th/cmp-path")         -- path completions
-  use("hrsh7th/cmp-cmdline")      -- cmdline completions
+  use("hrsh7th/nvim-cmp")          -- The completion plugin
+  use("hrsh7th/cmp-buffer")        -- buffer completions
+  use("FelipeLema/cmp-async-path") -- async path completions
+
+  use("hrsh7th/cmp-cmdline")       -- cmdline completions
   use("hrsh7th/cmp-nvim-lsp")
+  use("hrsh7th/cmp-nvim-lsp-signature-help")
   use("saadparwaiz1/cmp_luasnip") -- snippet completions
 
   -- snippets
@@ -175,6 +177,14 @@ return packer.startup(function(use)
     }
   })
 
+  use("akinsho/toggleterm.nvim")
+
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup()
+    end
+  }
   if is_bootstrap then
     require('packer').sync()
   end
