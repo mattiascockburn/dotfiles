@@ -1,3 +1,8 @@
+-- Only try to init if authentication info is set
+if not os.getenv("OPENAI_API_KEY") then
+  return
+end
+
 local status_ok, _ = pcall(require, "chatgpt")
 if not status_ok then
   return
