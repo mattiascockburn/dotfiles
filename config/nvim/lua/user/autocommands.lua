@@ -2,8 +2,8 @@ vim.cmd [[
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
-    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200})
-    autocmd BufWinEnter * :set formatoptions-=cro
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank({timeout = 500})
+    autocmd BufWinEnter * set formatoptions-=cro
     autocmd FileType qf set nobuflisted
   augroup end
 
@@ -55,5 +55,5 @@ vim.cmd [[
   augroup custom_term
     autocmd!
     autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
-  augroup END
+ augroup END
 ]]
