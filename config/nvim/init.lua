@@ -1,16 +1,3 @@
-vim.g.loaded_clipboard_provider = 0
-vim.g.clipboard = {
-  name = "void",
-  copy = {
-    ["+"] = true,
-    ["*"] = true
-  },
-  paste = {
-    ["+"] = {},
-    ["*"] = {}
-  }
-}
-
 require 'user.options'
 require 'user.keymaps'
 require 'user.plugins'
