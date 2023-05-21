@@ -3,6 +3,14 @@ if not status_ok then
   return
 end
 
+-- Disable better whitespace plugin in toggleterm buffers
+vim.cmd [[
+  augroup _toggleterm
+    autocmd!
+    autocmd TermOpen term://*toggleterm#* DisableWhitespace
+  augroup END
+]]
+
 toggleterm.setup({
   size = 20,
   open_mapping = [[<C-\>]],
