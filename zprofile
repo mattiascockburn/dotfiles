@@ -1,7 +1,7 @@
 [[ -f ~/.login_env ]] && . ~/.login_env
 
 # Start keychain on login
-eval $(keychain --eval --quiet ~/.ssh/test_nopasswd)
+eval $(keychain --eval --quiet ~/.ssh/test_nopasswd ~/.ssh/github)
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
