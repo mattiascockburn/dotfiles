@@ -30,6 +30,9 @@ doc-build() {
 alias usbguard='sudo usbguard'
 alias cd..='cd ..'
 alias shellescape='sed -e "s/\([\ ()]\)/\\\\1/g"'
+alias sctl=systemctl
+alias pass=gopass
+alias g=git
 
 salt-ssh() {
   podman run -ti --rm -w $(pwd) -v $(pwd):$(pwd) -v $HOME:$HOME -v $HOME:/root -e HOME=/root salt-ssh:3002 salt-ssh --no-host-keys $@
@@ -83,7 +86,9 @@ alias k=kubectl
 alias tf=terraform
 
 kswitch() {
-  export KUBECONFIG=$(ls ~/.kube/*.json | fzf)
+  opts=
+  [[ -n "$1" ]] && opts="--query=$1"
+  export KUBECONFIG=$(ls ~/.kube/*.json | fzf $opts)
 }
 
 yaml_flatten() {
