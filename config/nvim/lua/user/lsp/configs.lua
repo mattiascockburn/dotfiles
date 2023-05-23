@@ -1,5 +1,18 @@
+function MasonLspPackages()
+  local registry = require("mason-registry")
+  local lsp = {}
+  for _, pkg_info in ipairs(registry.get_installed_packages()) do
+    for _, type in ipairs(pkg_info.spec.categories) do
+      if type == "LSP" then
+        table.insert(lsp, pkg_info.name)
+      end
+    end
+  end
+  return lsp
+end
+
 local lspconfig = require("lspconfig")
-local servers = { "jsonls", "sumneko_lua", "gopls" }
+local servers = MasonLspPackages()
 
 for _, server in pairs(servers) do
   local opts = {
