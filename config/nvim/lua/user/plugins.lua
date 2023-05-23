@@ -180,6 +180,17 @@ return packer.startup(function(use)
 
   use("akinsho/toggleterm.nvim")
 
+  use { "beauwilliams/focus.nvim",
+    config = function()
+      require("focus").setup(
+        {
+          excluded_filetypes = { "toggleterm" },
+          excluded_buftypes = { "help" }
+        }
+      )
+    end
+  }
+
   use {
     "ahmedkhalf/project.nvim",
     config = function()
