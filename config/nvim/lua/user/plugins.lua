@@ -118,6 +118,7 @@ return packer.startup(function(use)
   use({
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     "neovim/nvim-lspconfig",
   })
   use("tamago324/nlsp-settings.nvim")    -- language server settings defined in json for
