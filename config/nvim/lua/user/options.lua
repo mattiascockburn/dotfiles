@@ -80,3 +80,13 @@ end
 
 vim.cmd "set iskeyword+=-,_,$,@,%,#" -- none of these are word dividers
 vim.cmd "set clipboard+=unnamed"
+
+vim.opt.wildignore = vim.opt.wildignore
+    + {
+      ".git/**",
+      ".terraform/**",
+      "node_modules/**",
+      "target/**",
+    }
+vim.g.better_whitespace_filetypes_blacklist = { 'mail', 'diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'markdown',
+  'fugitive' }
