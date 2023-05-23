@@ -114,6 +114,8 @@ go_path=~/go/bin
 krew_path="${HOME}/.krew/bin"
 [[ -d $krew_path ]] && export PATH="${PATH}:${krew_path}"
 
-which flux &>/dev/null && . <(flux completion zsh)
+for prog in flux kind; do
+  which $prog &>/dev/null && . <($prog completion zsh)
+done
 
 [[ -f ~/.cache/wal/sequences ]] && cat ~/.cache/wal/sequences
