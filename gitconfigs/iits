@@ -1,2 +1,10 @@
 [user]
 	email = mattias.cockburn@iits-consulting.de
+  signingKey = B7D20C22F1BEF412F7530D7636083F1AED020F46!
+
+[commit]
+  gpgSign = true
+[tag]
+  gpgSign = true
+#[push]
+#  gpgSign = true
