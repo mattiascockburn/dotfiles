@@ -7,21 +7,6 @@ let &t_ut=''
 syntax enable
 set background=dark
 
-" ### Auto Commands
-
-" Remove trailing spaces on write
-" https://stackoverflow.com/questions/6496778/vim-run-autocmd-on-all-filetypes-except
-fun! StripTrailingWhitespace()
-    " Only strip if the b:noStripeWhitespace variable isn't set
-    if exists('b:noStripWhitespace')
-        return
-    endif
-    %s/\s\+$//e
-endfun
-
-autocmd FileType mail let b:noStripWhitespace=1
-autocmd BufWritePre * call StripTrailingWhitespace()
-
 " ### Completion
 " ## Filename completion
 set wildmenu
