@@ -64,7 +64,7 @@ bindsym $mod+Shift+v exec ~/.local/bin/vim-anywhere clip
 bindsym $mod+Control+t exec ~/.local/bin/t-quick-add
 
 # kill focused window
-bindsym $mod+q kill
+# bindsym $mod+q kill
 bindsym $mod+Backspace kill
 
 # Screen brightness control
