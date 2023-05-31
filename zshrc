@@ -94,9 +94,6 @@ done
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-
 choose_bin() {
   [[ $# -lt 2 ]] && return
   var="$1"
@@ -110,6 +107,7 @@ done
 which most &>/dev/null && export PAGER=most
 
 export PATH="${HOME}/.local/bin:${PATH}"
+
 # Add custom LSPs/DAPs installed by mason
 mason_path=~/.local/share/nvim/mason/bin/
 [[ -d "$mason_path" ]] && export PATH="${PATH}:${mason_path}"
@@ -127,3 +125,6 @@ for prog in flux kind; do
 done
 
 [[ -f ~/.cache/wal/sequences ]] && cat ~/.cache/wal/sequences
+# Load zsh-syntax-highlighting; should be last.
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
