@@ -37,6 +37,14 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
+# Enable emacs keybindings that i am missing from vi-mode
+bindkey -v '^E' end-of-line
+bindkey -a '^E' end-of-line
+bindkey -v '^A' beginning-of-line
+bindkey -a '^A' beginning-of-line
+bindkey -v '^W' backward-delete-word
+bindkey -a '^W' backward-delete-word
+
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
