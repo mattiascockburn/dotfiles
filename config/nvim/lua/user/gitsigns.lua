@@ -85,3 +85,29 @@ gitsigns.setup {
     enable = false,
   },
 }
+
+-- some things stolen from vimcasts.org:
+-- delete old read-only buffers
+-- quickly jump to parent tree in browsing mode
+vim.cmd [[
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+  autocmd User fugitive if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' | nnoremap <buffer> .. :edit %:h<CR> | endif
+]]
+
+
+local opts = { noremap = true, silent = true }
+-- Shorten function name
+local keymap = vim.keymap.set
+
+-- Some nifty mappings, courtesy of https://www.prodops.io/blog/solving-git-merge-conflicts-with-vim
+-- Fugitive Conflict Resolution
+keymap("n", "<leader>gd", ":Gvdiffsplit!<CR>", opts)
+keymap("n", "<leader>gd", ":Gvdiffsplit!<CR>", opts)
+keymap("n", "gdh", ":diffget //2<CR>", opts)
+keymap("n", "gdl", ":diffget //3<CR>", opts)
+
+-- vim-magit, taken from
+-- https://jakobgm.com/posts/vim/git-integration/
+-- Open vimagit pane
+-- This is way better than fugitive 'git add -p' handling
+keymap("n", "<leader>gs", ":Magit<CR>", opts)

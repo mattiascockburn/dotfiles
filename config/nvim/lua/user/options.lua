@@ -1,6 +1,12 @@
 local o = vim.opt
-
 local options = {
+  errorbells = false,                      -- no visual error bell
+  visualbell = false,                      -- no visual bell
+  t_vb = nil,                              -- no freaking visual bell in terminal
+  syntax = "enable",                       -- syntax highlighting
+  wildmenu = true,                         -- completion menu
+  wildmode = "longest:full,full",          -- set autocomplete behaviour
+  background = "dark",                     -- I don't like light themes
   title = true,                            -- always set terminal title
   cmdheight = 2,                           -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
@@ -81,12 +87,34 @@ end
 vim.cmd "set iskeyword+=-,_,$,@,%,#" -- none of these are word dividers
 vim.cmd "set clipboard+=unnamed"
 
-vim.opt.wildignore = vim.opt.wildignore
-    + {
-      ".git/**",
-      ".terraform/**",
-      "node_modules/**",
-      "target/**",
-    }
-vim.g.better_whitespace_filetypes_blacklist = { 'mail', 'diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'markdown',
-  'fugitive' }
+vim.opt.wildignore:append {
+  ".git/**",
+  ".terraform/**",
+  "node_modules/**",
+  "target/**",
+  "*.dict",
+  "*.aux",
+  "*.nav",
+  "*.out",
+  "*.toc",
+  "*.vrb",
+  "*.snm"
+}
+
+-- Plugin Options
+vim.g.strip_whitespace_on_save = 1
+vim.g.better_whitespace_filetypes_blacklist = {
+  'mail',
+  'diff',
+  'git',
+  'gitcommit',
+  'unite',
+  'qf',
+  'help',
+  'markdown',
+  'fugitive'
+}
+
+-- Gutentags
+vim.g.gutentags_generate_on_new = 1
+vim.g.gutentags_cache_dir = '~/.tags'

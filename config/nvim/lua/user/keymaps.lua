@@ -34,7 +34,9 @@ keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
--- Insert --
+-- Quickswitch to next/prev tab
+keymap("n", "<A-.>", ":tabnext<cr>", opts)
+keymap("n", "<A-,>", ":tabprevious<cr>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -48,6 +50,26 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+-- Remap some stuff
+-- Swap v and CTRL-V, because Block mode is more useful
+keymap("n", "v", "<C-V>", opts)
+keymap("n", "<C-V>", "v", opts)
+keymap("v", "v", "<C-V>", opts)
+keymap("v", "<C-V>", "v", opts)
+
+keymap("n", "<Leader>q", ":close<cr>", opts)
+
+-- Treat long lines as break lines (useful when moving around in them)
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
+
+-- command mode turbo
+keymap("n", ";", ":", opts)
+
+-- Do not pollute default registers on delete/paste
+keymap("n", "x", "\"_x", opts)
+keymap("v", "p", "\"_P", opts)
 
 -- Terminal --
 -- Better terminal navigation
@@ -65,9 +87,10 @@ keymap("v", "<A-j>", "<C-\\><C-N><C-w>j", opts)
 keymap("v", "<A-k>", "<C-\\><C-N><C-w>k", opts)
 keymap("v", "<A-l>", "<C-\\><C-N><C-w>l", opts)
 
--- nvim-tree mappings
-keymap("n", "<Leader>cc", ":NvimTreeToggle<cr>", opts)
-
+-- Spawn terminals
+keymap("n", "<Leader>tt", ":spl term://zsh<cr>", opts)
+keymap("n", "<Leader>tv", ":vspl term://zsh<cr>", opts)
+keymap("n", "<Leader>T", ":tabe term://zsh<cr>", opts)
 
 -- Make it easier to get out of terminal mode
 keymap("t", "<Esc>", "<C-\\><C-n>", term_opts)
@@ -75,7 +98,31 @@ keymap("t", "<M-[>", "<Esc>", term_opts)
 keymap("t", "<C-v><Esc>", "<Esc>", term_opts)
 keymap("t", "<Leader><Esc>", "<Esc>", term_opts)
 
--- Enable pasting in terminal insert mode trhough ALT+r + Register
+-- Toggle paste mode
+keymap("n", "<Leader>pp", "setlocal paste!<cr>", opts)
+
+-- nvim-tree mappings
+keymap("n", "<Leader>cc", ":NvimTreeToggle<cr>", opts)
+
+-- Fancy listchars action, make tab and friends visible
+-- Also, add a toggle switch to the mix
+-- ripped off of https://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character
+keymap("n", "<leader>lc", ":set list!<CR>", opts)
+keymap("i", "<leader>lc", "<C-o>:set list!<CR>", opts)
+keymap("c", "<leader>lc", "<C-c>:set list!<CR>", opts)
+
+-- Make CTRL+A and CTRL+E work (jump to beginning/end) in commandline mode
+keymap("c", "<C-A>", "<Home>", opts)
+keymap("c", "<C-E>", "<End>", opts)
+
+-- No highlights
+keymap("n", "<leader><cr>", ":noh<cr>", opts)
+
+-- Autoformat paragraphs
+keymap("n", "Q", "<NOP>", opts)
+keymap("n", "Q", ":normal! gqip<cr>", opts)
+
+-- Enable pasting in terminal insert mode through ALT+r + Register
 vim.cmd [[tnoremap <expr><A-r> '<C-\><C-N>"'.nr2char(getchar()).'pi']]
 
 -- leap.nvim default keybindings: https://github.com/ggandor/leap.nvim#usage
