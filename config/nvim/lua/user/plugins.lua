@@ -143,11 +143,11 @@ return packer.startup(function(use)
   use 'leoluz/nvim-dap-go'           -- requires delve
   use 'mfussenegger/nvim-dap-python' -- requires debugpy https://github.com/microsoft/debugpy
 
-  -- Telescope / fast file search/grep
-  use("nvim-telescope/telescope.nvim")
-  use("nvim-telescope/telescope-dap.nvim")
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run =
-  'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use { 'ibhagwan/fzf-lua',
+    -- optional for icon support
+    requires = { 'nvim-tree/nvim-web-devicons' }
+  }
+
   -- Treesitter
   use({
     "nvim-treesitter/nvim-treesitter",
