@@ -16,12 +16,13 @@ diverged = "😵"
 untracked = "🤷"
 stashed = "📦"
 modified = "📝"
-staged = "++"
+staged = "📥"
 renamed = "👅"
 deleted = "🗑"
 
 [kubernetes]
-format = '[⛵ ($user on )($cluster in )$context \($namespace\)](bright green) '
+#format = '[⛵ ($user on )($cluster in )$context \($namespace\)](bright green) '
+format = '[⛵ ($user on )($cluster)\($namespace\)](bright green) '
 disabled = false
 # [kubernetes.context_aliases]
 # 'dev.local.cluster.k8s' = 'dev'
