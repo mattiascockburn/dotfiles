@@ -1,0 +1,10 @@
+{
+    "workspace.library": [
+        "/home/mattias/.local/share/nvim/site/pack/packer/start/neodev.nvim/types/stable",
+        "/usr/share/nvim/runtime/lua",
+        "/home/mattias/.dotfiles/config/nvim/lua",
+        "/home/mattias/.local/share/nvim/mason/packages/lua-language-server/libexec/meta/29496fa7",
+        "${3rd}/luv/library",
+        "/home/mattias/.local/share/nvim/mason/packages/lua-language-server/libexec/meta/0c0b3288"
+    ]
+}
