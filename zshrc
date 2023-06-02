@@ -106,6 +106,9 @@ for ed in vim nvim; do
 done
 which most &>/dev/null && export PAGER=most
 
+# most chokes on some escape sequences of delta
+export DELTA_PAGER='less -R'
+
 export PATH="${HOME}/.local/bin:${PATH}"
 
 # Add custom LSPs/DAPs installed by mason
