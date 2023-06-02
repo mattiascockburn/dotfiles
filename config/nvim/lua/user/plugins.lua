@@ -66,7 +66,6 @@ return packer.startup(function(use)
   use("tpope/vim-endwise")
   use("tpope/vim-speeddating")
   use("tpope/vim-eunuch")
-  -- use 'tpope/vim-unimpaired'
 
   -- Languages
   -- syntax/indent/ftplugins for a many languages/tools
@@ -80,9 +79,6 @@ return packer.startup(function(use)
   use("tpope/vim-fugitive")
   use("jreybert/vimagit")
   use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
-
-  -- database integration
-  use("tpope/vim-dadbod")
 
   -- Open file under cursor with 'gf'
   use("amix/open_file_under_cursor.vim")
@@ -99,10 +95,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   -- use 'lunarvim/colorschemes' -- A bunch of colorschemes you can try out
-  use("lunarvim/darkplus.nvim")
-  use("lifepillar/vim-solarized8")
   use("EdenEast/nightfox.nvim")
-  use("jamespwilliams/bat.vim")
 
   -- cmp plugins
   use("hrsh7th/nvim-cmp")          -- The completion plugin
@@ -150,7 +143,6 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   })
-  use("JoosepAlviste/nvim-ts-context-commentstring")
   use("nvim-treesitter/nvim-treesitter-context")
   use { -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
@@ -168,7 +160,7 @@ return packer.startup(function(use)
   use("rhysd/git-messenger.vim")
 
   -- Movement
-  use("ggandor/leap.nvim")
+  -- use("ggandor/leap.nvim")
 
   -- direnv integration
   use("direnv/direnv.vim")
