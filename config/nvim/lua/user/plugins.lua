@@ -112,6 +112,14 @@ return packer.startup(function(use)
   use("rafamadriz/friendly-snippets")                    -- a bunch of snippets to use
   use("honza/vim-snippets")                              -- even more snippets
 
+  use {
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" }
+    }
+  }
+
   -- LSP
   use({
     "williamboman/mason.nvim",
@@ -119,6 +127,7 @@ return packer.startup(function(use)
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "neovim/nvim-lspconfig",
   })
+  use("folke/neodev.nvim")               -- helper for neovim lua dev
   use("tamago324/nlsp-settings.nvim")    -- language server settings defined in json for
   use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
   use("b0o/schemastore.nvim")            -- use schemastore.org for json schemas in jsonls
@@ -126,6 +135,7 @@ return packer.startup(function(use)
   use("folke/lsp-colors.nvim")           -- add LSP colors for colorschemes that don't yet support them
   use("ap/vim-css-color")
   use("lukas-reineke/lsp-format.nvim")   -- autoformat using Language servers on write
+  use("RRethy/vim-illuminate")
   -- DAP / Debug Adapter Protocol related plugins
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   -- Higlight current breakpoint/point in debugging
@@ -165,6 +175,9 @@ return packer.startup(function(use)
   -- direnv integration
   use("direnv/direnv.vim")
 
+  -- change between one line and multiline statements with gJ and gS
+  use("AndrewRadev/splitjoin.vim")
+
   -- ChatGTP foo
   use({
     "jackMort/ChatGPT.nvim",
@@ -189,6 +202,16 @@ return packer.startup(function(use)
         }
       )
     end
+  }
+
+  -- automatically create annotations for a multitude of languages
+  use {
+    "danymat/neogen",
+    config = function()
+      require('neogen').setup {}
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+    tag = "*"
   }
 
   use {

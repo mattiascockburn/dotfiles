@@ -3,6 +3,14 @@ if not status_ok then
   return
 end
 
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+local neodev, _ = pcall(require, "neodev")
+if neodev then
+  require("neodev").setup({
+    -- add any options here, or leave empty to use the default settings
+  })
+end
+
 require("mason").setup()
 local mlsp = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
