@@ -120,6 +120,9 @@ return packer.startup(function(use)
     }
   }
 
+  -- Markdown preview
+  use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
+  use { "ellisonleao/glow.nvim", config = function() require("glow").setup() end }
   -- LSP
   use({
     "williamboman/mason.nvim",
