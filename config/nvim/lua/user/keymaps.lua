@@ -127,7 +127,12 @@ vim.cmd [[tnoremap <expr><A-r> '<C-\><C-N>"'.nr2char(getchar()).'pi']]
 
 -- leap.nvim default keybindings: https://github.com/ggandor/leap.nvim#usage
 local status_ok, leap = pcall(require, "leap")
-if not status_ok then
-  return
+if status_ok then
+  leap.add_default_mappings()
 end
-leap.add_default_mappings()
+
+local status_ok, b64 = pcall(require, "b64")
+if status_ok then
+  keymap("v", "<Leader>be", ":<c-u>lua require(\"b64\").encode()<cr>", opts)
+  keymap("v", "<Leader>bd", ":<c-u>lua require(\"b64\").decode()<cr>", opts)
+end

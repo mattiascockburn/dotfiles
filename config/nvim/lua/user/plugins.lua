@@ -192,7 +192,7 @@ return packer.startup(function(use)
   })
 
   -- decode/encode base64 directly in vim
-  use("equal-l2/vim-base64")
+  use { 'taybart/b64.nvim' }
 
   use("akinsho/toggleterm.nvim")
 
