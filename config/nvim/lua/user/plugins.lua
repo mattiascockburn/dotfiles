@@ -123,6 +123,11 @@ return packer.startup(function(use)
   -- Markdown preview
   use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
   use { "ellisonleao/glow.nvim", config = function() require("glow").setup() end }
+
+  -- Markdown helper
+  -- key mappings are defined in `ftplugin/markdown.lua`
+  use("allen-mack/nvim-table-md")
+
   -- LSP
   use({
     "williamboman/mason.nvim",

@@ -1,0 +1,8 @@
+vim.keymap.set("n", "<Leader>tf", function() require("tablemd").format() end, { noremap = true })
+vim.keymap.set("n", "<Leader>tc", function() require("tablemd").insertColumn(false) end, { noremap = true })
+vim.keymap.set("n", "<Leader>td", function() require("tablemd").deleteColumn() end, { noremap = true })
+vim.keymap.set("n", "<Leader>tr", function() require("tablemd").insertRow(false) end, { noremap = true })
+vim.keymap.set("n", "<Leader>tR", function() require("tablemd").insertRow(true) end, { noremap = true })
+vim.keymap.set("n", "<Leader>tj", function() require("tablemd").alignColumn("left") end, { noremap = true })
+vim.keymap.set("n", "<Leader>tk", function() require("tablemd").alignColumn("center") end, { noremap = true })
+vim.keymap.set("n", "<Leader>tl", function() require("tablemd").alignColumn("right") end, { noremap = true })
