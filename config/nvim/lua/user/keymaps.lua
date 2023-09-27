@@ -125,6 +125,9 @@ keymap("n", "Q", ":normal! gqip<cr>", opts)
 -- Enable pasting in terminal insert mode through ALT+r + Register
 vim.cmd [[tnoremap <expr><A-r> '<C-\><C-N>"'.nr2char(getchar()).'pi']]
 
+-- fugitive shortcuts
+keymap("n", "<leader>gp", "G push<cr>", opts)
+
 -- leap.nvim default keybindings: https://github.com/ggandor/leap.nvim#usage
 local status_ok, leap = pcall(require, "leap")
 if status_ok then
