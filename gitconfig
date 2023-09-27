@@ -24,6 +24,7 @@
   uncommithard = reset --hard HEAD^
   undomerge    = reset --hard ORIG_HEAD
   whoops       = commit -a --amend -C HEAD
+  serve = !git daemon --log-destination=stderr --reuseaddr --verbose --base-path=. --export-all ./.git
 
 [includeIf "gitdir:~/aur/"]
   path = .gitconfigs/archlinux
