@@ -13,3 +13,6 @@
 [submodule "local/share/nvim/site/pack/packer/start/packer.nvim"]
 	path = local/share/nvim/site/pack/packer/start/packer.nvim
 	url = https://github.com/wbthomason/packer.nvim
+[submodule "zsh/fzf-zsh-plugin"]
+	path = zsh/fzf-zsh-plugin
+	url = git@github.com:unixorn/fzf-zsh-plugin.git
