@@ -32,6 +32,9 @@
 [includeIf "gitdir:~/git/iits/"]
   path = /home/mattias/.gitconfigs/iits
 
+[includeIf "gitdir:~/git/schwarz/"]
+  path = /home/mattias/.gitconfigs/iits
+
 [commit]
   gpgSign = true
 [tag]
