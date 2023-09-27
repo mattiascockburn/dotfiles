@@ -238,7 +238,7 @@ exec --no-startup-id remmina
 #  before-sleep 'swaylock -f -c 000000'
 
 # automatically switch output configuration on the fly
-exec way-displays
+# exec way-displays
 
 # workaround for GTK themes
 # ripped from https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
@@ -362,6 +362,7 @@ output "*" scale 1.0
 set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
+bindsym $mod+Control+l output $laptop enable
 
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
