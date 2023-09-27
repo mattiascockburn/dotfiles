@@ -127,7 +127,15 @@ for prog in flux kind; do
   which $prog &>/dev/null && . <($prog completion zsh)
 done
 
+# Use zsh fzf plugin
+[[ -d "${HOME}/.zsh/fzf-zsh-plugin/bin" ]] && {
+  export PATH="${PATH}:${HOME}/.zsh/fzf-zsh-plugin/bin"
+  source "${HOME}/.zsh/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh"
+}
+
+# package 'z', switch to the most "frecent" directory with a given name: https://github.com/rupa/z/
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
 [[ -f ~/.cache/wal/sequences ]] && cat ~/.cache/wal/sequences
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-
