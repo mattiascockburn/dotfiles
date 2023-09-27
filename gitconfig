@@ -1,6 +1,7 @@
 [user]
-	email = mattias.cockburn@posteo.net
-	name = Mattias Cockburn
+  email = mattias.cockburn@posteo.net
+  name = Mattias Cockburn
+  signingKey = 5B2B8D57736C5CB2E561FB4613517D5C7BD72B14!
 [alias]
   pushall      = !git remote | xargs -L1 git push --all
   st           = status
@@ -29,6 +30,11 @@
 
 [includeIf "gitdir:~/git/iits/"]
   path = /home/mattias/.gitconfigs/iits
+
+[commit]
+  gpgSign = true
+[tag]
+  gpgSign = true
 
 [core]
 	excludesfile = /home/mattias/.config/git/ignore
