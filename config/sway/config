@@ -247,6 +247,14 @@ exec_always import-gsettings \
     icon-theme:gtk-icon-theme-name \
     cursor-theme:gtk-cursor-theme-name
 
+# Some apps should be assigned to a specific workspace
+assign [class="Firefox"] $ws1
+assign [class="qutebrowser"] $ws1
+assign [class="Chromium"] $ws3
+assign [class="Slack"] $ws3
+assign [app_id="org.remmina.Remmina"] $ws8
+
+
 # fix steam
 for_window [title="Updating Steam..."] floating enable; border none; focus mode_toggle
 for_window [class="Steam"] floating enable; border none; focus mode_toggle
