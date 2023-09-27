@@ -45,6 +45,8 @@
   pager = delta
 [credential]
 	helper = cache --timeout=7200
+[push]
+  autoSetupRemote = true
 [pull]
 	rebase = true
 [init]
