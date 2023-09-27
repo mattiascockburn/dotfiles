@@ -57,12 +57,6 @@ bindsym $mod+Return exec alacritty -e zsh
 bindsym $mod+Shift+y exec ~/.local/bin/youpoop.sh music
 bindsym $mod+Control+y exec ~/.local/bin/youpoop.sh video
 
-# Launch vim-anywhere script
-bindsym $mod+Shift+v exec ~/.local/bin/vim-anywhere clip
-
-# Add current url to transmission-daemon
-bindsym $mod+Control+t exec ~/.local/bin/t-quick-add
-
 # kill focused window
 # bindsym $mod+q kill
 bindsym $mod+Backspace kill
@@ -226,33 +220,7 @@ bar {
     swaybar_command waybar
 }
 
-# Some apps should be assigned to a specific workspace
-
-# Webbrowser
-assign [class="Chromium"] $ws1
-assign [class="Firefox"] $ws1
-# Midori Web Browser
-# "midori4", "Midori"
-assign [class="midori4"] $ws1
-assign [class="Midori"] $ws1
-assign [class="qutebrowser"] $ws1
-
-# mail
-assign [class="Thunderbird"] $ws2
-
-# xmpp
-assign [class="psi+"] $ws3
-assign [class="psi-plus"] $ws3
-assign [class="Psi-plus"] $ws3
-assign [class="gajim"] $ws3
-
-
-assign [class="vlc"] $ws4
-assign [class="clementine"] $ws4
-
-
 ## STARTUP PROGRAMS
-
 exec --no-startup-id mako
 exec --no-startup-id nm-applet --indicator
 
