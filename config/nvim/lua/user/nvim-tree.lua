@@ -84,6 +84,7 @@ end
 nvim_tree.setup({
   on_attach = on_attach,
   renderer = {
+    root_folder_label = false,
     icons = {
       webdev_colors = true,
       git_placement = "before",
@@ -151,7 +152,6 @@ nvim_tree.setup({
   },
   view = {
     width = 30,
-    hide_root_folder = false,
     side = "left",
     number = false,
     relativenumber = false,
