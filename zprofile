@@ -6,7 +6,7 @@ eval $(keychain --eval --quiet ~/.ssh/test_nopasswd ~/.ssh/github)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Automatically start X or sway on TTY1
-if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+if [ -z "$DISPLAY" ] && [[ "$(tty)" = '/dev/tty1' ]]; then
   if $(which sway &>/dev/null) && [[ -n "$USE_SWAY" ]] ; then
     # make sure toolkits are forced to use wayland
         export _JAVA_AWT_WM_NONREPARENTING=1
