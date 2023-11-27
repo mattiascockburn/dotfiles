@@ -3,6 +3,7 @@ include "~/.config/sway/outputs"
 include "~/.config/sway/workspaces"
 # Config file for the sway wayland compositor
 include "~/.cache/wal/colors-sway"
+include /etc/sway/config.d/*
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
