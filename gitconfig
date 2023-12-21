@@ -3,6 +3,7 @@
   name = Mattias Cockburn
   signingKey = 5B2B8D57736C5CB2E561FB4613517D5C7BD72B14!
 [alias]
+  main         = "!sh -c \"git checkout main; git pull\""
   pushall      = !git remote | xargs -L1 git push --all
   st           = status
   ci           = commit
@@ -24,7 +25,7 @@
   uncommithard = reset --hard HEAD^
   undomerge    = reset --hard ORIG_HEAD
   whoops       = commit -a --amend -C HEAD
-  serve = !git daemon --log-destination=stderr --reuseaddr --verbose --base-path=. --export-all ./.git
+  serve        = !git daemon --log-destination=stderr --reuseaddr --verbose --base-path=. --export-all ./.git
 
 [includeIf "gitdir:~/aur/"]
   path = .gitconfigs/archlinux
