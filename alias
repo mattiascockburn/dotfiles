@@ -92,6 +92,10 @@ kswitch() {
   export KUBECONFIG=$(ls ~/.kube/*.json | fzf $opts)
 }
 
+kDeleteReleasedPVs() {
+  k delete pv $(k get pv -o=jsonpath='{.items[?(@.status.phase=="Released")].metadata.name}')
+}
+
 yaml_flatten() {
   file="$1"
   [[ -f "$file" ]] || { echo No file given; return }
@@ -112,4 +116,25 @@ to_helm_values() {
 EOF
   done
   IFS="$OIFS"
+}
+
+renovate_validate() {
+    docker run -it --rm -v $(pwd)/renovate.json:/usr/src/app/renovate.json5 renovate/renovate renovate-config-validator
+}
+
+git-clean-branches() {
+  git fetch -p ; git branch -r | awk '{print $1}' | grep -E -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D
+}
+
+image_digest() {
+  [[ -z "$1" ]] && {
+    echo image reference must be set
+    return
+  }
+  docker image inspect "$1" | jq -r '.[0].RepoDigests[0]' | cut -d@ -f2
+}
+
+kube-get-all-images() {
+  # see https://kubernetes.io/docs/tasks/access-application-cluster/list-all-running-container-images/
+  kubectl get pods --all-namespaces -o go-template --template="{{range .items}}{{range .spec.containers}}{{.image}} {{end}}{{end}}" | tr ' ' \\n
 }
