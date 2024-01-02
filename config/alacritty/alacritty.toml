@@ -1,0 +1,37 @@
+#import = ["/home/mattias/.cache/wal/colors.toml"]
+
+[debug]
+log_level="Error"
+
+[env]
+
+[font]
+size = 13.0
+
+[font.normal]
+family = "monospace"
+
+[[hints.enabled]]
+command = "xdg-open"
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[window]
+decorations = "none"
+decorations_theme_variant = "Dark"
+dynamic_title = true
+opacity = 0.8
+

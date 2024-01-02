@@ -97,7 +97,6 @@ window:
   #
   # Override the variant of the GTK theme. Commonly supported values are `dark`
   # and `light`. Set this to `None` to use the default theme variant.
-window:
   decorations_theme_variant: Dark
 
 #scrolling:
@@ -118,6 +117,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
+    #family: monospace
     family: monospace
 
     # The `style` can be specified to pick a specific face.
