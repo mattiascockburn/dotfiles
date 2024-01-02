@@ -1,6 +1,4 @@
 
-include "~/.config/sway/outputs"
-include "~/.config/sway/workspaces"
 # Config file for the sway wayland compositor
 include "~/.cache/wal/colors-sway"
 include /etc/sway/config.d/*
@@ -230,6 +228,7 @@ exec --no-startup-id chromium
 exec --no-startup-id slack
 exec --no-startup-id copyq
 exec --no-startup-id remmina
+exec --no-startup-id shikane
 
 
 # exec swayidle -w \
