@@ -24,7 +24,7 @@ bindkey -v
 export KEYTIMEOUT=1
 
 if which starship &>/dev/null; then
-  eval $(starship init zsh)
+  source ~/.config/zsh/prompt.conf
 fi
 
 # enable reverse history search
