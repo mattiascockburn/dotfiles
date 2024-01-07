@@ -1,23 +1,6 @@
 [general]
 status_path = "~/.vdirsyncer/status/"
 
-[pair contacts_b1]
-a = "contacts_b1_local"
-b = "contacts_b1_remote"
-collections = ["from a", "from b"]
-conflict_resolution = "b wins"
-
-[storage contacts_b1_local]
-type = "filesystem"
-path = "~/.contacts/b1"
-fileext = ".vcf"
-
-[storage contacts_b1_remote]
-type = "carddav"
-url = "https://groupware.intern.b1-systems.de/rpc"
-username.fetch = ["command", "~/.local/bin/getpass", "user", "b1/general"]
-password.fetch = ["command", "~/.local/bin/getpass", "password", "b1/general"]
-
 [pair contacts_posteo]
 a = "contacts_posteo_local"
 b = "contacts_posteo_remote"
