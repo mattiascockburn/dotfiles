@@ -65,6 +65,7 @@ ssm_session() {
 }
 
 alias unlock_srv='gopass show -o -n layer8.fail/encroot/md2|  ssh -i ~/.ssh/hetzner -oPort=222 root@cockburn.tech unlock'
+alias unlock_l8f='gopass show -o -n l8.wtf/crypt/rootfs | ssh -i ~/.ssh/hetzner -oPort=222 root@l8.wtf unlock'
 
 # Try to avoid nested ranger instances
 ranger() {
