@@ -16,20 +16,12 @@ local plugins = {
   "nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
   "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
   "numToStr/Comment.nvim", -- Easily comment stuff
-  "kyazdani42/nvim-web-devicons",
-  "kyazdani42/nvim-tree.lua",
-  -- nifty filesystem editing
-  {
-    'stevearc/oil.nvim',
-    config = function() require('oil').setup() end
-  },
   -- Better buffer delete behaviour
   -- This plugin provides Bdelete and Bwipeout
   "moll/vim-bbye",
   "nvim-lualine/lualine.nvim",           -- enhanced status line plugin
   "lewis6991/impatient.nvim",            -- cache lua plugins and reduce load times significantly
   "lukas-reineke/indent-blankline.nvim", -- visualize indentation of lines
-  "antoinemadec/FixCursorHold.nvim",     -- This is needed to fix lsp doc highlight
   -- Easily align text
   -- used by puppet-vim
   "godlygeek/tabular",
@@ -50,9 +42,15 @@ local plugins = {
   "neomutt/neomutt.vim",
   "towolf/vim-helm",
   -- git helpers
-  "tpope/vim-fugitive",
-  "jreybert/vimagit",
-  { "TimUntersberger/neogit", dependencies = "nvim-lua/plenary.nvim" },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",  -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+      "ibhagwan/fzf-lua",       -- optional
+    },
+    config = true
+  },
   -- Open file under cursor with 'gf'
   "amix/open_file_under_cursor.vim",
   -- ctags helper, this one seems to be the simplest for
@@ -73,6 +71,22 @@ local plugins = {
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-nvim-lsp-signature-help",
   "saadparwaiz1/cmp_luasnip", -- snippet completions
+  -- File Management Helpers
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      "3rd/image.nvim",              -- Optional image support in preview window: See `# Preview Mode` for more information
+    }
+  },
+  -- nifty filesystem editing
+  {
+    'stevearc/oil.nvim',
+    config = function() require('oil').setup() end
+  },
   -- YAML helper
   {
     "cuducos/yaml.nvim",
@@ -94,8 +108,8 @@ local plugins = {
   },
 
   -- Markdown preview
-  { 'toppair/peek.nvim',      run = 'deno task --quiet build:fast' },
-  { "ellisonleao/glow.nvim",  config = function() require("glow").setup() end },
+  { 'toppair/peek.nvim',     run = 'deno task --quiet build:fast' },
+  { "ellisonleao/glow.nvim", config = function() require("glow").setup() end },
 
   -- Markdown helper
   -- key mappings are defined in `ftplugin/markdown.lua`
@@ -112,11 +126,14 @@ local plugins = {
   "tamago324/nlsp-settings.nvim",    -- language server settings defined in json for
   "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
   "b0o/schemastore.nvim",            -- schemastore.org for json schemas in jsonls
-  "folke/trouble.nvim",              -- Nice overview of errors/warnings coming from e.g. LSP
-  "folke/lsp-colors.nvim",           -- add LSP colors for colorschemes that don't yet support them
+  {
+    "folke/trouble.nvim",            -- Nice overview of errors/warnings coming from e.g. LSP
+    dependencies = { "nvim-tree/nvim-web-devicons" }
+  },
+  "folke/lsp-colors.nvim",         -- add LSP colors for colorschemes that don't yet support them
   "ap/vim-css-color",
-  "lukas-reineke/lsp-format.nvim",   -- autoformat using Language servers on write
-  "RRethy/vim-illuminate",
+  "lukas-reineke/lsp-format.nvim", -- autoformat using Language servers on write
+  "RRethy/vim-illuminate",         -- illuminate current keyword in buffer
   -- DAP / Debug Adapter Protocol related plugins
   {
     "rcarriga/nvim-dap-ui",
@@ -148,33 +165,16 @@ local plugins = {
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
   },
-  -- Add support for more text targets
-  "wellle/targets.vim",
+
+  "wellle/targets.vim", -- Add support for more text targets
   -- Scalpel: better word replacer within a file
   -- invoked with <Leader>e by default
   "wincent/scalpel",
   -- Git
   "lewis6991/gitsigns.nvim",
   "rhysd/git-messenger.vim",
-
-  -- Movement
-  -- "ggandor/leap.nvim",
-
-  -- direnv integration
-  "direnv/direnv.vim",
-
-  -- change between one line and multiline statements with gJ and gS
-  "AndrewRadev/splitjoin.vim",
-
-  -- ChatGTP foo
-  {
-    "jackMort/ChatGPT.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  },
+  "direnv/direnv.vim",         -- direnv integration
+  "AndrewRadev/splitjoin.vim", -- change between one line and multiline statements with gJ and gS
   -- decode/encode base64 directly in vim
   { 'taybart/b64.nvim' },
   "akinsho/toggleterm.nvim",
@@ -197,12 +197,6 @@ local plugins = {
     end,
     dependencies = "nvim-treesitter/nvim-treesitter",
   },
-  {
-    "ahmedkhalf/project.nvim",
-    config = function()
-      require("project_nvim").setup()
-    end
-  }
 }
 
 local opts = {}
