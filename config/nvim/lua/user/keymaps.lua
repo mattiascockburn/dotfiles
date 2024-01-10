@@ -102,7 +102,7 @@ keymap("t", "<Leader><Esc>", "<Esc>", term_opts)
 keymap("n", "<Leader>pp", "setlocal paste!<cr>", opts)
 
 -- nvim-tree mappings
-keymap("n", "<Leader>cc", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<Leader>cc", ":Neotree toggle current reveal_force_cwd left<cr>", opts)
 
 -- Fancy listchars action, make tab and friends visible
 -- Also, add a toggle switch to the mix
