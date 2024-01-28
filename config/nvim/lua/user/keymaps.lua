@@ -125,13 +125,14 @@ keymap("n", "Q", ":normal! gqip<cr>", opts)
 -- Enable pasting in terminal insert mode through ALT+r + Register
 vim.cmd [[tnoremap <expr><A-r> '<C-\><C-N>"'.nr2char(getchar()).'pi']]
 
--- fugitive shortcuts
-keymap("n", "<leader>gp", "G push<cr>", opts)
-
--- leap.nvim default keybindings: https://github.com/ggandor/leap.nvim#usage
-local status_ok, leap = pcall(require, "leap")
+-- Git shortcuts
+local status_ok, neogit = pcall(require, "neogit")
 if status_ok then
-  leap.add_default_mappings()
+  vim.api.nvim_create_user_command('G', function()
+      require("neogit").open({ kind = "split" })
+    end,
+    {}
+  )
 end
 
 local status_ok, b64 = pcall(require, "b64")
@@ -139,3 +140,44 @@ if status_ok then
   keymap("v", "<Leader>be", ":<c-u>lua require(\"b64\").encode()<cr>", opts)
   keymap("v", "<Leader>bd", ":<c-u>lua require(\"b64\").decode()<cr>", opts)
 end
+
+-- autosort go imports, ripped off of https://github.com/jamespwilliams/neovim-go-nix-develop/blob/0873f1a00444079db073e27ebbc40398a5c17cd6/base-neovim-config.lua
+function OrgImports(wait_ms)
+  local params = vim.lsp.util.make_range_params()
+  params.context = { only = { "source.organizeImports" } }
+  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
+  for _, res in pairs(result or {}) do
+    for _, r in pairs(res.result or {}) do
+      if r.edit then
+        vim.lsp.util.apply_workspace_edit(r.edit, "UTF-8")
+      else
+        vim.lsp.buf.execute_command(r.command)
+      end
+    end
+  end
+end
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { '*.go' },
+  callback = function()
+    vim.lsp.buf.format()
+    OrgImports(1000)
+  end,
+  group = vim.api.nvim_create_augroup("lsp_document_format", { clear = true }),
+})
+
+-- neotest
+keymap("n", "<leader>tu", ":lua require('neotest').summary.toggle()<cr>", term_opts)
+keymap("n", "<leader>tt", ":lua require('neotest').run.run()<cr>", term_opts)
+keymap("n", "<leader>ta", ":lua require('neotest').run.run(vim.fn.expand('%'))<cr>", term_opts)
+
+-- debug
+vim.keymap.set("n", "<leader>du", ":lua require('dapui').toggle()<cr>", term_opts)
+vim.keymap.set("n", "<leader>db", ":lua require('dap').toggle_breakpoint()<cr>", term_opts)
+vim.keymap.set("n", "<leader>dc", ":lua require('dap').continue()<cr>", term_opts)
+vim.keymap.set("n", "<leader>di", ":DapStepInto<cr>", term_opts)
+vim.keymap.set("n", "<leader>dn", ":DapStepOver<cr>", term_opts)
+vim.keymap.set("n", "<leader>do", ":DapStepOut<cr>", term_opts)
+vim.keymap.set("n", "<leader>de", ":DapTerminate<cr>", term_opts)
+vim.keymap.set("n", "<leader>dt", ":lua require('dap-go').debug_test()<cr>", term_opts)
+vim.keymap.set("n", "<leader>dlt", ":lua require('dap-go').debug_last_test()<cr>", term_opts)

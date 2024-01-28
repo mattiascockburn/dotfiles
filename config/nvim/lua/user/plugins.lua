@@ -19,6 +19,7 @@ local plugins = {
   -- Better buffer delete behaviour
   -- This plugin provides Bdelete and Bwipeout
   "moll/vim-bbye",
+  'rgroli/other.nvim',                   -- easily load corresponding files, e.g. unit tests
   "nvim-lualine/lualine.nvim",           -- enhanced status line plugin
   "lewis6991/impatient.nvim",            -- cache lua plugins and reduce load times significantly
   "lukas-reineke/indent-blankline.nvim", -- visualize indentation of lines
@@ -51,6 +52,11 @@ local plugins = {
     },
     config = true
   },
+  {
+    'akinsho/git-conflict.nvim',
+    version = "*",
+    config = true,
+  }, -- git conflict resolution
   -- Open file under cursor with 'gf'
   "amix/open_file_under_cursor.vim",
   -- ctags helper, this one seems to be the simplest for
@@ -108,7 +114,38 @@ local plugins = {
   },
 
   -- Markdown preview
-  { 'toppair/peek.nvim',     run = 'deno task --quiet build:fast' },
+  {
+    "toppair/peek.nvim",
+    event = { "VeryLazy" },
+    build = "deno task --quiet build:fast",
+    config = function()
+      require('peek').setup({
+        auto_load = true,        -- whether to automatically load preview when
+        -- entering another markdown buffer
+        close_on_bdelete = true, -- close preview window on buffer delete
+
+        syntax = true,           -- enable syntax highlighting, affects performance
+
+        theme = 'dark',          -- 'dark' or 'light'
+
+        update_on_change = true,
+
+        app = 'webview', -- 'webview', 'browser', string or a table of strings
+        -- explained below
+
+        filetype = { 'markdown' }, -- list of filetypes to recognize as markdown
+
+        -- relevant if update_on_change is true
+        throttle_at = 200000,   -- start throttling when file exceeds this
+        -- amount of bytes in size
+        throttle_time = 'auto', -- minimum amount of time in milliseconds
+        -- that has to pass before starting new render
+      })
+      -- refer to `configuration to change defaults`
+      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+    end,
+  },
   { "ellisonleao/glow.nvim", config = function() require("glow").setup() end },
 
   -- Markdown helper
@@ -165,11 +202,25 @@ local plugins = {
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
   },
-
   "wellle/targets.vim", -- Add support for more text targets
   -- Scalpel: better word replacer within a file
   -- invoked with <Leader>e by default
   "wincent/scalpel",
+  -- Go kickstart
+  {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", 'gomod' },
+    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+  },
   -- Git
   "lewis6991/gitsigns.nvim",
   "rhysd/git-messenger.vim",
@@ -196,6 +247,41 @@ local plugins = {
       require('neogen').setup {}
     end,
     dependencies = "nvim-treesitter/nvim-treesitter",
+  },
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      -- adapters
+      "nvim-neotest/neotest-go",
+    },
+    config = function()
+      -- get neotest namespace (api call creates or returns namespace)
+      local neotest_ns = vim.api.nvim_create_namespace("neotest")
+      vim.diagnostic.config({
+        virtual_text = {
+          format = function(diagnostic)
+            local message =
+                diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+            return message
+          end,
+        },
+      }, neotest_ns)
+      require("neotest").setup({
+        icons = {
+          passed = "✅",
+          running = "🥁",
+          failed = "❌",
+          skipped = "⏩",
+          unknown = "❓",
+        },
+        adapters = {
+          require("neotest-go"),
+        },
+      })
+    end,
   },
 }
 
