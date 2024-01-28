@@ -19,5 +19,5 @@ name = "HomeOffice"
   [[profile.output]]
   match = "/.*M32QC 21390B000953.*/"
   enable = true
-  position = { x=1440, y=0}
+  position = { x=1440, y=500}
   adaptive_sync = true
