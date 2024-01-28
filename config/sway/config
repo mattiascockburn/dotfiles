@@ -83,6 +83,9 @@ bindsym $mod+Shift+e exec rofimoji
 bindsym $mod+$alt+f exec nautilus
 
 
+# Do not switch outputs when switching between windows
+focus_wrapping workspace
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -123,7 +126,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-bindsym $mod+Control+s focus child
+#bindsym $mod+Control+s focus child
 
 # workspace definitions
 set $ws1 1
@@ -228,7 +231,7 @@ exec --no-startup-id chromium
 exec --no-startup-id slack
 exec --no-startup-id copyq
 exec --no-startup-id remmina
-exec --no-startup-id shikane
+exec_always --no-startup-id shikane
 
 
 # exec swayidle -w \
@@ -316,7 +319,8 @@ bindsym $mod+g exec swaylock -f -c 000000
 # Screenshots
 bindsym Print exec grim ~/Pictures/Screenshots/screenshot-$(date --iso-8601=ns).png
 bindsym $mod+Shift+s exec grim ~/Pictures/Screenshots/screenshot-$(date --iso-8601=ns).png
-bindsym $mod+$alt+s exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+Control+s exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+$alt+s exec swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -g - ~/Screenshots/window-$(date --iso-8601=ns).png
 
 # color picker, ripped off of
 # https://unix.stackexchange.com/questions/320070/is-there-a-colour-picker-that-works-with-wayland-or-xwayland
